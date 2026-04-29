@@ -12,8 +12,7 @@ import mujoco.viewer
 import yaml
 
 from agent import Agent
-from agent import CrawlerAgent
-from agent import QuadrupedAgent
+from agent import ConfigurableAgent
 from environment import Environment
 from orchestrator import Orchestrator
 
@@ -64,11 +63,23 @@ def launch_simulation(config: dict):
       size_scale = agent_cfg.get("size_scale", 1.0)
       agent_type = agent_cfg.get("type", "default")
 
-      if agent_type == "quadruped":
-        agent: Agent = QuadrupedAgent(name=agent_cfg["name"],
-                                      size_scale=size_scale)
-      elif agent_type == "crawler":
-        agent = CrawlerAgent(name=agent_cfg["name"], size_scale=size_scale)
+      agent: Agent
+      template_path = f"templates/agents/{agent_type}_default.yaml"
+      if not os.path.exists(template_path):
+        template_path = f"templates/agents/{agent_type}.yaml"
+
+      if os.path.exists(template_path):
+        with open(template_path, "r") as f:
+          template_cfg = yaml.safe_load(f)
+          # Merge template config with instance config!
+          merged_cfg = {**template_cfg["agents"][0], **agent_cfg}
+          agent = ConfigurableAgent(name=agent_cfg["name"],
+                                    size_scale=size_scale,
+                                    config=merged_cfg)
+      elif "limbs" in agent_cfg:
+        agent = ConfigurableAgent(name=agent_cfg["name"],
+                                  size_scale=size_scale,
+                                  config=agent_cfg)
       else:
         agent = Agent(name=agent_cfg["name"], size_scale=size_scale)
       if "pos" in agent_cfg:
@@ -81,7 +92,8 @@ def launch_simulation(config: dict):
         agent.phase = agent_cfg["phase"]
       agents.append(agent)
 
-  orchestrator = Orchestrator(env, agents)
+  death_threshold = config.get("death_threshold", 3.0)
+  orchestrator = Orchestrator(env, agents, death_threshold=death_threshold)
   orchestrator.initialize()
 
   logger.info("Starting visual simulation from CLI...")

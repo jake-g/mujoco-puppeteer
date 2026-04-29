@@ -14,6 +14,7 @@ class Environment:
   def __init__(self):
     """Initializes the environment with default settings."""
     self.gravity = [0.0, 0.0, -9.81]
+    self.wind = [0.0, 0.0, 0.0]  # Default no wind
     self.floor_size = [10.0, 10.0, 0.05]
     self.floor_rgb1 = [0.0, 0.0, 0.0]  # Black
     self.floor_rgb2 = [1.0, 1.0, 1.0]  # White
@@ -33,6 +34,7 @@ class Environment:
     option = ET.SubElement(root, "option")
     option.set("gravity",
                f"{self.gravity[0]} {self.gravity[1]} {self.gravity[2]}")
+    option.set("wind", f"{self.wind[0]} {self.wind[1]} {self.wind[2]}")
 
     # Asset
     asset = ET.SubElement(root, "asset")
@@ -83,8 +85,12 @@ class Environment:
                   pos="0 0 3",
                   dir="0 0 -1")
 
-    # Add a default camera that is zoomed out
-    ET.SubElement(worldbody, "camera", name="main_cam", pos="0 -15 15")
+    # Add a default camera that is zoomed in for better viewing
+    ET.SubElement(worldbody,
+                  "camera",
+                  name="main_cam",
+                  pos="0 -5 5",
+                  xyaxes="1 0 0 0 0.707 0.707")
 
     floor = ET.SubElement(worldbody, "geom", name="floor", type="plane")
     floor.set(
@@ -146,3 +152,8 @@ class Environment:
     if list(model.opt.gravity) != self.gravity:
       model.opt.gravity[:] = self.gravity
       logger.info("Updated runtime gravity to: %s", self.gravity)
+
+    # Update wind
+    if list(model.opt.wind) != self.wind:
+      model.opt.wind[:] = self.wind
+      logger.info("Updated runtime wind to: %s", self.wind)

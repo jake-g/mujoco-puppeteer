@@ -74,6 +74,29 @@ class TestEnvironment(unittest.TestCase):
     self.assertIn('rgb1="1.0 0.0 0.0"', xml_str)
     self.assertIn('rgb2="0.0 1.0 0.0"', xml_str)
 
+  def test_wind(self):
+    """Test setting wind."""
+    self.env.wind = [1.0, 0.0, 0.0]
+    xml_str = self.env.generate_xml()
+    self.assertIn('wind="1.0 0.0 0.0"', xml_str)
+
+  def test_update_runtime_wind(self):
+    """Test updating wind at runtime."""
+    model = self.env.create_model()
+    data = mujoco.MjData(model)
+
+    # Initial wind should be zero
+    self.assertEqual(model.opt.wind[0], 0.0)
+
+    # Change wind in python object
+    self.env.wind = [1.0, 0.0, 0.0]
+
+    # Update runtime
+    self.env.update_runtime_physics(model, data)
+
+    # Check if model updated
+    self.assertEqual(model.opt.wind[0], 1.0)
+
 
 if __name__ == "__main__":
   unittest.main()
