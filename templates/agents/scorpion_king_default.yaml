@@ -1,0 +1,89 @@
+agents:
+  - name: scorpion_king
+    type: configurable
+    limbs:
+      - name: torso
+        pos: [0.0, 0.0, 0.2]
+        size: [0.4, 0.2, 0.1]
+        type: box
+      - name: left_front_leg
+        pos: [0.2, 0.15, 0.0]
+        size: [0.03, 0.15]
+        type: capsule
+        child:
+          name: lfl_tip
+          pos: [0.0, 0.0, -0.15]
+          size: [0.02, 0.15]
+          type: capsule
+      - name: right_front_leg
+        pos: [0.2, -0.15, 0.0]
+        size: [0.03, 0.15]
+        type: capsule
+        child:
+          name: rfl_tip
+          pos: [0.0, 0.0, -0.15]
+          size: [0.02, 0.15]
+          type: capsule
+      - name: left_mid_leg
+        pos: [0.0, 0.2, 0.0]
+        size: [0.03, 0.15]
+        type: capsule
+        child:
+          name: lml_tip
+          pos: [0.0, 0.0, -0.15]
+          size: [0.02, 0.15]
+          type: capsule
+      - name: right_mid_leg
+        pos: [0.0, -0.2, 0.0]
+        size: [0.03, 0.15]
+        type: capsule
+        child:
+          name: rmr_tip
+          pos: [0.0, 0.0, -0.15]
+          size: [0.02, 0.15]
+          type: capsule
+      - name: left_back_leg
+        pos: [-0.2, 0.15, 0.0]
+        size: [0.03, 0.15]
+        type: capsule
+        child:
+          name: lbl_tip
+          pos: [0.0, 0.0, -0.15]
+          size: [0.02, 0.15]
+          type: capsule
+      - name: right_back_leg
+        pos: [-0.2, -0.15, 0.0]
+        size: [0.03, 0.15]
+        type: capsule
+        child:
+          name: rbl_tip
+          pos: [0.0, 0.0, -0.15]
+          size: [0.02, 0.15]
+          type: capsule
+      - name: tail_1
+        pos: [-0.2, 0.0, 0.1]
+        size: [0.05, 0.2]
+        type: capsule
+        child:
+          name: tail_2
+          pos: [0.0, 0.0, 0.2]
+          size: [0.04, 0.2]
+          type: capsule
+          child:
+            name: tail_3
+            pos: [0.1, 0.0, 0.2]
+            size: [0.03, 0.2]
+            type: capsule
+            child:
+              name: stinger
+              pos: [0.1, 0.0, 0.1]
+              size: [0.02, 0.1]
+              type: capsule
+      - name: left_pincer
+        pos: [0.3, 0.1, 0.1]
+        size: [0.04, 0.2]
+        type: capsule
+      - name: right_pincer
+        pos: [0.3, -0.1, 0.1]
+        size: [0.04, 0.2]
+        type: capsule

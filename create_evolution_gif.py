@@ -68,6 +68,20 @@ def create_gif(results_dir="results", species_filter=None):
       for i, frame_path in enumerate(selected_frames):
         try:
           img = Image.open(frame_path)
+
+          # Crop 50% from center to fill the frame.
+          width, height = img.size
+          crop_w = width // 2
+          crop_h = height // 2
+          left = (width - crop_w) // 2
+          top = (height - crop_h) // 2
+          right = left + crop_w
+          bottom = top + crop_h
+
+          img = img.crop((left, top, right, bottom))
+          # Resize back to original resolution.
+          img = img.resize((width, height), Image.LANCZOS)
+
           draw = ImageDraw.Draw(img)
 
           # Add text overlay with larger font.

@@ -1,0 +1,15 @@
+agents:
+- amplitude: 2.0
+  frequency: 10.457082867737606
+  id: e3175fff
+  leg_length_scale: 1.5
+  name: Legion_hexapod_Agent_Hybrid_7567d8d5
+  parent_ids: []
+  phase: 6.222458525591596
+  phase_offsets:
+  - 0.0
+  - 1.5707963267948966
+  - 3.141592653589793
+  - 4.71238898038469
+  size_scale: 0.9178218667598509
+  type: default

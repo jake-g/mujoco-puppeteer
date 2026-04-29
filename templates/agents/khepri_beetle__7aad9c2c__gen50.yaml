@@ -1,0 +1,42 @@
+agents:
+- amplitude: 0.6043424214236954
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 3.3603482826797544
+  generation: 50
+  id: 7aad9c2c
+  leg_length_scale: 1.2421789901161957
+  name: khepri_beetle__7aad9c2c__gen50
+  parent_ids: []
+  phase: 1.4137490542406639
+  phase_offsets:
+  - -0.10084043315459844
+  - 0.6400856776158461
+  - 0.8967993285953724
+  - 0.8859830922793133
+  - 6.409437718194999
+  - 1.1002970644720451
+  - 2.066514056526016
+  - 19.708567867751274
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: khepri_beetle
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

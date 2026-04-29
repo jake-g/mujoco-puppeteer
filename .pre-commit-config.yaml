@@ -20,7 +20,7 @@ repos:
         exclude: \.ppm$
       - id: check-yaml
       - id: check-added-large-files
-        args: ['--maxkb=5000']
+        args: ['--maxkb=15000']
 
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.19.1

@@ -270,6 +270,9 @@ def evaluate_template(template_path: str) -> tuple[float, int]:
     config = yaml.safe_load(f)
 
   env = Environment()
+  # Add mild wind as a baseline challenge for all agents.
+  env.wind = [0.5, 0.0, 0.0]
+
   if "environment" in config:
     env_cfg = config["environment"]
     if "floor_size" in env_cfg:
@@ -528,6 +531,14 @@ def main():
   import argparse
   parser = argparse.ArgumentParser()
   parser.add_argument("--species", type=str, help="Specific species to evolve")
+  parser.add_argument("--pop-size",
+                      type=int,
+                      default=20,
+                      help="Population size")
+  parser.add_argument("--generations",
+                      type=int,
+                      default=20,
+                      help="Number of generations")
   args = parser.parse_args()
 
   species_list = [
@@ -553,7 +564,13 @@ def main():
       ("kangaroo", ConfigurableAgent, "templates/agents/kangaroo_default.yaml"),
       ("crab", ConfigurableAgent, "templates/agents/crab_default.yaml"),
       ("megapede", ConfigurableAgent, "templates/agents/megapede_default.yaml"),
-      ("stilts_biped", ConfigurableAgent, "templates/agents/stilts_biped.yaml")
+      ("stilts_biped", ConfigurableAgent, "templates/agents/stilts_biped.yaml"),
+      ("megarachne", ConfigurableAgent,
+       "templates/agents/megarachne_default.yaml"),
+      ("mech_biped", ConfigurableAgent,
+       "templates/agents/mech_biped_default.yaml"),
+      ("scorpion_king", ConfigurableAgent,
+       "templates/agents/scorpion_king_default.yaml")
   ]
 
   for name, cls, path in species_list:
@@ -567,7 +584,11 @@ def main():
       with open(path, "r") as f:
         cfg = yaml.safe_load(f)["agents"][0]
 
-    evolve_species(cls, name, cfg, pop_size=20, generations=20)
+    evolve_species(cls,
+                   name,
+                   cfg,
+                   pop_size=args.pop_size,
+                   generations=args.generations)
 
   # Update Leaderboard.
   update_leaderboard()

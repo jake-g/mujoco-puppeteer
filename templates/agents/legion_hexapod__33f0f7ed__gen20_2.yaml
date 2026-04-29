@@ -1,5 +1,5 @@
 agents:
-- amplitude: 1.0
+- amplitude: 2.0
   body:
     size:
     - 0.4
@@ -11,10 +11,10 @@ agents:
   - 1.0
   - 0.0
   - 1.0
-  frequency: 4.085795840322696
+  frequency: 5.971691133147706
   generation: 20
-  id: 055ff7ea
-  leg_length_scale: 1.0087658850356025
+  id: 0da87b9e
+  leg_length_scale: 1.7618501479345288
   limbs:
   - axis:
     - 0
@@ -120,14 +120,14 @@ agents:
     - 45
   name: legion_hexapod__33f0f7ed__gen20
   parent_ids: []
-  phase: 4.648818325266723
+  phase: 0.0637255186541696
   phase_offsets:
   - 0.0
-  - 0.0
-  - 0.0
-  - 0.0
-  - 0.0
-  - 0.0
+  - 1.0471975511965976
+  - 2.0943951023931953
+  - 3.141592653589793
+  - 4.1887902047863905
+  - 5.235987755982988
   pos:
   - 0.0
   - 0.0
