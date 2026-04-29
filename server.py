@@ -5,9 +5,12 @@ import json
 import logging
 import os
 import time
+from typing import Optional, Set
+
 import websockets
-from environment import Environment
+
 from agent import Agent
+from environment import Environment
 from orchestrator import Orchestrator
 
 # Configure logging
@@ -18,14 +21,14 @@ logger = logging.getLogger(__name__)
 class SimulationServer:
   """Manages the WebSocket server and simulation loop."""
 
-  def __init__(self, host: str = None, port: int = None):
+  def __init__(self, host: Optional[str] = None, port: Optional[int] = None):
     self.host = host or os.environ.get("SIM_HOST", "localhost")
     self.port = port or int(os.environ.get("SIM_PORT", 8765))
     self.env = Environment()
     self.agent1 = Agent(name="agent_1")
     self.agent2 = Agent(name="agent_2")
     self.orchestrator = Orchestrator(self.env, [self.agent1, self.agent2])
-    self.clients = set()
+    self.clients: Set[websockets.WebSocketServerProtocol] = set()
 
   async def handler(self, websocket):
     """Handles incoming WebSocket connections."""

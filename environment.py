@@ -19,6 +19,7 @@ class Environment:
     self.floor_rgb2 = [1.0, 1.0, 1.0]  # White
     self.sky_rgb1 = [0.6, 0.8, 1.0]  # Light Blue
     self.sky_rgb2 = [1.0, 1.0, 1.0]  # White
+    self.obstacles = []
 
   def generate_xml(self) -> str:
     """Generates the MJCF XML string for the environment.
@@ -92,6 +93,25 @@ class Environment:
     floor.set("material", "grid")
     floor.set("condim", "3")
     floor.set("friction", "1 0.005 0.0001")  # Increased friction
+
+    # Add obstacles
+    for i, obs in enumerate(self.obstacles):
+      obs_body = ET.SubElement(
+          worldbody,
+          "body",
+          name=f"obstacle_{i}",
+          pos=f"{obs['pos'][0]} {obs['pos'][1]} {obs['pos'][2]}",
+      )
+      ET.SubElement(obs_body, "freejoint", name=f"obstacle_{i}_joint")
+      ET.SubElement(
+          obs_body,
+          "geom",
+          type=obs.get("type", "box"),
+          size=f"{obs['size'][0]} {obs['size'][1]} {obs['size'][2]}",
+          mass=str(obs.get("mass", 1.0)),
+          rgba=
+          f"{obs.get('color', [0.5, 0.5, 0.5, 1.0])[0]} {obs.get('color', [0.5, 0.5, 0.5, 1.0])[1]} {obs.get('color', [0.5, 0.5, 0.5, 1.0])[2]} {obs.get('color', [0.5, 0.5, 0.5, 1.0])[3]}",
+      )
 
     return ET.tostring(root, encoding="unicode")
 

@@ -7,10 +7,13 @@ import os
 import sys
 import time
 import xml.etree.ElementTree as ET
+
 import mujoco.viewer
 import yaml
 
-from agent import Agent, QuadrupedAgent
+from agent import Agent
+from agent import CrawlerAgent
+from agent import QuadrupedAgent
 from environment import Environment
 from orchestrator import Orchestrator
 
@@ -52,6 +55,8 @@ def launch_simulation(config: dict):
       env.sky_rgb1 = env_cfg["sky_rgb1"]
     if "sky_rgb2" in env_cfg:
       env.sky_rgb2 = env_cfg["sky_rgb2"]
+    if "obstacles" in env_cfg:
+      env.obstacles = env_cfg["obstacles"]
 
   agents = []
   if "agents" in config:
@@ -60,7 +65,10 @@ def launch_simulation(config: dict):
       agent_type = agent_cfg.get("type", "default")
 
       if agent_type == "quadruped":
-        agent = QuadrupedAgent(name=agent_cfg["name"], size_scale=size_scale)
+        agent: Agent = QuadrupedAgent(name=agent_cfg["name"],
+                                      size_scale=size_scale)
+      elif agent_type == "crawler":
+        agent = CrawlerAgent(name=agent_cfg["name"], size_scale=size_scale)
       else:
         agent = Agent(name=agent_cfg["name"], size_scale=size_scale)
       if "pos" in agent_cfg:
@@ -99,17 +107,18 @@ def launch_simulation(config: dict):
       pass
 
   # On Mac, launch_passive is often more robust when run via mjpython
-  with mujoco.viewer.launch_passive(
-      orchestrator.model, orchestrator.data, key_callback=key_callback
-  ) as viewer:
+  with mujoco.viewer.launch_passive(orchestrator.model,
+                                    orchestrator.data,
+                                    key_callback=key_callback) as viewer:
     while viewer.is_running():
       if not paused:
         step_start = time.time()
         orchestrator.step()
         viewer.sync()
 
-        time_until_next_step = orchestrator.model.opt.timestep - (
-            time.time() - step_start)
+        assert orchestrator.model is not None
+        time_until_next_step = orchestrator.model.opt.timestep - (time.time() -
+                                                                  step_start)
         if time_until_next_step > 0:
           time.sleep(time_until_next_step)
       else:
@@ -118,9 +127,9 @@ def launch_simulation(config: dict):
 
 def main():
   parser = argparse.ArgumentParser(description="MuJoCo Puppeteer CLI")
-  parser.add_argument(
-      "--list", action="store_true", help="List available templates"
-  )
+  parser.add_argument("--list",
+                      action="store_true",
+                      help="List available templates")
   parser.add_argument("--run", type=str, help="Run a specific template by name")
 
   args = parser.parse_args()
