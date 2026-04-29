@@ -29,6 +29,12 @@ This document summarizes the operational flow, routine, preferences, and goals f
 *   **Speed Control**: Use `+` and `-` keys in the demo window to adjust simulation speed (steps per frame) without affecting physics timestep.
 *   **NaN Protection**: High gear ratios and aggressive policies can cause physics explosions resulting in NaN coordinates. The `Orchestrator` will catch these and respawn the agent to prevent engine lockups.
 
+## Parallel Evolution
+
+*   **Parallel Manager**: To utilize multi-core systems, use `parallel_evolve.py` to run up to 5 species evolutions in parallel.
+*   **Isolated Logs**: History logs are saved as `results/evolution_history_[species].tsv` to avoid file write conflicts.
+*   **Plotting**: The `generate_progress_plot.py` script will automatically find and merge all species history files when drawing the chart.
+
 ## Continuous Goals
 
 *   **Expand Diversity**: Keep inventing new, exotic agents based on nature or weird geometry (e.g., the long-necked Giraffe or 8-legged Spider). Don't hesitate to try artificially inspired designs (e.g., asymmetric agents, wheel-like structures).

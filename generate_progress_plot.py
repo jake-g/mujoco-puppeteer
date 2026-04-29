@@ -6,25 +6,27 @@ import matplotlib.pyplot as plt
 
 def generate_plot():
   results_dir = "results"
-  history_path = os.path.join(results_dir, "evolution_history.tsv")
-  if not os.path.exists(history_path):
-    print(f"History file {history_path} does not exist.")
+  import glob
+  files = glob.glob(os.path.join(results_dir, "evolution_history_*.tsv"))
+  if not files:
+    print("No history files found.")
     return
 
   data = {}
-  with open(history_path, "r") as f:
-    # Skip header
-    f.readline()
-    for line in f:
-      parts = line.strip().split("\t")
-      if len(parts) >= 4:
-        species = parts[1]
-        gen = int(parts[2])
-        reward = float(parts[3])
+  for f_path in files:
+    with open(f_path, "r") as f:
+      # Skip header
+      f.readline()
+      for line in f:
+        parts = line.strip().split("\t")
+        if len(parts) >= 4:
+          species = parts[1]
+          gen = int(parts[2])
+          reward = float(parts[3])
 
-        if species not in data:
-          data[species] = {}
-        data[species][gen] = reward
+          if species not in data:
+            data[species] = {}
+          data[species][gen] = reward
 
   # Plot data.
   plt.figure(figsize=(12, 8))

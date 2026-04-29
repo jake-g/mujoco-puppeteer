@@ -24,7 +24,7 @@ def run_maintenance():
   try:
     logger.info("=== Starting Scheduled Maintenance ===")
 
-    # 1. Clean Results (Deduplicate and Index)
+    # 2. Clean Results (Deduplicate and Index)
     logger.info("Cleaning and indexing results...")
     try:
       clean_duplicates()
