@@ -169,7 +169,8 @@ def run_demo():
   renderer = None
   if args.record:
     timestamp = int(time.time())
-    record_dir = f"results/demo_{timestamp}"
+    # Use double underscore to match evolution GIF grouper
+    record_dir = f"results/demo__{timestamp}"
     os.makedirs(record_dir, exist_ok=True)
     print(f"Recording frames to {record_dir}...")
     renderer = mujoco.Renderer(orch.model, 1024, 1024)

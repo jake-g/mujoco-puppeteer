@@ -186,7 +186,8 @@ def evolve_species(agent_class,
   # Save history to file.
   # Save history to TSV.
   os.makedirs("results", exist_ok=True)
-  history_path = "results/evolution_history.tsv"
+  # Use species-specific history file to allow parallel runs without conflicts.
+  history_path = f"results/evolution_history_{species_name}.tsv"
   file_exists = os.path.exists(history_path)
 
   import time
@@ -426,11 +427,11 @@ def update_leaderboard():
   markdown += "![Progress Plot](results/progress.png)\n\n"
 
   markdown += "## Rankings\n"
-  markdown += "| Rank | Config | Score | Steps | Syntheses | Distance | Survival |\n"
-  markdown += "|------|--------|-------|-------|-----------|----------|----------|\n"
+  markdown += "| Rank | Config | Score | Distance | Survival |\n"
+  markdown += "|------|--------|-------|----------|----------|\n"
 
   for i, res in enumerate(results):
-    markdown += f"| {i+1} | {res['name']} | {res['score']:.2f} | {res['steps']} | {res['syntheses']} | {res['distance']:.2f} | {res['survival']:.1f} |\n"
+    markdown += f"| {i+1} | {res['name']} | {res['score']:.2f} | {res['distance']:.2f} | {res['survival']:.1f} |\n"
 
   # Add Family Tree (Rendered to PNG via Graphviz.)
   try:
@@ -524,152 +525,49 @@ def update_leaderboard():
 
 
 def main():
-  # Evolve Quadruped (Using base Agent as default)
-  evolve_species(Agent, "quadruped", {}, pop_size=20, generations=20)
+  import argparse
+  parser = argparse.ArgumentParser()
+  parser.add_argument("--species", type=str, help="Specific species to evolve")
+  args = parser.parse_args()
 
-  # Evolve Goliath (Crawler)
-  with open("templates/agents/goliath_crawler.yaml", "r") as f:
-    crawler_cfg = yaml.safe_load(f)["agents"][0]
-  evolve_species(ConfigurableAgent,
-                 "goliath_crawler",
-                 crawler_cfg,
-                 pop_size=20,
-                 generations=20)
+  species_list = [
+      ("quadruped", Agent, {}),
+      ("goliath_crawler", ConfigurableAgent,
+       "templates/agents/goliath_crawler.yaml"),
+      ("legion_hexapod", ConfigurableAgent,
+       "templates/agents/legion_hexapod.yaml"),
+      ("aegis_turtle", ConfigurableAgent, "templates/agents/aegis_turtle.yaml"),
+      ("ein_corgi", ConfigurableAgent, "templates/agents/ein_corgi.yaml"),
+      ("khepri_beetle", ConfigurableAgent,
+       "templates/agents/khepri_beetle.yaml"),
+      ("giraffe_default", ConfigurableAgent,
+       "templates/agents/giraffe_default.yaml"),
+      ("arachne_spider", ConfigurableAgent,
+       "templates/agents/arachne_spider.yaml"),
+      ("centipede", ConfigurableAgent,
+       "templates/agents/centipede_default.yaml"),
+      ("scorpion", ConfigurableAgent, "templates/agents/scorpion_default.yaml"),
+      ("gorilla", ConfigurableAgent, "templates/agents/gorilla_default.yaml"),
+      ("starfish", ConfigurableAgent, "templates/agents/starfish_default.yaml"),
+      ("snake", ConfigurableAgent, "templates/agents/snake_default.yaml"),
+      ("kangaroo", ConfigurableAgent, "templates/agents/kangaroo_default.yaml"),
+      ("crab", ConfigurableAgent, "templates/agents/crab_default.yaml"),
+      ("megapede", ConfigurableAgent, "templates/agents/megapede_default.yaml"),
+      ("stilts_biped", ConfigurableAgent, "templates/agents/stilts_biped.yaml")
+  ]
 
-  # Evolve Legion (Hexapod)
-  with open("templates/agents/legion_hexapod.yaml", "r") as f:
-    hexapod_cfg = yaml.safe_load(f)["agents"][0]
-  evolve_species(ConfigurableAgent,
-                 "legion_hexapod",
-                 hexapod_cfg,
-                 pop_size=20,
-                 generations=20)
+  for name, cls, path in species_list:
+    if args.species and name != args.species:
+      continue
 
-  # Evolve Aegis (Turtle)
-  with open("templates/agents/aegis_turtle.yaml", "r") as f:
-    turtle_cfg = yaml.safe_load(f)["agents"][0]
-  evolve_species(ConfigurableAgent,
-                 "aegis_turtle",
-                 turtle_cfg,
-                 pop_size=20,
-                 generations=20)
+    logger.info("=== Starting Evolution for %s ===", name)
 
-  # Evolve Ein (Corgi)
-  with open("templates/agents/ein_corgi.yaml", "r") as f:
-    corgi_cfg = yaml.safe_load(f)["agents"][0]
-  evolve_species(ConfigurableAgent,
-                 "ein_corgi",
-                 corgi_cfg,
-                 pop_size=20,
-                 generations=20)
+    cfg = {}
+    if isinstance(path, str):
+      with open(path, "r") as f:
+        cfg = yaml.safe_load(f)["agents"][0]
 
-  # Evolve Khepri (Beetle)
-  with open("templates/agents/khepri_beetle.yaml", "r") as f:
-    khepri_cfg = yaml.safe_load(f)["agents"][0]
-  evolve_species(ConfigurableAgent,
-                 "khepri_beetle",
-                 khepri_cfg,
-                 pop_size=20,
-                 generations=20)
-
-  # Evolve Giraffe
-  with open("templates/agents/giraffe_default.yaml", "r") as f:
-    giraffe_cfg = yaml.safe_load(f)["agents"][0]
-  evolve_species(ConfigurableAgent,
-                 "giraffe_default",
-                 giraffe_cfg,
-                 pop_size=20,
-                 generations=20)
-
-  # Evolve Arachne (Spider)
-  with open("templates/agents/arachne_spider.yaml", "r") as f:
-    arachne_cfg = yaml.safe_load(f)["agents"][0]
-  evolve_species(ConfigurableAgent,
-                 "arachne_spider",
-                 arachne_cfg,
-                 pop_size=20,
-                 generations=20)
-
-  # Evolve Centipede
-  with open("templates/agents/centipede_default.yaml", "r") as f:
-    centipede_cfg = yaml.safe_load(f)["agents"][0]
-  evolve_species(ConfigurableAgent,
-                 "centipede",
-                 centipede_cfg,
-                 pop_size=20,
-                 generations=20)
-
-  # Evolve Scorpion
-  with open("templates/agents/scorpion_default.yaml", "r") as f:
-    scorpion_cfg = yaml.safe_load(f)["agents"][0]
-  evolve_species(ConfigurableAgent,
-                 "scorpion",
-                 scorpion_cfg,
-                 pop_size=20,
-                 generations=20)
-
-  # Evolve Gorilla
-  with open("templates/agents/gorilla_default.yaml", "r") as f:
-    gorilla_cfg = yaml.safe_load(f)["agents"][0]
-  evolve_species(ConfigurableAgent,
-                 "gorilla",
-                 gorilla_cfg,
-                 pop_size=20,
-                 generations=20)
-
-  # Evolve Starfish
-  with open("templates/agents/starfish_default.yaml", "r") as f:
-    starfish_cfg = yaml.safe_load(f)["agents"][0]
-  evolve_species(ConfigurableAgent,
-                 "starfish",
-                 starfish_cfg,
-                 pop_size=20,
-                 generations=20)
-
-  # Evolve Snake
-  with open("templates/agents/snake_default.yaml", "r") as f:
-    snake_cfg = yaml.safe_load(f)["agents"][0]
-  evolve_species(ConfigurableAgent,
-                 "snake",
-                 snake_cfg,
-                 pop_size=20,
-                 generations=20)
-
-  # Evolve Kangaroo
-  with open("templates/agents/kangaroo_default.yaml", "r") as f:
-    kangaroo_cfg = yaml.safe_load(f)["agents"][0]
-  evolve_species(ConfigurableAgent,
-                 "kangaroo",
-                 kangaroo_cfg,
-                 pop_size=20,
-                 generations=20)
-
-  # Evolve Crab
-  with open("templates/agents/crab_default.yaml", "r") as f:
-    crab_cfg = yaml.safe_load(f)["agents"][0]
-  evolve_species(ConfigurableAgent,
-                 "crab",
-                 crab_cfg,
-                 pop_size=20,
-                 generations=20)
-
-  # Evolve Megapede (Goliath Centipede)
-  with open("templates/agents/megapede_default.yaml", "r") as f:
-    megapede_cfg = yaml.safe_load(f)["agents"][0]
-  evolve_species(ConfigurableAgent,
-                 "megapede",
-                 megapede_cfg,
-                 pop_size=20,
-                 generations=20)
-
-  # Evolve Biped (Stilts)
-  with open("templates/agents/stilts_biped.yaml", "r") as f:
-    biped_cfg = yaml.safe_load(f)["agents"][0]
-  evolve_species(ConfigurableAgent,
-                 "stilts_biped",
-                 biped_cfg,
-                 pop_size=20,
-                 generations=20)
+    evolve_species(cls, name, cfg, pop_size=20, generations=20)
 
   # Update Leaderboard.
   update_leaderboard()

@@ -22,6 +22,10 @@ Get up and running with the simulation in seconds:
     ```bash
     make run-template name=chaos_colosseum
     ```
+4.  **Parallel Evolution**: Run multiple species in parallel to utilize multi-core systems.
+    ```bash
+    make parallel-evolve
+    ```
 
 ## Overview
 
@@ -59,6 +63,7 @@ This project implements a server-client architecture for a live-streamed, multip
 - **Simplified Index**: `results/index.yaml` is reduced to a clean folder-to-file-count mapping.
 - **Species Censuses**: Maintenance tracks total variant counts per species (e.g., total Gorillas vs. total Snakes).
 - **Smooth Playback**: Evolution GIFs are compiled at $20\text{ fps}$ ($50\text{ms}$ intervals) to make analyzing movement gaits easier on the eyes.
+- **Isolated Training**: The auto-evolver evaluates agents in complete isolation to measure pure distance and survival without multi-agent interference.
 
 ## Simulation Mechanics
 
@@ -209,7 +214,7 @@ With the core foundation, networking, and basic evolution in place, future devel
 -   **Policy Optimization**: Move beyond simple sine waves and integrate deep RL libraries (e.g., Stable Baselines3) to learn complex, robust policies for walking and interaction.
 -   **Differentiable Simulation (SHAC)**: Explore learning policies by backpropagating gradients directly through the simulator using MuJoCo MJX and contact smoothing (inspired by [differential_policies](https://github.com/saucesaft/differential_policies/)). Out of scope for now as it requires JAX.
 
-## Project Jargon
+## Terminology
 
 To keep our communication precise, we use the following terminology in this project:
 
