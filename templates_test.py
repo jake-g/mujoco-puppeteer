@@ -14,7 +14,7 @@ class TestTemplates(unittest.TestCase):
 
   def test_base_template_valid(self):
     """Test that base.yaml is valid YAML and has correct structure."""
-    base_path = os.path.join(self.templates_dir, "base.yaml")
+    base_path = os.path.join(self.templates_dir, "scenes", "base.yaml")
     self.assertTrue(os.path.exists(base_path))
 
     with open(base_path, "r") as f:

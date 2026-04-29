@@ -4,9 +4,11 @@ import logging
 import os
 import random
 import time
+
 import yaml
-from environment import Environment
+
 from agent import QuadrupedAgent
+from environment import Environment
 from orchestrator import Orchestrator
 
 # Configure logging
@@ -14,8 +16,9 @@ logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
 logger = logging.getLogger(__name__)
 
 
-def evaluate_population(agents: list[QuadrupedAgent],
-                        duration: float = 5.0) -> list[tuple[QuadrupedAgent, float]]:
+def evaluate_population(
+    agents: list[QuadrupedAgent],
+    duration: float = 5.0) -> list[tuple[QuadrupedAgent, float]]:
   """Evaluates a population of agents in the simulation.
 
   Args:
@@ -36,19 +39,19 @@ def evaluate_population(agents: list[QuadrupedAgent],
   orchestrator.initialize()
 
   # Run simulation headless
+  assert orchestrator.model is not None
   steps = int(duration / orchestrator.model.opt.timestep)
   logger.info("Running simulation for %d steps...", steps)
 
   for _ in range(steps):
     orchestrator.step()
 
-  # Calculate final rewards (distance in x)
+  # Calculate final rewards
   results = []
   for agent in agents:
     try:
-      body = orchestrator.data.body(agent.name)
-      # Reward is x position (distance traveled forward)
-      reward = body.xpos[0]
+      # Use the reward calculated by the orchestrator (includes falling penalty)
+      reward = agent.reward
       results.append((agent, reward))
     except Exception as e:
       logger.error("Failed to get result for %s: %s", agent.name, e)
@@ -60,14 +63,12 @@ def evaluate_population(agents: list[QuadrupedAgent],
 
 
 def main():
-  pop_size = 10
-  generations = 20
+  pop_size = 20
+  generations = 50
   eval_duration = 5.0
 
   # Initialize population
-  population = [
-      QuadrupedAgent(name=f"agent_{i}") for i in range(pop_size)
-  ]
+  population = [QuadrupedAgent(name=f"agent_{i}") for i in range(pop_size)]
 
   for gen in range(generations):
     logger.info("=== Generation %d ===", gen)
@@ -80,8 +81,8 @@ def main():
       logger.info("  %s: %.2f", results[i][0].name, results[i][1])
 
     best_agent = results[0][0]
-    logger.info("Best agent frequency: %.2f, phase: %.2f",
-                best_agent.frequency, best_agent.phase)
+    logger.info("Best agent frequency: %.2f, phase: %.2f", best_agent.frequency,
+                best_agent.phase)
 
     # Selection & Breeding
     top_performers = [results[i][0] for i in range(2)]  # Top 2
@@ -99,15 +100,36 @@ def main():
       # Create new agent
       child = QuadrupedAgent(name=f"agent_{i}")
 
-      # Mix parameters
-      child.frequency = (parent1.frequency + parent2.frequency) / 2
-      child.phase = (parent1.phase + parent2.phase) / 2
-      child.phase_offsets = [(p1 + p2) / 2 for p1, p2 in zip(parent1.phase_offsets, parent2.phase_offsets)]
+      # Crossover (Single-point as seen in evolution-sim)
+      genes1 = [
+          parent1.frequency, parent1.phase, parent1.amplitude,
+          parent1.leg_length_scale
+      ] + parent1.phase_offsets
+      genes2 = [
+          parent2.frequency, parent2.phase, parent2.amplitude,
+          parent2.leg_length_scale
+      ] + parent2.phase_offsets
+
+      crossover_point = random.randint(1, 7)
+      child_genes = genes1[:crossover_point] + genes2[crossover_point:]
+
+      child.frequency = child_genes[0]
+      child.phase = child_genes[1]
+      child.amplitude = child_genes[2]
+      child.leg_length_scale = child_genes[3]
+      child.phase_offsets = child_genes[4:]
 
       # Mutate (Multiplicative as seen in evolution-sim)
-      child.frequency = child.frequency + child.frequency * random.uniform(-0.1, 0.1)
+      child.frequency = child.frequency + child.frequency * random.uniform(
+          -0.1, 0.1)
       child.phase = child.phase + child.phase * random.uniform(-0.1, 0.1)
-      child.phase_offsets = [p + p * random.uniform(-0.1, 0.1) for p in child.phase_offsets]
+      child.amplitude = child.amplitude + child.amplitude * random.uniform(
+          -0.1, 0.1)
+      child.leg_length_scale = child.leg_length_scale + child.leg_length_scale * random.uniform(
+          -0.1, 0.1)
+      child.phase_offsets = [
+          p + p * random.uniform(-0.1, 0.1) for p in child.phase_offsets
+      ]
 
       new_population.append(child)
 
