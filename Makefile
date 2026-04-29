@@ -81,7 +81,7 @@ run-template:
 # Run visual simulation
 run:
 	@echo "🚀 Running visual simulation..."
-	@.venv/bin/mjpython simulate_visual.py
+	@.venv/bin/mjpython cli.py --run base
 
 # Clean up
 clean:
