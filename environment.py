@@ -21,6 +21,12 @@ class Environment:
     self.sky_rgb1 = [0.6, 0.8, 1.0]  # Light Blue
     self.sky_rgb2 = [1.0, 1.0, 1.0]  # White
     self.obstacles = []
+    self.rough_terrain = False  # Procedural rough terrain
+    self.camera_pos = [0.0, -20.0, 20.0]
+    self.camera_xyaxes = [1.0, 0.0, 0.0, 0.0, 0.707, 0.707]
+    self.camera_distance = 28.28
+    self.camera_elevation = -45.0
+    self.camera_azimuth = 90.0
 
   def generate_xml(self) -> str:
     """Generates the MJCF XML string for the environment.
@@ -35,6 +41,10 @@ class Environment:
     option.set("gravity",
                f"{self.gravity[0]} {self.gravity[1]} {self.gravity[2]}")
     option.set("wind", f"{self.wind[0]} {self.wind[1]} {self.wind[2]}")
+
+    # Visual settings for offscreen rendering (prevent framebuffer size errors)
+    visual = ET.SubElement(root, "visual")
+    ET.SubElement(visual, "global", offwidth="1024", offheight="1024")
 
     # Asset
     asset = ET.SubElement(root, "asset")
@@ -85,12 +95,15 @@ class Environment:
                   pos="0 0 3",
                   dir="0 0 -1")
 
-    # Add a default camera that is zoomed in for better viewing
-    ET.SubElement(worldbody,
-                  "camera",
-                  name="main_cam",
-                  pos="0 -5 5",
-                  xyaxes="1 0 0 0 0.707 0.707")
+    # Add a default camera that is zoomed out for better viewing
+    ET.SubElement(
+        worldbody,
+        "camera",
+        name="main_cam",
+        pos=f"{self.camera_pos[0]} {self.camera_pos[1]} {self.camera_pos[2]}",
+        xyaxes=
+        f"{self.camera_xyaxes[0]} {self.camera_xyaxes[1]} {self.camera_xyaxes[2]} {self.camera_xyaxes[3]} {self.camera_xyaxes[4]} {self.camera_xyaxes[5]}"
+    )
 
     floor = ET.SubElement(worldbody, "geom", name="floor", type="plane")
     floor.set(
@@ -98,7 +111,30 @@ class Environment:
         f"{self.floor_size[0]} {self.floor_size[1]} {self.floor_size[2]}")
     floor.set("material", "grid")
     floor.set("condim", "3")
-    floor.set("friction", "1 0.005 0.0001")  # Increased friction
+    floor.set("friction",
+              "5.0 0.005 0.0001")  # Heavily increased friction for grip
+    floor.set("solref", "0.002 1")  # Make floor stiffer to prevent sinking
+    floor.set("solimp", "0.9 0.95 0.001")
+
+    # Add rough terrain if enabled.
+    if self.rough_terrain:
+      import random as py_random
+      spacing = 0.5
+      grid_size = int(self.floor_size[0] / spacing)
+      for x in range(-grid_size, grid_size):
+        for y in range(-grid_size, grid_size):
+          # Skip center to let agents spawn safely.
+          if abs(x) < 4 and abs(y) < 4:
+            continue
+          height = py_random.uniform(0.01, 0.04)
+          ET.SubElement(
+              worldbody,
+              "geom",
+              type="box",
+              size=f"0.2 0.2 {height}",
+              pos=f"{x * spacing} {y * spacing} {height}",
+              rgba="0.8 0.8 0.8 1",
+          )
 
     # Add obstacles
     for i, obs in enumerate(self.obstacles):

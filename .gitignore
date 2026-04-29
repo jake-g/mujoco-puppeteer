@@ -6,9 +6,11 @@ __pycache__/
 
 # OS
 .DS_Store
+*.lock
 
 # Project specific
 # (Add specific ignores here if needed)
 logs/
+results/*/
 DEV_LOG.md
 TASKS.md

@@ -130,7 +130,7 @@ class TestConfigurableAgent(unittest.TestCase):
   def test_generate_actuators(self):
     """Test that it creates actuators for both hip and knee."""
     actuators = self.agent.generate_actuators_xml()
-    # 2 limbs, one has child, so 2 + 1 = 3 actuators!
+    # 2 limbs, one has child, so 2 + 1 = 3 actuators
     self.assertEqual(len(actuators), 3)
 
     names = [act.get("name") for act in actuators]

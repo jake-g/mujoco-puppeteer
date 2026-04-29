@@ -3,3 +3,4 @@ yapf
 pre-commit
 websockets
 pyyaml
+Pillow

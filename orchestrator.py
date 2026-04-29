@@ -1,6 +1,7 @@
 """Orchestrator module for MuJoCo simulation."""
 
 import logging
+import math
 import os
 import random
 from typing import Sequence
@@ -36,6 +37,39 @@ class Orchestrator:
     self.data = None
     self.rewards: dict[str, float] = {}
     self.death_threshold = death_threshold
+    self.total_syntheses = 0
+
+    # Feature flags for demo safety.
+    self.enable_synthesis = True
+    self.enable_food = True
+    self.enable_event_logging = False
+    self.enable_flip_death = True
+    self.respawn_occurred = False
+    self.enable_respawn = True
+    self.global_max_distance = 0.0
+
+    # Game Mechanics: Food.
+    self.food_positions = []
+    for _ in range(30):
+      self.food_positions.append(
+          [random.uniform(-15.0, 15.0),
+           random.uniform(-15.0, 15.0), 0.1])
+
+  def log_event(self, event_type: str, agent_name: str, details: str = ""):
+    """Logs a simulation event to a TSV file."""
+    try:
+      import os
+      import time
+      os.makedirs("logs", exist_ok=True)
+      event_path = "logs/events.tsv"
+      file_exists = os.path.exists(event_path)
+
+      with open(event_path, "a") as f:
+        if not file_exists:
+          f.write("timestamp\tevent_type\tagent_name\tdetails\n")
+        f.write(f"{time.time()}\t{event_type}\t{agent_name}\t{details}\n")
+    except Exception as e:
+      logger.error("Failed to log event: %s", e)
 
   def generate_combined_xml(self) -> str:
     """Generates the combined MJCF XML string.
@@ -51,6 +85,36 @@ class Orchestrator:
     if worldbody is None:
       worldbody = ET.SubElement(root, "worldbody")
 
+    # Add tracking camera for the first agent.
+    if self.agents:
+      ET.SubElement(worldbody,
+                    "camera",
+                    name="track_cam",
+                    mode="trackcom",
+                    target=self.agents[0].name,
+                    pos="0 -5 5",
+                    xyaxes="1 0 0 0 0.707 0.707")
+
+    # Add food.
+    for i, pos in enumerate(self.food_positions):
+      food_body = ET.SubElement(
+          worldbody,
+          "body",
+          name=f"food_{i}",
+          pos=f"{pos[0]} {pos[1]} {pos[2]}",
+      )
+      ET.SubElement(food_body, "freejoint", name=f"food_{i}_joint")
+      ET.SubElement(
+          food_body,
+          "geom",
+          name=f"food_{i}_geom",
+          type="sphere",
+          size="0.1",
+          rgba="1 0 0 1",  # Red food.
+          contype="1",
+          conaffinity="1",
+      )
+
     # Add agents to worldbody
     for agent in self.agents:
       worldbody.append(agent.generate_xml())
@@ -61,10 +125,21 @@ class Orchestrator:
       actuator = ET.SubElement(root, "actuator")
 
     for agent in self.agents:
+      if hasattr(agent, "dead") and agent.dead:
+        continue
       for act in agent.generate_actuators_xml():
         act_name = act.get("name")
         logger.info("Adding actuator: %s", act_name)
         actuator.append(act)
+
+    # Add sensors
+    sensor = root.find("sensor")
+    if sensor is None:
+      sensor = ET.SubElement(root, "sensor")
+
+    for agent in self.agents:
+      for s in agent.generate_sensors_xml():
+        sensor.append(s)
 
     xml_str = ET.tostring(root, encoding="unicode")
     return xml_str
@@ -101,16 +176,123 @@ class Orchestrator:
         body = self.data.body(agent.name)
         agent.time_alive += self.model.opt.timestep
 
-        # Auto-save if survived 30 seconds and not saved yet!
+        # Decrease energy (hunger.)
+        agent.energy -= agent.hunger_rate * self.model.opt.timestep
+
+        if agent.energy <= 0:
+          logger.info("Agent %s died of starvation", agent.name)
+          if self.enable_event_logging:
+            self.log_event("death_starvation", agent.name)
+          if self.enable_respawn:
+            self._respawn_agent(agent)
+          else:
+            agent.dead = True
+          continue
+
+        # Find nearest food for this agent
+        nearest_food_dist = float('inf')
+        nearest_food_vec = [0.0, 0.0]
+
+        try:
+          body = self.data.body(agent.name)
+          agent_pos = body.xpos
+
+          if math.isnan(agent_pos[0]) or math.isnan(agent_pos[1]) or math.isnan(
+              agent_pos[2]):
+            logger.error("Agent %s has NaN position. Respawning.", agent.name)
+            if self.enable_respawn:
+              self._respawn_agent(agent)
+            else:
+              agent.dead = True
+            continue
+
+          for food_pos in self.food_positions:
+            dist = ((agent_pos[0] - food_pos[0])**2 +
+                    (agent_pos[1] - food_pos[1])**2)**0.5
+            if dist < nearest_food_dist:
+              nearest_food_dist = dist
+              nearest_food_vec = [
+                  food_pos[0] - agent_pos[0], food_pos[1] - agent_pos[1]
+              ]
+
+          # Store relative vector (normalized.)
+          if nearest_food_dist > 0:
+            agent.food_vector = [
+                nearest_food_vec[0] / nearest_food_dist,
+                nearest_food_vec[1] / nearest_food_dist
+            ]
+          else:
+            agent.food_vector = [0.0, 0.0]
+        except Exception:
+          agent.food_vector = [0.0, 0.0]
+
+        # Check for record distance
+        try:
+          dist = (agent_pos[0]**2 + agent_pos[1]**2)**0.5
+          if dist > agent.max_distance:
+            agent.max_distance = dist
+          # Only log if it exceeds the global record by at least 1 meter.
+          if dist > self.global_max_distance + 1.0:
+            self.global_max_distance = dist
+            logger.info("New record distance: %.2f meters by %s.", dist,
+                        agent.name)
+        except Exception:
+          pass
+
+        # Check food collisions
+        if self.enable_food:
+          agent_pos = body.xpos
+          for i, food_pos in enumerate(self.food_positions):
+            dist = ((agent_pos[0] - food_pos[0])**2 +
+                    (agent_pos[1] - food_pos[1])**2)**0.5
+            if dist < 0.5:
+              agent.energy = min(agent.max_energy, agent.energy + 50.0)
+              # Increase frequency on eating food.
+              agent.frequency = min(10.0, agent.frequency * 1.2)
+              logger.info("Agent %s ate food %d!", agent.name, i)
+              if self.enable_event_logging:
+                self.log_event("eat_food", agent.name, f"food_{i}")
+              # Respawn food.
+              self.food_positions[i] = [
+                  random.uniform(-10.0, 10.0),
+                  random.uniform(-10.0, 10.0), 0.1
+              ]
+              # Re-initialize simulation to update food position.
+              self._reinitialize_simulation()
+              break  # Only eat one food per step.
+
+        # Auto-save if survived 30 seconds and not saved yet.
         if agent.time_alive > 30.0 and not agent.saved:
           self._save_agent_config(agent)
           agent.saved = True
 
-        if body.xpos[2] < 0.5:
+        # Drain health faster if on side or back (using quaternion to get z-component of z-axis).
+        quat = body.xquat
+        z_comp = 1.0 - 2.0 * (quat[1]**2 + quat[2]**2)
+        if self.enable_flip_death and z_comp < 0.5:
+          agent.health -= 50.0 * self.model.opt.timestep  # Drain fast.
+          if agent.health <= 0:
+            logger.info("Agent %s died of flipping (health depleted)",
+                        agent.name)
+            if self.enable_event_logging:
+              self.log_event("death_flip", agent.name)
+            # Mutate amplitude to get stronger.
+            agent.amplitude = min(2.0, agent.amplitude * 1.2)
+            if self.enable_respawn:
+              self._respawn_agent(agent)
+            else:
+              agent.dead = True
+            continue
+
+        # Fall death threshold scaled by agent size.
+        fall_threshold = 0.2 * agent.size_scale
+        if body.xpos[2] < fall_threshold:
           agent.fallen_time += self.model.opt.timestep
           if agent.fallen_time > self.death_threshold:
             logger.info("Agent %s died after falling for %.1f seconds",
                         agent.name, self.death_threshold)
+            if self.enable_event_logging:
+              self.log_event("death_fall", agent.name)
             self._respawn_agent(agent)
         else:
           agent.fallen_time = 0.0
@@ -119,6 +301,31 @@ class Orchestrator:
 
     # Check for synthesis
     self._check_synthesis()
+
+    # Apply deferred mj_forward if any agent respawned!
+    if self.respawn_occurred:
+      mujoco.mj_forward(self.model, self.data)
+      self.respawn_occurred = False
+
+    # Periodic status update for the leader
+    if self.data.time % 10.0 < self.model.opt.timestep:
+      top_agent = None
+      max_dist = -1.0
+      for agent in self.agents:
+        if hasattr(agent, "dead") and agent.dead:
+          continue
+        try:
+          body = self.data.body(agent.name)
+          dist = (body.xpos[0]**2 + body.xpos[1]**2)**0.5
+          if dist > max_dist:
+            max_dist = dist
+            top_agent = agent
+        except Exception:
+          pass
+
+      if top_agent:
+        logger.info("Leader: %s, Distance: %.2f, Energy: %.1f.", top_agent.name,
+                    max_dist, top_agent.energy)
 
   def _check_synthesis(self):
     """Checks for collisions between agents and handles synthesis."""
@@ -145,6 +352,10 @@ class Orchestrator:
       if not geom1_name or not geom2_name:
         continue
 
+      # Ignore food collisions for synthesis.
+      if geom1_name.startswith("food_") or geom2_name.startswith("food_"):
+        continue
+
       # Check if both are agents
       agent1 = None
       agent2 = None
@@ -155,10 +366,12 @@ class Orchestrator:
           agent2 = agent
 
       if agent1 and agent2 and agent1 != agent2:
-        # Collision between different agents!
+        # Collision between different agents.
         if agent1.cooldown <= 0 and agent2.cooldown <= 0:
           logger.info("Synthesis triggered between %s and %s", agent1.name,
                       agent2.name)
+          if self.enable_event_logging:
+            self.log_event("synthesis", agent1.name, f"with_{agent2.name}")
           self._synthesize_agents(agent1, agent2)
           break  # Only synthesize once per step
 
@@ -211,7 +424,7 @@ class Orchestrator:
     # Update ID based on inherited parameters
     new_agent.update_id()
 
-    # Rename it to include the hash!
+    # Rename it to include the hash.
     new_agent.name = f"{species_prefix}_{new_agent.id}"
 
     # Set position to fall from sky
@@ -219,6 +432,7 @@ class Orchestrator:
 
     # Add to list
     self.agents.append(new_agent)
+    self.total_syntheses += 1
 
     # Set cooldowns
     parent1.cooldown = 5.0
@@ -230,13 +444,19 @@ class Orchestrator:
     parent2.reward += 50.0
     logger.info("Rewarded %s and %s for synthesis!", parent1.name, parent2.name)
 
-    # Update positions of all existing agents for re-init
-    for agent in self.agents[:-1]:
-      body = self.data.body(agent.name)
-      agent.pos = list(body.xpos)
+    logger.info("Re-initializing simulation for new agent: %s", new_agent.name)
+    self._reinitialize_simulation()
+
+  def _reinitialize_simulation(self):
+    """Re-initializes the simulation while preserving agent states."""
+    for agent in self.agents:
+      try:
+        body = self.data.body(agent.name)
+        agent.pos = list(body.xpos)
+      except Exception:
+        pass  # Ignore agents not in simulation.
 
     old_time = self.data.time
-    logger.info("Re-initializing simulation with new agent: %s", new_agent.name)
     self.initialize()
     self.data.time = old_time
 
@@ -338,18 +558,27 @@ class Orchestrator:
     # Find qpos address
     qpos_addr = self.model.jnt_qposadr[jnt_id]
 
-    # Set new position
-    new_pos = [random.uniform(-5.0, 5.0), random.uniform(-5.0, 5.0), 3.0]
+    # Set new position closer to ground to prevent flipping on landing
+    new_pos = [random.uniform(-5.0, 5.0), random.uniform(-5.0, 5.0), 0.5]
     self.data.qpos[qpos_addr:qpos_addr + 3] = new_pos
 
     # Reset rotation (quaternion)
     self.data.qpos[qpos_addr + 3:qpos_addr + 7] = [1.0, 0.0, 0.0, 0.0]
 
-    # Reset velocities (qvel)
+    # Reset velocities.
     dof_addr = self.model.jnt_dofadr[jnt_id]
     self.data.qvel[dof_addr:dof_addr + 6] = 0.0
 
-    # Reset fallen time
+    # Flag that respawn occurred to call mj_forward once at the end of step
+    self.respawn_occurred = True
+
+    # Mutate agent slightly on respawn to get unstuck.
+    agent.frequency = max(0.5,
+                          min(10.0, agent.frequency * random.uniform(0.9, 1.1)))
+    agent.phase += random.uniform(-0.2, 0.2)
+
+    # Reset fallen time and energy
     agent.fallen_time = 0.0
+    agent.energy = agent.max_energy
 
     logger.info("Respawned %s at %s", agent.name, new_pos)

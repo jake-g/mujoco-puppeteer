@@ -1,0 +1,17 @@
+environment:
+  floor_size: [10.0, 10.0, 0.05]
+  sky_rgb1: [0.1, 0.1, 0.3]
+  camera:
+    pos: [0, -8, 8]
+    xyaxes: [1, 0, 0, 0, 0.707, 0.707]
+  obstacles:
+    - type: box
+      size: [0.5, 0.5, 0.5]
+      pos: [2.0, 0.0, 0.5]
+      color: [0.8, 0.8, 0.8, 1.0]
+      mass: 10.0
+
+agents:
+  - name: seer_1
+    type: quadruped__3ed3bef3__gen20
+    pos: [0.0, 0.0, 1.0]

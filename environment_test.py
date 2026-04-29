@@ -80,6 +80,14 @@ class TestEnvironment(unittest.TestCase):
     xml_str = self.env.generate_xml()
     self.assertIn('wind="1.0 0.0 0.0"', xml_str)
 
+  def test_rough_terrain(self):
+    """Test generating XML with rough terrain."""
+    self.env.rough_terrain = True
+    xml_str = self.env.generate_xml()
+    self.assertIn('type="box"', xml_str)
+    # Check that we have many boxes.
+    self.assertGreater(xml_str.count('type="box"'), 50)
+
   def test_update_runtime_wind(self):
     """Test updating wind at runtime."""
     model = self.env.create_model()
