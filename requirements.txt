@@ -1,0 +1,5 @@
+mujoco==3.8.0
+yapf
+pre-commit
+websockets
+pyyaml
