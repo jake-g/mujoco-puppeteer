@@ -87,13 +87,15 @@ class Orchestrator:
 
     # Add tracking camera for the first agent.
     if self.agents:
-      ET.SubElement(worldbody,
-                    "camera",
-                    name="track_cam",
-                    mode="trackcom",
-                    target=self.agents[0].name,
-                    pos="0 -5 5",
-                    xyaxes="1 0 0 0 0.707 0.707")
+      ET.SubElement(
+          worldbody,
+          "camera",
+          name="track_cam",
+          mode="trackcom",
+          target=self.agents[0].name,
+          # Zoomed in closer to fill the frame.
+          pos="0 -2 2",
+          xyaxes="1 0 0 0 0.707 0.707")
 
     # Add food.
     for i, pos in enumerate(self.food_positions):

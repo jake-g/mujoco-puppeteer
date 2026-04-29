@@ -45,13 +45,6 @@ def run_maintenance():
     except Exception as e:
       logger.error("Failed to generate plot: %s", e)
 
-    # 4. Update Leaderboard
-    logger.info("Updating leaderboard...")
-    try:
-      update_leaderboard()
-    except Exception as e:
-      logger.error("Failed to update leaderboard: %s", e)
-
     logger.info("=== Maintenance Finished ===")
   finally:
     if os.path.exists(LOCK_FILE):

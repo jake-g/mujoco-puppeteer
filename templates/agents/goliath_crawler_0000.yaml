@@ -1,14 +1,14 @@
 agents:
-- amplitude: 1.9364971225943128
+- amplitude: 0.5044063180637197
   body:
     size:
     - 0.3
     - 0.3
     - 0.05
     type: box
-  frequency: 4.9373824776584225
-  id: f6185769
-  leg_length_scale: 1.4930580524285522
+  frequency: 3.1570766886633663
+  id: 69aa365f
+  leg_length_scale: 1.8016549174007468
   limbs:
   - axis:
     - 0
@@ -80,7 +80,7 @@ agents:
     - 30
   name: goliath_crawler
   parent_ids: []
-  phase: 1.554397637059228
+  phase: 4.9973255668195105
   phase_offsets:
   - 0.0
   - 1.5707963267948966

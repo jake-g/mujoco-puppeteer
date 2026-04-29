@@ -1,0 +1,26 @@
+agents:
+  - name: mech_biped
+    type: configurable
+    limbs:
+      - name: torso
+        pos: [0.0, 0.0, 0.6]
+        size: [0.3, 0.3, 0.2]
+        type: box
+      - name: left_leg
+        pos: [0.0, 0.2, -0.2]
+        size: [0.08, 0.3]
+        type: capsule
+        child:
+          name: left_foot
+          pos: [0.0, 0.0, -0.3]
+          size: [0.2, 0.1, 0.05]
+          type: box
+      - name: right_leg
+        pos: [0.0, -0.2, -0.2]
+        size: [0.08, 0.3]
+        type: capsule
+        child:
+          name: right_foot
+          pos: [0.0, 0.0, -0.3]
+          size: [0.2, 0.1, 0.05]
+          type: box

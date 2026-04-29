@@ -1,5 +1,5 @@
 agents:
-- amplitude: 1.0
+- amplitude: 2.6416390301038755
   body:
     mass: 10.0
     size:
@@ -12,10 +12,10 @@ agents:
   - 1.0
   - 0.0
   - 1.0
-  frequency: 4.162522782226074
+  frequency: 14.026539796960611
   generation: 20
-  id: 9aa8e1e7
-  leg_length_scale: 0.9677737172723287
+  id: c1c39d32
+  leg_length_scale: 1.688958505156744
   limbs:
   - axis:
     - 0
@@ -87,12 +87,12 @@ agents:
     - 20
   name: aegis_turtle__cc9c672f__gen20
   parent_ids: []
-  phase: 2.1885603068432977
+  phase: 1.1712633565663435
   phase_offsets:
   - 0.0
-  - 0.0
-  - 0.0
-  - 0.0
+  - 1.5707963267948966
+  - 3.141592653589793
+  - 4.71238898038469
   pos:
   - 0.0
   - 0.0

@@ -1,0 +1,80 @@
+agents:
+  - name: megarachne
+    type: configurable
+    limbs:
+      - name: torso
+        pos: [0.0, 0.0, 0.2]
+        size: [0.4, 0.4, 0.1]
+        type: box
+      - name: leg_fl
+        pos: [0.2, 0.2, 0.0]
+        size: [0.04, 0.2]
+        type: capsule
+        child:
+          name: fl_tip
+          pos: [0.1, 0.1, -0.2]
+          size: [0.03, 0.2]
+          type: capsule
+      - name: leg_fml
+        pos: [0.1, 0.2, 0.0]
+        size: [0.04, 0.2]
+        type: capsule
+        child:
+          name: fml_tip
+          pos: [0.05, 0.1, -0.2]
+          size: [0.03, 0.2]
+          type: capsule
+      - name: leg_bml
+        pos: [-0.1, 0.2, 0.0]
+        size: [0.04, 0.2]
+        type: capsule
+        child:
+          name: bml_tip
+          pos: [-0.05, 0.1, -0.2]
+          size: [0.03, 0.2]
+          type: capsule
+      - name: leg_bl
+        pos: [-0.2, 0.2, 0.0]
+        size: [0.04, 0.2]
+        type: capsule
+        child:
+          name: bl_tip
+          pos: [-0.1, 0.1, -0.2]
+          size: [0.03, 0.2]
+          type: capsule
+      - name: leg_fr
+        pos: [0.2, -0.2, 0.0]
+        size: [0.04, 0.2]
+        type: capsule
+        child:
+          name: fr_tip
+          pos: [0.1, -0.1, -0.2]
+          size: [0.03, 0.2]
+          type: capsule
+      - name: leg_fmr
+        pos: [0.1, -0.2, 0.0]
+        size: [0.04, 0.2]
+        type: capsule
+        child:
+          name: fmr_tip
+          pos: [0.05, -0.1, -0.2]
+          size: [0.03, 0.2]
+          type: capsule
+      - name: leg_bmr
+        pos: [-0.1, -0.2, 0.0]
+        size: [0.04, 0.2]
+        type: capsule
+        child:
+          name: bmr_tip
+          pos: [-0.05, -0.1, -0.2]
+          size: [0.03, 0.2]
+          type: capsule
+      - name: leg_br
+        pos: [-0.2, -0.2, 0.0]
+        size: [0.04, 0.2]
+        type: capsule
+        child:
+          name: br_tip
+          pos: [-0.1, -0.1, -0.2]
+          size: [0.03, 0.2]
+          type: capsule

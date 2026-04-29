@@ -1,5 +1,5 @@
 agents:
-- amplitude: 2.0
+- amplitude: 2.6714426458114957
   body:
     size:
     - 0.4
@@ -11,10 +11,10 @@ agents:
   - 1.0
   - 0.0
   - 1.0
-  frequency: 6.713504236788249
+  frequency: 8.75128189892169
   generation: 20
-  id: 07b36ed9
-  leg_length_scale: 1.5706659638993303
+  id: b0bc9465
+  leg_length_scale: 1.8918077318201743
   limbs:
   - axis:
     - 0
@@ -86,7 +86,7 @@ agents:
     - 30
   name: ein_corgi__dad13d3f__gen20
   parent_ids: []
-  phase: 3.470147542612067
+  phase: 4.966862315674148
   phase_offsets:
   - 0.0
   - 1.5707963267948966
