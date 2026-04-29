@@ -1,6 +1,0 @@
-[submodule "mujoco"]
-	path = mujoco_src
-	url = https://github.com/google-deepmind/mujoco
-[submodule "evolution-sim"]
-	path = evolution-sim
-	url = https://github.com/jake-g/evolution-sim
