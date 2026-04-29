@@ -99,11 +99,11 @@ class Orchestrator:
       except Exception as e:
         logger.error("Failed to check death for %s: %s", agent.name, e)
 
-    # Check for breeding
-    self._check_breeding()
+    # Check for synthesis
+    self._check_synthesis()
 
-  def _check_breeding(self):
-    """Checks for collisions between agents and handles breeding."""
+  def _check_synthesis(self):
+    """Checks for collisions between agents and handles synthesis."""
     if self.data is None or self.model is None:
       return
 
@@ -139,12 +139,12 @@ class Orchestrator:
       if agent1 and agent2 and agent1 != agent2:
         # Collision between different agents!
         if agent1.cooldown <= 0 and agent2.cooldown <= 0:
-          logger.info("Breeding triggered between %s and %s", agent1.name,
+          logger.info("Synthesis triggered between %s and %s", agent1.name,
                       agent2.name)
-          self._breed_agents(agent1, agent2)
-          break  # Only breed once per step
+          self._synthesize_agents(agent1, agent2)
+          break  # Only synthesize once per step
 
-  def _breed_agents(self, parent1: Agent, parent2: Agent):
+  def _synthesize_agents(self, parent1: Agent, parent2: Agent):
     """Creates a new agent from two parents."""
     assert self.data is not None
     # Mix colors
