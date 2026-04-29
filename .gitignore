@@ -1,19 +1,8 @@
 # Python
 __pycache__/
 *.pyc
-*.pyo
-*.pyd
-.Python
-env/
-venv/
 .venv/
-pip-log.txt
-pip-delete-this-build.txt
-
-# Build
-build/
-dist/
-*.egg-info/
+.mypy_cache/
 
 # OS
 .DS_Store

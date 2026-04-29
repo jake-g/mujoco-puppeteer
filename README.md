@@ -34,8 +34,14 @@ This project implements a server-client architecture for a live-streamed, multip
     -   **Dynamic Re-initialization**: The simulation dynamically re-initializes to add the new agent while preserving the positions and time of existing agents.
 -   **Agent Scaling**: Agents support a `size_scale` parameter in the configuration, allowing for "Giant" and "Dwarf" variants that scale the body and legs proportionally.
 -   **Death on Fall**: If an agent remains below a height of 0.5 for more than 3 seconds, it "dies" and is respawned falling from the sky at a random position.
--   **Quadruped Variant**: A 4-legged agent variant (`QuadrupedAgent`) is available for better stability and complex gaits.
--   **Learning & Evolution**: Run `train.py` to evolve agent walking parameters (frequency, phase) using a Genetic Algorithm. The best results are saved to `templates/evolved_quadruped.yaml`.
+-   **Quadruped Variant**: A 4-legged agent variant (`QuadrupedAgent`) for better stability and complex gaits.
+-   **Crawler Variant**: A low-profile, wide-base agent variant (`CrawlerAgent`) for stability.
+-   **Hexapod Variant**: A 6-legged agent variant (`HexapodAgent`) for complex coordination using a tripod gait.
+-   **Complex Biped Variant**: An advanced biped (`ComplexBipedAgent`) with torso, head, and 2-segment legs (hip and knee joints).
+-   **Step Detection Reward**: Quadruped agents reward alternating ground contact by feet, giving a bonus for each step to encourage true walking.
+-   **Learning & Evolution**: Run `train.py` to evolve agent walking parameters using a Genetic Algorithm.
+-   **Automated Evolution**: Run `auto_evolve.py` to evolve multiple species sequentially and save their best configurations.
+-   **Leaderboard**: Run `update_leaderboard.py` to evaluate all templates and rank them in `LEADERBOARD.md`.
 
 ## Interactive Controls
 
