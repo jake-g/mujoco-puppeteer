@@ -2,6 +2,7 @@
 
 import os
 import unittest
+
 import yaml
 
 
@@ -9,8 +10,7 @@ class TestTemplates(unittest.TestCase):
 
   def setUp(self):
     self.templates_dir = os.path.abspath(
-        os.path.join(os.path.dirname(__file__), "templates")
-    )
+        os.path.join(os.path.dirname(__file__), "templates"))
 
   def test_base_template_valid(self):
     """Test that base.yaml is valid YAML and has correct structure."""
