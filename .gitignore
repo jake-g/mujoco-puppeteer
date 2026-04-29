@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-build.txt
+
+# Build
+build/
+dist/
+*.egg-info/
+
+# OS
+.DS_Store
+
+# Project specific
+# (Add specific ignores here if needed)
+logs/
+DEV_LOG.md
+TASKS.md
