@@ -1,0 +1,94 @@
+agents:
+- amplitude: 1.5766444626391292
+  body:
+    size:
+    - 0.1
+    - 0.15
+    - 0.2
+    type: box
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 2.4905994950394685
+  generation: 20
+  id: 6ac0a951
+  leg_length_scale: 0.789727502517067
+  limbs:
+  - axis:
+    - 0
+    - 1
+    - 0
+    child:
+      axis:
+      - 0
+      - 1
+      - 0
+      geom:
+        size:
+        - 0.015
+        - 0.1
+        type: capsule
+      name: left_calf
+      range:
+      - 0
+      - 90
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: left
+    pos:
+    - 0.0
+    - 0.1
+    - -0.2
+    range:
+    - -45
+    - 45
+  - axis:
+    - 0
+    - 1
+    - 0
+    child:
+      axis:
+      - 0
+      - 1
+      - 0
+      geom:
+        size:
+        - 0.015
+        - 0.1
+        type: capsule
+      name: right_calf
+      range:
+      - 0
+      - 90
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: right
+    pos:
+    - 0.0
+    - -0.1
+    - -0.2
+    range:
+    - -45
+    - 45
+  name: stilts_biped__027c957e__gen20
+  parent_ids: []
+  phase: 1.6353440150699805
+  phase_offsets:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: stilts_biped

@@ -1,0 +1,25 @@
+agents:
+- amplitude: 0.8160500976720656
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 4.541863566202286
+  generation: 20
+  id: d03c0ec8
+  leg_length_scale: 0.5789663416730569
+  name: aegis_turtle__cc9c672f__gen20
+  parent_ids: []
+  phase: 5.339540159652639
+  phase_offsets:
+  - 0.0
+  - 1.5707963267948966
+  - 3.141592653589793
+  - 4.71238898038469
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: aegis_turtle

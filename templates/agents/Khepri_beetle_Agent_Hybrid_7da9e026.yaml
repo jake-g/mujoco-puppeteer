@@ -1,0 +1,17 @@
+agents:
+- amplitude: 1.0694890703980227
+  frequency: 3.1888503035905575
+  id: 7da9e026
+  leg_length_scale: 1.1900109346307586
+  name: Khepri_beetle_Agent_Hybrid_7da9e026
+  parent_ids:
+  - 477bfbee
+  - 900242c0
+  phase: 4.5071245703867415
+  phase_offsets:
+  - -0.08235367835777385
+  - -0.17323603520996322
+  - -0.1154695960121335
+  - -0.2216378145551509
+  size_scale: 1.1183483103894434
+  type: default

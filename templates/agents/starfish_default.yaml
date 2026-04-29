@@ -1,0 +1,33 @@
+agents:
+- name: starfish
+  type: configurable
+  body:
+    type: sphere
+    size: [0.2]
+    mass: 8.0
+  limbs:
+    - name: leg_1
+      pos: [0.2, 0.0, 0.0]
+      axis: [0, 1, 0]
+      range: [-30, 30]
+      geom: {type: capsule, size: [0.02, 0.1]}
+    - name: leg_2
+      pos: [0.06, 0.19, 0.0]
+      axis: [0, 1, 0]
+      range: [-30, 30]
+      geom: {type: capsule, size: [0.02, 0.1]}
+    - name: leg_3
+      pos: [-0.16, 0.12, 0.0]
+      axis: [0, 1, 0]
+      range: [-30, 30]
+      geom: {type: capsule, size: [0.02, 0.1]}
+    - name: leg_4
+      pos: [-0.16, -0.12, 0.0]
+      axis: [0, 1, 0]
+      range: [-30, 30]
+      geom: {type: capsule, size: [0.02, 0.1]}
+    - name: leg_5
+      pos: [0.06, -0.19, 0.0]
+      axis: [0, 1, 0]
+      range: [-30, 30]
+      geom: {type: capsule, size: [0.02, 0.1]}

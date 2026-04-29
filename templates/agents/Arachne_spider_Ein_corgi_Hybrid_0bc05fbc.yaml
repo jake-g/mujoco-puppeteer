@@ -1,0 +1,17 @@
+agents:
+- amplitude: 1.5857155929190827
+  frequency: 3.6088873597740325
+  id: 0bc05fbc
+  leg_length_scale: 0.5624490305451528
+  name: Arachne_spider_Ein_corgi_Hybrid_0bc05fbc
+  parent_ids:
+  - 4bcac633
+  - f5324e4e
+  phase: 4.529526925986722
+  phase_offsets:
+  - -0.06478696342479026
+  - -0.12383080916161929
+  - -0.1742179317543795
+  - -0.04749776825704072
+  size_scale: 0.9933139925313405
+  type: default

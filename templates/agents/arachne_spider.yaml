@@ -1,0 +1,47 @@
+agents:
+- name: Arachne
+  type: configurable
+  body:
+    type: sphere
+    size: [0.2]
+  limbs:
+    - name: leg1
+      pos: [0.2, 0, 0]
+      axis: [0, 1, 0]
+      range: [-30, 30]
+      geom: {type: capsule, size: [0.02, 0.1]}
+    - name: leg2
+      pos: [0.14, 0.14, 0]
+      axis: [-1, 1, 0]
+      range: [-30, 30]
+      geom: {type: capsule, size: [0.02, 0.1]}
+    - name: leg3
+      pos: [0, 0.2, 0]
+      axis: [-1, 0, 0]
+      range: [-30, 30]
+      geom: {type: capsule, size: [0.02, 0.1]}
+    - name: leg4
+      pos: [-0.14, 0.14, 0]
+      axis: [-1, -1, 0]
+      range: [-30, 30]
+      geom: {type: capsule, size: [0.02, 0.1]}
+    - name: leg5
+      pos: [-0.2, 0, 0]
+      axis: [0, -1, 0]
+      range: [-30, 30]
+      geom: {type: capsule, size: [0.02, 0.1]}
+    - name: leg6
+      pos: [-0.14, -0.14, 0]
+      axis: [1, -1, 0]
+      range: [-30, 30]
+      geom: {type: capsule, size: [0.02, 0.1]}
+    - name: leg7
+      pos: [0, -0.2, 0]
+      axis: [1, 0, 0]
+      range: [-30, 30]
+      geom: {type: capsule, size: [0.02, 0.1]}
+    - name: leg8
+      pos: [0.14, -0.14, 0]
+      axis: [1, 1, 0]
+      range: [-30, 30]
+      geom: {type: capsule, size: [0.02, 0.1]}

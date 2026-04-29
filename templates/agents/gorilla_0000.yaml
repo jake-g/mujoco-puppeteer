@@ -1,0 +1,120 @@
+agents:
+- amplitude: 0.7563342665235226
+  body:
+    mass: 20.0
+    size:
+    - 0.2
+    - 0.2
+    - 0.15
+    type: box
+  frequency: 2.7528282605878456
+  id: 24c84f2a
+  leg_length_scale: 0.5658953925857465
+  limbs:
+  - axis:
+    - 0
+    - 1
+    - 0
+    child:
+      axis:
+      - 0
+      - 1
+      - 0
+      geom:
+        size:
+        - 0.025
+        - 0.15
+        type: capsule
+      name: forearm_left
+      range:
+      - 0
+      - 90
+    geom:
+      size:
+      - 0.03
+      - 0.2
+      type: capsule
+    name: arm_left
+    pos:
+    - 0.15
+    - 0.2
+    - 0.0
+    range:
+    - -45
+    - 45
+  - axis:
+    - 0
+    - 1
+    - 0
+    child:
+      axis:
+      - 0
+      - 1
+      - 0
+      geom:
+        size:
+        - 0.025
+        - 0.15
+        type: capsule
+      name: forearm_right
+      range:
+      - 0
+      - 90
+    geom:
+      size:
+      - 0.03
+      - 0.2
+      type: capsule
+    name: arm_right
+    pos:
+    - 0.15
+    - -0.2
+    - 0.0
+    range:
+    - -45
+    - 45
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.025
+      - 0.1
+      type: capsule
+    name: leg_left
+    pos:
+    - -0.15
+    - 0.15
+    - -0.1
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.025
+      - 0.1
+      type: capsule
+    name: leg_right
+    pos:
+    - -0.15
+    - -0.15
+    - -0.1
+    range:
+    - -30
+    - 30
+  name: gorilla
+  parent_ids: []
+  phase: 4.63877129325027
+  phase_offsets:
+  - 0.0
+  - 1.0471975511965976
+  - 2.0943951023931953
+  - 3.141592653589793
+  - 4.1887902047863905
+  - 5.235987755982988
+  type: configurable

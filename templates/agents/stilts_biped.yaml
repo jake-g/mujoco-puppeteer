@@ -1,0 +1,27 @@
+agents:
+- name: stilts_biped
+  type: configurable
+  body:
+    type: box
+    size: [0.1, 0.15, 0.2]
+  limbs:
+    - name: left
+      pos: [0.0, 0.1, -0.2]
+      axis: [0, 1, 0]
+      range: [-45, 45]
+      geom: {type: capsule, size: [0.02, 0.1]}
+      child:
+        name: left_calf
+        axis: [0, 1, 0]
+        range: [0, 90]
+        geom: {type: capsule, size: [0.015, 0.1]}
+    - name: right
+      pos: [0.0, -0.1, -0.2]
+      axis: [0, 1, 0]
+      range: [-45, 45]
+      geom: {type: capsule, size: [0.02, 0.1]}
+      child:
+        name: right_calf
+        axis: [0, 1, 0]
+        range: [0, 90]
+        geom: {type: capsule, size: [0.015, 0.1]}

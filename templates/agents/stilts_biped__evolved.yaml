@@ -1,0 +1,37 @@
+agents:
+- amplitude: 1.2454097559984363
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 1.853563799305688
+  id: 309eb105
+  leg_length_scale: 2.1011594554724
+  name: Stilts_evolved
+  parent_ids: []
+  phase: 5.496690808464048
+  phase_offsets:
+  - 0.0
+  - 2.2831933856978375
+  - 1.4046995213268805
+  - 5.381432265741938
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: Stilts
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

@@ -1,0 +1,47 @@
+agents:
+- name: Khepri
+  type: configurable
+  body:
+    type: box
+    size: [0.3, 0.3, 0.05]
+  limbs:
+    - name: horn_left
+      pos: [0.2, 0.1, 0.05]
+      axis: [0, 0, 1]
+      range: [-10, 10]
+      geom: {type: capsule, size: [0.01, 0.15]}
+    - name: horn_right
+      pos: [0.2, -0.1, 0.05]
+      axis: [0, 0, 1]
+      range: [-10, 10]
+      geom: {type: capsule, size: [0.01, 0.15]}
+    - name: front_left
+      pos: [0.2, 0.3, 0]
+      axis: [0, 1, 0]
+      range: [-45, 45]
+      geom: {type: capsule, size: [0.02, 0.1]}
+    - name: mid_left
+      pos: [0.0, 0.3, 0]
+      axis: [0, 1, 0]
+      range: [-45, 45]
+      geom: {type: capsule, size: [0.02, 0.1]}
+    - name: back_left
+      pos: [-0.2, 0.3, 0]
+      axis: [0, 1, 0]
+      range: [-45, 45]
+      geom: {type: capsule, size: [0.02, 0.1]}
+    - name: front_right
+      pos: [0.2, -0.3, 0]
+      axis: [0, 1, 0]
+      range: [-45, 45]
+      geom: {type: capsule, size: [0.02, 0.1]}
+    - name: mid_right
+      pos: [0.0, -0.3, 0]
+      axis: [0, 1, 0]
+      range: [-45, 45]
+      geom: {type: capsule, size: [0.02, 0.1]}
+    - name: back_right
+      pos: [-0.2, -0.3, 0]
+      axis: [0, 1, 0]
+      range: [-45, 45]
+      geom: {type: capsule, size: [0.02, 0.1]}

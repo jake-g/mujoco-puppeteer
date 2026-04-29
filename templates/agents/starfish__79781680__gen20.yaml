@@ -1,0 +1,39 @@
+agents:
+- amplitude: 0.7219066950252387
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 3.1804604706777146
+  generation: 20
+  id: '79781680'
+  leg_length_scale: 3.0
+  name: starfish__79781680__gen20
+  parent_ids: []
+  phase: 2.6056978310102092
+  phase_offsets:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: starfish
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

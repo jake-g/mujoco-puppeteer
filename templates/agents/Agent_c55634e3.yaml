@@ -1,0 +1,17 @@
+agents:
+- amplitude: 1.7908252070151258
+  frequency: 4.203357014043886
+  id: c55634e3
+  leg_length_scale: 0.9959898768411182
+  name: Agent_c55634e3
+  parent_ids:
+  - a2df5dae
+  - 13809f03
+  phase: 2.583118922690946
+  phase_offsets:
+  - -0.1283747411656056
+  - -0.2521488384114154
+  - -0.28453557115189054
+  - -0.05905967493939883
+  size_scale: 1.0100208110090798
+  type: default

@@ -1,0 +1,25 @@
+agents:
+- amplitude: 2.0
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 6.602074719070305
+  generation: 20
+  id: cbfac5f2
+  leg_length_scale: 1.5
+  name: gorilla__24c84f2a__gen20
+  parent_ids: []
+  phase: 3.0792666274399685
+  phase_offsets:
+  - 0.0
+  - 1.5707963267948966
+  - 3.141592653589793
+  - 4.71238898038469
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: gorilla

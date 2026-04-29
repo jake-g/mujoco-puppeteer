@@ -1,23 +1,24 @@
 summary:
-  total_folders: 248
-  total_files: 6458
+  total_folders: 253
+  total_files: 7260
 species_counts:
   stilts_biped: 9
-  aegis_turtle: 22
+  aegis_turtle: 23
   quadruped: 33
   snake: 9
   scorpion: 12
   gorilla: 10
-  khepri_beetle: 19
+  khepri_beetle: 20
   arachne_spider: 16
-  ein_corgi: 20
-  legion_hexapod: 26
+  ein_corgi: 21
+  legion_hexapod: 27
   giraffe_default: 9
   goliath_crawler: 25
   centipede: 12
   giraffe: 13
   starfish: 9
   Agent: 4
+  demo: 1
 folder_sizes:
   stilts_biped_0002: 50
   aegis_turtle_000d: 3
@@ -54,7 +55,7 @@ folder_sizes:
   giraffe_default_0005: 10
   legion_hexapod__690e6abe__gen20: 177
   quadruped__ccb606cf__gen20: 2
-  giraffe_default_0002: 50
+  giraffe_default_0002: 1
   legion_hexapod_0003: 2
   giraffe_default_000b: 10
   giraffe_default_000e: 10
@@ -89,6 +90,7 @@ folder_sizes:
   starfish_0007: 6
   quadruped_0005: 11
   centipede__163b1b5d__gen20: 152
+  khepri_beetle__9aeb1626__gen20: 1
   starfish_0000: 1
   centipede_0011: 6
   khepri_beetle_0001: 10
@@ -158,6 +160,7 @@ folder_sizes:
   quadruped__5b64c974__gen20: 45
   ein_corgi__6892ee45__gen20: 313
   aegis_turtle_0008: 8
+  legion_hexapod__81bb88f9__gen20: 1
   arachne_spider_000f: 2
   scorpion_0010: 10
   gorilla_0000: 1
@@ -183,17 +186,19 @@ folder_sizes:
   khepri_beetle__94ef9ae4__gen20: 100
   quadruped_0013: 51
   quadruped__49d55732__gen20: 59
-  giraffe_default_0001: 50
+  giraffe_default_0001: 24
   quadruped__56d3be83__gen20: 236
   legion_hexapod_0008: 7
   stilts_biped__47f9883c__gen20: 102
   arachne_spider__b344189b__gen20: 2
   centipede_0000: 1
-  legion_hexapod_0001: 3
+  legion_hexapod_0001: 1
   giraffe_default_0007: 10
   giraffe_default_0000: 1
+  ein_corgi__401bad27__gen20: 90
   legion_hexapod_000a: 6
   quadruped_0012: 50
+  demo_1777446140: 786
   starfish_0010: 8
   quadruped__3e28aa35__gen20: 380
   giraffe_default_0013: 50
@@ -220,6 +225,7 @@ folder_sizes:
   starfish_0005: 7
   quadruped_0007: 50
   khepri_beetle_000e: 2
+  aegis_turtle__6ab5045c__gen20: 1
   legion_hexapod__9fa2ad7e__gen20: 20
   quadruped_0009: 5
   gorilla__24c84f2a__gen20: 1

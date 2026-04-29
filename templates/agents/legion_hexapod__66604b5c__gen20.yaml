@@ -1,0 +1,40 @@
+agents:
+- amplitude: 1.0432302210076903
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 2.5345223187660877
+  generation: 20
+  id: 66604b5c
+  leg_length_scale: 2.998186339425715
+  name: legion_hexapod__66604b5c__gen20
+  parent_ids: []
+  phase: 3.6603619597266674
+  phase_offsets:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: legion_hexapod
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

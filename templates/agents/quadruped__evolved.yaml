@@ -1,0 +1,37 @@
+agents:
+- amplitude: 1.9978963065229896
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 4.932440498771493
+  id: 9feedf2b
+  leg_length_scale: 4.569924193307323
+  name: evolved_quadruped
+  parent_ids: []
+  phase: 0.33155680843453117
+  phase_offsets:
+  - 0.0
+  - 1.470256802969747
+  - 3.1480843545021417
+  - 3.211766317456064
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: quadruped
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

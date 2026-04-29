@@ -1,0 +1,136 @@
+agents:
+- amplitude: 0.7586390823553373
+  body:
+    size:
+    - 0.4
+    - 0.15
+    - 0.05
+    type: box
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 3.14168845127523
+  generation: 20
+  id: ceeaf090
+  leg_length_scale: 0.81074725632818
+  limbs:
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: front_left
+    pos:
+    - 0.3
+    - 0.2
+    - 0
+    range:
+    - -45
+    - 45
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: mid_left
+    pos:
+    - 0.0
+    - 0.2
+    - 0
+    range:
+    - -45
+    - 45
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: back_left
+    pos:
+    - -0.3
+    - 0.2
+    - 0
+    range:
+    - -45
+    - 45
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: front_right
+    pos:
+    - 0.3
+    - -0.2
+    - 0
+    range:
+    - -45
+    - 45
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: mid_right
+    pos:
+    - 0.0
+    - -0.2
+    - 0
+    range:
+    - -45
+    - 45
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: back_right
+    pos:
+    - -0.3
+    - -0.2
+    - 0
+    range:
+    - -45
+    - 45
+  name: legion_hexapod__08f9da17__gen20
+  parent_ids: []
+  phase: 2.1422977947042194
+  phase_offsets:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: legion_hexapod

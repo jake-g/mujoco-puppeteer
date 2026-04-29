@@ -1,0 +1,101 @@
+agents:
+- amplitude: 0.5695431635928212
+  body:
+    mass: 10.0
+    size:
+    - 0.4
+    - 0.4
+    - 0.1
+    type: ellipsoid
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 2.501942567960979
+  generation: 20
+  id: e05c2f1c
+  leg_length_scale: 0.886066714735226
+  limbs:
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.04
+      - 0.05
+      type: capsule
+    name: front_left
+    pos:
+    - 0.25
+    - 0.25
+    - -0.05
+    range:
+    - -20
+    - 20
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.04
+      - 0.05
+      type: capsule
+    name: front_right
+    pos:
+    - 0.25
+    - -0.25
+    - -0.05
+    range:
+    - -20
+    - 20
+  - axis:
+    - 1
+    - 0
+    - 0
+    geom:
+      size:
+      - 0.04
+      - 0.05
+      type: capsule
+    name: back_left
+    pos:
+    - -0.25
+    - 0.25
+    - -0.05
+    range:
+    - -20
+    - 20
+  - axis:
+    - 1
+    - 0
+    - 0
+    geom:
+      size:
+      - 0.04
+      - 0.05
+      type: capsule
+    name: back_right
+    pos:
+    - -0.25
+    - -0.25
+    - -0.05
+    range:
+    - -20
+    - 20
+  name: aegis_turtle__bb066d66__gen20
+  parent_ids: []
+  phase: 2.2301234347761625
+  phase_offsets:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: aegis_turtle

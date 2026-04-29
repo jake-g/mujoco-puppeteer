@@ -1,0 +1,25 @@
+agents:
+- amplitude: 1.8349765253697932
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 2.3331721311188502
+  generation: 20
+  id: 34111d96
+  leg_length_scale: 1.2877656088593632
+  name: scorpion__fb1b7306__gen20
+  parent_ids: []
+  phase: 3.2885104097015025
+  phase_offsets:
+  - 0.0
+  - 1.5707963267948966
+  - 3.141592653589793
+  - 4.71238898038469
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: scorpion

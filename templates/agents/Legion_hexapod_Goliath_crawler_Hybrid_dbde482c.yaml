@@ -1,0 +1,17 @@
+agents:
+- amplitude: 1.177296003502169
+  frequency: 3.3414280032023047
+  id: dbde482c
+  leg_length_scale: 1.430853115652622
+  name: Legion_hexapod_Goliath_crawler_Hybrid_dbde482c
+  parent_ids:
+  - 61cb8bd3
+  - de5df633
+  phase: 4.88568284348381
+  phase_offsets:
+  - -0.11348345625995045
+  - -0.05284179492338348
+  - -0.05293666045815787
+  - 0.1315132436842597
+  size_scale: 0.9196786415687221
+  type: default

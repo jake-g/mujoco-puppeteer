@@ -1,0 +1,17 @@
+agents:
+- amplitude: 1.3116512173071093
+  frequency: 2.991383131215705
+  id: fcaf3d06
+  leg_length_scale: 1.4365527991324847
+  name: Ein_corgi_Goliath_crawler_Hybrid_fcaf3d06
+  parent_ids:
+  - 508bf00f
+  - '34352150'
+  phase: 2.516567408273998
+  phase_offsets:
+  - 0.05449138112597568
+  - -0.13138495646607934
+  - -0.16079032072331542
+  - -0.03349731129982078
+  size_scale: 1.017888479783986
+  type: default

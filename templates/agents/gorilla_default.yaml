@@ -1,0 +1,38 @@
+agents:
+- name: gorilla
+  type: configurable
+  body:
+    type: box
+    size: [0.2, 0.2, 0.15]
+    mass: 20.0
+  limbs:
+    - name: arm_left
+      pos: [0.15, 0.2, 0.0]
+      axis: [0, 1, 0]
+      range: [-45, 45]
+      geom: {type: capsule, size: [0.03, 0.2]}
+      child:
+        name: forearm_left
+        axis: [0, 1, 0]
+        range: [0, 90]
+        geom: {type: capsule, size: [0.025, 0.15]}
+    - name: arm_right
+      pos: [0.15, -0.2, 0.0]
+      axis: [0, 1, 0]
+      range: [-45, 45]
+      geom: {type: capsule, size: [0.03, 0.2]}
+      child:
+        name: forearm_right
+        axis: [0, 1, 0]
+        range: [0, 90]
+        geom: {type: capsule, size: [0.025, 0.15]}
+    - name: leg_left
+      pos: [-0.15, 0.15, -0.1]
+      axis: [0, 1, 0]
+      range: [-30, 30]
+      geom: {type: capsule, size: [0.025, 0.1]}
+    - name: leg_right
+      pos: [-0.15, -0.15, -0.1]
+      axis: [0, 1, 0]
+      range: [-30, 30]
+      geom: {type: capsule, size: [0.025, 0.1]}

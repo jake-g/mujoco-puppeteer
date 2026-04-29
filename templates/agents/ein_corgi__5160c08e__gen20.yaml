@@ -1,0 +1,38 @@
+agents:
+- amplitude: 0.6459525560405635
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 2.6997871377285865
+  generation: 20
+  id: 5160c08e
+  leg_length_scale: 1.2391566431921093
+  name: ein_corgi__5160c08e__gen20
+  parent_ids: []
+  phase: 5.771146915032925
+  phase_offsets:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: ein_corgi
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

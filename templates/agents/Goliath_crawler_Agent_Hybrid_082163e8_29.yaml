@@ -1,0 +1,15 @@
+agents:
+- amplitude: 1.237739363385653
+  frequency: 3.1672734398320994
+  id: cea935bb
+  leg_length_scale: 0.8803040920428971
+  name: Goliath_crawler_Agent_Hybrid_082163e8
+  parent_ids: []
+  phase: 4.767711826047342
+  phase_offsets:
+  - 0.0
+  - 1.5707963267948966
+  - 3.141592653589793
+  - 4.71238898038469
+  size_scale: 0.9120956412737218
+  type: default

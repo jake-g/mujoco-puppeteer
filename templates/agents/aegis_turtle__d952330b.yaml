@@ -1,0 +1,90 @@
+agents:
+- amplitude: 1.6209229047304343
+  body:
+    mass: 10.0
+    size:
+    - 0.4
+    - 0.4
+    - 0.1
+    type: ellipsoid
+  frequency: 4.93883264875209
+  id: d952330b
+  leg_length_scale: 1.2135853245616484
+  limbs:
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.04
+      - 0.05
+      type: capsule
+    name: front_left
+    pos:
+    - 0.25
+    - 0.25
+    - -0.05
+    range:
+    - -20
+    - 20
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.04
+      - 0.05
+      type: capsule
+    name: front_right
+    pos:
+    - 0.25
+    - -0.25
+    - -0.05
+    range:
+    - -20
+    - 20
+  - axis:
+    - 1
+    - 0
+    - 0
+    geom:
+      size:
+      - 0.04
+      - 0.05
+      type: capsule
+    name: back_left
+    pos:
+    - -0.25
+    - 0.25
+    - -0.05
+    range:
+    - -20
+    - 20
+  - axis:
+    - 1
+    - 0
+    - 0
+    geom:
+      size:
+      - 0.04
+      - 0.05
+      type: capsule
+    name: back_right
+    pos:
+    - -0.25
+    - -0.25
+    - -0.05
+    range:
+    - -20
+    - 20
+  name: Aegis
+  parent_ids: []
+  phase: 4.632032305344467
+  phase_offsets:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  type: configurable

@@ -1,0 +1,17 @@
+agents:
+- amplitude: 0.912146359658558
+  frequency: 3.151584859819339
+  id: 170e8771
+  leg_length_scale: 0.7059820904245945
+  name: Legion_hexapod_Aegis_turtle_Hybrid_170e8771
+  parent_ids:
+  - 253cbd82
+  - fa24ca15
+  phase: 3.1505610663505355
+  phase_offsets:
+  - 0.021768616682067338
+  - -0.15080528711983382
+  - 0.13920207776302718
+  - -0.005587550051980111
+  size_scale: 0.9588070508554214
+  type: default

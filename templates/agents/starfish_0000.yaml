@@ -1,0 +1,106 @@
+agents:
+- amplitude: 0.6509350483587896
+  body:
+    mass: 8.0
+    size:
+    - 0.2
+    type: sphere
+  frequency: 7.152004550308044
+  id: 0e011b3c
+  leg_length_scale: 0.6939937761417586
+  limbs:
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: leg_1
+    pos:
+    - 0.2
+    - 0.0
+    - 0.0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: leg_2
+    pos:
+    - 0.06
+    - 0.19
+    - 0.0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: leg_3
+    pos:
+    - -0.16
+    - 0.12
+    - 0.0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: leg_4
+    pos:
+    - -0.16
+    - -0.12
+    - 0.0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: leg_5
+    pos:
+    - 0.06
+    - -0.19
+    - 0.0
+    range:
+    - -30
+    - 30
+  name: starfish
+  parent_ids: []
+  phase: 5.020205136679952
+  phase_offsets:
+  - 0.0
+  - 1.2566370614359172
+  - 2.5132741228718345
+  - 3.7699111843077517
+  - 5.026548245743669
+  type: configurable

@@ -1,0 +1,178 @@
+agents:
+- amplitude: 0.9404664751981007
+  body:
+    size:
+    - 0.2
+    - 0.15
+    - 0.1
+    type: box
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 4.094152286606439
+  generation: 20
+  id: 9236bc7a
+  leg_length_scale: 1.1325054529456018
+  limbs:
+  - axis:
+    - 0
+    - 1
+    - 0
+    child:
+      axis:
+      - 0
+      - 1
+      - 0
+      geom:
+        size:
+        - 0.015
+        - 0.2
+        type: capsule
+      name: front_left_calf
+      range:
+      - 0
+      - 90
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: front_left
+    pos:
+    - 0.15
+    - 0.1
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    child:
+      axis:
+      - 0
+      - 1
+      - 0
+      geom:
+        size:
+        - 0.015
+        - 0.2
+        type: capsule
+      name: front_right_calf
+      range:
+      - 0
+      - 90
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: front_right
+    pos:
+    - 0.15
+    - -0.1
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    child:
+      axis:
+      - 0
+      - 1
+      - 0
+      geom:
+        size:
+        - 0.015
+        - 0.2
+        type: capsule
+      name: back_left_calf
+      range:
+      - 0
+      - 90
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: back_left
+    pos:
+    - -0.15
+    - 0.1
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    child:
+      axis:
+      - 0
+      - 1
+      - 0
+      geom:
+        size:
+        - 0.015
+        - 0.2
+        type: capsule
+      name: back_right_calf
+      range:
+      - 0
+      - 90
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: back_right
+    pos:
+    - -0.15
+    - -0.1
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.3
+      type: capsule
+    name: neck
+    pos:
+    - 0.15
+    - 0
+    - 0.1
+    range:
+    - -10
+    - 10
+  name: giraffe_default__99faa514__gen20
+  parent_ids: []
+  phase: 4.203780029066617
+  phase_offsets:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: giraffe_default

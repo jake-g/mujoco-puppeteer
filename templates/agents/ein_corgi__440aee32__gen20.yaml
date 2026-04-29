@@ -1,0 +1,100 @@
+agents:
+- amplitude: 0.957602696072238
+  body:
+    size:
+    - 0.4
+    - 0.15
+    - 0.05
+    type: box
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 2.1386823105188966
+  generation: 20
+  id: 27f9ba35
+  leg_length_scale: 0.8587210719382847
+  limbs:
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.05
+      type: capsule
+    name: front_left
+    pos:
+    - 0.35
+    - 0.1
+    - -0.025
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.05
+      type: capsule
+    name: front_right
+    pos:
+    - 0.35
+    - -0.1
+    - -0.025
+    range:
+    - -30
+    - 30
+  - axis:
+    - 1
+    - 0
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.05
+      type: capsule
+    name: back_left
+    pos:
+    - -0.35
+    - 0.1
+    - -0.025
+    range:
+    - -30
+    - 30
+  - axis:
+    - 1
+    - 0
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.05
+      type: capsule
+    name: back_right
+    pos:
+    - -0.35
+    - -0.1
+    - -0.025
+    range:
+    - -30
+    - 30
+  name: ein_corgi__440aee32__gen20
+  parent_ids: []
+  phase: 2.2840830527499287
+  phase_offsets:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: ein_corgi
