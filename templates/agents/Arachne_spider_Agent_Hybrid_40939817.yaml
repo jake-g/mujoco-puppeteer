@@ -1,0 +1,17 @@
+agents:
+- amplitude: 1.8839800392202402
+  frequency: 3.0886014895865577
+  id: '40939817'
+  leg_length_scale: 0.885703205682119
+  name: Arachne_spider_Agent_Hybrid_40939817
+  parent_ids:
+  - 5d7d49b5
+  - 2ebca040
+  phase: 4.360066971521168
+  phase_offsets:
+  - 0.14564472891892488
+  - 0.013287853141791622
+  - 0.04200576483461778
+  - 0.12608351187768557
+  size_scale: 1.0863252883677392
+  type: default

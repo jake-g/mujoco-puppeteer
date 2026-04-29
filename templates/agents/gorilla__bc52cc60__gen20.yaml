@@ -1,0 +1,40 @@
+agents:
+- amplitude: 0.5
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 2.4490758166556312
+  generation: 20
+  id: bc52cc60
+  leg_length_scale: 0.546746415587536
+  name: gorilla__bc52cc60__gen20
+  parent_ids: []
+  phase: 5.245942943207163
+  phase_offsets:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: gorilla
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

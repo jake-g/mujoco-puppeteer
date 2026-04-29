@@ -1,0 +1,159 @@
+agents:
+- amplitude: 1.272345219271155
+  body:
+    mass: 10.0
+    size:
+    - 0.3
+    - 0.2
+    - 0.05
+    type: box
+  frequency: 5.7932292435894155
+  id: 65c1edf3
+  leg_length_scale: 0.6146113997967618
+  limbs:
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: left_front
+    pos:
+    - 0.2
+    - 0.2
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: right_front
+    pos:
+    - 0.2
+    - -0.2
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: left_mid
+    pos:
+    - 0.0
+    - 0.2
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: right_mid
+    pos:
+    - 0.0
+    - -0.2
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: left_back
+    pos:
+    - -0.2
+    - 0.2
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: right_back
+    pos:
+    - -0.2
+    - -0.2
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    child:
+      axis:
+      - 0
+      - 1
+      - 0
+      geom:
+        size:
+        - 0.015
+        - 0.1
+        type: capsule
+      name: tail_2
+      range:
+      - 0
+      - 60
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: tail_1
+    pos:
+    - -0.3
+    - 0.0
+    - 0.05
+    range:
+    - 0
+    - 60
+  name: scorpion
+  parent_ids: []
+  phase: 4.599376963474751
+  phase_offsets:
+  - 0.0
+  - 0.7853981633974483
+  - 1.5707963267948966
+  - 2.356194490192345
+  - 3.141592653589793
+  - 3.9269908169872414
+  - 4.71238898038469
+  - 5.497787143782138
+  type: configurable

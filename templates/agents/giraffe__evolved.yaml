@@ -1,0 +1,42 @@
+agents:
+- amplitude: 0.7114121386513738
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 3.1185847918543814
+  id: fd47b850
+  leg_length_scale: 1.0316440174796724
+  name: evolved_giraffe
+  parent_ids: []
+  phase: 2.920251071620357
+  phase_offsets:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: giraffe
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

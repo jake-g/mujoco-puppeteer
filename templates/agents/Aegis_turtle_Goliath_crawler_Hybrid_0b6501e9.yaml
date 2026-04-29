@@ -1,0 +1,17 @@
+agents:
+- amplitude: 1.6070944175546038
+  frequency: 3.680003249496738
+  id: 0b6501e9
+  leg_length_scale: 0.5440679237966601
+  name: Aegis_turtle_Goliath_crawler_Hybrid_0b6501e9
+  parent_ids:
+  - 300f3b62
+  - 5da7dc76
+  phase: 3.744131461084749
+  phase_offsets:
+  - 0.16603584677418348
+  - 0.04353147112954697
+  - -0.08111341621639086
+  - -0.14700302472229929
+  size_scale: 0.980110423472444
+  type: default

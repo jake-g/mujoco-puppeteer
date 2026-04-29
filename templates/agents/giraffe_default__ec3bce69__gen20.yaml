@@ -1,0 +1,43 @@
+agents:
+- amplitude: 0.7722063820726459
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 3.826349920134352
+  generation: 20
+  id: ec3bce69
+  leg_length_scale: 0.36961111646062905
+  name: giraffe_default__ec3bce69__gen20
+  parent_ids: []
+  phase: 2.277182141871905
+  phase_offsets:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: giraffe_default
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

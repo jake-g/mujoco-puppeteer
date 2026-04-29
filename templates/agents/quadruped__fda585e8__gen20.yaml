@@ -1,0 +1,38 @@
+agents:
+- amplitude: 2.0
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 6.964534245306397
+  generation: 20
+  id: fda585e8
+  leg_length_scale: 2.331848852397842
+  name: quadruped__fda585e8__gen20
+  parent_ids: []
+  phase: 0.9771578511483856
+  phase_offsets:
+  - 0.0
+  - 1.08946059501582
+  - 4.120025629563818
+  - 8.538515495660326
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: quadruped
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

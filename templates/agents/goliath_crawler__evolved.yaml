@@ -1,0 +1,37 @@
+agents:
+- amplitude: 0.4624331931424552
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 5.087328183588461
+  id: 2cf20d8b
+  leg_length_scale: 0.7132070354398301
+  name: evolved_Goliath
+  parent_ids: []
+  phase: 1.3892251319943218
+  phase_offsets:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: Goliath
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

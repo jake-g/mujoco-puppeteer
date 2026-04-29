@@ -1,0 +1,25 @@
+agents:
+- amplitude: 1.642103616132795
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 4.689218389595627
+  generation: 20
+  id: 18796a27
+  leg_length_scale: 1.3051993915128206
+  name: arachne_spider__0f23c9a5__gen20
+  parent_ids: []
+  phase: 2.3741223997656027
+  phase_offsets:
+  - 0.0
+  - 1.5707963267948966
+  - 3.141592653589793
+  - 4.71238898038469
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: arachne_spider

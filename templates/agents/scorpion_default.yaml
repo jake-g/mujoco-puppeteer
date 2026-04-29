@@ -1,0 +1,48 @@
+agents:
+- name: scorpion
+  type: configurable
+  body:
+    type: box
+    size: [0.3, 0.2, 0.05]
+    mass: 10.0
+  limbs:
+    - name: left_front
+      pos: [0.2, 0.2, -0.05]
+      axis: [0, 1, 0]
+      range: [-30, 30]
+      geom: {type: capsule, size: [0.02, 0.1]}
+    - name: right_front
+      pos: [0.2, -0.2, -0.05]
+      axis: [0, 1, 0]
+      range: [-30, 30]
+      geom: {type: capsule, size: [0.02, 0.1]}
+    - name: left_mid
+      pos: [0.0, 0.2, -0.05]
+      axis: [0, 1, 0]
+      range: [-30, 30]
+      geom: {type: capsule, size: [0.02, 0.1]}
+    - name: right_mid
+      pos: [0.0, -0.2, -0.05]
+      axis: [0, 1, 0]
+      range: [-30, 30]
+      geom: {type: capsule, size: [0.02, 0.1]}
+    - name: left_back
+      pos: [-0.2, 0.2, -0.05]
+      axis: [0, 1, 0]
+      range: [-30, 30]
+      geom: {type: capsule, size: [0.02, 0.1]}
+    - name: right_back
+      pos: [-0.2, -0.2, -0.05]
+      axis: [0, 1, 0]
+      range: [-30, 30]
+      geom: {type: capsule, size: [0.02, 0.1]}
+    - name: tail_1
+      pos: [-0.3, 0.0, 0.05]
+      axis: [0, 1, 0]
+      range: [0, 60]
+      geom: {type: capsule, size: [0.02, 0.1]}
+      child:
+        name: tail_2
+        axis: [0, 1, 0]
+        range: [0, 60]
+        geom: {type: capsule, size: [0.015, 0.1]}

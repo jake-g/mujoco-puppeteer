@@ -1,0 +1,44 @@
+agents:
+- amplitude: 1.417160927088757
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 2.8470335047663404
+  generation: 20
+  id: 9e6e08e6
+  leg_length_scale: 0.4009745799388708
+  name: centipede__9e6e08e6__gen20
+  parent_ids: []
+  phase: 3.6774435383578625
+  phase_offsets:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: centipede
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

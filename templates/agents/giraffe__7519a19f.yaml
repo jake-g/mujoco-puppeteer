@@ -1,0 +1,167 @@
+agents:
+- amplitude: 0.7323022725755276
+  body:
+    size:
+    - 0.2
+    - 0.15
+    - 0.1
+    type: box
+  frequency: 2.739530817570023
+  id: 7519a19f
+  leg_length_scale: 1.1419109457353613
+  limbs:
+  - axis:
+    - 0
+    - 1
+    - 0
+    child:
+      axis:
+      - 0
+      - 1
+      - 0
+      geom:
+        size:
+        - 0.015
+        - 0.2
+        type: capsule
+      name: front_left_calf
+      range:
+      - 0
+      - 90
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: front_left
+    pos:
+    - 0.15
+    - 0.1
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    child:
+      axis:
+      - 0
+      - 1
+      - 0
+      geom:
+        size:
+        - 0.015
+        - 0.2
+        type: capsule
+      name: front_right_calf
+      range:
+      - 0
+      - 90
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: front_right
+    pos:
+    - 0.15
+    - -0.1
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    child:
+      axis:
+      - 0
+      - 1
+      - 0
+      geom:
+        size:
+        - 0.015
+        - 0.2
+        type: capsule
+      name: back_left_calf
+      range:
+      - 0
+      - 90
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: back_left
+    pos:
+    - -0.15
+    - 0.1
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    child:
+      axis:
+      - 0
+      - 1
+      - 0
+      geom:
+        size:
+        - 0.015
+        - 0.2
+        type: capsule
+      name: back_right_calf
+      range:
+      - 0
+      - 90
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: back_right
+    pos:
+    - -0.15
+    - -0.1
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.3
+      type: capsule
+    name: neck
+    pos:
+    - 0.15
+    - 0
+    - 0.1
+    range:
+    - -10
+    - 10
+  name: giraffe
+  parent_ids: []
+  phase: 2.9408761527185323
+  phase_offsets:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  type: configurable

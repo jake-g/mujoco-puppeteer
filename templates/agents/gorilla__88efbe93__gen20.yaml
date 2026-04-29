@@ -1,0 +1,40 @@
+agents:
+- amplitude: 1.5446463440491658
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 8.913106877988579
+  generation: 20
+  id: 88efbe93
+  leg_length_scale: 0.5807261949365057
+  name: gorilla__88efbe93__gen20
+  parent_ids: []
+  phase: 2.428971602178361
+  phase_offsets:
+  - 0.13505816275393262
+  - 0.3792581231834646
+  - 1.9102156572249203
+  - 4.214652007414573
+  - 3.3049057840238114
+  - 3.821171106385475
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: gorilla
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

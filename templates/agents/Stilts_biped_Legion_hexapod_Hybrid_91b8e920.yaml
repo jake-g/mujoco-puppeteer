@@ -1,0 +1,17 @@
+agents:
+- amplitude: 0.8564139612216632
+  frequency: 2.974975871177079
+  id: 91b8e920
+  leg_length_scale: 0.515826655246799
+  name: Stilts_biped_Legion_hexapod_Hybrid_91b8e920
+  parent_ids:
+  - 6ac0a951
+  - 086a2b0b
+  phase: 3.7063513186843497
+  phase_offsets:
+  - 0.00048492927200177727
+  - -0.08816512528694163
+  - -0.1120418767118696
+  - 0.17508598055564079
+  size_scale: 0.9035104654994526
+  type: default

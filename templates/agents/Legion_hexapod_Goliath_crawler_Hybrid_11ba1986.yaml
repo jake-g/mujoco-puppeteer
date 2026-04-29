@@ -1,0 +1,17 @@
+agents:
+- amplitude: 1.5713238441409125
+  frequency: 4.166348161723326
+  id: 11ba1986
+  leg_length_scale: 0.5639004053283071
+  name: Legion_hexapod_Goliath_crawler_Hybrid_11ba1986
+  parent_ids:
+  - 71661a9d
+  - de5df633
+  phase: 2.7854192831985265
+  phase_offsets:
+  - -0.0777273172833246
+  - -0.1370596241851251
+  - 0.18336535663208448
+  - 0.15569117042809688
+  size_scale: 0.9685398645871126
+  type: default

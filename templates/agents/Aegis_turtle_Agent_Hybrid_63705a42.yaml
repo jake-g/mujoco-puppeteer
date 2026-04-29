@@ -1,0 +1,17 @@
+agents:
+- amplitude: 0.6245318084980012
+  frequency: 3.281317047560028
+  id: 63705a42
+  leg_length_scale: 0.6938176593208544
+  name: Aegis_turtle_Agent_Hybrid_63705a42
+  parent_ids:
+  - 9aa8e1e7
+  - 900242c0
+  phase: 3.2839964327278985
+  phase_offsets:
+  - 0.061228365418705605
+  - -0.030362723336091246
+  - -0.15158964706613717
+  - 0.05328528442153048
+  size_scale: 1.0409588777786114
+  type: default

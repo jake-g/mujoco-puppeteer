@@ -1,0 +1,89 @@
+agents:
+- amplitude: 0.47721024261261086
+  body:
+    size:
+    - 0.3
+    - 0.3
+    - 0.05
+    type: box
+  frequency: 5.019656376212654
+  id: fe3cbacd
+  leg_length_scale: 0.6906182109455442
+  limbs:
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.05
+      type: capsule
+    name: front_left
+    pos:
+    - 0.25
+    - 0.25
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.05
+      type: capsule
+    name: front_right
+    pos:
+    - 0.25
+    - -0.25
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 1
+    - 0
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.05
+      type: capsule
+    name: back_left
+    pos:
+    - -0.25
+    - 0.25
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 1
+    - 0
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.05
+      type: capsule
+    name: back_right
+    pos:
+    - -0.25
+    - -0.25
+    - 0
+    range:
+    - -30
+    - 30
+  name: Goliath
+  parent_ids: []
+  phase: 1.402927114291731
+  phase_offsets:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  type: configurable

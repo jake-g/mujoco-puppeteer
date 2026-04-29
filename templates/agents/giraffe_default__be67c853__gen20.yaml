@@ -1,0 +1,43 @@
+agents:
+- amplitude: 0.9593852383803337
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 1.5142040899716538
+  generation: 20
+  id: be67c853
+  leg_length_scale: 0.2888452672708546
+  name: giraffe_default__be67c853__gen20
+  parent_ids: []
+  phase: 4.6312463546624985
+  phase_offsets:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: giraffe_default
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

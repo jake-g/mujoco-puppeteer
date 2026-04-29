@@ -1,0 +1,62 @@
+agents:
+  - name: crab
+    type: configurable
+    limbs:
+      - name: torso
+        pos: [0.0, 0.0, 0.2]
+        size: [0.3, 0.3, 0.1]
+        type: box
+      - name: front_left
+        pos: [0.15, 0.15, 0.0]
+        size: [0.04, 0.15]
+        type: capsule
+        child:
+          name: fl_tip
+          pos: [0.1, 0.1, -0.15]
+          size: [0.03, 0.15]
+          type: capsule
+      - name: mid_left
+        pos: [0.0, 0.2, 0.0]
+        size: [0.04, 0.15]
+        type: capsule
+        child:
+          name: ml_tip
+          pos: [0.0, 0.1, -0.15]
+          size: [0.03, 0.15]
+          type: capsule
+      - name: back_left
+        pos: [-0.15, 0.15, 0.0]
+        size: [0.04, 0.15]
+        type: capsule
+        child:
+          name: bl_tip
+          pos: [-0.1, 0.1, -0.15]
+          size: [0.03, 0.15]
+          type: capsule
+      - name: front_right
+        pos: [0.15, -0.15, 0.0]
+        size: [0.04, 0.15]
+        type: capsule
+        child:
+          name: fr_tip
+          pos: [0.1, -0.1, -0.15]
+          size: [0.03, 0.15]
+          type: capsule
+      - name: mid_right
+        pos: [0.0, -0.2, 0.0]
+        size: [0.04, 0.15]
+        type: capsule
+        child:
+          name: mr_tip
+          pos: [0.0, -0.1, -0.15]
+          size: [0.03, 0.15]
+          type: capsule
+      - name: back_right
+        pos: [-0.15, -0.15, 0.0]
+        size: [0.04, 0.15]
+        type: capsule
+        child:
+          name: br_tip
+          pos: [-0.1, -0.1, -0.15]
+          size: [0.03, 0.15]
+          type: capsule

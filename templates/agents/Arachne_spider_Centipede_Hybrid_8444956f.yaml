@@ -1,0 +1,17 @@
+agents:
+- amplitude: 1.9307930339802435
+  frequency: 2.6942557484010763
+  id: 8444956f
+  leg_length_scale: 0.8364586013057571
+  name: Arachne_spider_Centipede_Hybrid_8444956f
+  parent_ids:
+  - 643f76cf
+  - c4c74541
+  phase: 2.797705011727636
+  phase_offsets:
+  - 0.17709628946531858
+  - 0.8062159943165661
+  - 1.4405185003166465
+  - 2.503136433918579
+  size_scale: 0.9938764082822057
+  type: default

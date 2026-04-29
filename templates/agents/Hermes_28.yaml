@@ -1,0 +1,24 @@
+agents:
+- amplitude: 1.0
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 3.520276669844577
+  id: c522ae69
+  leg_length_scale: 1.284129505397901
+  name: Hermes
+  parent_ids: []
+  phase: 3.2008245000437077
+  phase_offsets:
+  - 0.0
+  - 1.5707963267948966
+  - 3.141592653589793
+  - 4.71238898038469
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: quadruped

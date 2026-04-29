@@ -1,0 +1,38 @@
+agents:
+- amplitude: 0.26257215730641176
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 6.7981925533906296
+  generation: 20
+  id: 06ac2a4e
+  leg_length_scale: 3.765384660597906
+  name: goliath_crawler__06ac2a4e__gen20
+  parent_ids: []
+  phase: 1.4349695408579584
+  phase_offsets:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: goliath_crawler
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

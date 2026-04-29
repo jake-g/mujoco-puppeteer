@@ -1,0 +1,17 @@
+agents:
+- amplitude: 2.0
+  frequency: 4.356845848697086
+  id: 400c58bf
+  leg_length_scale: 1.9808232642221932
+  name: Arachne_spider_Default_Hybrid_400c58bf
+  parent_ids:
+  - aad4cdb5
+  - dbc9cc4e
+  phase: 5.005396770078497
+  phase_offsets:
+  - -0.1742551956641986
+  - 1.2995131659008359
+  - 2.269468242560331
+  - 3.521978711979943
+  size_scale: 1.062950005401161
+  type: default

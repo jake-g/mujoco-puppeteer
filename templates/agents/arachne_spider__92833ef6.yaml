@@ -1,0 +1,159 @@
+agents:
+- amplitude: 1.08076549492371
+  body:
+    size:
+    - 0.2
+    type: sphere
+  frequency: 4.781785011313325
+  id: 92833ef6
+  leg_length_scale: 0.6466976558201771
+  limbs:
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: leg1
+    pos:
+    - 0.2
+    - 0
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - -1
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: leg2
+    pos:
+    - 0.14
+    - 0.14
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - -1
+    - 0
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: leg3
+    pos:
+    - 0
+    - 0.2
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - -1
+    - -1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: leg4
+    pos:
+    - -0.14
+    - 0.14
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - -1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: leg5
+    pos:
+    - -0.2
+    - 0
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 1
+    - -1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: leg6
+    pos:
+    - -0.14
+    - -0.14
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 1
+    - 0
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: leg7
+    pos:
+    - 0
+    - -0.2
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 1
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: leg8
+    pos:
+    - 0.14
+    - -0.14
+    - 0
+    range:
+    - -30
+    - 30
+  name: Arachne
+  parent_ids: []
+  phase: 2.529492626152083
+  phase_offsets:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  type: configurable

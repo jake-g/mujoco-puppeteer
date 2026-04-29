@@ -1,0 +1,28 @@
+agents:
+- name: aegis_turtle
+  type: configurable
+  body:
+    type: ellipsoid
+    size: [0.4, 0.4, 0.1]
+    mass: 10.0
+  limbs:
+    - name: front_left
+      pos: [0.25, 0.25, -0.05]
+      axis: [0, 1, 0]
+      range: [-20, 20]
+      geom: {type: capsule, size: [0.04, 0.05]}
+    - name: front_right
+      pos: [0.25, -0.25, -0.05]
+      axis: [0, 1, 0]
+      range: [-20, 20]
+      geom: {type: capsule, size: [0.04, 0.05]}
+    - name: back_left
+      pos: [-0.25, 0.25, -0.05]
+      axis: [1, 0, 0]
+      range: [-20, 20]
+      geom: {type: capsule, size: [0.04, 0.05]}
+    - name: back_right
+      pos: [-0.25, -0.25, -0.05]
+      axis: [1, 0, 0]
+      range: [-20, 20]
+      geom: {type: capsule, size: [0.04, 0.05]}

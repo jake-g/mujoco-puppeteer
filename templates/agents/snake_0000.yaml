@@ -1,0 +1,91 @@
+agents:
+- amplitude: 0.7256780301796137
+  body:
+    mass: 5.0
+    size:
+    - 0.1
+    type: sphere
+  frequency: 3.673127105263897
+  id: e7783d07
+  leg_length_scale: 0.5375952088796867
+  limbs:
+  - axis:
+    - 0
+    - 1
+    - 0
+    child:
+      axis:
+      - 0
+      - 1
+      - 0
+      child:
+        axis:
+        - 0
+        - 1
+        - 0
+        child:
+          axis:
+          - 0
+          - 1
+          - 0
+          child:
+            axis:
+            - 0
+            - 1
+            - 0
+            geom:
+              size:
+              - 0.02
+              - 0.1
+              type: capsule
+            name: seg_5
+            range:
+            - -45
+            - 45
+          geom:
+            size:
+            - 0.02
+            - 0.1
+            type: capsule
+          name: seg_4
+          range:
+          - -45
+          - 45
+        geom:
+          size:
+          - 0.02
+          - 0.1
+          type: capsule
+        name: seg_3
+        range:
+        - -45
+        - 45
+      geom:
+        size:
+        - 0.02
+        - 0.1
+        type: capsule
+      name: seg_2
+      range:
+      - -45
+      - 45
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: seg_1
+    pos:
+    - -0.1
+    - 0.0
+    - 0.0
+    range:
+    - -45
+    - 45
+  name: snake
+  parent_ids: []
+  phase: 5.051358335223613
+  phase_offsets:
+  - -0.10265897597062719
+  - 1.2846856749108841
+  type: configurable

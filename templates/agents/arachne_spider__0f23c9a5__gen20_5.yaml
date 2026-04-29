@@ -1,0 +1,170 @@
+agents:
+- amplitude: 1.7210336554130603
+  body:
+    size:
+    - 0.2
+    type: sphere
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 3.9397463608430776
+  generation: 20
+  id: 07011a0b
+  leg_length_scale: 0.999424557142694
+  limbs:
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: leg1
+    pos:
+    - 0.2
+    - 0
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - -1
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: leg2
+    pos:
+    - 0.14
+    - 0.14
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - -1
+    - 0
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: leg3
+    pos:
+    - 0
+    - 0.2
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - -1
+    - -1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: leg4
+    pos:
+    - -0.14
+    - 0.14
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - -1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: leg5
+    pos:
+    - -0.2
+    - 0
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 1
+    - -1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: leg6
+    pos:
+    - -0.14
+    - -0.14
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 1
+    - 0
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: leg7
+    pos:
+    - 0
+    - -0.2
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 1
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: leg8
+    pos:
+    - 0.14
+    - -0.14
+    - 0
+    range:
+    - -30
+    - 30
+  name: arachne_spider__0f23c9a5__gen20
+  parent_ids: []
+  phase: 2.7369211283210415
+  phase_offsets:
+  - 0.0
+  - 0.7853981633974483
+  - 1.5707963267948966
+  - 2.356194490192345
+  - 3.141592653589793
+  - 3.9269908169872414
+  - 4.71238898038469
+  - 5.497787143782138
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: arachne_spider

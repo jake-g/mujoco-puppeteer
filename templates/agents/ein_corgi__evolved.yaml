@@ -1,0 +1,37 @@
+agents:
+- amplitude: 0.7407270454206595
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 3.538925215502645
+  id: 3f2b1218
+  leg_length_scale: 1.2040366604565063
+  name: evolved_Ein
+  parent_ids: []
+  phase: 5.143073588299889
+  phase_offsets:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: Ein
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

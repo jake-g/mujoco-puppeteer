@@ -1,0 +1,198 @@
+agents:
+- amplitude: 0.8926597955990967
+  body:
+    mass: 15.0
+    size:
+    - 1.0
+    - 0.15
+    - 0.05
+    type: box
+  frequency: 8.248494216932599
+  id: ca08cb7f
+  leg_length_scale: 0.802374450720535
+  limbs:
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: left_1
+    pos:
+    - 0.8
+    - 0.15
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: right_1
+    pos:
+    - 0.8
+    - -0.15
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: left_2
+    pos:
+    - 0.4
+    - 0.15
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: right_2
+    pos:
+    - 0.4
+    - -0.15
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: left_3
+    pos:
+    - 0.0
+    - 0.15
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: right_3
+    pos:
+    - 0.0
+    - -0.15
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: left_4
+    pos:
+    - -0.4
+    - 0.15
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: right_4
+    pos:
+    - -0.4
+    - -0.15
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: left_5
+    pos:
+    - -0.8
+    - 0.15
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: right_5
+    pos:
+    - -0.8
+    - -0.15
+    - -0.05
+    range:
+    - -30
+    - 30
+  name: centipede
+  parent_ids: []
+  phase: 3.160176864646767
+  phase_offsets:
+  - 0.0
+  - 0.6283185307179586
+  - 1.2566370614359172
+  - 1.8849555921538759
+  - 2.5132741228718345
+  - 3.141592653589793
+  - 3.7699111843077517
+  - 4.39822971502571
+  - 5.026548245743669
+  - 5.654866776461628
+  type: configurable

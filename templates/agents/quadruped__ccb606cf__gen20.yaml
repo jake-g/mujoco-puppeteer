@@ -1,0 +1,38 @@
+agents:
+- amplitude: 3.9943987583418865
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 0.9200215094836562
+  generation: 20
+  id: ccb606cf
+  leg_length_scale: 5.6888438591873305
+  name: quadruped__ccb606cf__gen20
+  parent_ids: []
+  phase: 0.1660072757053518
+  phase_offsets:
+  - 0.0
+  - 1.429961330051442
+  - 2.8662648501912926
+  - 9.422119998284602
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: quadruped
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

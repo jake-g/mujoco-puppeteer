@@ -1,0 +1,36 @@
+agents:
+- amplitude: 0.604283991197146
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 2.3109259537203024
+  generation: 20
+  id: 809688e9
+  leg_length_scale: 3.0
+  name: snake__809688e9__gen20
+  parent_ids: []
+  phase: 6.448838837071396
+  phase_offsets:
+  - 0.0
+  - 0.0
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: snake
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

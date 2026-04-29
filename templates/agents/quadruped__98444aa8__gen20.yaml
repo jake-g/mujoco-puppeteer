@@ -1,0 +1,38 @@
+agents:
+- amplitude: 1.1225491003579275
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 5.679392269180268
+  generation: 20
+  id: 98444aa8
+  leg_length_scale: 4.341047297733314
+  name: quadruped__98444aa8__gen20
+  parent_ids: []
+  phase: 0.6143046813112623
+  phase_offsets:
+  - 0.0
+  - 1.0238649530732826
+  - 1.88062273916278
+  - 1.9499074410163195
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: quadruped
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

@@ -1,0 +1,38 @@
+agents:
+- amplitude: 0.5132111518723254
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 1.7097507860372816
+  generation: 20
+  id: 027c957e
+  leg_length_scale: 1.5045389825022069
+  name: stilts_biped__027c957e__gen20
+  parent_ids: []
+  phase: 1.612565540150705
+  phase_offsets:
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: stilts_biped
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

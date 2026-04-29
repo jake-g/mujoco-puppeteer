@@ -1,0 +1,100 @@
+agents:
+- amplitude: 2.0
+  body:
+    size:
+    - 0.3
+    - 0.3
+    - 0.05
+    type: box
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 2.165454137210795
+  generation: 20
+  id: 1569199e
+  leg_length_scale: 1.2886692159980324
+  limbs:
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.05
+      type: capsule
+    name: front_left
+    pos:
+    - 0.25
+    - 0.25
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.05
+      type: capsule
+    name: front_right
+    pos:
+    - 0.25
+    - -0.25
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 1
+    - 0
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.05
+      type: capsule
+    name: back_left
+    pos:
+    - -0.25
+    - 0.25
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 1
+    - 0
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.05
+      type: capsule
+    name: back_right
+    pos:
+    - -0.25
+    - -0.25
+    - 0
+    range:
+    - -30
+    - 30
+  name: goliath_crawler__2a034c94__gen20
+  parent_ids: []
+  phase: 5.654473544171647
+  phase_offsets:
+  - 0.0
+  - 1.5707963267948966
+  - 3.141592653589793
+  - 4.71238898038469
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: goliath_crawler

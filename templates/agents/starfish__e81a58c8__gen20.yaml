@@ -1,0 +1,39 @@
+agents:
+- amplitude: 1.2200011436561038
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 2.908834383801434
+  generation: 20
+  id: e81a58c8
+  leg_length_scale: 0.7042531553928011
+  name: starfish__e81a58c8__gen20
+  parent_ids: []
+  phase: 1.0565560253835977
+  phase_offsets:
+  - 0.0
+  - 0.9018609415508154
+  - 2.4976131318395653
+  - 3.5764969301303755
+  - 5.250478537750853
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: starfish
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

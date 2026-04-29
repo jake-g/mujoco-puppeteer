@@ -1,0 +1,17 @@
+agents:
+- amplitude: 1.0594861852125848
+  frequency: 3.3773151614263828
+  id: f7db42fd
+  leg_length_scale: 1.0266727600808823
+  name: Giraffe_default_Goliath_crawler_Hybrid_f7db42fd
+  parent_ids:
+  - c4222bad
+  - 1d83b9cd
+  phase: 2.787347134971519
+  phase_offsets:
+  - 0.10700921243239114
+  - 0.192332759526622
+  - 0.11037418369290791
+  - -0.010186311610172943
+  size_scale: 0.9146176315748739
+  type: default

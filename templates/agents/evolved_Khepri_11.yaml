@@ -1,0 +1,24 @@
+agents:
+- amplitude: 2.567025776184494
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 11.088986672236409
+  id: 74f440c7
+  leg_length_scale: 1.5
+  name: evolved_Khepri
+  parent_ids: []
+  phase: 3.404664759956137
+  phase_offsets:
+  - 0.0
+  - 1.5707963267948966
+  - 3.141592653589793
+  - 4.71238898038469
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: Khepri

@@ -1,0 +1,15 @@
+agents:
+- amplitude: 1.0
+  frequency: 4.089172082371691
+  id: 0e3b86ea
+  leg_length_scale: 0.8241546311352084
+  name: Aegis_turtle_Ein_corgi_Hybrid_3fadd42d
+  parent_ids: []
+  phase: 4.783639309954271
+  phase_offsets:
+  - 0.0
+  - 1.5707963267948966
+  - 3.141592653589793
+  - 4.71238898038469
+  size_scale: 0.9170714220193305
+  type: default

@@ -1,0 +1,15 @@
+agents:
+- amplitude: 1.6105859472372352
+  frequency: 3.88198617018963
+  id: 8af94370
+  leg_length_scale: 0.8940505835966845
+  name: Legion_hexapod_Ein_corgi_Hybrid_a2df5dae
+  parent_ids: []
+  phase: 3.5184159763434764
+  phase_offsets:
+  - 0.0
+  - 1.5707963267948966
+  - 3.141592653589793
+  - 4.71238898038469
+  size_scale: 1.0725611240211188
+  type: default
