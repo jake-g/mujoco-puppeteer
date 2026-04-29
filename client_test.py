@@ -1,7 +1,8 @@
 """Unit tests for the client module."""
 
-import unittest
 import json
+import unittest
+
 from client import process_message
 
 
