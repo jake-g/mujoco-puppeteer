@@ -1,6 +1,6 @@
 # Makefile for mujoco-puppeteer
 
-.PHONY: help setup format test clean run server client server-bg server-stop list run-template
+.PHONY: help setup format test clean run server client server-bg server-stop list run-template demo
 
 # Default target
 help:
@@ -8,13 +8,13 @@ help:
 	@echo "  make setup    - Set up virtual environment and install dependencies"
 	@echo "  make format   - Run YAPF and pre-commit for formatting"
 	@echo "  make test     - Run all unit tests"
-	@echo "  make run      - Run visual simulation"
-	@echo "  make server    - Run WebSocket simulation server"
-	@echo "  make server-bg - Run server in background"
-	@echo "  make server-stop - Stop background server"
-	@echo "  make client    - Run WebSocket test client"
+	@echo "  make run      - Run visual simulation with base template"
+	@echo "  make demo     - Run interactive multi-species demo"
+	@echo "  make demo-test - Run headless demo test for 10s"
 	@echo "  make list      - List available templates"
 	@echo "  make run-template name=<template_name> - Run a specific template"
+	@echo "  make clean-results - Clean duplicate images and index results"
+	@echo "  make kill      - Kill all background simulation processes"
 	@echo "  make clean    - Remove generated files and logs"
 
 # Setup environment
@@ -82,6 +82,36 @@ run-template:
 run:
 	@echo "🚀 Running visual simulation..."
 	@.venv/bin/mjpython cli.py --run base
+
+# Run demo
+demo:
+	@echo "🎮 Running simulation demo..."
+	@.venv/bin/mjpython demo.py
+
+# Run demo and record frames
+demo-record:
+	@echo "🎮 Running simulation demo and recording frames..."
+	@.venv/bin/mjpython demo.py --record
+
+# Run demo test (headless)
+demo-test:
+	@echo "🧪 Running demo test in background..."
+	@.venv/bin/mjpython demo.py --no-viewer & pid=$$! ; sleep 10 ; kill $$pid
+
+# Clean results
+clean-results:
+	@echo "🧹 Cleaning duplicate images and indexing results..."
+	@.venv/bin/python3 clean_results.py
+
+# Kill all processes
+kill:
+	@echo "💀 Killing all simulation and server processes..."
+	-pkill -f auto_evolve.py
+	-pkill -f cli.py
+	-pkill -f demo.py
+	-pkill -f server.py
+	-pkill -f maintenance.py
+	-pkill -f cron_job.py
 
 # Clean up
 clean:

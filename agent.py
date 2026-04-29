@@ -34,15 +34,24 @@ class Agent:
     self.size_scale = size_scale
     self.fallen_time = 0.0
     # Evolution parameters for sine wave policy
-    self.frequency = random.uniform(2.0, 5.0)
-    self.phase = random.uniform(0.0, 2 * math.pi)
+    # Expanded frequency range to allow discovery of faster gaits.
+    self.frequency = random.uniform(2.0, 10.0)
+    self.phase = random.uniform(0, 2 * math.pi)
     self.phase_offsets = [0.0, math.pi / 2, math.pi, 3 * math.pi / 2]
     self.amplitude = random.uniform(0.5, 2.0)
     self.steps: int = 0
+    self.max_distance = 0.0
     self.last_foot_touch: Optional[str] = None
-    self.leg_length_scale: float = random.uniform(0.5, 1.5)
+    # Force longer legs to prevent stumpy non-moving agents.
+    self.leg_length_scale: float = random.uniform(1.0, 2.0)
     self.time_alive: float = 0.0
     self.saved: bool = False
+
+    # Hunger and Health (Game Mechanics)
+    self.max_energy = 100.0 * self.size_scale
+    self.energy = self.max_energy
+    self.hunger_rate = 0.5 * self.size_scale
+    self.health = 100.0 * self.size_scale
 
     # Generate unique ID based on genome hash
     genome = [
@@ -147,6 +156,14 @@ class Agent:
 
     return actuators
 
+  def generate_sensors_xml(self) -> list[ET.Element]:
+    """Generates the XML elements for the agent's sensors.
+
+    Returns:
+        list[ET.Element]: A list of XML elements representing sensors.
+    """
+    return []
+
   def calculate_reward(self, data: mujoco.MjData) -> float:
     """Calculates the reward for the agent.
 
@@ -162,20 +179,53 @@ class Agent:
       agent_body = data.body(self.name)
       pos = agent_body.xpos
 
-      # Reward for moving forward in x direction
-      x_reward = pos[0]
+      # Reward for moving away from origin in any direction
+      x_reward = (pos[0]**2 + pos[1]**2)**0.5
 
       # Penalty for falling (z coordinate dropping below a threshold)
       z_penalty = 0.0
       if pos[2] < 0.5:
         z_penalty = -10.0
 
+      # Penalty for flipping upside down.
+      flip_penalty = 0.0
+      # xmat is a 9-element array, index 8 is the z-component of the body's z-axis.
+      if agent_body.xmat[8] < 0.0:
+        flip_penalty = -20.0  # Large penalty.
+
       # Survival reward for staying upright
       survival_reward = 0.0
       if pos[2] >= 0.5:
         survival_reward = 0.1
 
-      self.reward = x_reward + z_penalty + survival_reward
+      # Energy penalty (encourage efficient walking.)
+      energy = 0.0
+      if hasattr(self, "limbs"):
+        for l in self.limbs:
+          m_name = f"{self.name}_{l['name']}_motor"
+          m_idx = mujoco.mj_name2id(data.model, mujoco.mjtObj.mjOBJ_ACTUATOR,
+                                    m_name)
+          if m_idx >= 0:
+            energy += data.ctrl[m_idx]**2
+
+          if "child" in l:
+            c_name = f"{self.name}_{l['child']['name']}_motor"
+            c_idx = mujoco.mj_name2id(data.model, mujoco.mjtObj.mjOBJ_ACTUATOR,
+                                      c_name)
+            if c_idx >= 0:
+              energy += data.ctrl[c_idx]**2
+      else:
+        # Fallback for base Agent with hardcoded legs.
+        for leg_name in ["left", "right"]:
+          m_name = f"{self.name}_{leg_name}_motor"
+          m_idx = mujoco.mj_name2id(data.model, mujoco.mjtObj.mjOBJ_ACTUATOR,
+                                    m_name)
+          if m_idx >= 0:
+            energy += data.ctrl[m_idx]**2
+
+      energy_penalty = -0.05 * energy
+
+      self.reward = x_reward + z_penalty + survival_reward + energy_penalty + flip_penalty
       return self.reward
     except Exception as e:
       logger.error("Failed to calculate reward for %s: %s", self.name, e)
@@ -327,7 +377,7 @@ class QuadrupedAgent(Agent):
               self.steps += 1
               self.last_foot_touch = leg_name
               logger.info("%s made a step with %s", self.name, leg_name)
-              step_bonus += 10.0  # High reward for step!
+              step_bonus += 10.0  # High reward for step.
         except Exception:
           pass
 
@@ -353,11 +403,14 @@ class ConfigurableAgent(Agent):
     super().__init__(name, size_scale)
     self.config = config or {}
 
-    # Parse limbs to determine number of phase offsets needed!
+    # Parse limbs to determine number of phase offsets needed.
     self.limbs = self.config.get("limbs", [])
     if self.limbs:
       total_actuators = sum(2 if "child" in l else 1 for l in self.limbs)
-      self.phase_offsets = [0.0] * total_actuators  # Default to synchronized
+      # Distribute phase offsets to create wave motion.
+      self.phase_offsets = [
+          i * (2 * math.pi / total_actuators) for i in range(total_actuators)
+      ]
 
   def generate_xml(self) -> ET.Element:
     """Generates the XML element for the configurable agent.
@@ -393,6 +446,13 @@ class ConfigurableAgent(Agent):
 
     ET.SubElement(body, "geom", attrib=geom_attrib)
 
+    # Add eye site (forward looking.)
+    ET.SubElement(body,
+                  "site",
+                  name=f"{self.name}_eye_forward",
+                  pos=f"{0.2 * s} 0 0",
+                  zaxis="1 0 0")
+
     # Limbs
     for limb in self.limbs:
       limb_name = limb["name"]
@@ -423,7 +483,11 @@ class ConfigurableAgent(Agent):
       # Hip Geom
       geom_cfg = limb.get("geom", {"type": "capsule", "size": [0.02, 0.1]})
       geom_type = geom_cfg.get("type", "capsule")
-      geom_size = geom_cfg.get("size", [0.02, 0.1])
+      geom_size = list(geom_cfg.get("size", [0.02, 0.1]))
+
+      if geom_type == "capsule" and len(geom_size) >= 2:
+        geom_size[1] *= self.leg_length_scale
+
       geom_size_str = " ".join(str(v * s) for v in geom_size)
 
       g_pos = "0 0 0"
@@ -442,7 +506,7 @@ class ConfigurableAgent(Agent):
         child = limb["child"]
         child_name = child["name"]
 
-        # Position child at the end of parent capsule!
+        # Position child at the end of parent capsule.
         c_pos = [0.0, 0.0, 0.0]
         if geom_type == "capsule" and len(geom_size) >= 2:
           c_pos = [0.0, 0.0, -2 * geom_size[1] * s]
@@ -476,7 +540,11 @@ class ConfigurableAgent(Agent):
             "size": [0.015, 0.1]
         })
         c_geom_type = c_geom_cfg.get("type", "capsule")
-        c_geom_size = c_geom_cfg.get("size", [0.015, 0.1])
+        c_geom_size = list(c_geom_cfg.get("size", [0.015, 0.1]))
+
+        if c_geom_type == "capsule" and len(c_geom_size) >= 2:
+          c_geom_size[1] *= self.leg_length_scale
+
         c_geom_size_str = " ".join(str(v * s) for v in c_geom_size)
 
         cg_pos = "0 0 0"
@@ -502,6 +570,7 @@ class ConfigurableAgent(Agent):
           name=f"{self.name}_{limb_name}_motor",
           joint=f"{self.name}_{limb_name}_hip",
           ctrlrange="-1 1",
+          gear="5",
       )
       actuators.append(motor)
 
@@ -512,10 +581,20 @@ class ConfigurableAgent(Agent):
             name=f"{self.name}_{child_name}_motor",
             joint=f"{self.name}_{child_name}_knee",
             ctrlrange="-1 1",
+            gear="5",
         )
         actuators.append(c_motor)
 
     return actuators
+
+  def generate_sensors_xml(self) -> list[ET.Element]:
+    """Generates the XML elements for the agent's sensors."""
+    sensors = []
+    sensor = ET.Element("rangefinder",
+                        name=f"{self.name}_eye_forward",
+                        site=f"{self.name}_eye_forward")
+    sensors.append(sensor)
+    return sensors
 
   def act(self, data: mujoco.MjData):
     """Applies controls to all actuators."""
@@ -530,9 +609,48 @@ class ConfigurableAgent(Agent):
 
         if m_idx >= 0:
           phase_offset = self.phase_offsets[motor_idx]
-          data.ctrl[m_idx] = self.amplitude * math.sin(t * self.frequency +
-                                                       self.phase +
-                                                       phase_offset)
+
+          # Read obstacle avoidance sensor.
+          s_name = f"{self.name}_eye_forward"
+          s_id = mujoco.mj_name2id(data.model, mujoco.mjtObj.mjOBJ_SENSOR,
+                                   s_name)
+          bias = 0.0
+          if s_id >= 0:
+            dist = data.sensordata[s_id]
+            if dist < 1.0:
+              bias = 1.0  # Push legs forward to avoid/backup.
+
+          # Compute steering bias based on food vector.
+          # Scale amplitude by energy to simulate fatigue.
+          energy_factor = self.energy / self.max_energy
+          local_amplitude = self.amplitude * energy_factor
+
+          if hasattr(self, "food_vector") and self.food_vector != [0.0, 0.0]:
+            try:
+              agent_body = data.body(self.name)
+              quat = agent_body.xquat
+              # Forward vector (X-axis) from quaternion [w, x, y, z].
+              forward_vec = [
+                  1.0 - 2.0 * (quat[2]**2 + quat[3]**2),
+                  2.0 * (quat[1] * quat[2] + quat[0] * quat[3])
+              ]
+
+              # Cross product to determine if food is left or right.
+              cross = forward_vec[0] * self.food_vector[1] - forward_vec[
+                  1] * self.food_vector[0]
+
+              pos = limb.get("pos", [0.0, 0.0, 0.0])
+              # If food is to the left (cross > 0), push harder with right legs (pos[1] < 0).
+              if cross > 0 and pos[1] < 0:
+                local_amplitude += 0.5
+              # If food is to the right (cross < 0), push harder with left legs (pos[1] > 0).
+              elif cross < 0 and pos[1] > 0:
+                local_amplitude += 0.5
+            except Exception:
+              pass
+
+          data.ctrl[m_idx] = local_amplitude * math.sin(
+              t * self.frequency + self.phase + phase_offset) + bias
           motor_idx += 1
 
         if "child" in limb:
