@@ -1,0 +1,26 @@
+environment:
+  floor_size: [20.0, 20.0, 0.05]
+  floor_rgb1: [0.1, 0.1, 0.1]
+  floor_rgb2: [0.2, 0.2, 0.2]
+
+agents:
+  - name: quad_heavy
+    type: quadruped
+    pos: [-5.0, -5.0, 2.0]
+    color: [1.0, 0.0, 0.0, 1.0]
+    size_scale: 1.5
+  - name: crawler_stable
+    type: crawler
+    pos: [5.0, 5.0, 1.0]
+    color: [0.0, 1.0, 0.0, 1.0]
+    size_scale: 1.0
+  - name: default_fast
+    type: default
+    pos: [-5.0, 5.0, 1.0]
+    color: [0.0, 0.0, 1.0, 1.0]
+    size_scale: 1.0
+  - name: quad_small
+    type: quadruped
+    pos: [5.0, -5.0, 1.0]
+    color: [1.0, 1.0, 0.0, 1.0]
+    size_scale: 0.5

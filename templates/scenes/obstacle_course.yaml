@@ -1,0 +1,67 @@
+environment:
+  floor_size: [20.0, 20.0, 0.05]
+  floor_rgb1: [0.1, 0.1, 0.1]
+  floor_rgb2: [0.2, 0.2, 0.2]
+  obstacles:
+    - type: box
+      pos: [0.0, 0.0, 0.5]
+      size: [1.0, 1.0, 0.5]
+      mass: 10.0
+      color: [0.8, 0.2, 0.2, 1.0]
+    - type: box
+      pos: [3.0, 3.0, 0.5]
+      size: [0.5, 0.5, 0.5]
+      mass: 5.0
+      color: [0.2, 0.8, 0.2, 1.0]
+    - type: box
+      pos: [-3.0, -3.0, 0.5]
+      size: [0.5, 0.5, 0.5]
+      mass: 5.0
+      color: [0.2, 0.2, 0.8, 1.0]
+
+agents:
+  - name: quad_0
+    type: quadruped
+    pos: [-5.0, -5.0, 2.0]
+    color: [1.0, 0.0, 0.0, 1.0]
+    frequency: 2.7093546335010648
+    phase: 3.4727962338876566
+    amplitude: 1.6404666894688795
+    leg_length_scale: 0.5439803562927558
+    phase_offsets: [0.0, 1.5707963267948966, 3.141592653589793, 4.71238898038469]
+  - name: quad_1
+    type: quadruped
+    pos: [5.0, 5.0, 2.0]
+    color: [0.0, 1.0, 0.0, 1.0]
+    frequency: 2.7093546335010648
+    phase: 3.4727962338876566
+    amplitude: 1.6404666894688795
+    leg_length_scale: 0.5439803562927558
+    phase_offsets: [0.0, 1.5707963267948966, 3.141592653589793, 4.71238898038469]
+  - name: quad_2
+    type: quadruped
+    pos: [-5.0, 5.0, 2.0]
+    color: [0.0, 0.0, 1.0, 1.0]
+    frequency: 2.7093546335010648
+    phase: 3.4727962338876566
+    amplitude: 1.6404666894688795
+    leg_length_scale: 0.5439803562927558
+    phase_offsets: [0.0, 1.5707963267948966, 3.141592653589793, 4.71238898038469]
+  - name: quad_3
+    type: quadruped
+    pos: [5.0, -5.0, 2.0]
+    color: [1.0, 1.0, 0.0, 1.0]
+    frequency: 2.7093546335010648
+    phase: 3.4727962338876566
+    amplitude: 1.6404666894688795
+    leg_length_scale: 0.5439803562927558
+    phase_offsets: [0.0, 1.5707963267948966, 3.141592653589793, 4.71238898038469]
+  - name: quad_4
+    type: quadruped
+    pos: [0.0, 2.0, 3.0]
+    color: [1.0, 0.0, 1.0, 1.0]
+    frequency: 2.7093546335010648
+    phase: 3.4727962338876566
+    amplitude: 1.6404666894688795
+    leg_length_scale: 0.5439803562927558
+    phase_offsets: [0.0, 1.5707963267948966, 3.141592653589793, 4.71238898038469]
