@@ -1,0 +1,36 @@
+agents:
+- color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 5.456658935584888
+  name: evolved_quad
+  phase: 0.034097484876732136
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: quadruped
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05
+  sky_rgb1:
+  - 0.6
+  - 0.8
+  - 1.0
+  sky_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0

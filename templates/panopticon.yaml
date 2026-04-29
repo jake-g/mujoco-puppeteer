@@ -1,0 +1,29 @@
+environment:
+  gravity: [0.0, 0.0, -9.81]
+  floor_size: [20.0, 20.0, 0.05]
+  floor_rgb1: [0.05, 0.0, 0.0]
+  floor_rgb2: [0.0, 0.0, 0.0]
+  sky_rgb1: [0.1, 0.0, 0.1]
+  sky_rgb2: [0.0, 0.0, 0.0]
+
+agents:
+  - name: agent_0
+    type: quadruped
+    pos: [-2.0, -2.0, 1.0]
+    color: [0.8, 0.0, 0.0, 1.0]
+  - name: agent_1
+    type: quadruped
+    pos: [2.0, 2.0, 1.0]
+    color: [0.5, 0.0, 0.5, 1.0]
+  - name: agent_2
+    type: quadruped
+    pos: [-2.0, 2.0, 1.0]
+    color: [0.2, 0.2, 0.2, 1.0]
+  - name: agent_3
+    type: quadruped
+    pos: [2.0, -2.0, 1.0]
+    color: [0.0, 0.0, 0.0, 1.0]
+  - name: agent_4
+    type: quadruped
+    pos: [0.0, 0.0, 2.0]
+    color: [1.0, 1.0, 1.0, 1.0]
