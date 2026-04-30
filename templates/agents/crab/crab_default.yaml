@@ -1,11 +1,11 @@
 agents:
   - name: crab
     type: configurable
+    body:
+      type: box
+      size: [0.3, 0.3, 0.1]
+      mass: 10.0
     limbs:
-      - name: torso
-        pos: [0.0, 0.0, 0.2]
-        size: [0.3, 0.3, 0.1]
-        type: box
       - name: front_left
         pos: [0.15, 0.15, 0.0]
         size: [0.04, 0.15]

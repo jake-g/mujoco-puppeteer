@@ -9,19 +9,19 @@ agents:
       pos: [0.25, 0.25, 0]
       axis: [0, 1, 0]
       range: [-30, 30]
-      geom: {type: capsule, size: [0.02, 0.05]}
+      geom: {type: capsule, size: [0.02, 0.15]}
     - name: front_right
       pos: [0.25, -0.25, 0]
       axis: [0, 1, 0]
       range: [-30, 30]
-      geom: {type: capsule, size: [0.02, 0.05]}
+      geom: {type: capsule, size: [0.02, 0.15]}
     - name: back_left
       pos: [-0.25, 0.25, 0]
       axis: [1, 0, 0]
       range: [-30, 30]
-      geom: {type: capsule, size: [0.02, 0.05]}
+      geom: {type: capsule, size: [0.02, 0.15]}
     - name: back_right
       pos: [-0.25, -0.25, 0]
       axis: [1, 0, 0]
       range: [-30, 30]
-      geom: {type: capsule, size: [0.02, 0.05]}
+      geom: {type: capsule, size: [0.02, 0.15]}

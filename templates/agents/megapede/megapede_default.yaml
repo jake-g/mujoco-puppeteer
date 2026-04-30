@@ -1,48 +1,49 @@
 agents:
   - name: megapede
     type: configurable
+    size_scale: 2.0
+    body:
+      type: box
+      size: [1.0, 0.2, 0.05]
+      mass: 15.0
     limbs:
-      - name: torso
-        pos: [0.0, 0.0, 0.2]
-        size: [0.8, 0.3, 0.1]
-        type: box
       - name: leg_fl
-        pos: [0.3, 0.2, 0.0]
+        pos: [0.8, 0.15, 0.0]
         size: [0.04, 0.2]
         type: capsule
       - name: leg_ml1
-        pos: [0.15, 0.2, 0.0]
+        pos: [0.4, 0.15, 0.0]
         size: [0.04, 0.2]
         type: capsule
       - name: leg_ml2
-        pos: [0.0, 0.2, 0.0]
+        pos: [0.0, 0.15, 0.0]
         size: [0.04, 0.2]
         type: capsule
       - name: leg_ml3
-        pos: [-0.15, 0.2, 0.0]
+        pos: [-0.4, 0.15, 0.0]
         size: [0.04, 0.2]
         type: capsule
       - name: leg_bl
-        pos: [-0.3, 0.2, 0.0]
+        pos: [-0.8, 0.15, 0.0]
         size: [0.04, 0.2]
         type: capsule
       - name: leg_fr
-        pos: [0.3, -0.2, 0.0]
+        pos: [0.8, -0.15, 0.0]
         size: [0.04, 0.2]
         type: capsule
       - name: leg_mr1
-        pos: [0.15, -0.2, 0.0]
+        pos: [0.4, -0.15, 0.0]
         size: [0.04, 0.2]
         type: capsule
       - name: leg_mr2
-        pos: [0.0, -0.2, 0.0]
+        pos: [0.0, -0.15, 0.0]
         size: [0.04, 0.2]
         type: capsule
       - name: leg_mr3
-        pos: [-0.15, -0.2, 0.0]
+        pos: [-0.4, -0.15, 0.0]
         size: [0.04, 0.2]
         type: capsule
       - name: leg_br
-        pos: [-0.3, -0.2, 0.0]
+        pos: [-0.8, -0.15, 0.0]
         size: [0.04, 0.2]
         type: capsule

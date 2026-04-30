@@ -2,6 +2,20 @@ environment:
   floor_size: [20.0, 20.0, 0.05]
   floor_rgb1: [0.4, 0.4, 0.4]
   floor_rgb2: [0.6, 0.6, 0.6]
+  obstacles:
+    - type: sphere
+      size: [1.0, 1.0, 1.0]
+      pos: [0.0, 0.0, 5.0]
+      mass: 100.0
+      color: [0.2, 0.2, 0.2, 1.0]
+    - type: box
+      size: [0.5, 0.5, 1.0]
+      pos: [-2.0, 2.0, 0.5]
+      color: [0.8, 0.1, 0.1, 1.0]
+    - type: box
+      size: [0.5, 0.5, 1.0]
+      pos: [2.0, -2.0, 0.5]
+      color: [0.1, 0.1, 0.8, 1.0]
 
 agents:
   - name: quad_heavy

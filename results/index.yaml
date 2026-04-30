@@ -1,16 +1,18 @@
 summary:
-  total_folders: 334
-  total_files: 18109
+  total_folders: 340
+  total_files: 19331
 species_counts:
   results_v1: 1
-  gorilla: 14
+  gorilla: 15
+  scorpion: 17
+  Scorpion: 1
+  snake: 12
   stilts_biped: 9
   legion_hexapod: 29
   giraffe_default: 11
   crab: 6
   arachne_spider: 20
   quadruped: 43
-  scorpion: 16
   mech_biped: 8
   giraffe: 15
   khepri_beetle: 23
@@ -21,11 +23,17 @@ species_counts:
   Configurable: 13
   centipede: 18
   ein_corgi: 23
-  snake: 10
+  demo: 1
 folder_sizes:
-  results_v1: 9683
-  gorilla_0005: 50
+  results_v1: 9699
   gorilla_0002: 50
+  gorilla__1229d38b__gen10: 123
+  scorpion__9e186838__gen10: 1
+  Scorpion__4d660507_694fc611__5cfc10c8: 1
+  scorpion_0005: 10
+  snake_0003: 20
+  snake__f0a6133a__gen10: 1
+  gorilla_0005: 50
   gorilla__bc52cc60__gen20: 3
   gorilla_000e: 50
   gorilla_000d: 10
@@ -170,7 +178,6 @@ folder_sizes:
   scorpion_0003: 2
   scorpion__4f1fc2b9__gen20: 0
   scorpion__fb1b7306__gen20: 25
-  scorpion_0005: 10
   scorpion_000e: 10
   mech_biped__e773e5cf__gen20: 151
   mech_biped_0031: 0
@@ -357,3 +364,4 @@ folder_sizes:
   snake__809688e9__gen20: 7
   snake_0001: 0
   snake_000f: 50
+  demo: 1060

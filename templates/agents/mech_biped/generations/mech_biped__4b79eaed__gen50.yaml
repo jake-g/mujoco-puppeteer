@@ -1,0 +1,38 @@
+agents:
+- amplitude: 0.6214874791924612
+  color:
+  - 0.0
+  - 1.0
+  - 0.0
+  - 1.0
+  frequency: 5.501388218080517
+  generation: 50
+  id: 4b79eaed
+  leg_length_scale: 0.713610980223583
+  name: mech_biped__4b79eaed__gen50
+  parent_ids: []
+  phase: 1.0337596915352543
+  phase_offsets:
+  - 0.0
+  - 3.1454328681912482
+  - 1.6224590969721313
+  - 1.6891954292946232
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 1.0
+  type: mech_biped
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

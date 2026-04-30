@@ -1,0 +1,30 @@
+agents:
+  - name: ostrich
+    type: configurable
+    body:
+      type: box
+      size: [0.2, 0.15, 0.3]
+      mass: 20.0
+    limbs:
+      - name: left_leg
+        pos: [0.0, 0.15, -0.2]
+        size: [0.04, 0.4]
+        type: capsule
+        child:
+          name: left_calf
+          pos: [0.0, 0.0, -0.4]
+          size: [0.03, 0.4]
+          type: capsule
+      - name: right_leg
+        pos: [0.0, -0.15, -0.2]
+        size: [0.04, 0.4]
+        type: capsule
+        child:
+          name: right_calf
+          pos: [0.0, 0.0, -0.4]
+          size: [0.03, 0.4]
+          type: capsule
+      - name: neck
+        pos: [0.15, 0.0, 0.3]
+        size: [0.03, 0.3]
+        type: capsule

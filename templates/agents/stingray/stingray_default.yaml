@@ -1,0 +1,20 @@
+agents:
+  - name: stingray
+    type: configurable
+    body:
+      type: box
+      size: [0.5, 0.5, 0.05]
+      mass: 20.0
+    limbs:
+      - name: left_fin
+        pos: [0.0, 0.5, 0.0]
+        size: [0.4, 0.2, 0.02]
+        type: box
+      - name: right_fin
+        pos: [0.0, -0.5, 0.0]
+        size: [0.4, 0.2, 0.02]
+        type: box
+      - name: tail
+        pos: [-0.5, 0.0, 0.0]
+        size: [0.02, 0.6]
+        type: capsule

@@ -1,0 +1,42 @@
+agents:
+  - name: mantis
+    type: configurable
+    body:
+      type: box
+      size: [0.4, 0.15, 0.1]
+      mass: 10.0
+    limbs:
+      - name: leg_bl
+        pos: [-0.2, 0.15, 0.0]
+        size: [0.03, 0.2]
+        type: capsule
+      - name: leg_br
+        pos: [-0.2, -0.15, 0.0]
+        size: [0.03, 0.2]
+        type: capsule
+      - name: leg_ml
+        pos: [0.0, 0.15, 0.0]
+        size: [0.03, 0.2]
+        type: capsule
+      - name: leg_mr
+        pos: [0.0, -0.15, 0.0]
+        size: [0.03, 0.2]
+        type: capsule
+      - name: claw_left
+        pos: [0.3, 0.1, 0.1]
+        size: [0.03, 0.3]
+        type: capsule
+        child:
+          name: cl_lower
+          pos: [0.1, 0.0, -0.1]
+          size: [0.02, 0.2]
+          type: capsule
+      - name: claw_right
+        pos: [0.3, -0.1, 0.1]
+        size: [0.03, 0.3]
+        type: capsule
+        child:
+          name: cr_lower
+          pos: [0.1, 0.0, -0.1]
+          size: [0.02, 0.2]
+          type: capsule

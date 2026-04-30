@@ -1,0 +1,151 @@
+agents:
+- amplitude: 0.945018438025087
+  body:
+    mass: 10.0
+    size:
+    - 0.3
+    - 0.3
+    - 0.1
+    type: box
+  color:
+  - 0.539278978483257
+  - 0.5786156878495923
+  - 0.17509846730307865
+  - 1.0
+  frequency: 4.345813469008459
+  generation: 0
+  id: f68e1675
+  leg_length_scale: 1.2367243122939928
+  limbs:
+  - child:
+      name: limb_0_child
+      pos:
+      - 0.1
+      - 0.1
+      - -0.15
+      size:
+      - 0.03
+      - 0.15
+      type: capsule
+    name: limb_0
+    pos:
+    - 0.15
+    - 0.15
+    - 0.0
+    size:
+    - 0.04493120414995906
+    - 0.08960382911538484
+    type: capsule
+  - child:
+      name: limb_1_child
+      pos:
+      - 0.0
+      - 0.1
+      - -0.15
+      size:
+      - 0.03
+      - 0.15
+      type: capsule
+    name: limb_1
+    pos:
+    - 0.0
+    - 0.2
+    - 0.0
+    size:
+    - 0.009352732172378742
+    - 0.18134963113955627
+    type: capsule
+  - child:
+      name: limb_2_child
+      pos:
+      - -0.1
+      - 0.1
+      - -0.15
+      size:
+      - 0.03
+      - 0.15
+      type: capsule
+    name: limb_2
+    pos:
+    - -0.15
+    - 0.15
+    - 0.0
+    size:
+    - 0.05590361701366808
+    - 0.3625898088839954
+    type: capsule
+  - child:
+      name: limb_3_child
+      pos:
+      - 0.1
+      - -0.1
+      - -0.15
+      size:
+      - 0.03
+      - 0.15
+      type: capsule
+    name: limb_3
+    pos:
+    - 0.15
+    - -0.15
+    - 0.0
+    size:
+    - 0.024442947283412814
+    - 0.4505758597195135
+    type: capsule
+  - child:
+      name: limb_4_child
+      pos:
+      - 0.0
+      - -0.1
+      - -0.15
+      size:
+      - 0.03
+      - 0.15
+      type: capsule
+    name: limb_4
+    pos:
+    - 0.0
+    - -0.2
+    - 0.0
+    size:
+    - 0.07174359170357854
+    - 0.07947783789047591
+    type: capsule
+  name: crab__f68e1675__gen20
+  parent_ids:
+  - 3a7aa8bf
+  - 82e31bc8
+  phase: 4.625266940785102
+  phase_offsets:
+  - 0.3605761856270103
+  - 0.2982508505787473
+  - 1.2280175926325856
+  - 2.3491323026169884
+  - 1.6021110220552859
+  - 1.8706058180052412
+  - 2.230365654189278
+  - 2.565623626012162
+  - 3.1450560700382684
+  - 3.5129868935141038
+  - 3.562002675371029
+  - 3.6312627296527267
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  size_scale: 0.9014090072448655
+  type: configurable
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05
