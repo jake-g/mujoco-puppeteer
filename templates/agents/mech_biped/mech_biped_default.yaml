@@ -1,11 +1,11 @@
 agents:
   - name: mech_biped
     type: configurable
+    body:
+      type: box
+      size: [0.3, 0.3, 0.2]
+      mass: 15.0
     limbs:
-      - name: torso
-        pos: [0.0, 0.0, 0.6]
-        size: [0.3, 0.3, 0.2]
-        type: box
       - name: left_leg
         pos: [0.0, 0.2, -0.2]
         size: [0.08, 0.3]
@@ -24,3 +24,7 @@ agents:
           pos: [0.0, 0.0, -0.3]
           size: [0.2, 0.1, 0.05]
           type: box
+      - name: tail
+        pos: [-0.3, 0.0, 0.0]
+        size: [0.03, 0.4]
+        type: capsule

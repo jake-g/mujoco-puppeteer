@@ -1,0 +1,32 @@
+environment:
+  floor_size: [30.0, 30.0, 0.05]
+  floor_rgb1: [0.2, 0.2, 0.2]
+  floor_rgb2: [0.3, 0.3, 0.3]
+  sky_rgb1: [0.5, 0.7, 1.0]
+  sky_rgb2: [1.0, 1.0, 1.0]
+
+agents:
+  - name: crab_inst
+    type: crab
+    pos: [1.0, 1.0, 1.0]
+  - name: mech_inst
+    type: mech_biped
+    pos: [-1.0, 1.0, 1.0]
+  - name: mega_inst
+    type: megapede
+    pos: [1.0, -1.0, 1.0]
+  - name: ostrich_inst
+    type: ostrich
+    pos: [-1.0, -1.0, 1.0]
+  - name: dragon_inst
+    type: dragon
+    pos: [2.0, 0.0, 1.0]
+  - name: mantis_inst
+    type: mantis
+    pos: [-2.0, 0.0, 1.0]
+  - name: urchin_inst
+    type: urchin
+    pos: [0.0, 2.0, 1.0]
+  - name: frog_inst
+    type: frog
+    pos: [0.0, -2.0, 1.0]

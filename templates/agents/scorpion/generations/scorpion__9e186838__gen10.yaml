@@ -1,0 +1,118 @@
+agents:
+- amplitude: 1.3878366912822178
+  body:
+    mass: 10.0
+    size:
+    - 0.3
+    - 0.2
+    - 0.05
+    type: box
+  color:
+  - 0.17960591156726
+  - 0.27989647762815417
+  - 0.495054371517983
+  - 1.0
+  frequency: 0.8947296831186616
+  generation: 0
+  id: 9e186838
+  leg_length_scale: 1.3299826557010577
+  limbs:
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: limb_0
+    pos:
+    - -0.2
+    - 0.2
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: limb_1
+    pos:
+    - -0.2
+    - -0.2
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    child:
+      axis:
+      - 0
+      - 1
+      - 0
+      geom:
+        size:
+        - 0.015
+        - 0.1
+        type: capsule
+      name: limb_2_child
+      range:
+      - 0
+      - 60
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: limb_2
+    pos:
+    - -0.3
+    - 0.0
+    - 0.05
+    range:
+    - 0
+    - 60
+  name: scorpion__9e186838__gen10
+  parent_ids:
+  - 205cc615
+  - c6f0f5d5
+  phase: 1.3540548223441944
+  phase_offsets:
+  - 0.04819094996899084
+  - 0.8766219047836565
+  - 1.3666994407724717
+  - 3.328445123062079
+  - 2.2361507017686213
+  - 4.013608391160411
+  - 4.045628216899467
+  - 5.30968281868785
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  score: 7.129545975297392
+  size_scale: 0.9010041494914219
+  type: configurable
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

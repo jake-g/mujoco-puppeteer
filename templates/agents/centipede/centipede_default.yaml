@@ -10,49 +10,49 @@ agents:
       pos: [0.8, 0.15, -0.05]
       axis: [0, 1, 0]
       range: [-30, 30]
-      geom: {type: capsule, size: [0.02, 0.1]}
+      geom: {type: capsule, size: [0.02, 0.2]}
     - name: right_1
       pos: [0.8, -0.15, -0.05]
       axis: [0, 1, 0]
       range: [-30, 30]
-      geom: {type: capsule, size: [0.02, 0.1]}
+      geom: {type: capsule, size: [0.02, 0.2]}
     - name: left_2
       pos: [0.4, 0.15, -0.05]
       axis: [0, 1, 0]
       range: [-30, 30]
-      geom: {type: capsule, size: [0.02, 0.1]}
+      geom: {type: capsule, size: [0.02, 0.2]}
     - name: right_2
       pos: [0.4, -0.15, -0.05]
       axis: [0, 1, 0]
       range: [-30, 30]
-      geom: {type: capsule, size: [0.02, 0.1]}
+      geom: {type: capsule, size: [0.02, 0.2]}
     - name: left_3
       pos: [0.0, 0.15, -0.05]
       axis: [0, 1, 0]
       range: [-30, 30]
-      geom: {type: capsule, size: [0.02, 0.1]}
+      geom: {type: capsule, size: [0.02, 0.2]}
     - name: right_3
       pos: [0.0, -0.15, -0.05]
       axis: [0, 1, 0]
       range: [-30, 30]
-      geom: {type: capsule, size: [0.02, 0.1]}
+      geom: {type: capsule, size: [0.02, 0.2]}
     - name: left_4
       pos: [-0.4, 0.15, -0.05]
       axis: [0, 1, 0]
       range: [-30, 30]
-      geom: {type: capsule, size: [0.02, 0.1]}
+      geom: {type: capsule, size: [0.02, 0.2]}
     - name: right_4
       pos: [-0.4, -0.15, -0.05]
       axis: [0, 1, 0]
       range: [-30, 30]
-      geom: {type: capsule, size: [0.02, 0.1]}
+      geom: {type: capsule, size: [0.02, 0.2]}
     - name: left_5
       pos: [-0.8, 0.15, -0.05]
       axis: [0, 1, 0]
       range: [-30, 30]
-      geom: {type: capsule, size: [0.02, 0.1]}
+      geom: {type: capsule, size: [0.02, 0.2]}
     - name: right_5
       pos: [-0.8, -0.15, -0.05]
       axis: [0, 1, 0]
       range: [-30, 30]
-      geom: {type: capsule, size: [0.02, 0.1]}
+      geom: {type: capsule, size: [0.02, 0.2]}

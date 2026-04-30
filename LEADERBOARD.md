@@ -1,1101 +1,509 @@
 # Simulation Leaderboard
 
 ## Summary Stats
-- **Total Configs Evaluated**: 1083
-- **Total Species/Variants**: 272
-- **Top Performer**: quadruped__163c26ad__gen20 (Score: 6.65)
+- **Total Configs Evaluated**: 487
+- **Total Species/Variants**: 60
+- **Top Performer**: quadruped__ccb606cf__gen20 (Score: 6.94)
+- **Plot Insights**:
+  - *Timeline*: Distinct clusters of high-intensity evolution separated by gaps.
+  - *Progression*: Upward slope in reward clusters indicates successful optimization over time.
+  - *Density*: Overlapping points show high concentration of similar performers in successful generations.
 
 ## Evolution Progress
 
 ![Progress Plot](results/progress.png)
 
 ## Rankings
-| Rank | Config | Score | Distance | Survival |
-|------|--------|-------|----------|----------|
-| 1 | quadruped__163c26ad__gen20 | 6.65 | 6.60 | 10.0 |
-| 2 | goliath_crawler__ceccaed0__gen20_2 | 6.09 | 6.52 | 10.0 |
-| 3 | quadruped__fb8d87d9__gen2 | 6.04 | 5.99 | 10.0 |
-| 4 | ein_corgi__5bb450d0__gen20_1 | 5.93 | 6.02 | 10.0 |
-| 5 | giraffe_default__e74dd564__gen20_1 | 5.80 | 6.00 | 10.0 |
-| 6 | quadruped__3180f4fe__gen20 | 5.77 | 5.72 | 10.0 |
-| 7 | quadruped__60c1a634__gen20 | 5.77 | 5.72 | 10.0 |
-| 8 | goliath_crawler__fe3cbac | 5.62 | 6.02 | 10.0 |
-| 9 | legion_hexapod_000 | 5.33 | 6.34 | 10.0 |
-| 10 | khepri_beetle__a903176b__gen2 | 5.32 | 5.27 | 10.0 |
-| 11 | quadruped__3e28aa35__gen20 | 5.30 | 5.25 | 10.0 |
-| 12 | quadruped__0946fd96__gen20 | 5.30 | 5.25 | 10.0 |
-| 13 | giraffe_default__9ec68be6__gen20 | 5.24 | 5.23 | 10.0 |
-| 14 | snake__9a8a1db8__gen20 | 5.22 | 5.24 | 10.0 |
-| 15 | Stilts_biped_Agent_Hybrid_f5850075_1 | 5.15 | 5.17 | 10.0 |
-| 16 | goliath_crawler__cc9bc7b8__gen20_2 | 5.06 | 5.01 | 10.0 |
-| 17 | quadruped__9422b36b__gen20 | 5.06 | 5.01 | 10.0 |
-| 18 | khepri_beetle__f32cceb5__gen20 | 4.95 | 4.91 | 10.0 |
-| 19 | giraffe_default__4e59c0ea__gen5 | 4.95 | 4.90 | 10.0 |
-| 20 | quadruped__1332f9ee__gen20 | 4.77 | 4.72 | 10.0 |
-| 21 | quadruped__98444aa8__gen20 | 4.75 | 4.70 | 10.0 |
-| 22 | Agent_ffb9248 | 4.72 | 5.99 | 10.0 |
-| 23 | giraffe_default__c8afed5d__gen20 | 4.71 | 5.39 | 10.0 |
-| 24 | quadruped__55dcb287__gen20_1 | 4.66 | 5.67 | 10.0 |
-| 25 | giraffe_default__e74dd564__gen20 | 4.64 | 4.90 | 10.0 |
-| 26 | Arachne_spider_Default_Hybrid_400c58bf | 4.63 | 4.58 | 10.0 |
-| 27 | giraffe_default__69664eb6__gen20 | 4.61 | 5.66 | 10.0 |
-| 28 | giraffe_default__6eb60d30__gen20 | 4.59 | 4.58 | 10.0 |
-| 29 | giraffe_default__8102c84e__gen20 | 4.52 | 5.30 | 10.0 |
-| 30 | quadruped__57dcdc56__gen20 | 4.52 | 4.47 | 10.0 |
-| 31 | starfish__79781680__gen20 | 4.49 | 4.64 | 10.0 |
-| 32 | goliath_crawler__9d86ac27__gen20_1 | 4.47 | 4.42 | 10.0 |
-| 33 | quadruped__3158f2eb__gen20 | 4.17 | 4.12 | 10.0 |
-| 34 | quadruped__62b7c947__gen20 | 4.16 | 4.11 | 10.0 |
-| 35 | khepri_beetle__8bfc4cbb__gen2 | 4.16 | 4.11 | 10.0 |
-| 36 | giraffe_defaul | 4.05 | 4.00 | 10.0 |
-| 37 | quadruped__ccb606cf__gen20 | 3.96 | 3.91 | 10.0 |
-| 38 | giraffe_default__45360919__gen20 | 3.96 | 5.16 | 10.0 |
-| 39 | giraffe_default__da6793c5__gen20 | 3.90 | 3.90 | 10.0 |
-| 40 | hermes_quadruped__b5a13a0 | 3.86 | 4.99 | 10.0 |
-| 41 | scorpion__04ef10ed__gen20 | 3.85 | 4.14 | 10.0 |
-| 42 | khepri_beetle__3fcf682b__gen20_ | 3.73 | 3.68 | 10.0 |
-| 43 | giraffe_default__4e59c0ea__gen50 | 3.63 | 4.92 | 10.0 |
-| 44 | quadruped__7e58c99e__gen20 | 3.60 | 3.55 | 10.0 |
-| 45 | legion_hexapod__83491b1c__gen20_ | 3.54 | 3.49 | 10.0 |
-| 46 | Agent_50361c3 | 3.53 | 3.81 | 10.0 |
-| 47 | quadruped__3ed3bef3__gen20 | 3.52 | 3.47 | 10.0 |
-| 48 | giraffe_default__da6793c5__gen20_19 | 3.52 | 4.68 | 10.0 |
-| 49 | quadruped__8c23e2c0__gen50 | 3.46 | 3.41 | 10.0 |
-| 50 | Ein_corgi_Goliath_crawler_Hybrid_1a215ed | 3.44 | 3.37 | 10.0 |
-| 51 | giraffe_default__b2dcd29b__gen20_4 | 3.43 | 5.35 | 10.0 |
-| 52 | quadruped__1b018877__gen2 | 3.37 | 4.22 | 10.0 |
-| 53 | goliath_crawler__f2a7591e__gen5 | 3.30 | 3.25 | 10.0 |
-| 54 | giraffe_default__69664eb6__gen20_1 | 3.28 | 4.24 | 10.0 |
-| 55 | giraffe_default__be67c853__gen20_4 | 3.25 | 3.54 | 10.0 |
-| 56 | goliath_crawler__06ac2a4e__gen20_1 | 3.19 | 4.33 | 10.0 |
-| 57 | quadruped__49d55732__gen20 | 3.19 | 3.14 | 10.0 |
-| 58 | quadruped__d694bc89__gen20 | 3.17 | 3.12 | 10.0 |
-| 59 | quadruped__evolved | 3.05 | 3.00 | 10.0 |
-| 60 | quadruped__be8421f4__gen20 | 3.04 | 2.99 | 10.0 |
-| 61 | gorilla__d71f556e__gen20 | 3.02 | 3.79 | 10.0 |
-| 62 | legion_hexapod__9fa2ad7e__gen20 | 3.01 | 4.37 | 10.0 |
-| 63 | khepri_beetle__3fcf682b__gen20_2 | 2.95 | 2.95 | 10.0 |
-| 64 | arachne_spider__1115a638__gen20_ | 2.92 | 2.87 | 10.0 |
-| 65 | legion_hexapod__08f9da17__gen20_ | 2.85 | 2.80 | 10.0 |
-| 66 | quadruped__12565ab8__gen20 | 2.82 | 2.77 | 10.0 |
-| 67 | ein_corgi__28aeb2dd__gen2 | 2.71 | 2.70 | 10.0 |
-| 68 | giraffe_default__ef5e7630__gen20 | 2.67 | 3.84 | 10.0 |
-| 69 | quadruped__6c6d31c0__gen20 | 2.53 | 2.48 | 10.0 |
-| 70 | stilts_biped__027c957e__gen20_1 | 2.42 | 2.37 | 10.0 |
-| 71 | quadruped__1a71c1f3__gen20 | 2.39 | 2.34 | 10.0 |
-| 72 | ein_corgi__dad13d3f__gen20_ | 2.34 | 2.29 | 10.0 |
-| 73 | quadruped__fda585e8__gen20 | 2.33 | 2.28 | 10.0 |
-| 74 | giraffe_default_0000 | 2.28 | 3.65 | 10.0 |
-| 75 | quadruped__55dcb287__gen20 | 2.19 | 2.14 | 10.0 |
-| 76 | giraffe_default__e74dd564__gen20_16 | 2.14 | 3.14 | 10.0 |
-| 77 | legion_hexapod__5a9efe89__gen20_ | 2.05 | 3.78 | 10.0 |
-| 78 | hexapod_defaul | 2.05 | 2.00 | 10.0 |
-| 79 | goliath_crawler__06ac2a4e__gen20 | 2.05 | 2.09 | 10.0 |
-| 80 | arachne_spider__15d3b324__gen2 | 1.89 | 1.84 | 10.0 |
-| 81 | quadruped__87ec2774__gen20 | 1.76 | 1.71 | 10.0 |
-| 82 | legion_hexapod__5a9efe89__gen2 | 1.69 | 1.64 | 10.0 |
-| 83 | centipede__bd5ad41b__gen20 | 1.65 | 3.80 | 10.0 |
-| 84 | quadruped__5cd89831__gen20 | 1.56 | 1.51 | 10.0 |
-| 85 | ein_corgi__evolve | 1.53 | 1.48 | 10.0 |
-| 86 | legion_hexapod__4f4e878b__gen20 | 1.52 | 1.84 | 10.0 |
-| 87 | quadruped__85dd21d7__gen20 | 1.51 | 1.46 | 10.0 |
-| 88 | giraffe_default__9ec68be6__gen20_12 | 1.36 | 2.36 | 10.0 |
-| 89 | giraffe_default | 1.28 | 2.42 | 10.0 |
-| 90 | arachne_spider__1115a638__gen20_ | 1.22 | 2.24 | 10.0 |
-| 91 | goliath_crawler__2b282d80__gen20_ | 1.22 | 1.17 | 10.0 |
-| 92 | quadruped__5b64c974__gen20 | 1.09 | 1.04 | 10.0 |
-| 93 | scorpion__05eaa9d3__gen5 | 1.09 | 1.52 | 10.0 |
-| 94 | evolution_royale | 0.99 | 4.31 | 8.7 |
-| 95 | arachne_spider__3a067005__gen2 | 0.80 | 1.95 | 10.0 |
-| 96 | Legion_hexapod_Agent_Hybrid_abefda52_ | -0.07 | 2.09 | 10.0 |
-| 97 | giraffe_default__f8be4e2f__gen2 | -0.20 | 1.20 | 10.0 |
-| 98 | giraffe_default__f8be4e2f__gen20 | -0.46 | 1.34 | 10.0 |
-| 99 | gladiator_arena | -0.88 | 3.40 | 9.0 |
-| 100 | diverse_population | -1.37 | 3.63 | 10.0 |
-| 101 | ein_corgi__cecd8ed9__gen2 | -3.20 | 6.85 | 10.0 |
-| 102 | Legion_hexapod_Aegis_turtle_Hybrid_9a824d7f_ | -3.44 | 6.61 | 10.0 |
-| 103 | Legion_hexapod_Aegis_turtle_Hybrid_170e877 | -3.45 | 6.58 | 10.0 |
-| 104 | Goliath_crawler_Giraffe_default_Hybrid_96774107 | -3.48 | 6.57 | 10.0 |
-| 105 | ein_corgi__28aeb2dd__gen20_1 | -3.49 | 6.71 | 10.0 |
-| 106 | legion_hexapod__83491b1c__gen20_ | -3.58 | 6.44 | 10.0 |
-| 107 | goliath_crawler__ceccaed0__gen20_14 | -3.59 | 6.71 | 10.0 |
-| 108 | Giraffe_default_Goliath_crawler_Hybrid_f7db42fd | -3.59 | 6.46 | 10.0 |
-| 109 | legion_hexapod__5a9efe89__gen20 | -3.77 | 6.96 | 10.0 |
-| 110 | khepri_beetle__fe9be525__gen20_3 | -3.80 | 6.22 | 10.0 |
-| 111 | giraffe_default__99faa514__gen20_0 | -3.80 | 6.96 | 10.0 |
-| 112 | Goliath_crawler_Agent_Hybrid_913f3822 | -3.80 | 6.25 | 10.0 |
-| 113 | giraffe_default__c8afed5d__gen2 | -3.83 | 6.70 | 10.0 |
-| 114 | Aegis_turtle_Agent_Hybrid_63705a42 | -3.84 | 6.21 | 10.0 |
-| 115 | Legion_hexapod_Aegis_turtle_Hybrid_41244287 | -3.84 | 6.21 | 10.0 |
-| 116 | Giraffe_default_Goliath_crawler_Hybrid_2ebca040_5 | -3.91 | 6.14 | 10.0 |
-| 117 | Aegis_2 | -3.92 | 6.13 | 10.0 |
-| 118 | giraffe_default__b2dcd29b__gen2 | -3.92 | 6.13 | 10.0 |
-| 119 | quadruped__55dcb287__gen20_10 | -3.94 | 6.11 | 10.0 |
-| 120 | Legion_hexapod_Goliath_crawler_Hybrid_dbde482c | -3.96 | 6.09 | 10.0 |
-| 121 | arachne_spider__680a147f__gen20_ | -3.97 | 6.44 | 10.0 |
-| 122 | aegis_turtle__d77a1bbf__gen20 | -4.00 | 6.07 | 10.0 |
-| 123 | legion_hexapod__e6e2825b__gen20_5 | -4.01 | 6.00 | 10.0 |
-| 124 | goliath_crawler__06ac2a4e__gen2 | -4.02 | 6.44 | 10.0 |
-| 125 | goliath_crawler__9f2b9193__gen20_ | -4.02 | 6.03 | 10.0 |
-| 126 | goliath_crawler__ceccaed0__gen20_6 | -4.02 | 6.00 | 10.0 |
-| 127 | arachne_spider__ab33cd0c__gen20 | -4.04 | 6.23 | 10.0 |
-| 128 | goliath_crawler__2a034c94__gen2 | -4.05 | 6.28 | 10.0 |
-| 129 | khepri_beetle__9aeb1626__gen20 | -4.06 | 6.62 | 10.0 |
-| 130 | arachne_spider__b344189b__gen2 | -4.10 | 6.03 | 10.0 |
-| 131 | aegis_turtle__9cdfb45a__gen2 | -4.13 | 6.51 | 10.0 |
-| 132 | legion_hexapod__33f0f7ed__gen20_ | -4.16 | 4.45 | 10.0 |
-| 133 | Legion_hexapod_Aegis_turtle_Hybrid_9a824d7f_10 | -4.16 | 5.89 | 10.0 |
-| 134 | Legion_hexapod_Goliath_crawler_Hybrid_6262eede | -4.16 | 5.89 | 10.0 |
-| 135 | goliath_crawler__f2a7591e__gen50 | -4.17 | 6.13 | 10.0 |
-| 136 | legion_hexapod__9fa2ad7e__gen20_ | -4.20 | 5.80 | 10.0 |
-| 137 | scorpion__fb1b7306__gen20 | -4.21 | 5.91 | 10.0 |
-| 138 | goliath_crawler__4359ebf1__gen20_ | -4.22 | 5.83 | 10.0 |
-| 139 | legion_hexapod__04aa24d0__gen20 | -4.23 | 6.04 | 10.0 |
-| 140 | quadruped__9422b36b__gen2 | -4.26 | 6.56 | 10.0 |
-| 141 | ein_corgi__dad13d3f__gen2 | -4.28 | 6.17 | 10.0 |
-| 142 | Arachne_spider_Centipede_Hybrid_8444956f | -4.29 | 5.76 | 10.0 |
-| 143 | ein_corgi__cecd8ed9__gen20_18 | -4.30 | 6.00 | 10.0 |
-| 144 | aegis_turtle__d77a1bbf__gen20_2 | -4.30 | 6.11 | 10.0 |
-| 145 | evolved_Arachne_10 | -4.33 | 5.72 | 10.0 |
-| 146 | gorilla_default | -4.33 | 6.00 | 10.0 |
-| 147 | Agent_5058eae4 | -4.35 | 5.70 | 10.0 |
-| 148 | quadruped__85dd21d7__gen20_26 | -4.37 | 5.68 | 10.0 |
-| 149 | quadruped__92a891e0__gen20 | -4.37 | 5.68 | 10.0 |
-| 150 | ein_corgi__dad13d3f__gen20_7 | -4.38 | 5.67 | 10.0 |
-| 151 | legion_hexapod__99a9b3ff__gen20_8 | -4.40 | 6.20 | 10.0 |
-| 152 | goliath_crawler__06ac2a4e__gen20_ | -4.40 | 6.36 | 10.0 |
-| 153 | scorpion__65c1edf3__gen20 | -4.42 | 6.05 | 10.0 |
-| 154 | Ein_corgi_Goliath_crawler_Hybrid_1a215ed1 | -4.42 | 5.63 | 10.0 |
-| 155 | giraffe__evolved | -4.42 | 6.75 | 10.0 |
-| 156 | legion_hexapod__4f4e878b__gen2 | -4.42 | 5.67 | 10.0 |
-| 157 | arachne_spider__680a147f__gen20_ | -4.44 | 6.14 | 10.0 |
-| 158 | starfish__79781680__gen2 | -4.44 | 5.85 | 10.0 |
-| 159 | quadruped__3158f2eb__gen20_0 | -4.46 | 5.59 | 10.0 |
-| 160 | legion_hexapod__3467bcc5__gen20 | -4.49 | 6.39 | 10.0 |
-| 161 | ein_corgi__b0706ade__gen2 | -4.49 | 5.56 | 10.0 |
-| 162 | starfish_0000 | -4.49 | 6.01 | 10.0 |
-| 163 | ein_corgi__440aee32__gen2 | -4.51 | 5.54 | 10.0 |
-| 164 | Ein_corgi_Goliath_crawler_Hybrid_c7a9c367 | -4.51 | 5.54 | 10.0 |
-| 165 | giraffe_default__e74dd564__gen20_ | -4.53 | 6.17 | 10.0 |
-| 166 | quadruped__d88fb5c6__gen20 | -4.53 | 5.52 | 10.0 |
-| 167 | arachne_spider__0f23c9a5__gen20 | -4.54 | 6.06 | 10.0 |
-| 168 | legion_hexapod__39f7e11f__gen20_1 | -4.54 | 5.57 | 10.0 |
-| 169 | arachne_spider_000 | -4.56 | 5.49 | 10.0 |
-| 170 | goliath_crawler__fe3cbacd | -4.59 | 5.44 | 10.0 |
-| 171 | legion_hexapod__83491b1c__gen20_7 | -4.61 | 5.41 | 10.0 |
-| 172 | ein_corgi__27ae43e9 | -4.64 | 5.41 | 10.0 |
-| 173 | quadruped__57dcdc56__gen2 | -4.64 | 5.66 | 10.0 |
-| 174 | neon_grid | -4.65 | 5.40 | 10.0 |
-| 175 | giraffe_default__ec3bce69__gen2 | -4.65 | 5.40 | 10.0 |
-| 176 | legion_hexapod__39f7e11f__gen20_1 | -4.67 | 5.97 | 10.0 |
-| 177 | aegis_turtle__bb066d66__gen2 | -4.68 | 5.37 | 10.0 |
-| 178 | arachne_spider__e341b498__gen20_ | -4.70 | 5.72 | 10.0 |
-| 179 | khepri_beetle__9675d3cb__gen20_1 | -4.70 | 5.31 | 10.0 |
-| 180 | aegis_turtle__d5fb7a33__gen20_9 | -4.70 | 5.45 | 10.0 |
-| 181 | Arachne_spider_Ein_corgi_Hybrid_0bc05fbc | -4.72 | 5.33 | 10.0 |
-| 182 | Giraffe_default_36e04a49 | -4.72 | 5.33 | 10.0 |
-| 183 | evolved_Khepri_12 | -4.73 | 5.32 | 10.0 |
-| 184 | Ein_corgi_Agent_Hybrid_963d141a | -4.73 | 5.32 | 10.0 |
-| 185 | aegis_turtle__evolve | -4.74 | 5.43 | 10.0 |
-| 186 | aegis_turtle__0f1ec654__gen50 | -4.75 | 5.96 | 10.0 |
-| 187 | arachne_spider__1115a638__gen20_ | -4.76 | 5.29 | 10.0 |
-| 188 | khepri_beetle__9675d3cb__gen20_ | -4.76 | 5.29 | 10.0 |
-| 189 | quadruped__62b7c947__gen2 | -4.77 | 5.28 | 10.0 |
-| 190 | aegis_turtle__cc9c672f__gen20_ | -4.77 | 5.27 | 10.0 |
-| 191 | giraffe_default__e74dd564__gen20_ | -4.77 | 5.24 | 10.0 |
-| 192 | arachne_spider__7ebf52b9__gen20_10 | -4.77 | 6.31 | 10.0 |
-| 193 | goliath_crawler__1a83f221__gen20_1 | -4.77 | 6.83 | 10.0 |
-| 194 | aegis_turtle__d97707b6__gen5 | -4.78 | 5.56 | 10.0 |
-| 195 | legion_hexapod__1a97ab9c__gen20_9 | -4.78 | 5.92 | 10.0 |
-| 196 | kangaroo_default | -4.79 | 5.81 | 10.0 |
-| 197 | goliath_crawler__4359ebf1__gen20 | -4.80 | 5.26 | 10.0 |
-| 198 | legion_hexapod__1a97ab9c__gen20_ | -4.80 | 5.25 | 10.0 |
-| 199 | quadruped__quad_ | -4.82 | 5.71 | 10.0 |
-| 200 | goliath_crawler__0fac9fa0__gen20 | -4.83 | 5.18 | 10.0 |
-| 201 | giraffe_default__69664eb6__gen20_ | -4.84 | 5.20 | 10.0 |
-| 202 | goliath_crawler__4359ebf1__gen20_ | -4.85 | 5.20 | 10.0 |
-| 203 | Legion_hexapod_Agent_Hybrid_7567d8d | -4.86 | 5.30 | 10.0 |
-| 204 | goliath_crawler__f6185769__gen20 | -4.86 | 5.93 | 10.0 |
-| 205 | ein_corgi__7390bf1d__gen20_2 | -4.86 | 5.14 | 10.0 |
-| 206 | ein_corgi__3f2b1218 | -4.87 | 5.14 | 10.0 |
-| 207 | Agent_8c69b5d | -4.87 | 5.18 | 10.0 |
-| 208 | evolved_Khepri_1 | -4.88 | 5.84 | 10.0 |
-| 209 | goliath_crawler__88ab0cba__gen20_8 | -4.88 | 5.76 | 10.0 |
-| 210 | aegis_turtle__9cdfb45a__gen20_ | -4.88 | 5.14 | 10.0 |
-| 211 | aegis_turtle__d77a1bbf__gen20_15 | -4.90 | 5.44 | 10.0 |
-| 212 | Legion_hexapod_Goliath_crawler_Hybrid_dbde482 | -4.90 | 5.15 | 10.0 |
-| 213 | goliath_crawler__ceccaed0__gen20_3 | -4.91 | 5.85 | 10.0 |
-| 214 | Goliath_crawler_Agent_Hybrid_082163e8_29 | -4.91 | 5.14 | 10.0 |
-| 215 | Legion_hexapod_Agent_Hybrid_0463566b | -4.92 | 5.13 | 10.0 |
-| 216 | goliath_crawler__2b282d80__gen20_7 | -4.93 | 5.38 | 10.0 |
-| 217 | legion_hexapod__81bb88f9__gen20 | -4.93 | 5.63 | 10.0 |
-| 218 | ein_corgi__dad13d3f__gen20_2 | -4.93 | 5.77 | 10.0 |
-| 219 | Arachne_spider_Centipede_Hybrid_8444956 | -4.94 | 5.10 | 10.0 |
-| 220 | khepri_beetle__f32cceb5__gen20_ | -4.96 | 5.09 | 10.0 |
-| 221 | Agent_5058eae4_22 | -4.96 | 5.09 | 10.0 |
-| 222 | Agent_07390c84_17 | -4.97 | 5.08 | 10.0 |
-| 223 | legion_hexapod__39f7e11f__gen20_17 | -4.99 | 5.25 | 10.0 |
-| 224 | centipede_000 | -4.99 | 6.20 | 10.0 |
-| 225 | khepri_beetle__94ef9ae4__gen20_2 | -5.01 | 5.60 | 10.0 |
-| 226 | Agent_c55634e3 | -5.01 | 5.04 | 10.0 |
-| 227 | legion_hexapod__9fa2ad7e__gen20_0 | -5.02 | 5.51 | 10.0 |
-| 228 | khepri_beetle__3fcf682b__gen20_ | -5.03 | 5.02 | 10.0 |
-| 229 | giraffe_default__f8be4e2f__gen20_2 | -5.03 | 5.30 | 10.0 |
-| 230 | quadruped__0946fd96__gen20_0 | -5.04 | 5.01 | 10.0 |
-| 231 | ein_corgi__5bb450d0__gen20_1 | -5.04 | 5.94 | 10.0 |
-| 232 | khepri_beetle__dd183e82__gen2 | -5.04 | 5.27 | 10.0 |
-| 233 | arachne_spider__b57cbc66__gen2 | -5.04 | 5.01 | 10.0 |
-| 234 | legion_hexapod__a064005b__gen2 | -5.05 | 5.00 | 10.0 |
-| 235 | legion_hexapod__39f7e11f__gen20_6 | -5.05 | 4.97 | 10.0 |
-| 236 | base | -5.06 | 4.99 | 10.0 |
-| 237 | turtle_defaul | -5.06 | 5.85 | 10.0 |
-| 238 | goliath_crawler__ceccaed0__gen20_4 | -5.06 | 4.98 | 10.0 |
-| 239 | Stilts_biped_Legion_hexapod_Hybrid_91b8e920 | -5.07 | 4.98 | 10.0 |
-| 240 | Legion_hexapod_Aegis_turtle_Hybrid_96b28793 | -5.07 | 4.98 | 10.0 |
-| 241 | Legion_hexapod_Ein_corgi_Hybrid_a2df5da | -5.07 | 4.98 | 10.0 |
-| 242 | quadruped__8c23e2c0__gen5 | -5.07 | 5.51 | 10.0 |
-| 243 | ein_corgi__7390bf1d__gen20_ | -5.08 | 5.73 | 10.0 |
-| 244 | starfish__08435e24__gen2 | -5.08 | 4.97 | 10.0 |
-| 245 | Giraffe_default_Agent_Hybrid_e367cdc | -5.08 | 5.35 | 10.0 |
-| 246 | goliath_crawler__9f2b9193__gen20_8 | -5.09 | 4.95 | 10.0 |
-| 247 | goliath_crawler__614f677d__gen20_9 | -5.09 | 5.73 | 10.0 |
-| 248 | evolved_Khepri_1 | -5.09 | 5.28 | 10.0 |
-| 249 | giraffe_default__be67c853__gen20 | -5.09 | 5.02 | 10.0 |
-| 250 | legion_hexapod__8e6537e3__gen20_1 | -5.10 | 4.95 | 10.0 |
-| 251 | Legion_hexapod_a53bce8 | -5.10 | 4.95 | 10.0 |
-| 252 | hermes_quadruped__b5a13a06 | -5.10 | 4.95 | 10.0 |
-| 253 | khepri_beetle__3fcf682b__gen20_ | -5.11 | 4.91 | 10.0 |
-| 254 | snake__809688e9__gen20_6 | -5.11 | 5.31 | 10.0 |
-| 255 | khepri_beetle__5a60eec6__gen20_2 | -5.11 | 5.66 | 10.0 |
-| 256 | Legion_hexapod_Agent_Hybrid_7567d8d5_11 | -5.12 | 4.93 | 10.0 |
-| 257 | Stilts_biped_Legion_hexapod_Hybrid_d114e0e | -5.12 | 5.10 | 10.0 |
-| 258 | aegis_turtle__6ab5045c__gen2 | -5.12 | 4.93 | 10.0 |
-| 259 | giraffe__7519a19 | -5.13 | 4.92 | 10.0 |
-| 260 | Arachne_spider_Ein_corgi_Hybrid_0bc05fb | -5.13 | 4.92 | 10.0 |
-| 261 | Legion_hexapod_Aegis_turtle_Hybrid_96b2879 | -5.13 | 4.91 | 10.0 |
-| 262 | khepri_beetle__9675d3cb__gen20_23 | -5.13 | 5.71 | 10.0 |
-| 263 | giraffe_default__8102c84e__gen20_ | -5.13 | 5.76 | 10.0 |
-| 264 | giraffe_default__ec3bce69__gen20 | -5.13 | 4.98 | 10.0 |
-| 265 | Legion_1 | -5.14 | 5.10 | 10.0 |
-| 266 | Aegis_turtle_Agent_Hybrid_63705a4 | -5.15 | 5.19 | 10.0 |
-| 267 | quadruped__85dd21d7__gen2 | -5.15 | 5.14 | 10.0 |
-| 268 | aegis_turtle__b228c2b8__gen20_1 | -5.15 | 4.90 | 10.0 |
-| 269 | legion_hexapod__669a2e2d__gen20_1 | -5.16 | 5.46 | 10.0 |
-| 270 | starfish_0 | -5.18 | 5.67 | 10.0 |
-| 271 | snake__809688e9__gen20_ | -5.18 | 4.87 | 10.0 |
-| 272 | aegis_turtle__d5fb7a33__gen20_ | -5.19 | 5.24 | 10.0 |
-| 273 | Agent_07390c84_7 | -5.19 | 4.86 | 10.0 |
-| 274 | Legion_hexapod_Aegis_turtle_Hybrid_9a824d7f | -5.19 | 4.86 | 10.0 |
-| 275 | centipede__163b1b5d__gen2 | -5.19 | 4.86 | 10.0 |
-| 276 | stilts_biped__47f9883c__gen20 | -5.20 | 5.43 | 10.0 |
-| 277 | arachne_spider__c9d884c7__gen20 | -5.20 | 5.74 | 10.0 |
-| 278 | goliath_crawler__1a83f221__gen20 | -5.20 | 5.31 | 10.0 |
-| 279 | goliath_crawler__69aa365f__gen2 | -5.21 | 4.84 | 10.0 |
-| 280 | snake__809688e9__gen20_ | -5.22 | 4.83 | 10.0 |
-| 281 | Agent_1bb7a2fa_0 | -5.22 | 4.83 | 10.0 |
-| 282 | gorilla__24c84f2a__gen2 | -5.23 | 4.82 | 10.0 |
-| 283 | Legion_hexapod_Goliath_crawler_Hybrid_11ba1986 | -5.23 | 4.82 | 10.0 |
-| 284 | Goliath_crawler_Agent_Hybrid_913f382 | -5.23 | 5.29 | 10.0 |
-| 285 | ein_corgi__5160c08e__gen2 | -5.24 | 6.05 | 10.0 |
-| 286 | goliath_crawler | -5.24 | 5.37 | 10.0 |
-| 287 | khepri_beetle__3fcf682b__gen2 | -5.26 | 4.78 | 10.0 |
-| 288 | quadruped__60c1a634__gen2 | -5.26 | 6.02 | 10.0 |
-| 289 | Giraffe_default_Legion_hexapod_Hybrid_51e7cbd9 | -5.26 | 4.79 | 10.0 |
-| 290 | arachne_spider__b57cbc66__gen20_ | -5.27 | 5.18 | 10.0 |
-| 291 | legion_hexapod__9fa2ad7e__gen20_9 | -5.27 | 4.84 | 10.0 |
-| 292 | sensor_demo | -5.27 | 4.73 | 10.0 |
-| 293 | ein_corgi__cecd8ed9__gen20_3 | -5.28 | 4.76 | 10.0 |
-| 294 | giraffe_default__45360919__gen2 | -5.29 | 5.51 | 10.0 |
-| 295 | aegis_turtle__d952330b | -5.30 | 4.85 | 10.0 |
-| 296 | starfish_000 | -5.31 | 5.21 | 10.0 |
-| 297 | scorpion__c1c1873c__gen2 | -5.34 | 6.01 | 10.0 |
-| 298 | chaos_colosseum | -5.34 | 4.71 | 10.0 |
-| 299 | ein_corgi__evolved | -5.34 | 4.71 | 10.0 |
-| 300 | goliath_crawler__81be13fe__gen2 | -5.34 | 4.99 | 10.0 |
-| 301 | goliath_crawler__4359ebf1__gen20_1 | -5.34 | 5.10 | 10.0 |
-| 302 | Giraffe_default_Legion_hexapod_Hybrid_2dc10c0 | -5.35 | 5.07 | 10.0 |
-| 303 | goliath_crawler__cc9bc7b8__gen20 | -5.36 | 4.97 | 10.0 |
-| 304 | ein_corgi__dad13d3f__gen20_8 | -5.36 | 5.05 | 10.0 |
-| 305 | quadruped__56d3be83__gen2 | -5.37 | 5.21 | 10.0 |
-| 306 | goliath_crawler__2642d7c5__gen20_1 | -5.37 | 5.11 | 10.0 |
-| 307 | snake_0000 | -5.37 | 4.70 | 10.0 |
-| 308 | khepri_beetle__f389ae06__gen20_ | -5.38 | 4.67 | 10.0 |
-| 309 | Legion_hexapod_Goliath_crawler_Hybrid_6262eed | -5.38 | 5.13 | 10.0 |
-| 310 | arachne_spider__1115a638__gen20_12 | -5.39 | 6.13 | 10.0 |
-| 311 | ein_corgi__dad13d3f__gen20_ | -5.39 | 5.10 | 10.0 |
-| 312 | legion_hexapod__83491b1c__gen20 | -5.40 | 4.64 | 10.0 |
-| 313 | snake__809688e9__gen20_1 | -5.40 | 4.65 | 10.0 |
-| 314 | Ein_corgi_Agent_Hybrid_963d141 | -5.40 | 4.65 | 10.0 |
-| 315 | legion_hexapod__669a2e2d__gen20 | -5.41 | 5.22 | 10.0 |
-| 316 | Goliath_crawler_Agent_Hybrid_cc43a41a | -5.41 | 4.64 | 10.0 |
-| 317 | ein_corgi__401bad27__gen2 | -5.41 | 4.95 | 10.0 |
-| 318 | aegis_turtle__bb066d66__gen20 | -5.41 | 4.64 | 10.0 |
-| 319 | Arachne_spider_Agent_Hybrid_0b9390a3 | -5.42 | 4.63 | 10.0 |
-| 320 | khepri_beetle__a903176b__gen20_8 | -5.43 | 4.60 | 10.0 |
-| 321 | quadruped__57dcdc56__gen20_14 | -5.43 | 4.62 | 10.0 |
-| 322 | aegis_turtle__f144282b__gen20 | -5.44 | 4.70 | 10.0 |
-| 323 | aegis_turtle__b228c2b8__gen20_1 | -5.44 | 4.60 | 10.0 |
-| 324 | aegis_turtle__e118c1a4__gen20_9 | -5.45 | 4.72 | 10.0 |
-| 325 | ein_corgi__28aeb2dd__gen20_ | -5.45 | 5.05 | 10.0 |
-| 326 | goliath_crawler__ceccaed0__gen20_9 | -5.45 | 4.95 | 10.0 |
-| 327 | centipede_0000 | -5.45 | 5.39 | 10.0 |
-| 328 | giraffe_default__99faa514__gen20_6 | -5.45 | 5.54 | 10.0 |
-| 329 | ein_corgi_0000 | -5.46 | 5.09 | 10.0 |
-| 330 | ein_corgi__3c9e12ca__gen5 | -5.46 | 4.65 | 10.0 |
-| 331 | megapede_default | -5.46 | 5.44 | 10.0 |
-| 332 | khepri_beetl | -5.46 | 4.59 | 10.0 |
-| 333 | aegis_turtle | -5.46 | 4.91 | 10.0 |
-| 334 | legion_hexapod__690e6abe__gen2 | -5.46 | 4.88 | 10.0 |
-| 335 | snake__e7783d07__gen20 | -5.46 | 4.94 | 10.0 |
-| 336 | khepri_beetle__9675d3cb__gen20_6 | -5.46 | 5.32 | 10.0 |
-| 337 | legion_hexapod__83491b1c__gen20_5 | -5.47 | 4.68 | 10.0 |
-| 338 | aegis_turtle__d5fb7a33__gen20 | -5.47 | 4.88 | 10.0 |
-| 339 | Goliath_crawler_Agent_Hybrid_cf71fcb | -5.48 | 4.57 | 10.0 |
-| 340 | legion_hexapod__9fa2ad7e__gen20_7 | -5.48 | 4.83 | 10.0 |
-| 341 | goliath_crawler__ceccaed0__gen20_ | -5.49 | 4.56 | 10.0 |
-| 342 | starfish__79781680__gen20_ | -5.50 | 4.72 | 10.0 |
-| 343 | Agent_1bb7a2fa | -5.50 | 4.55 | 10.0 |
-| 344 | ein_corgi__a9274885__gen2 | -5.50 | 5.16 | 10.0 |
-| 345 | Agent_07390c84_1 | -5.50 | 4.55 | 10.0 |
-| 346 | goliath_crawler__614f677d__gen20 | -5.51 | 4.78 | 10.0 |
-| 347 | goliath_crawler_000 | -5.51 | 4.66 | 10.0 |
-| 348 | stilts_biped__ad3a8303__gen20 | -5.51 | 5.17 | 10.0 |
-| 349 | evolved_Khepri_11 | -5.52 | 4.53 | 10.0 |
-| 350 | Legion_hexapod_Agent_Hybrid_6b91baa | -5.52 | 5.01 | 10.0 |
-| 351 | Legion_hexapod_Aegis_turtle_Hybrid_9a824d7f_1 | -5.52 | 4.53 | 10.0 |
-| 352 | ein_corgi__6892ee45__gen20 | -5.53 | 5.21 | 10.0 |
-| 353 | legion_hexapod__39f7e11f__gen20_ | -5.53 | 5.49 | 10.0 |
-| 354 | goliath_crawler__2a034c94__gen20 | -5.54 | 4.88 | 10.0 |
-| 355 | khepri_beetle__fa837806__gen20 | -5.54 | 4.48 | 10.0 |
-| 356 | quadruped__ccb606cf__gen2 | -5.55 | 4.50 | 10.0 |
-| 357 | centipede__49760b3b__gen5 | -5.55 | 5.11 | 10.0 |
-| 358 | aegis_turtle__d37f2e75__gen2 | -5.55 | 4.78 | 10.0 |
-| 359 | goliath_crawler__06ac2a4e__gen20_ | -5.55 | 4.46 | 10.0 |
-| 360 | arachne_spider__ed6b0b64__gen50 | -5.56 | 4.65 | 10.0 |
-| 361 | ein_corgi__440aee32__gen20 | -5.56 | 4.45 | 10.0 |
-| 362 | centipede__49760b3b__gen50 | -5.57 | 5.58 | 10.0 |
-| 363 | legion_hexapod__8e6537e3__gen20_10 | -5.57 | 4.84 | 10.0 |
-| 364 | starfish__08435e24__gen20 | -5.57 | 4.92 | 10.0 |
-| 365 | ein_corgi__5bb450d0__gen20_1 | -5.57 | 4.43 | 10.0 |
-| 366 | ein_corgi__401bad27__gen20 | -5.58 | 4.85 | 10.0 |
-| 367 | quadruped__98444aa8__gen2 | -5.58 | 4.78 | 10.0 |
-| 368 | arachne_spider__0f23c9a5__gen20_ | -5.59 | 4.46 | 10.0 |
-| 369 | quadruped__49d55732__gen20_13 | -5.59 | 4.46 | 10.0 |
-| 370 | arachne_spider__b57cbc66__gen20_1 | -5.60 | 4.45 | 10.0 |
-| 371 | legion_hexapod__83491b1c__gen20_4 | -5.60 | 5.04 | 10.0 |
-| 372 | quadruped__0920d435__gen2 | -5.62 | 4.61 | 10.0 |
-| 373 | khepri_beetle__9675d3cb__gen20_ | -5.62 | 4.43 | 10.0 |
-| 374 | khepri_beetle__5a60eec6__gen20_5 | -5.62 | 5.84 | 10.0 |
-| 375 | giraffe_default__be67c853__gen20_1 | -5.63 | 4.40 | 10.0 |
-| 376 | Agent_c55634e | -5.63 | 4.42 | 10.0 |
-| 377 | Aegis_turtle_Ein_corgi_Hybrid_3fadd42 | -5.63 | 4.76 | 10.0 |
-| 378 | centipede__bd5ad41b__gen2 | -5.64 | 5.16 | 10.0 |
-| 379 | legion_hexapod__669a2e2d__gen20_2 | -5.64 | 4.41 | 10.0 |
-| 380 | quadruped__d88fb5c6__gen2 | -5.64 | 4.41 | 10.0 |
-| 381 | giraffe_default__be67c853__gen20_ | -5.64 | 4.41 | 10.0 |
-| 382 | khepri_beetle__5a60eec6__gen20_ | -5.64 | 4.51 | 10.0 |
-| 383 | Giraffe_default_Goliath_crawler_Hybrid_2ebca04 | -5.65 | 5.27 | 10.0 |
-| 384 | goliath_crawler__06ac2a4e__gen20_4 | -5.66 | 4.36 | 10.0 |
-| 385 | quadruped__85dd21d7__gen20_2 | -5.66 | 4.39 | 10.0 |
-| 386 | arachne_spider__1115a638__gen20_7 | -5.66 | 5.63 | 10.0 |
-| 387 | khepri_beetle__8aa11800__gen2 | -5.67 | 4.77 | 10.0 |
-| 388 | legion_hexapod__669a2e2d__gen2 | -5.67 | 4.64 | 10.0 |
-| 389 | legion_hexapod__08f9da17__gen2 | -5.67 | 4.34 | 10.0 |
-| 390 | arachne_spider__e341b498__gen20_1 | -5.67 | 4.86 | 10.0 |
-| 391 | Giraffe_default_Legion_hexapod_Hybrid_2dc10c08 | -5.67 | 4.38 | 10.0 |
-| 392 | Agent_ea2eb34a | -5.67 | 4.38 | 10.0 |
-| 393 | Goliath_crawler_Agent_Hybrid_4a7bff1 | -5.68 | 4.37 | 10.0 |
-| 394 | aegis_turtle__cc9c672f__gen20_ | -5.68 | 4.33 | 10.0 |
-| 395 | arachne_spider__15d3b324__gen20 | -5.68 | 5.43 | 10.0 |
-| 396 | khepri_beetle__fe9be525__gen2 | -5.68 | 5.23 | 10.0 |
-| 397 | khepri_beetle__5a60eec6__gen20_1 | -5.69 | 4.92 | 10.0 |
-| 398 | giraffe_default__99faa514__gen20_ | -5.69 | 5.57 | 10.0 |
-| 399 | legion_hexapod__08f9da17__gen20_1 | -5.70 | 4.35 | 10.0 |
-| 400 | Aegis_turtle_Goliath_crawler_Hybrid_0b6501e | -5.70 | 5.01 | 10.0 |
-| 401 | Arachne_spider_Agent_Hybrid_0b9390a | -5.70 | 4.35 | 10.0 |
-| 402 | khepri_beetle__5a60eec6__gen20_ | -5.70 | 4.35 | 10.0 |
-| 403 | aegis_turtle__8bed5c91__gen20 | -5.72 | 4.61 | 10.0 |
-| 404 | Giraffe_default_Legion_hexapod_Hybrid_51e7cbd | -5.72 | 4.40 | 10.0 |
-| 405 | starfish__79781680__gen20_9 | -5.73 | 4.70 | 10.0 |
-| 406 | aegis_turtle__f144282b__gen20_6 | -5.73 | 4.85 | 10.0 |
-| 407 | Giraffe_default_Goliath_crawler_Hybrid_2ebca040_29 | -5.74 | 4.31 | 10.0 |
-| 408 | Goliath_crawler_Agent_Hybrid_3b93da2 | -5.74 | 4.31 | 10.0 |
-| 409 | ein_corgi__69e64ff2__gen20 | -5.74 | 4.36 | 10.0 |
-| 410 | goliath_crawler__ceccaed0__gen20_10 | -5.74 | 4.87 | 10.0 |
-| 411 | ein_corgi__5bb450d0__gen20_13 | -5.75 | 4.68 | 10.0 |
-| 412 | goliath_crawler__ceccaed0__gen20_1 | -5.75 | 4.58 | 10.0 |
-| 413 | legion_hexapod__917cf222__gen2 | -5.75 | 4.30 | 10.0 |
-| 414 | giraffe_default__8102c84e__gen2 | -5.75 | 4.78 | 10.0 |
-| 415 | stilts_biped_2 | -5.76 | 5.59 | 10.0 |
-| 416 | legion_hexapod__9fa2ad7e__gen20_18 | -5.76 | 4.83 | 10.0 |
-| 417 | arachne_spider__3a067005__gen20_1 | -5.76 | 4.84 | 10.0 |
-| 418 | quadruped__a201d728__gen2 | -5.77 | 4.28 | 10.0 |
-| 419 | legion_hexapod__99a9b3ff__gen20_ | -5.77 | 4.28 | 10.0 |
-| 420 | khepri_beetle__f389ae06__gen20 | -5.77 | 4.41 | 10.0 |
-| 421 | goliath_crawler__ceccaed0__gen20 | -5.77 | 5.42 | 10.0 |
-| 422 | legion_hexapod__evolved | -5.77 | 4.28 | 10.0 |
-| 423 | legion_hexapod__33f0f7ed__gen20 | -5.78 | 4.26 | 10.0 |
-| 424 | centipede__9e6e08e6__gen20_1 | -5.78 | 4.27 | 10.0 |
-| 425 | quadruped__evolve | -5.79 | 4.39 | 10.0 |
-| 426 | giraffe_default__9ec68be6__gen2 | -5.79 | 4.26 | 10.0 |
-| 427 | Legion_hexapod_Aegis_turtle_Hybrid_71fa098 | -5.79 | 4.86 | 10.0 |
-| 428 | ein_corgi__dad13d3f__gen20_24 | -5.79 | 4.59 | 10.0 |
-| 429 | goliath_crawler__ceccaed0__gen20_17 | -5.79 | 4.71 | 10.0 |
-| 430 | quadruped__5cd89831__gen2 | -5.79 | 4.26 | 10.0 |
-| 431 | aegis_turtle__d37f2e75__gen20_5 | -5.80 | 4.33 | 10.0 |
-| 432 | khepri_beetle__9675d3cb__gen20_1 | -5.80 | 5.20 | 10.0 |
-| 433 | Agent_8458bb7e | -5.80 | 4.25 | 10.0 |
-| 434 | legion_hexapod__99a9b3ff__gen20_2 | -5.81 | 4.69 | 10.0 |
-| 435 | Goliath_crawler_Agent_Hybrid_082163e8 | -5.82 | 4.23 | 10.0 |
-| 436 | goliath_crawler__c5921aa1__gen2 | -5.82 | 4.33 | 10.0 |
-| 437 | legion_hexapod__83491b1c__gen20_1 | -5.83 | 4.22 | 10.0 |
-| 438 | legion_hexapod__39f7e11f__gen20_2 | -5.83 | 5.54 | 10.0 |
-| 439 | arachne_spider__0f23c9a5__gen20_7 | -5.85 | 4.49 | 10.0 |
-| 440 | goliath_crawler__88ab0cba__gen2 | -5.85 | 4.76 | 10.0 |
-| 441 | aegis_turtle__cc9c672f__gen20_ | -5.86 | 4.17 | 10.0 |
-| 442 | legion_hexapod__aad4b40a__gen20_1 | -5.86 | 4.43 | 10.0 |
-| 443 | Legion_hexapod_Agent_Hybrid_0fe084b | -5.87 | 4.18 | 10.0 |
-| 444 | ein_corgi__3c9e12ca__gen50 | -5.88 | 4.97 | 10.0 |
-| 445 | gorilla__88efbe93__gen20 | -5.89 | 4.39 | 10.0 |
-| 446 | Aegis_23 | -5.89 | 4.45 | 10.0 |
-| 447 | giraffe_default__ef5e7630__gen2 | -5.90 | 4.53 | 10.0 |
-| 448 | aegis_turtle__b228c2b8__gen20_ | -5.90 | 4.74 | 10.0 |
-| 449 | giraffe_default__be67c853__gen20_ | -5.90 | 5.17 | 10.0 |
-| 450 | centipede__9e6e08e6__gen20_ | -5.90 | 4.15 | 10.0 |
-| 451 | legion_hexapod__99a9b3ff__gen2 | -5.91 | 4.40 | 10.0 |
-| 452 | khepri_beetle__3fcf682b__gen20_5 | -5.91 | 4.89 | 10.0 |
-| 453 | scorpion__65c1edf3__gen2 | -5.93 | 4.44 | 10.0 |
-| 454 | aegis_turtle__cc9c672f__gen2 | -5.93 | 5.22 | 10.0 |
-| 455 | Legion_hexapod_Aegis_turtle_Hybrid_9a824d7f_7 | -5.95 | 4.10 | 10.0 |
-| 456 | stilts_biped__027c957e__gen2 | -5.95 | 4.67 | 10.0 |
-| 457 | aegis_turtle__74a28488__gen2 | -5.96 | 4.90 | 10.0 |
-| 458 | khepri_beetle__fa837806__gen2 | -5.97 | 5.10 | 10.0 |
-| 459 | Ein_corgi_Goliath_crawler_Hybrid_c7a9c36 | -5.98 | 6.09 | 10.0 |
-| 460 | khepri_beetle__fe9be525__gen20 | -5.98 | 4.26 | 10.0 |
-| 461 | arachne_spider__d11261f2__gen2 | -5.98 | 4.42 | 10.0 |
-| 462 | khepri_beetle__5a60eec6__gen20_ | -5.98 | 4.73 | 10.0 |
-| 463 | ein_corgi__7390bf1d__gen20 | -5.99 | 4.94 | 10.0 |
-| 464 | Agent_07390c84_2 | -5.99 | 4.06 | 10.0 |
-| 465 | goliath_crawler__91ebacb4__gen20 | -5.99 | 4.25 | 10.0 |
-| 466 | panopticon | -6.00 | 4.05 | 8.8 |
-| 467 | Goliath_crawler_Agent_Hybrid_4a7bff13 | -6.01 | 4.04 | 10.0 |
-| 468 | ein_corgi__dad13d3f__gen20_14 | -6.01 | 5.97 | 10.0 |
-| 469 | giraffe_default__99faa514__gen20 | -6.01 | 4.09 | 10.0 |
-| 470 | horse_default | -6.01 | 4.69 | 10.0 |
-| 471 | snake__9a8a1db8__gen2 | -6.02 | 4.53 | 10.0 |
-| 472 | starfish__e81a58c8__gen2 | -6.02 | 4.38 | 10.0 |
-| 473 | giraffe_default__8102c84e__gen20_2 | -6.02 | 5.01 | 10.0 |
-| 474 | aegis_turtle__f144282b__gen2 | -6.03 | 4.21 | 10.0 |
-| 475 | legion_hexapod__39f7e11f__gen20_2 | -6.03 | 4.28 | 10.0 |
-| 476 | ein_corgi__a9274885__gen20 | -6.03 | 4.22 | 10.0 |
-| 477 | legion_hexapod__669a2e2d__gen20_1 | -6.04 | 4.01 | 10.0 |
-| 478 | aegis_turtle__b228c2b8__gen2 | -6.04 | 4.40 | 10.0 |
-| 479 | aegis_turtle__cc9c672f__gen20_ | -6.05 | 4.82 | 10.0 |
-| 480 | Aegis_turtle_Agent_Hybrid_53bea08a_ | -6.05 | 4.00 | 10.0 |
-| 481 | Goliath_crawler_Giraffe_default_Hybrid_9677410 | -6.05 | 4.38 | 10.0 |
-| 482 | Giraffe_default_36e04a4 | -6.06 | 4.86 | 10.0 |
-| 483 | legion_hexapod | -6.06 | 4.73 | 10.0 |
-| 484 | arachne_spider__92833ef | -6.06 | 4.12 | 10.0 |
-| 485 | giraffe_default__3ba6890b__gen20 | -6.07 | 4.16 | 10.0 |
-| 486 | Arachne_spider_Agent_Hybrid_40939817 | -6.08 | 3.97 | 10.0 |
-| 487 | legion_hexapod__e6e2825b__gen20_21 | -6.08 | 4.52 | 10.0 |
-| 488 | quadruped__fb8d87d9__gen20 | -6.08 | 3.97 | 10.0 |
-| 489 | quadruped__be8421f4__gen2 | -6.08 | 4.08 | 10.0 |
-| 490 | goliath_crawler__69aa365f__gen20 | -6.08 | 4.22 | 10.0 |
-| 491 | ein_corgi__28aeb2dd__gen20 | -6.09 | 4.57 | 10.0 |
-| 492 | goliath_crawler__ceccaed0__gen20_ | -6.09 | 3.93 | 10.0 |
-| 493 | goliath_crawler__2b282d80__gen20 | -6.09 | 4.17 | 10.0 |
-| 494 | goliath_crawler__c8aa0f29__gen20 | -6.10 | 4.23 | 10.0 |
-| 495 | snake_000 | -6.10 | 4.21 | 10.0 |
-| 496 | Goliath_crawler_Agent_Hybrid_8c1954f3 | -6.10 | 3.95 | 10.0 |
-| 497 | khepri_beetle__a20ccea8__gen20 | -6.11 | 3.99 | 10.0 |
-| 498 | goliath_crawler__81be13fe__gen20 | -6.11 | 4.18 | 10.0 |
-| 499 | starfish_ | -6.13 | 4.08 | 10.0 |
-| 500 | khepri_beetle__94ef9ae4__gen20 | -6.13 | 5.20 | 10.0 |
-| 501 | goliath_crawler__d6380aac__gen2 | -6.14 | 5.12 | 10.0 |
-| 502 | legion_hexapod_0000 | -6.15 | 4.21 | 10.0 |
-| 503 | Agent_ffb92488 | -6.15 | 3.90 | 10.0 |
-| 504 | Khepri_beetle_Agent_Hybrid_7da9e02 | -6.16 | 3.89 | 10.0 |
-| 505 | legion_hexapod__08f9da17__gen20_12 | -6.16 | 4.41 | 10.0 |
-| 506 | aegis_turtle__8bed5c91__gen2 | -6.17 | 4.83 | 10.0 |
-| 507 | goliath_crawler__ceccaed0__gen20_ | -6.17 | 3.84 | 10.0 |
-| 508 | Goliath_crawler_Agent_Hybrid_cc43a41 | -6.20 | 3.89 | 10.0 |
-| 509 | ein_corgi__1c31750c__gen20 | -6.20 | 3.89 | 10.0 |
-| 510 | arachne_spider__d20771ae__gen2 | -6.20 | 4.38 | 10.0 |
-| 511 | Agent_07390c8 | -6.21 | 3.86 | 10.0 |
-| 512 | Arachne_spider_Agent_Hybrid_b90a609 | -6.22 | 3.83 | 10.0 |
-| 513 | aegis_turtle__2b400219__gen2 | -6.22 | 4.96 | 10.0 |
-| 514 | aegis_turtle__2b9cfe8e | -6.23 | 3.93 | 10.0 |
-| 515 | legion_hexapod__08f9da17__gen20_ | -6.23 | 3.82 | 10.0 |
-| 516 | legion_hexapod__669a2e2d__gen20_16 | -6.23 | 4.32 | 10.0 |
-| 517 | Arachne_spider_Agent_Hybrid_40939817_2 | -6.24 | 4.64 | 10.0 |
-| 518 | legion_hexapod__33f0f7ed__gen20_ | -6.25 | 3.80 | 10.0 |
-| 519 | goliath_crawler__1a83f221__gen20_19 | -6.25 | 4.35 | 10.0 |
-| 520 | khepri_beetle__9675d3cb__gen20_2 | -6.26 | 4.58 | 10.0 |
-| 521 | khepri_beetle__3fcf682b__gen20_26 | -6.27 | 4.40 | 10.0 |
-| 522 | Stilts_biped_Agent_Hybrid_f5850075 | -6.27 | 3.78 | 10.0 |
-| 523 | arachne_spider__d20771ae__gen20_1 | -6.28 | 3.74 | 10.0 |
-| 524 | giraffe_default__9ec68be6__gen20_1 | -6.28 | 3.77 | 10.0 |
-| 525 | megarachne_default | -6.28 | 5.23 | 10.0 |
-| 526 | ein_corgi | -6.28 | 4.17 | 10.0 |
-| 527 | giraffe_default_000 | -6.28 | 3.77 | 10.0 |
-| 528 | Legion_hexapod_Ein_corgi_Hybrid_a2df5dae | -6.30 | 3.75 | 10.0 |
-| 529 | goliath_crawler__4359ebf1__gen2 | -6.30 | 4.43 | 10.0 |
-| 530 | ein_corgi__69e64ff2__gen2 | -6.32 | 4.22 | 10.0 |
-| 531 | khepri_beetle__a903176b__gen20 | -6.32 | 3.75 | 10.0 |
-| 532 | Goliath_crawler_Agent_Hybrid_cf71fcb3_5 | -6.32 | 3.73 | 10.0 |
-| 533 | ein_corgi__5bb450d0__gen20_4 | -6.34 | 4.28 | 10.0 |
-| 534 | giraffe_default__be67c853__gen2 | -6.34 | 3.71 | 10.0 |
-| 535 | quadruped__0946fd96__gen20_ | -6.35 | 3.84 | 10.0 |
-| 536 | Agent_8c69b5de | -6.35 | 3.70 | 10.0 |
-| 537 | goliath_crawler__1a83f221__gen20_ | -6.36 | 3.99 | 10.0 |
-| 538 | legion_hexapod__aad4b40a__gen20_ | -6.36 | 4.58 | 10.0 |
-| 539 | centipede__9e6e08e6__gen2 | -6.37 | 5.46 | 10.0 |
-| 540 | stilts_biped__evolved | -6.38 | 3.67 | 10.0 |
-| 541 | arachne_spider__1115a638__gen20_ | -6.38 | 4.27 | 10.0 |
-| 542 | goliath_crawler__ceccaed0__gen2 | -6.38 | 3.86 | 10.0 |
-| 543 | Stilts_evolved_1 | -6.39 | 3.66 | 10.0 |
-| 544 | legion_hexapod__e6e2825b__gen20_ | -6.40 | 3.65 | 10.0 |
-| 545 | scorpion_hexapod__32ed3cc7 | -6.40 | 3.65 | 10.0 |
-| 546 | ein_corgi__1c31750c__gen2 | -6.40 | 3.95 | 10.0 |
-| 547 | quadruped__56d3be83__gen20 | -6.40 | 3.65 | 10.0 |
-| 548 | Arachne_spider_Centipede_Hybrid_b15c65d9 | -6.41 | 3.64 | 10.0 |
-| 549 | Hermes_2 | -6.41 | 3.65 | 10.0 |
-| 550 | legion_hexapod__33f0f7ed__gen20_0 | -6.42 | 4.00 | 10.0 |
-| 551 | ein_corgi__dad13d3f__gen20_1 | -6.42 | 4.14 | 10.0 |
-| 552 | giraffe__fd47b850 | -6.43 | 4.74 | 10.0 |
-| 553 | goliath_crawler__9d86ac27__gen20_ | -6.43 | 5.50 | 10.0 |
-| 554 | aegis_turtle__b228c2b8__gen20_ | -6.43 | 3.62 | 10.0 |
-| 555 | Goliath_crawler_Agent_Hybrid_cf71fcb3_ | -6.43 | 3.67 | 10.0 |
-| 556 | legion_hexapod__33f0f7ed__gen20_3 | -6.44 | 4.92 | 10.0 |
-| 557 | Arachne_spider_Agent_Hybrid_62286ffe | -6.44 | 3.61 | 10.0 |
-| 558 | goliath_crawler__ceccaed0__gen20_ | -6.44 | 3.61 | 10.0 |
-| 559 | arachne_spider__680a147f__gen20_9 | -6.45 | 3.62 | 10.0 |
-| 560 | arachne_spider__7ebf52b9__gen2 | -6.45 | 3.98 | 10.0 |
-| 561 | Legion_hexapod_a53bce88 | -6.46 | 3.59 | 10.0 |
-| 562 | Arachne_spider_Agent_Hybrid_4093981 | -6.46 | 5.05 | 10.0 |
-| 563 | quadruped__quad_5 | -6.47 | 3.58 | 10.0 |
-| 564 | aegis_turtle__9cdfb45a__gen20_3 | -6.48 | 3.90 | 10.0 |
-| 565 | Legion_hexapod_Agent_Hybrid_abefda52_27 | -6.48 | 3.57 | 10.0 |
-| 566 | Giraffe_default_Goliath_crawler_Hybrid_2ebca040 | -6.49 | 3.56 | 10.0 |
-| 567 | goliath_crawler__9d86ac27__gen20_4 | -6.49 | 3.88 | 10.0 |
-| 568 | ein_corgi__440aee32__gen20_ | -6.49 | 3.55 | 10.0 |
-| 569 | khepri_beetle__94ef9ae4__gen2 | -6.49 | 3.65 | 10.0 |
-| 570 | aegis_turtle__c94b5d6e__gen2 | -6.49 | 3.66 | 10.0 |
-| 571 | khepri_beetle__a903176b__gen20_1 | -6.49 | 3.55 | 10.0 |
-| 572 | aegis_turtle__4db54cc2__gen20 | -6.50 | 3.88 | 10.0 |
-| 573 | legion_hexapod__08f9da17__gen20_ | -6.50 | 3.92 | 10.0 |
-| 574 | Agent_07390c84_ | -6.51 | 4.13 | 10.0 |
-| 575 | ein_corgi__1380b4ed__gen2 | -6.51 | 4.17 | 10.0 |
-| 576 | legion_hexapod__66604b5c__gen20 | -6.51 | 4.00 | 10.0 |
-| 577 | arachne_spider__0f23c9a5__gen20_5 | -6.52 | 4.75 | 10.0 |
-| 578 | aegis_turtle__e118c1a4__gen2 | -6.52 | 4.20 | 10.0 |
-| 579 | legion_hexapod__39f7e11f__gen20_ | -6.53 | 3.84 | 10.0 |
-| 580 | goliath_crawler__2a034c94__gen20_1 | -6.54 | 4.29 | 10.0 |
-| 581 | Agent_ea2eb34 | -6.54 | 3.51 | 10.0 |
-| 582 | stilts_biped_22 | -6.54 | 4.11 | 10.0 |
-| 583 | aegis_turtle__d952330 | -6.54 | 3.88 | 10.0 |
-| 584 | khepri_beetle__f32cceb5__gen20_8 | -6.54 | 4.20 | 10.0 |
-| 585 | legion_hexapod__9fa2ad7e__gen20_ | -6.55 | 3.50 | 10.0 |
-| 586 | goliath_crawler__2a034c94__gen20_15 | -6.56 | 4.23 | 10.0 |
-| 587 | ein_corgi__cecd8ed9__gen20_6 | -6.58 | 3.72 | 10.0 |
-| 588 | arachne_spider__1115a638__gen20_ | -6.58 | 4.24 | 10.0 |
-| 589 | Aegis_turtle_Goliath_crawler_Hybrid_0b6501e9 | -6.59 | 3.46 | 10.0 |
-| 590 | khepri_beetle__f389ae06__gen20_2 | -6.59 | 3.42 | 10.0 |
-| 591 | quadruped__3158f2eb__gen20_ | -6.60 | 3.89 | 10.0 |
-| 592 | khepri_beetle__9675d3cb__gen20_12 | -6.61 | 4.00 | 10.0 |
-| 593 | goliath_crawler__f284ec63__gen2 | -6.62 | 3.43 | 10.0 |
-| 594 | ein_corgi__5bb450d0__gen20_12 | -6.62 | 4.20 | 10.0 |
-| 595 | quadruped__3e28aa35__gen2 | -6.62 | 3.94 | 10.0 |
-| 596 | giraffe_default__da6793c5__gen20_ | -6.62 | 3.90 | 10.0 |
-| 597 | aegis_turtle__cc9c672f__gen20_2 | -6.63 | 3.74 | 10.0 |
-| 598 | ein_corgi__5bb450d0__gen20 | -6.65 | 3.53 | 10.0 |
-| 599 | aegis_turtle__7a42b510__gen20 | -6.65 | 3.61 | 10.0 |
-| 600 | arachne_spider__b57cbc66__gen20_1 | -6.65 | 3.92 | 10.0 |
-| 601 | goliath_crawler__cc9bc7b8__gen20_27 | -6.65 | 3.74 | 10.0 |
-| 602 | legion_hexapod__e6e2825b__gen20_ | -6.66 | 4.58 | 10.0 |
-| 603 | Legion_hexapod_Aegis_turtle_Hybrid_9a824d7 | -6.67 | 4.45 | 10.0 |
-| 604 | legion_hexapod__99a9b3ff__gen20_ | -6.68 | 3.37 | 10.0 |
-| 605 | khepri_beetle__5a60eec6__gen20 | -6.68 | 5.10 | 10.0 |
-| 606 | aegis_turtle__d5fb7a33__gen2 | -6.68 | 3.37 | 10.0 |
-| 607 | ein_corgi__dad13d3f__gen20 | -6.69 | 3.67 | 10.0 |
-| 608 | obstacle_course | -6.69 | 3.36 | 10.0 |
-| 609 | goliath_crawler__88ab0cba__gen20_20 | -6.69 | 3.64 | 10.0 |
-| 610 | arachne_spider__1115a638__gen20 | -6.70 | 4.09 | 10.0 |
-| 611 | aegis_turtle__6ab5045c__gen20 | -6.70 | 3.39 | 10.0 |
-| 612 | quadruped_arena | -6.71 | 3.34 | 10.0 |
-| 613 | khepri_beetle__8aa11800__gen20 | -6.71 | 3.56 | 10.0 |
-| 614 | giraffe_default__e74dd564__gen2 | -6.71 | 3.81 | 10.0 |
-| 615 | ein_corgi__6892ee45__gen2 | -6.71 | 4.11 | 10.0 |
-| 616 | Goliath_crawler_Legion_hexapod_Hybrid_9234b54b_3 | -6.73 | 3.32 | 10.0 |
-| 617 | zero_g_dance | -6.74 | 3.31 | 10.0 |
-| 618 | goliath_crawler__1a83f221__gen20_9 | -6.74 | 3.74 | 10.0 |
-| 619 | Legion_hexapod_Agent_Hybrid_abefda5 | -6.74 | 3.32 | 10.0 |
-| 620 | khepri_beetle__09001214__gen2 | -6.75 | 3.30 | 10.0 |
-| 621 | aegis_turtle__d37f2e75__gen20 | -6.76 | 3.37 | 10.0 |
-| 622 | Agent_1bb7a2fa_ | -6.77 | 3.44 | 10.0 |
-| 623 | arachne_spider__e341b498__gen20 | -6.77 | 5.06 | 10.0 |
-| 624 | legion_hexapod__e6e2825b__gen20_ | -6.78 | 3.27 | 10.0 |
-| 625 | quadruped_0000 | -6.79 | 3.26 | 10.0 |
-| 626 | ein_corgi__cecd8ed9__gen20 | -6.80 | 3.90 | 10.0 |
-| 627 | Legion_hexapod_Goliath_crawler_Hybrid_11ba198 | -6.81 | 3.24 | 10.0 |
-| 628 | arachne_spider__680a147f__gen20_8 | -6.82 | 3.39 | 10.0 |
-| 629 | arachne_spider__1115a638__gen20_16 | -6.82 | 4.12 | 10.0 |
-| 630 | snake__809688e9__gen20_14 | -6.83 | 3.37 | 10.0 |
-| 631 | stilts_biped__027c957e__gen20_1 | -6.84 | 3.34 | 10.0 |
-| 632 | quadruped__7e58c99e__gen2 | -6.84 | 3.62 | 10.0 |
-| 633 | khepri_beetle__94ef9ae4__gen20_3 | -6.84 | 3.17 | 10.0 |
-| 634 | khepri_beetle__5a60eec6__gen20_ | -6.84 | 3.21 | 10.0 |
-| 635 | goliath_crawler__f6185769__gen2 | -6.84 | 3.21 | 10.0 |
-| 636 | ein_corgi__dfdfb749__gen2 | -6.85 | 3.36 | 10.0 |
-| 637 | quadruped__92a891e0__gen2 | -6.85 | 3.20 | 10.0 |
-| 638 | Hermes_28 | -6.85 | 3.20 | 10.0 |
-| 639 | Arachne_spider_Agent_Hybrid_40939817_21 | -6.85 | 3.20 | 10.0 |
-| 640 | arachne_spider__b57cbc66__gen20_11 | -6.85 | 3.98 | 10.0 |
-| 641 | arachne_spider__7ebf52b9__gen20_1 | -6.86 | 3.67 | 10.0 |
-| 642 | goliath_crawler__9d86ac27__gen20_19 | -6.86 | 3.58 | 10.0 |
-| 643 | arachne_spider__b344189b__gen20_0 | -6.86 | 4.19 | 10.0 |
-| 644 | aegis_turtle_ | -6.87 | 3.16 | 10.0 |
-| 645 | legion_hexapod__83491b1c__gen20_ | -6.87 | 3.62 | 10.0 |
-| 646 | legion_hexapod__4ad1599 | -6.88 | 3.17 | 10.0 |
-| 647 | aegis_turtle__b228c2b8__gen20_12 | -6.88 | 3.43 | 10.0 |
-| 648 | goliath_crawler__d6380aac__gen20 | -6.88 | 3.19 | 10.0 |
-| 649 | Aegis_turtle_Agent_Hybrid_53bea08a | -6.89 | 3.16 | 10.0 |
-| 650 | quadruped__55dcb287__gen2 | -6.89 | 4.41 | 10.0 |
-| 651 | arachne_spider__7ebf52b9__gen20 | -6.89 | 5.38 | 10.0 |
-| 652 | evolved_Arachne_1 | -6.89 | 3.16 | 10.0 |
-| 653 | Arachne_spider_Default_Hybrid_400c58b | -6.89 | 4.57 | 10.0 |
-| 654 | legion_hexapod__5be5fc43__gen20 | -6.90 | 3.62 | 10.0 |
-| 655 | aegis_turtle__d77a1bbf__gen20_2 | -6.90 | 3.11 | 10.0 |
-| 656 | khepri_beetle__evolved | -6.91 | 3.14 | 10.0 |
-| 657 | ein_corgi__1b52a473__gen20 | -6.91 | 3.10 | 10.0 |
-| 658 | legion_hexapod__690e6abe__gen20 | -6.91 | 3.56 | 10.0 |
-| 659 | giraffe_default__b2dcd29b__gen20_ | -6.92 | 3.08 | 10.0 |
-| 660 | Legion_hexapod_Ein_corgi_Hybrid_47f0def1 | -6.92 | 3.13 | 10.0 |
-| 661 | Legion_hexapod_Agent_Hybrid_0fe084b1 | -6.93 | 3.12 | 10.0 |
-| 662 | goliath_crawler__e33f9c12__gen20 | -6.93 | 3.61 | 10.0 |
-| 663 | aegis_turtle__d37f2e75__gen20_ | -6.93 | 3.66 | 10.0 |
-| 664 | arachne_spider__b57cbc66__gen20_1 | -6.94 | 3.10 | 10.0 |
-| 665 | legion_hexapod__4ad15990 | -6.94 | 3.07 | 10.0 |
-| 666 | legion_hexapod__917cf222__gen20 | -6.94 | 3.07 | 10.0 |
-| 667 | ein_corgi__1b52a473__gen2 | -6.95 | 3.75 | 10.0 |
-| 668 | aegis_turtle__f4dd28c0__gen2 | -6.96 | 3.09 | 10.0 |
-| 669 | arachne_spider__1115a638__gen20_ | -6.97 | 4.35 | 10.0 |
-| 670 | legion_hexapod__9fa2ad7e__gen20_1 | -6.98 | 3.06 | 10.0 |
-| 671 | ein_corgi__3f2b121 | -6.99 | 4.38 | 10.0 |
-| 672 | starfish__79781680__gen20_ | -6.99 | 3.02 | 10.0 |
-| 673 | Ein_corgi_Agent_Hybrid_13809f03_ | -6.99 | 4.73 | 10.0 |
-| 674 | goliath_crawler_0000 | -6.99 | 3.30 | 10.0 |
-| 675 | legion_hexapod__8e6537e3__gen20_11 | -7.00 | 4.05 | 10.0 |
-| 676 | goliath_crawler__4359ebf1__gen20_9 | -7.00 | 3.80 | 10.0 |
-| 677 | goliath_crawler__ceccaed0__gen20_20 | -7.01 | 3.43 | 10.0 |
-| 678 | ein_corgi__5bb450d0__gen20_19 | -7.02 | 3.45 | 10.0 |
-| 679 | khepri_beetle__8bfc4cbb__gen20 | -7.02 | 3.15 | 10.0 |
-| 680 | Legion_hexapod_Ein_corgi_Hybrid_a2df5dae_15 | -7.03 | 3.02 | 10.0 |
-| 681 | goliath_crawler__88ab0cba__gen20 | -7.04 | 3.45 | 10.0 |
-| 682 | goliath_crawler__3c2a334b__gen2 | -7.06 | 3.85 | 10.0 |
-| 683 | ein_corgi__cecd8ed9__gen20_ | -7.06 | 3.46 | 10.0 |
-| 684 | arachne_spider__e341b498__gen20_3 | -7.06 | 4.61 | 10.0 |
-| 685 | Agent_1bb7a2f | -7.06 | 3.64 | 10.0 |
-| 686 | Stilts_biped_Legion_hexapod_Hybrid_91b8e92 | -7.06 | 2.99 | 10.0 |
-| 687 | khepri_beetle__9675d3cb__gen20_4 | -7.07 | 3.70 | 10.0 |
-| 688 | quadruped__12565ab8__gen2 | -7.08 | 2.97 | 10.0 |
-| 689 | legion_hexapod__e6e2825b__gen20_2 | -7.09 | 3.67 | 10.0 |
-| 690 | ein_corgi__dad13d3f__gen20_2 | -7.09 | 2.96 | 10.0 |
-| 691 | arachne_spider__e341b498__gen20_14 | -7.10 | 4.42 | 10.0 |
-| 692 | gorilla__bc52cc60__gen2 | -7.11 | 3.45 | 10.0 |
-| 693 | ein_corgi__dfdfb749__gen20 | -7.11 | 3.40 | 10.0 |
-| 694 | stilts_biped__47f9883c__gen2 | -7.11 | 2.94 | 10.0 |
-| 695 | snake__809688e9__gen20_9 | -7.11 | 3.09 | 10.0 |
-| 696 | legion_hexapod__9fa2ad7e__gen20_2 | -7.12 | 3.76 | 10.0 |
-| 697 | Legion_11 | -7.12 | 3.43 | 10.0 |
-| 698 | starfish__0e011b3c__gen20 | -7.12 | 3.20 | 10.0 |
-| 699 | goliath_crawler__9d86ac27__gen20_ | -7.13 | 3.33 | 10.0 |
-| 700 | Legion_hexapod_Agent_Hybrid_7567d8d5 | -7.13 | 2.92 | 10.0 |
-| 701 | arachne_spider__ed6b0b64__gen5 | -7.14 | 4.10 | 10.0 |
-| 702 | Ein_corgi_Goliath_crawler_Hybrid_fcaf3d0 | -7.14 | 3.59 | 10.0 |
-| 703 | ein_corgi__6892ee45__gen20_7 | -7.14 | 3.40 | 10.0 |
-| 704 | goliath_crawler__9d86ac27__gen20 | -7.14 | 3.36 | 10.0 |
-| 705 | centipede__f7e3e820__gen2 | -7.15 | 4.18 | 10.0 |
-| 706 | legion_hexapod__33f0f7ed__gen20_8 | -7.16 | 4.12 | 10.0 |
-| 707 | snake__809688e9__gen20 | -7.17 | 2.86 | 10.0 |
-| 708 | ein_corgi__1c31750c__gen20_1 | -7.17 | 2.88 | 10.0 |
-| 709 | Arachne_spider_Agent_Hybrid_a6a7ecdd | -7.17 | 2.88 | 10.0 |
-| 710 | ein_corgi__1380b4ed__gen20 | -7.18 | 2.99 | 10.0 |
-| 711 | Giraffe_default_Agent_Hybrid_e367cdcc | -7.18 | 2.87 | 10.0 |
-| 712 | snake_default | -7.19 | 3.28 | 10.0 |
-| 713 | goliath_crawler__88ab0cba__gen20_2 | -7.20 | 3.33 | 10.0 |
-| 714 | scorpion_king_default | -7.21 | 4.72 | 10.0 |
-| 715 | Agent_8458bb7 | -7.22 | 3.31 | 10.0 |
-| 716 | quadruped__49d55732__gen2 | -7.22 | 3.26 | 10.0 |
-| 717 | aegis_turtle_000 | -7.23 | 3.19 | 10.0 |
-| 718 | khepri_beetle__5a60eec6__gen20_1 | -7.23 | 3.58 | 10.0 |
-| 719 | gorilla__bc52cc60__gen20 | -7.23 | 2.81 | 10.0 |
-| 720 | khepri_beetle__5a60eec6__gen20_9 | -7.25 | 3.72 | 10.0 |
-| 721 | Goliath_crawler_Legion_hexapod_Hybrid_9234b54b_ | -7.26 | 3.28 | 10.0 |
-| 722 | arachne_spider__0f23c9a5__gen20_ | -7.26 | 3.88 | 10.0 |
-| 723 | arachne_spider__b57cbc66__gen20_10 | -7.27 | 3.38 | 10.0 |
-| 724 | aegis_turtle__b228c2b8__gen20_ | -7.30 | 2.77 | 10.0 |
-| 725 | Giraffe_default_Goliath_crawler_Hybrid_2ebca040_ | -7.30 | 2.94 | 10.0 |
-| 726 | legion_hexapod__33f0f7ed__gen20_ | -7.30 | 2.71 | 10.0 |
-| 727 | goliath_crawler__ceccaed0__gen20_1 | -7.31 | 2.74 | 10.0 |
-| 728 | Giraffe_default_Goliath_crawler_Hybrid_2ebca040_2 | -7.31 | 5.92 | 10.0 |
-| 729 | arachne_spider__d11261f2__gen20 | -7.31 | 3.16 | 10.0 |
-| 730 | aegis_turtle__d77a1bbf__gen2 | -7.32 | 3.17 | 10.0 |
-| 731 | Aegis_turtle_Ein_corgi_Hybrid_3fadd42d | -7.33 | 2.72 | 10.0 |
-| 732 | centipede__ca08cb7f__gen2 | -7.33 | 2.72 | 10.0 |
-| 733 | khepri_beetle__dd183e82__gen20 | -7.33 | 3.23 | 10.0 |
-| 734 | legion_hexapod__4f4e878b__gen20_ | -7.34 | 3.73 | 10.0 |
-| 735 | gorilla__24c84f2a__gen20 | -7.36 | 2.77 | 10.0 |
-| 736 | goliath_crawler__3c2a334b__gen20 | -7.36 | 2.94 | 10.0 |
-| 737 | giraffe__fd47b85 | -7.36 | 3.97 | 10.0 |
-| 738 | aegis_turtle__d37f2e75__gen20_11 | -7.37 | 2.95 | 10.0 |
-| 739 | goliath_crawler__ceccaed0__gen20_ | -7.37 | 4.42 | 10.0 |
-| 740 | legion_hexapod__99a9b3ff__gen20_1 | -7.38 | 2.96 | 10.0 |
-| 741 | ein_corgi__091fa48a__gen20 | -7.38 | 3.01 | 10.0 |
-| 742 | legion_hexapod__1a97ab9c__gen2 | -7.38 | 2.65 | 10.0 |
-| 743 | goliath_crawler__ceccaed0__gen20_13 | -7.39 | 3.23 | 10.0 |
-| 744 | arachne_spider__d20771ae__gen20 | -7.39 | 4.45 | 10.0 |
-| 745 | goliath_crawler__9d86ac27__gen2 | -7.40 | 2.65 | 10.0 |
-| 746 | quadruped__a201d728__gen20 | -7.40 | 2.65 | 10.0 |
-| 747 | khepri_beetle__f389ae06__gen2 | -7.40 | 4.28 | 10.0 |
-| 748 | aegis_turtle__d77a1bbf__gen20_1 | -7.40 | 2.65 | 10.0 |
-| 749 | Legion_hexapod_Ein_corgi_Hybrid_47f0def | -7.42 | 2.63 | 10.0 |
-| 750 | goliath_crawler__c8aa0f29__gen2 | -7.42 | 3.09 | 10.0 |
-| 751 | Giraffe_default_Goliath_crawler_Hybrid_2ebca040_ | -7.44 | 2.61 | 10.0 |
-| 752 | ein_corgi__dad13d3f__gen20_ | -7.44 | 3.16 | 10.0 |
-| 753 | legion_hexapod__9fa2ad7e__gen20_15 | -7.44 | 3.54 | 10.0 |
-| 754 | goliath_crawler__evolve | -7.45 | 3.79 | 10.0 |
-| 755 | aegis_turtle__cc9c672f__gen20 | -7.46 | 2.90 | 10.0 |
-| 756 | ein_corgi__440aee32__gen20_3 | -7.46 | 2.55 | 10.0 |
-| 757 | khepri_beetle__09001214__gen20 | -7.46 | 3.74 | 10.0 |
-| 758 | Ein_corgi_Agent_Hybrid_13809f03_9 | -7.47 | 2.58 | 10.0 |
-| 759 | Aegis_turtle_Ein_corgi_Hybrid_3fadd42d_9 | -7.47 | 2.58 | 10.0 |
-| 760 | legion_hexapod__9fa2ad7e__gen20_ | -7.47 | 2.58 | 10.0 |
-| 761 | khepri_beetle__fe9be525__gen20_ | -7.48 | 2.57 | 10.0 |
-| 762 | goliath_crawler__ceccaed0__gen20_1 | -7.48 | 3.28 | 10.0 |
-| 763 | goliath_crawler__9d86ac27__gen20_6 | -7.49 | 2.88 | 10.0 |
-| 764 | legion_hexapod__5be5fc43__gen2 | -7.50 | 3.00 | 10.0 |
-| 765 | Aegis_turtle_Agent_Hybrid_ec2e8a5 | -7.50 | 4.13 | 10.0 |
-| 766 | ein_corgi__6892ee45__gen20_ | -7.50 | 2.55 | 10.0 |
-| 767 | legion_hexapod__1a97ab9c__gen20_ | -7.50 | 3.45 | 10.0 |
-| 768 | aegis_turtle__2b9cfe8 | -7.51 | 3.06 | 10.0 |
-| 769 | aegis_turtle__d37f2e75__gen20_1 | -7.52 | 3.14 | 10.0 |
-| 770 | legion_hexapod__33f0f7ed__gen20_ | -7.53 | 2.49 | 10.0 |
-| 771 | legion_hexapod__8e6537e3__gen20 | -7.54 | 3.89 | 10.0 |
-| 772 | Giraffe_default_Goliath_crawler_Hybrid_f7db42f | -7.54 | 3.78 | 10.0 |
-| 773 | Legion_hexapod_Agent_Hybrid_0463566 | -7.54 | 3.28 | 10.0 |
-| 774 | ein_corgi__b0706ade__gen20 | -7.54 | 2.80 | 10.0 |
-| 775 | aegis_turtle__e118c1a4__gen20 | -7.55 | 2.47 | 10.0 |
-| 776 | legion_hexapod__83491b1c__gen20_ | -7.56 | 2.50 | 10.0 |
-| 777 | Aegis_turtle_Agent_Hybrid_53bea08a_6 | -7.57 | 2.48 | 10.0 |
-| 778 | legion_hexapod__08f9da17__gen20_9 | -7.58 | 3.36 | 10.0 |
-| 779 | arachne_spider__680a147f__gen2 | -7.59 | 3.65 | 10.0 |
-| 780 | arachne_spider__1115a638__gen20_1 | -7.59 | 3.56 | 10.0 |
-| 781 | goliath_crawler__06ac2a4e__gen20_2 | -7.59 | 2.62 | 10.0 |
-| 782 | centipede__ca08cb7f__gen20 | -7.59 | 3.25 | 10.0 |
-| 783 | aegis_turtle__f4dd28c0__gen20 | -7.59 | 2.43 | 10.0 |
-| 784 | Agent_50361c3d | -7.59 | 2.46 | 10.0 |
-| 785 | arachne_spider__e341b498__gen20_7 | -7.61 | 4.28 | 10.0 |
-| 786 | scorpion__04ef10ed__gen2 | -7.61 | 4.32 | 10.0 |
-| 787 | aegis_turtle__9cdfb45a__gen20 | -7.63 | 2.91 | 10.0 |
-| 788 | starfish__79781680__gen20_1 | -7.63 | 3.02 | 10.0 |
-| 789 | quadruped__6c6d31c0__gen2 | -7.63 | 2.66 | 10.0 |
-| 790 | Khepri_beetle_Agent_Hybrid_7ebcbe3 | -7.64 | 3.53 | 10.0 |
-| 791 | scorpion_0000 | -7.66 | 2.58 | 10.0 |
-| 792 | arachne_spider | -7.66 | 3.75 | 10.0 |
-| 793 | Legion_hexapod_Aegis_turtle_Hybrid_71fa098f | -7.67 | 2.38 | 10.0 |
-| 794 | goliath_crawler__ceccaed0__gen20_1 | -7.67 | 2.45 | 10.0 |
-| 795 | legion_hexapod__39f7e11f__gen20_8 | -7.67 | 5.08 | 10.0 |
-| 796 | goliath_crawler__6174dc0d__gen20 | -7.68 | 2.65 | 10.0 |
-| 797 | giraffe_default__be67c853__gen20_13 | -7.69 | 3.39 | 10.0 |
-| 798 | Ein_corgi_Agent_Hybrid_13809f03 | -7.70 | 2.35 | 10.0 |
-| 799 | gorilla_0000 | -7.70 | 2.75 | 10.0 |
-| 800 | giraffe_default__b2dcd29b__gen20 | -7.70 | 2.94 | 10.0 |
-| 801 | goliath_crawler__4359ebf1__gen20_6 | -7.70 | 2.97 | 10.0 |
-| 802 | goliath_crawler__2642d7c5__gen20_ | -7.70 | 3.98 | 10.0 |
-| 803 | legion_hexapod__4f4e878b__gen20_1 | -7.71 | 2.34 | 10.0 |
-| 804 | giraffe_default__f8be4e2f__gen20_25 | -7.72 | 3.42 | 10.0 |
-| 805 | aegis_turtle__2b400219__gen20 | -7.75 | 2.37 | 10.0 |
-| 806 | legion_hexapod__39f7e11f__gen20_3 | -7.75 | 2.82 | 10.0 |
-| 807 | Aegis_turtle_Agent_Hybrid_53bea08 | -7.75 | 2.59 | 10.0 |
-| 808 | giraffe_default__da6793c5__gen20_1 | -7.75 | 2.63 | 10.0 |
-| 809 | ein_corgi__5bb450d0__gen20_ | -7.75 | 2.33 | 10.0 |
-| 810 | arachne_spider__22b7a27b__gen20 | -7.76 | 2.75 | 10.0 |
-| 811 | legion_hexapod__83491b1c__gen20_ | -7.76 | 3.09 | 10.0 |
-| 812 | gorilla__24c84f2a__gen20_13 | -7.76 | 2.74 | 10.0 |
-| 813 | arachne_spider__680a147f__gen20_6 | -7.77 | 3.33 | 10.0 |
-| 814 | legion_hexapod__9fa2ad7e__gen20_1 | -7.80 | 2.25 | 10.0 |
-| 815 | legion_hexapod__e6e2825b__gen20_0 | -7.80 | 4.61 | 10.0 |
-| 816 | legion_hexapod__39f7e11f__gen20_ | -7.80 | 3.33 | 10.0 |
-| 817 | khepri_beetle__9675d3cb__gen20 | -7.81 | 2.24 | 10.0 |
-| 818 | stilts_biped__027c957e__gen20_ | -7.81 | 3.15 | 10.0 |
-| 819 | goliath_crawler__2642d7c5__gen20_19 | -7.81 | 2.58 | 10.0 |
-| 820 | arachne_spider__3a067005__gen20 | -7.82 | 2.52 | 10.0 |
-| 821 | legion_hexapod__04aa24d0__gen2 | -7.84 | 3.16 | 10.0 |
-| 822 | Legion_hexapod_Agent_Hybrid_abefda52 | -7.87 | 2.18 | 10.0 |
-| 823 | legion_hexapod__33f0f7ed__gen20_5 | -7.87 | 3.53 | 10.0 |
-| 824 | Legion_hexapod_Aegis_turtle_Hybrid_96b28793_5 | -7.87 | 2.18 | 10.0 |
-| 825 | goliath_crawler__1a83f221__gen20_2 | -7.88 | 3.44 | 10.0 |
-| 826 | ein_corgi__1c31750c__gen20_11 | -7.88 | 3.09 | 10.0 |
-| 827 | ein_corgi__5160c08e__gen20 | -7.89 | 2.19 | 10.0 |
-| 828 | starfish__e81a58c8__gen20 | -7.90 | 2.63 | 10.0 |
-| 829 | legion_hexapod__e6e2825b__gen20_8 | -7.90 | 2.24 | 10.0 |
-| 830 | Aegis_turtle_Ein_corgi_Hybrid_3fadd42d_ | -7.90 | 3.75 | 10.0 |
-| 831 | goliath_crawler__e33f9c12__gen2 | -7.91 | 2.14 | 10.0 |
-| 832 | legion_hexapod__66604b5c__gen2 | -7.91 | 2.74 | 10.0 |
-| 833 | arachne_spider__7ebf52b9__gen20_ | -7.91 | 2.10 | 10.0 |
-| 834 | goliath_crawler__evolved | -7.92 | 2.13 | 10.0 |
-| 835 | legion_hexapod__83491b1c__gen20_1 | -7.94 | 2.09 | 10.0 |
-| 836 | Aegis_turtle_Agent_Hybrid_ec2e8a51 | -7.94 | 2.11 | 10.0 |
-| 837 | arachne_spider__7ebf52b9__gen20_7 | -7.94 | 2.28 | 10.0 |
-| 838 | khepri_beetle__a903176b__gen20_ | -7.95 | 2.46 | 10.0 |
-| 839 | Agent_07390c84 | -7.95 | 2.10 | 10.0 |
-| 840 | aegis_turtle__d77a1bbf__gen20_28 | -7.95 | 2.63 | 10.0 |
-| 841 | khepri_beetle__9aeb1626__gen2 | -7.97 | 2.67 | 10.0 |
-| 842 | legion_hexapod__99a9b3ff__gen20 | -7.97 | 4.53 | 10.0 |
-| 843 | khepri_beetle__5a60eec6__gen20_18 | -7.97 | 2.73 | 10.0 |
-| 844 | goliath_crawler__2642d7c5__gen20_4 | -7.98 | 2.82 | 10.0 |
-| 845 | crab_default | -8.00 | 3.64 | 10.0 |
-| 846 | legion_hexapod__9fa2ad7e__gen20_ | -8.01 | 2.52 | 10.0 |
-| 847 | goliath_crawler__f284ec63__gen20 | -8.01 | 2.01 | 10.0 |
-| 848 | Arachne_spider_Centipede_Hybrid_b15c65d | -8.03 | 2.34 | 10.0 |
-| 849 | Giraffe_default_Goliath_crawler_Hybrid_2ebca040_8 | -8.03 | 2.02 | 10.0 |
-| 850 | aegis_turtle__b228c2b8__gen20 | -8.03 | 2.06 | 10.0 |
-| 851 | legion_hexapod__9fa2ad7e__gen20_ | -8.04 | 2.01 | 10.0 |
-| 852 | Aegis_ | -8.05 | 2.27 | 10.0 |
-| 853 | quadruped__1b018877__gen20 | -8.08 | 1.97 | 10.0 |
-| 854 | Legion_hexapod_Agent_Hybrid_6b91baab | -8.09 | 1.96 | 10.0 |
-| 855 | gorilla__d71f556e__gen2 | -8.09 | 1.91 | 10.0 |
-| 856 | starfish__0e011b3c__gen2 | -8.10 | 2.22 | 10.0 |
-| 857 | goliath_crawler__1a83f221__gen20_ | -8.10 | 2.72 | 10.0 |
-| 858 | arachne_spider__d20771ae__gen20_18 | -8.11 | 3.37 | 10.0 |
-| 859 | khepri_beetle__a903176b__gen20_ | -8.12 | 2.10 | 10.0 |
-| 860 | goliath_crawler__c5921aa1__gen20 | -8.14 | 2.24 | 10.0 |
-| 861 | legion_hexapod__aad4b40a__gen20 | -8.14 | 2.53 | 10.0 |
-| 862 | Goliath_crawler_Agent_Hybrid_900242c0 | -8.14 | 1.91 | 10.0 |
-| 863 | aegis_turtle__e118c1a4__gen20_ | -8.14 | 2.60 | 10.0 |
-| 864 | giraffe__7519a19f | -8.14 | 2.72 | 10.0 |
-| 865 | Agent_5058eae | -8.14 | 1.87 | 10.0 |
-| 866 | legion_hexapod__0ec9748e__gen50 | -8.15 | 2.20 | 10.0 |
-| 867 | Khepri_beetle_Agent_Hybrid_7ebcbe32 | -8.15 | 1.90 | 10.0 |
-| 868 | legion_hexapod__99a9b3ff__gen20_ | -8.15 | 1.90 | 10.0 |
-| 869 | starfish__79781680__gen20_4 | -8.18 | 2.27 | 10.0 |
-| 870 | Goliath_crawler_Legion_hexapod_Hybrid_9234b54b | -8.19 | 1.86 | 10.0 |
-| 871 | Arachne_spider_Agent_Hybrid_a6a7ecd | -8.20 | 1.97 | 10.0 |
-| 872 | goliath_crawler__4359ebf1__gen20_14 | -8.21 | 2.95 | 10.0 |
-| 873 | goliath_crawler__88ab0cba__gen20_ | -8.22 | 2.42 | 10.0 |
-| 874 | stilts_biped__ad3a8303__gen2 | -8.22 | 2.47 | 10.0 |
-| 875 | Stilts_biped_Legion_hexapod_Hybrid_d114e0e7 | -8.23 | 1.82 | 10.0 |
-| 876 | legion_hexapod__9fa2ad7e__gen20_8 | -8.24 | 1.85 | 10.0 |
-| 877 | legion_hexapod__39f7e11f__gen20 | -8.25 | 3.54 | 10.0 |
-| 878 | legion_hexapod__83491b1c__gen20_16 | -8.26 | 2.19 | 10.0 |
-| 879 | ein_corgi__28aeb2dd__gen20_5 | -8.26 | 1.75 | 10.0 |
-| 880 | aegis_turtle_0000 | -8.26 | 2.11 | 10.0 |
-| 881 | ein_corgi__cecd8ed9__gen20_1 | -8.26 | 2.31 | 10.0 |
-| 882 | Legion_hexapod_Aegis_turtle_Hybrid_96b28793_ | -8.27 | 1.78 | 10.0 |
-| 883 | khepri_beetle__94ef9ae4__gen20_ | -8.27 | 2.97 | 10.0 |
-| 884 | legion_hexapod__81bb88f9__gen2 | -8.27 | 2.64 | 10.0 |
-| 885 | Legion_hexapod_Aegis_turtle_Hybrid_170e8771 | -8.27 | 1.78 | 10.0 |
-| 886 | gorilla_000 | -8.28 | 2.79 | 10.0 |
-| 887 | Aegis_turtle_Ein_corgi_Hybrid_3fadd42d_ | -8.32 | 3.23 | 10.0 |
-| 888 | scorpion__4f1fc2b9__gen2 | -8.33 | 3.10 | 10.0 |
-| 889 | quadruped__49d55732__gen20_1 | -8.34 | 1.88 | 10.0 |
-| 890 | goliath_crawler__06ac2a4e__gen20_17 | -8.35 | 2.17 | 10.0 |
-| 891 | scorpion__fb1b7306__gen20_1 | -8.35 | 1.70 | 10.0 |
-| 892 | arachne_spider__92833ef6 | -8.36 | 1.67 | 10.0 |
-| 893 | stilts_biped__evolve | -8.37 | 2.18 | 10.0 |
-| 894 | arachne_spider__1115a638__gen20_1 | -8.37 | 2.35 | 10.0 |
-| 895 | legion_hexapod__0ec9748e__gen5 | -8.37 | 1.68 | 10.0 |
-| 896 | centipede__9e6e08e6__gen20 | -8.37 | 5.01 | 10.0 |
-| 897 | goliath_crawler__2642d7c5__gen20 | -8.37 | 1.97 | 10.0 |
-| 898 | quadruped__0920d435__gen20 | -8.38 | 1.67 | 10.0 |
-| 899 | arachne_spider_0000 | -8.42 | 2.42 | 10.0 |
-| 900 | legion_hexapod__5a9efe89__gen20_4 | -8.42 | 3.03 | 10.0 |
-| 901 | legion_hexapod__39f7e11f__gen20_25 | -8.43 | 2.29 | 10.0 |
-| 902 | Goliath_crawler_Agent_Hybrid_082163e8_2 | -8.43 | 1.91 | 10.0 |
-| 903 | aegis_turtle__74a28488__gen20 | -8.45 | 1.83 | 10.0 |
-| 904 | ein_corgi__dad13d3f__gen20_3 | -8.46 | 2.57 | 10.0 |
-| 905 | quadruped__5b64c974__gen2 | -8.47 | 2.15 | 10.0 |
-| 906 | legion_hexapod__9fa2ad7e__gen2 | -8.47 | 3.52 | 10.0 |
-| 907 | aegis_turtle__b228c2b8__gen20_13 | -8.48 | 1.94 | 10.0 |
-| 908 | ein_corgi__cecd8ed9__gen20_ | -8.49 | 2.11 | 10.0 |
-| 909 | arachne_spider__b57cbc66__gen20_ | -8.50 | 2.02 | 10.0 |
-| 910 | snake__e7783d07__gen2 | -8.52 | 1.82 | 10.0 |
-| 911 | legion_hexapod__8e6537e3__gen20_1 | -8.55 | 1.50 | 10.0 |
-| 912 | stilts_biped__027c957e__gen20_18 | -8.57 | 2.06 | 10.0 |
-| 913 | arachne_spider__e341b498__gen20_ | -8.58 | 1.47 | 10.0 |
-| 914 | arachne_spider__680a147f__gen20_ | -8.59 | 1.46 | 10.0 |
-| 915 | quadruped_000 | -8.59 | 1.46 | 10.0 |
-| 916 | khepri_beetle__7aad9c2c__gen5 | -8.60 | 1.71 | 10.0 |
-| 917 | arachne_spider__eea19144__gen2 | -8.60 | 1.70 | 10.0 |
-| 918 | Goliath_crawler_Agent_Hybrid_cf71fcb3 | -8.66 | 1.39 | 10.0 |
-| 919 | giraffe_default__da6793c5__gen20_ | -8.66 | 4.02 | 10.0 |
-| 920 | starfish_default | -8.67 | 2.17 | 10.0 |
-| 921 | Legion_hexapod_Agent_Hybrid_7567d8d5_1 | -8.67 | 3.00 | 10.0 |
-| 922 | arachne_spider__b57cbc66__gen20_5 | -8.68 | 2.60 | 10.0 |
-| 923 | ein_corgi_000 | -8.68 | 1.80 | 10.0 |
-| 924 | aegis_turtle__d77a1bbf__gen20_ | -8.68 | 1.36 | 10.0 |
-| 925 | legion_hexapod__669a2e2d__gen20_15 | -8.70 | 2.12 | 10.0 |
-| 926 | quadruped__87ec2774__gen2 | -8.71 | 2.25 | 10.0 |
-| 927 | giraffe_default__be67c853__gen20_1 | -8.72 | 1.86 | 10.0 |
-| 928 | legion_hexapod__4f4e878b__gen20_13 | -8.72 | 2.98 | 10.0 |
-| 929 | arachne_spider__1115a638__gen20_8 | -8.73 | 1.70 | 10.0 |
-| 930 | khepri_beetle__9675d3cb__gen20_13 | -8.74 | 2.60 | 10.0 |
-| 931 | arachne_spider__evolved | -8.74 | 1.31 | 10.0 |
-| 932 | Aegis_turtle_Agent_Hybrid_e319c544 | -8.76 | 1.29 | 10.0 |
-| 933 | Stilts_biped_Agent_Hybrid_f5850075_13 | -8.77 | 1.28 | 10.0 |
-| 934 | khepri_beetle__94ef9ae4__gen20_ | -8.78 | 2.35 | 10.0 |
-| 935 | Agent_7efb49af | -8.79 | 1.26 | 10.0 |
-| 936 | ein_corgi__28aeb2dd__gen20_12 | -8.79 | 1.63 | 10.0 |
-| 937 | quadruped__57dcdc56__gen20_1 | -8.81 | 1.24 | 10.0 |
-| 938 | aegis_turtle__evolved | -8.82 | 1.23 | 10.0 |
-| 939 | legion_hexapod__4f4e878b__gen20_4 | -8.85 | 2.31 | 10.0 |
-| 940 | legion_hexapod__08f9da17__gen20_5 | -8.85 | 2.25 | 10.0 |
-| 941 | aegis_turtle__d77a1bbf__gen20_1 | -8.85 | 1.73 | 10.0 |
-| 942 | legion_hexapod__669a2e2d__gen20_24 | -8.85 | 1.96 | 10.0 |
-| 943 | aegis_turtle__f144282b__gen20_ | -8.86 | 2.58 | 10.0 |
-| 944 | giraffe_default__e74dd564__gen20_7 | -8.86 | 2.47 | 10.0 |
-| 945 | scorpion__65c1edf3__gen20_ | -8.87 | 1.16 | 10.0 |
-| 946 | Ein_corgi_Goliath_crawler_Hybrid_fcaf3d06 | -8.87 | 1.18 | 10.0 |
-| 947 | arachne_spider__1115a638__gen20_2 | -8.90 | 2.64 | 10.0 |
-| 948 | Legion_hexapod_Agent_Hybrid_abefda52_3 | -8.91 | 1.14 | 10.0 |
-| 949 | stilts_biped | -8.92 | 1.64 | 10.0 |
-| 950 | ein_corgi__27ae43e | -8.92 | 1.10 | 10.0 |
-| 951 | goliath_crawler__1a83f221__gen2 | -8.92 | 1.46 | 10.0 |
-| 952 | khepri_beetle_000 | -8.95 | 3.06 | 10.0 |
-| 953 | goliath_crawler__2b282d80__gen2 | -8.96 | 1.06 | 10.0 |
-| 954 | legion_hexapod__e6e2825b__gen20 | -8.97 | 2.31 | 10.0 |
-| 955 | Legion_hexapod_Ein_corgi_Hybrid_a2df5dae_1 | -9.00 | 4.55 | 10.0 |
-| 956 | khepri_beetle__3fcf682b__gen20 | -9.01 | 3.32 | 10.0 |
-| 957 | legion_hexapod__08f9da17__gen20 | -9.02 | 1.16 | 10.0 |
-| 958 | arachne_spider__1115a638__gen20_0 | -9.03 | 2.32 | 10.0 |
-| 959 | Legion_hexapod_Agent_Hybrid_abefda52_2 | -9.03 | 1.92 | 10.0 |
-| 960 | goliath_crawler__2642d7c5__gen20_1 | -9.03 | 1.02 | 10.0 |
-| 961 | aegis_turtle__f144282b__gen20_0 | -9.04 | 0.97 | 10.0 |
-| 962 | legion_hexapod__9fa2ad7e__gen20_1 | -9.05 | 1.65 | 10.0 |
-| 963 | arachne_spider__680a147f__gen20 | -9.05 | 2.19 | 10.0 |
-| 964 | Agent_5058eae4_2 | -9.06 | 2.43 | 10.0 |
-| 965 | snake__809688e9__gen2 | -9.07 | 0.98 | 10.0 |
-| 966 | Ein_corgi_Agent_Hybrid_13809f0 | -9.07 | 0.98 | 10.0 |
-| 967 | Legion_hexapod_Aegis_turtle_Hybrid_4124428 | -9.09 | 2.10 | 10.0 |
-| 968 | mech_biped_default | -9.13 | 1.46 | 10.0 |
-| 969 | giraffe_default__6eb60d30__gen2 | -9.17 | 2.87 | 10.0 |
-| 970 | stilts_bipe | -9.20 | 0.85 | 10.0 |
-| 971 | arachne_spider__1115a638__gen20_5 | -9.21 | 2.17 | 10.0 |
-| 972 | goliath_crawler__2642d7c5__gen20_11 | -9.23 | 1.41 | 10.0 |
-| 973 | legion_hexapod__1a97ab9c__gen20 | -9.24 | 0.97 | 10.0 |
-| 974 | scorpion_hexapod__32ed3cc | -9.24 | 0.97 | 10.0 |
-| 975 | ein_corgi__dad13d3f__gen20_ | -9.24 | 1.21 | 10.0 |
-| 976 | aegis_turtle__4db54cc2__gen2 | -9.27 | 0.75 | 10.0 |
-| 977 | Aegis_turtle_Ein_corgi_Hybrid_3fadd42d_4 | -9.28 | 0.77 | 10.0 |
-| 978 | legion_hexapod__99a9b3ff__gen20_7 | -9.29 | 1.34 | 10.0 |
-| 979 | legion_hexapod__e87004f7__gen20 | -9.29 | 1.02 | 10.0 |
-| 980 | arachne_spider__b57cbc66__gen20_6 | -9.32 | 0.91 | 10.0 |
-| 981 | legion_hexapod__39f7e11f__gen20_ | -9.37 | 1.07 | 10.0 |
-| 982 | khepri_beetle__4fa26af5__gen20 | -9.39 | 1.85 | 10.0 |
-| 983 | Arachne_spider_Agent_Hybrid_b90a6098 | -9.41 | 0.64 | 10.0 |
-| 984 | Goliath_crawler_Agent_Hybrid_3b93da27 | -9.41 | 0.64 | 10.0 |
-| 985 | khepri_beetle__9675d3cb__gen2 | -9.42 | 0.87 | 10.0 |
-| 986 | gorilla__24c84f2a__gen20_1 | -9.43 | 0.62 | 10.0 |
-| 987 | Goliath_crawler_Agent_Hybrid_8c1954f | -9.44 | 1.54 | 10.0 |
-| 988 | goliath_crawler__ceccaed0__gen20_8 | -9.44 | 1.66 | 10.0 |
-| 989 | Khepri_beetle_Agent_Hybrid_7da9e026 | -9.44 | 0.61 | 10.0 |
-| 990 | giraffe_default__69664eb6__gen20_6 | -9.53 | 1.74 | 10.0 |
-| 991 | Aegis_turtle_Agent_Hybrid_e319c54 | -9.55 | 0.53 | 10.0 |
-| 992 | quadruped__1332f9ee__gen2 | -9.58 | 1.54 | 10.0 |
-| 993 | legion_hexapod__08f9da17__gen20_4 | -9.59 | 1.93 | 10.0 |
-| 994 | goliath_crawler__9f2b9193__gen20 | -9.61 | 0.47 | 10.0 |
-| 995 | legion_hexapod__83491b1c__gen20_0 | -9.61 | 2.01 | 10.0 |
-| 996 | goliath_crawler__0b941788__gen20 | -9.62 | 0.82 | 10.0 |
-| 997 | arachne_spider__b57cbc66__gen20 | -9.64 | 0.74 | 10.0 |
-| 998 | giraffe_default__e74dd564__gen20_1 | -9.69 | 0.90 | 10.0 |
-| 999 | giraffe_default__da6793c5__gen20_0 | -9.73 | 1.23 | 10.0 |
-| 1000 | arachne_spider__b57cbc66__gen20_ | -9.76 | 0.71 | 10.0 |
-| 1001 | arachne_spider__0f23c9a5__gen20_14 | -9.76 | 1.53 | 10.0 |
-| 1002 | legion_hexapod__a064005b__gen20 | -9.77 | 1.18 | 10.0 |
-| 1003 | arachne_spider__eea19144__gen20 | -9.77 | 0.61 | 10.0 |
-| 1004 | legion_hexapod__aad4b40a__gen2 | -9.79 | 0.86 | 10.0 |
-| 1005 | goliath_crawler__0b941788__gen2 | -9.82 | 0.59 | 10.0 |
-| 1006 | Agent_07390c84_ | -9.86 | 0.14 | 10.0 |
-| 1007 | aegis_turtle__18b94420__gen20 | -9.86 | 0.14 | 10.0 |
-| 1008 | giraffe_default__69664eb6__gen20_ | -9.89 | 0.20 | 10.0 |
-| 1009 | Goliath_crawler_Agent_Hybrid_900242c | -9.89 | 0.20 | 10.0 |
-| 1010 | legion_hexapod__1a97ab9c__gen20_7 | -9.89 | 1.19 | 10.0 |
-| 1011 | gorilla__88efbe93__gen2 | -9.89 | 0.14 | 10.0 |
-| 1012 | scorpion__4f1fc2b9__gen20 | -9.92 | 1.06 | 10.0 |
-| 1013 | legion_hexapod__3467bcc5__gen2 | -9.93 | 1.07 | 10.0 |
-| 1014 | khepri_beetle__7aad9c2c__gen50 | -9.93 | 0.15 | 10.0 |
-| 1015 | starfish__79781680__gen20_ | -9.95 | 0.05 | 10.0 |
-| 1016 | aegis_turtle__cc9c672f__gen20_3 | -9.96 | 0.04 | 10.0 |
-| 1017 | ein_corgi__dad13d3f__gen20_1 | -9.97 | 0.04 | 10.0 |
-| 1018 | giraffe_default__99faa514__gen20_ | -9.97 | 0.04 | 10.0 |
-| 1019 | goliath_crawler__cc9bc7b8__gen2 | -9.97 | 0.04 | 10.0 |
-| 1020 | arachne_spider__0f23c9a5__gen20_1 | -9.97 | 0.56 | 10.0 |
-| 1021 | aegis_turtle__b228c2b8__gen20_7 | -10.00 | 0.04 | 10.0 |
-| 1022 | goliath_crawler__ceccaed0__gen20_ | -10.02 | 0.29 | 10.0 |
-| 1023 | aegis_turtle__d97707b6__gen50 | -10.03 | 0.04 | 10.0 |
-| 1024 | aegis_turtle__c94b5d6e__gen20 | -10.09 | 0.03 | 10.0 |
-| 1025 | legion_hexapod__e87004f7__gen2 | -10.10 | 1.38 | 10.0 |
-| 1026 | quadruped__fda585e8__gen2 | -10.15 | 0.12 | 10.0 |
-| 1027 | centipede__163b1b5d__gen20 | -10.20 | 0.06 | 10.0 |
-| 1028 | Agent_7efb49a | -10.20 | 0.06 | 10.0 |
-| 1029 | scorpion__65c1edf3__gen20_2 | -10.21 | 0.50 | 10.0 |
-| 1030 | scorpion_default | -10.22 | 0.30 | 10.0 |
-| 1031 | scorpion__fb1b7306__gen20_11 | -10.24 | 0.46 | 10.0 |
-| 1032 | centipede__9e6e08e6__gen20_17 | -10.25 | 0.11 | 10.0 |
-| 1033 | legion_hexapod__evolve | -10.25 | 0.11 | 10.0 |
-| 1034 | khepri_beetle__9675d3cb__gen20_ | -10.26 | 0.09 | 10.0 |
-| 1035 | khepri_beetle | -10.29 | 0.20 | 10.0 |
-| 1036 | centipede__9e6e08e6__gen20_0 | -10.33 | 0.16 | 10.0 |
-| 1037 | khepri_beetle__5a60eec6__gen20_14 | -10.36 | 0.34 | 10.0 |
-| 1038 | aegis_turtle__b228c2b8__gen20_8 | -10.36 | 0.04 | 10.0 |
-| 1039 | scorpion__c1c1873c__gen20 | -10.41 | 0.41 | 10.0 |
-| 1040 | arachne_spider__1115a638__gen20_9 | -10.41 | 2.99 | 10.0 |
-| 1041 | stilts_biped__027c957e__gen20 | -10.42 | 0.87 | 10.0 |
-| 1042 | centipede__f7e3e820__gen20 | -10.44 | 0.15 | 10.0 |
-| 1043 | khepri_beetle__8bfc4cbb__gen20_3 | -10.45 | 0.33 | 10.0 |
-| 1044 | khepri_beetle__3fcf682b__gen20_3 | -10.52 | 1.52 | 10.0 |
-| 1045 | khepri_beetle_0000 | -10.55 | 0.14 | 10.0 |
-| 1046 | aegis_turtle__0f1ec654__gen5 | -10.58 | 0.37 | 10.0 |
-| 1047 | arachne_spider__b344189b__gen20 | -10.59 | 1.56 | 10.0 |
-| 1048 | arachne_spider__3a067005__gen20_16 | -10.59 | 0.89 | 10.0 |
-| 1049 | legion_hexapod__99a9b3ff__gen20_10 | -10.61 | 0.40 | 10.0 |
-| 1050 | elephant_default | -10.62 | 0.16 | 10.0 |
-| 1051 | scorpion__05eaa9d3__gen50 | -10.74 | 0.60 | 10.0 |
-| 1052 | Stilts_biped_Agent_Hybrid_f585007 | -10.78 | 0.40 | 10.0 |
-| 1053 | legion_hexapod__39f7e11f__gen20_ | -10.80 | 0.38 | 10.0 |
-| 1054 | goliath_crawler__0fac9fa0__gen2 | -10.80 | 0.38 | 10.0 |
-| 1055 | arachne_spider__0f23c9a5__gen2 | -10.82 | 0.10 | 10.0 |
-| 1056 | legion_hexapod__33f0f7ed__gen20_2 | -10.82 | 0.09 | 10.0 |
-| 1057 | khepri_beetle__8bfc4cbb__gen20_ | -10.82 | 0.39 | 10.0 |
-| 1058 | aegis_turtle__cc9c672f__gen20_6 | -10.83 | 0.07 | 10.0 |
-| 1059 | aegis_turtle__d77a1bbf__gen20_12 | -10.85 | 0.05 | 10.0 |
-| 1060 | khepri_beetle__5a60eec6__gen20_4 | -10.85 | 0.36 | 10.0 |
-| 1061 | scorpion__fb1b7306__gen2 | -10.85 | 0.36 | 10.0 |
-| 1062 | goliath_crawler__91ebacb4__gen2 | -10.85 | 0.36 | 10.0 |
-| 1063 | arachne_spider__22b7a27b__gen2 | -10.88 | 0.07 | 10.0 |
-| 1064 | legion_hexapod__33f0f7ed__gen20_ | -10.98 | 0.02 | 10.0 |
-| 1065 | Stilts_evolved_ | -11.03 | 0.15 | 10.0 |
-| 1066 | goliath_crawler__ceccaed0__gen20_5 | -11.03 | 0.92 | 10.0 |
-| 1067 | giraffe_default__da6793c5__gen20_1 | -11.03 | 0.15 | 10.0 |
-| 1068 | ein_corgi__dad13d3f__gen20_ | -11.03 | 0.15 | 10.0 |
-| 1069 | centipede_default | -11.08 | 0.08 | 10.0 |
-| 1070 | khepri_beetle__9675d3cb__gen20_3 | -11.14 | 0.33 | 10.0 |
-| 1071 | Goliath_crawler_Legion_hexapod_Hybrid_9234b54 | -11.17 | 0.82 | 10.0 |
-| 1072 | arachne_spider__b344189b__gen20_ | -11.20 | 0.38 | 10.0 |
-| 1073 | aegis_turtle__b228c2b8__gen20_6 | -11.22 | 0.06 | 10.0 |
-| 1074 | legion_hexapod__9fa2ad7e__gen20_ | -11.25 | 0.03 | 10.0 |
-| 1075 | aegis_turtle_7 | -11.26 | 0.03 | 10.0 |
-| 1076 | goliath_crawler__614f677d__gen20_ | -11.27 | 0.04 | 10.0 |
-| 1077 | Goliath_crawler_Agent_Hybrid_082163e | -11.27 | 0.04 | 10.0 |
-| 1078 | Aegis_5 | -11.47 | 0.04 | 10.0 |
-| 1079 | Arachne_spider_Agent_Hybrid_62286ff | -11.47 | 0.04 | 10.0 |
-| 1080 | aegis_turtle__f144282b__gen20_ | -11.47 | 0.04 | 10.0 |
-| 1081 | aegis_turtle__cc9c672f__gen20_9 | -11.56 | 0.05 | 10.0 |
-| 1082 | khepri_beetle__3fcf682b__gen20_9 | -12.01 | 2.07 | 10.0 |
-| 1083 | scorpion_000 | -26.33 | 5.23 | 10.0 |
+| Rank | Config | Score | Distance | Survival | Food | Breeding |
+|------|--------|-------|----------|----------|------|----------|
+| 1 | quadruped__ccb606cf__gen20 | 6.94 | 6.38 | 10.0 | 0 | 0 |
+| 2 | giraffe_default__b2dcd29b__gen20 | 6.89 | 4.91 | 10.0 | 0 | 0 |
+| 3 | ein_corgi__dad13d3f__gen20_8 | 6.79 | 4.86 | 10.0 | 0 | 0 |
+| 4 | goliath_crawler__1a83f221__gen20_9 | 6.78 | 4.63 | 10.0 | 0 | 0 |
+| 5 | goliath_crawler__3c2a334b__gen20 | 6.71 | 5.24 | 10.0 | 0 | 0 |
+| 6 | quadruped__3158f2eb__gen20 | 6.70 | 3.95 | 10.0 | 0 | 0 |
+| 7 | khepri_beetle__f389ae06__gen20 | 6.63 | 2.78 | 10.0 | 0 | 0 |
+| 8 | legion_hexapod__669a2e2d__gen20_15 | 6.57 | 1.45 | 10.0 | 0 | 0 |
+| 9 | legion_hexapod__39f7e11f__gen20_8 | 6.55 | 5.46 | 10.0 | 0 | 0 |
+| 10 | arachne_spider__3a067005__gen20 | 6.51 | 0.60 | 10.0 | 0 | 0 |
+| 11 | goliath_crawler__91ebacb4__gen20 | 6.45 | 2.39 | 10.0 | 0 | 0 |
+| 12 | aegis_turtle__d37f2e75__gen20 | 6.44 | 2.45 | 10.0 | 0 | 0 |
+| 13 | arachne_spider__3a067005__gen20_16 | 6.38 | 3.58 | 10.0 | 0 | 0 |
+| 14 | aegis_turtle__c94b5d6e__gen20 | 6.37 | 2.10 | 10.0 | 0 | 0 |
+| 15 | quadruped__fda585e8__gen20 | 6.32 | 2.42 | 10.0 | 0 | 0 |
+| 16 | centipede__9e6e08e6__gen20_0 | 6.32 | 4.58 | 10.0 | 0 | 0 |
+| 17 | ein_corgi__28aeb2dd__gen20 | 6.29 | 1.84 | 10.0 | 0 | 0 |
+| 18 | aegis_turtle__cc9c672f__gen20_6 | 6.19 | 5.11 | 10.0 | 0 | 0 |
+| 19 | frog_default | 6.19 | 5.91 | 10.0 | 0 | 0 |
+| 20 | ein_corgi_0000 | 6.18 | 2.88 | 10.0 | 0 | 0 |
+| 21 | ein_corgi__27ae43e9 | 6.16 | 4.08 | 10.0 | 0 | 0 |
+| 22 | aegis_turtle__cc9c672f__gen20_2 | 6.10 | 2.24 | 10.0 | 0 | 0 |
+| 23 | aegis_turtle__b228c2b8__gen20 | 6.06 | 6.50 | 10.0 | 0 | 0 |
+| 24 | goliath_crawler__9d86ac27__gen20_19 | 6.02 | 4.34 | 10.0 | 0 | 0 |
+| 25 | aegis_turtle__d77a1bbf__gen20_28 | 6.01 | 1.06 | 10.0 | 0 | 0 |
+| 26 | ein_corgi__cecd8ed9__gen20_3 | 6.01 | 3.57 | 10.0 | 0 | 0 |
+| 27 | khepri_beetle__8aa11800__gen20 | 5.98 | 2.60 | 10.0 | 1 | 0 |
+| 28 | quadruped__1b018877__gen20 | 5.97 | 3.10 | 10.0 | 0 | 0 |
+| 29 | mech_biped__e773e5cf__gen20 | 5.96 | 2.64 | 10.0 | 0 | 0 |
+| 30 | goliath_crawler__4359ebf1__gen20_14 | 5.95 | 2.61 | 10.0 | 0 | 0 |
+| 31 | arachne_spider__1115a638__gen20_8 | 5.94 | 5.16 | 10.0 | 0 | 0 |
+| 32 | arachne_spider__e341b498__gen20_14 | 5.85 | 3.77 | 10.0 | 0 | 0 |
+| 33 | aegis_turtle__d77a1bbf__gen20_12 | 5.84 | 2.74 | 10.0 | 0 | 0 |
+| 34 | legion_hexapod__08f9da17__gen20_4 | 5.83 | 4.64 | 10.0 | 0 | 0 |
+| 35 | giraffe_default__4e59c0ea__gen50 | 5.82 | 1.55 | 10.0 | 0 | 0 |
+| 36 | starfish__79781680__gen20 | 5.75 | 2.09 | 10.0 | 0 | 0 |
+| 37 | goliath_crawler__ceccaed0__gen20_20 | 5.75 | 4.88 | 10.0 | 0 | 0 |
+| 38 | arachne_spider__eea19144__gen20 | 5.74 | 3.46 | 10.0 | 0 | 0 |
+| 39 | khepri_beetle__a903176b__gen20_1 | 5.72 | 4.75 | 10.0 | 0 | 0 |
+| 40 | legion_hexapod__04aa24d0__gen20 | 5.72 | 5.11 | 10.0 | 0 | 0 |
+| 41 | quadruped__be8421f4__gen20 | 5.72 | 2.00 | 10.0 | 0 | 0 |
+| 42 | starfish__d54e8c01__gen20 | 5.70 | 2.77 | 10.0 | 0 | 0 |
+| 43 | goliath_crawler__9d86ac27__gen20_4 | 5.65 | 4.65 | 10.0 | 0 | 0 |
+| 44 | legion_hexapod__08f9da17__gen20_12 | 5.65 | 4.99 | 10.0 | 0 | 0 |
+| 45 | gorilla__bc52cc60__gen20 | 5.63 | 3.45 | 10.0 | 0 | 0 |
+| 46 | legion_hexapod__e6e2825b__gen20 | 5.61 | 2.04 | 10.0 | 0 | 0 |
+| 47 | mech_biped_default | 5.60 | 2.81 | 10.0 | 0 | 0 |
+| 48 | starfish_default | 5.60 | 3.73 | 10.0 | 0 | 0 |
+| 49 | arachne_spider__e341b498__gen20_3 | 5.57 | 2.36 | 10.0 | 0 | 0 |
+| 50 | quadruped__98444aa8__gen20 | 5.57 | 3.09 | 10.0 | 0 | 0 |
+| 51 | goliath_crawler__2a034c94__gen20_15 | 5.56 | 3.20 | 10.0 | 0 | 0 |
+| 52 | legion_hexapod__e87004f7__gen20 | 5.56 | 2.74 | 10.0 | 0 | 0 |
+| 53 | quadruped__55dcb287__gen20_10 | 5.54 | 5.09 | 10.0 | 0 | 0 |
+| 54 | legion_hexapod__e6e2825b__gen20_5 | 5.54 | 6.25 | 10.0 | 0 | 0 |
+| 55 | megarachne_default | 5.53 | 2.23 | 10.0 | 0 | 0 |
+| 56 | goliath_crawler__e33f9c12__gen20 | 5.53 | 6.30 | 10.0 | 0 | 0 |
+| 57 | khepri_beetle__a20ccea8__gen20 | 5.52 | 2.12 | 10.0 | 0 | 0 |
+| 58 | ein_corgi__28aeb2dd__gen20_5 | 5.52 | 3.23 | 10.0 | 0 | 0 |
+| 59 | goliath_crawler__ceccaed0__gen20_13 | 5.49 | 4.34 | 10.0 | 0 | 0 |
+| 60 | legion_hexapod__99a9b3ff__gen20_8 | 5.47 | 4.85 | 10.0 | 0 | 0 |
+| 61 | arachne_spider__b57cbc66__gen20 | 5.47 | 4.50 | 10.0 | 0 | 0 |
+| 62 | aegis_turtle__d77a1bbf__gen20 | 5.45 | 3.11 | 10.0 | 0 | 0 |
+| 63 | goliath_crawler__614f677d__gen20_9 | 5.45 | 2.29 | 10.0 | 0 | 0 |
+| 64 | giraffe__7519a19f | 5.44 | 5.03 | 10.0 | 0 | 0 |
+| 65 | quadruped__55dcb287__gen20 | 5.43 | 4.25 | 10.0 | 1 | 0 |
+| 66 | goliath_crawler | 5.41 | 3.30 | 10.0 | 0 | 0 |
+| 67 | giraffe_default__ec3bce69__gen20 | 5.40 | 2.89 | 10.0 | 0 | 0 |
+| 68 | khepri_beetle__fe9be525__gen20 | 5.40 | 6.20 | 10.0 | 0 | 0 |
+| 69 | snake__809688e9__gen20_6 | 5.39 | 1.13 | 10.0 | 0 | 0 |
+| 70 | khepri_beetle__94ef9ae4__gen20_3 | 5.37 | 4.73 | 10.0 | 0 | 0 |
+| 71 | dragon_default | 5.36 | 0.41 | 10.0 | 0 | 0 |
+| 72 | aegis_turtle__f144282b__gen20 | 5.36 | 2.75 | 10.0 | 0 | 0 |
+| 73 | quadruped__87ec2774__gen20 | 5.35 | 4.52 | 10.0 | 0 | 0 |
+| 74 | giraffe_default_0000 | 5.32 | 4.05 | 10.0 | 0 | 0 |
+| 75 | legion_hexapod__33f0f7ed__gen20_5 | 5.32 | 2.24 | 10.0 | 0 | 0 |
+| 76 | aegis_turtle__0f1ec654__gen50 | 5.30 | 4.07 | 10.0 | 0 | 0 |
+| 77 | giraffe_default__be67c853__gen20 | 5.29 | 5.28 | 10.0 | 0 | 0 |
+| 78 | aegis_turtle__d77a1bbf__gen20_15 | 5.29 | 3.81 | 10.0 | 0 | 0 |
+| 79 | aegis_turtle__b228c2b8__gen20_13 | 5.26 | 2.18 | 10.0 | 0 | 0 |
+| 80 | aegis_turtle | 5.25 | 4.52 | 10.0 | 0 | 0 |
+| 81 | legion_hexapod__99a9b3ff__gen20_7 | 5.25 | 4.63 | 10.0 | 0 | 0 |
+| 82 | goliath_crawler__81be13fe__gen20 | 5.24 | 3.89 | 10.0 | 0 | 0 |
+| 83 | goliath_crawler__88ab0cba__gen20_8 | 5.23 | 5.61 | 10.0 | 0 | 0 |
+| 84 | arachne_spider__e341b498__gen20_7 | 5.22 | 4.31 | 10.0 | 0 | 0 |
+| 85 | arachne_spider__680a147f__gen20_6 | 5.22 | 4.73 | 10.0 | 0 | 0 |
+| 86 | centipede__9e6e08e6__gen20_17 | 5.20 | 3.92 | 10.0 | 0 | 0 |
+| 87 | goliath_crawler__ceccaed0__gen20 | 5.18 | 4.83 | 10.0 | 0 | 0 |
+| 88 | legion_hexapod__83491b1c__gen20_4 | 5.16 | 6.46 | 10.0 | 0 | 0 |
+| 89 | scorpion__fb1b7306__gen20_11 | 5.15 | 0.61 | 10.0 | 0 | 0 |
+| 90 | legion_hexapod__99a9b3ff__gen20_2 | 5.14 | 5.09 | 10.0 | 0 | 0 |
+| 91 | megapede__febbe95d__gen20 | 5.14 | 5.40 | 10.0 | 0 | 0 |
+| 92 | aegis_turtle__2b400219__gen20 | 5.12 | 2.19 | 10.0 | 0 | 0 |
+| 93 | ein_corgi__5bb450d0__gen20_13 | 5.11 | 3.86 | 10.0 | 0 | 0 |
+| 94 | goliath_crawler__d6380aac__gen20 | 5.10 | 3.23 | 10.0 | 0 | 0 |
+| 95 | goliath_crawler__1a83f221__gen20_19 | 5.09 | 2.57 | 10.0 | 0 | 0 |
+| 96 | crab__f68e1675__gen20 | 5.08 | 3.46 | 10.0 | 0 | 0 |
+| 97 | quadruped__0946fd96__gen20 | 5.08 | 2.19 | 10.0 | 0 | 0 |
+| 98 | quadruped__5b64c974__gen20 | 5.08 | 2.99 | 10.0 | 0 | 0 |
+| 99 | hercules_default | 5.07 | 5.54 | 10.0 | 0 | 0 |
+| 100 | giraffe_default__8102c84e__gen20 | 5.07 | 3.42 | 10.0 | 0 | 0 |
+| 101 | aegis_turtle__7a42b510__gen20 | 5.06 | 3.50 | 10.0 | 0 | 0 |
+| 102 | goliath_crawler__88ab0cba__gen20_20 | 5.04 | 3.49 | 10.0 | 0 | 0 |
+| 103 | aegis_turtle__e118c1a4__gen20 | 5.03 | 5.41 | 10.0 | 0 | 0 |
+| 104 | khepri_beetle__dd183e82__gen20 | 4.99 | 4.34 | 10.0 | 0 | 0 |
+| 105 | aegis_turtle__2b9cfe8e | 4.98 | 3.90 | 10.0 | 0 | 0 |
+| 106 | goliath_crawler__cc9bc7b8__gen20 | 4.95 | 2.36 | 10.0 | 1 | 0 |
+| 107 | arachne_spider__1115a638__gen20_16 | 4.95 | 4.03 | 10.0 | 0 | 0 |
+| 108 | legion_hexapod__669a2e2d__gen20_24 | 4.95 | 2.10 | 10.0 | 0 | 0 |
+| 109 | arachne_spider__0f23c9a5__gen20_14 | 4.94 | 4.64 | 10.0 | 0 | 0 |
+| 110 | goliath_crawler__ceccaed0__gen20_3 | 4.93 | 4.55 | 10.0 | 0 | 0 |
+| 111 | khepri_beetle__9675d3cb__gen20_13 | 4.93 | 4.27 | 10.0 | 0 | 0 |
+| 112 | arachne_spider__c9d884c7__gen20 | 4.93 | 6.10 | 10.0 | 0 | 0 |
+| 113 | goliath_crawler__06ac2a4e__gen20_17 | 4.92 | 2.47 | 10.0 | 0 | 0 |
+| 114 | goliath_crawler__2642d7c5__gen20_4 | 4.92 | 4.54 | 10.0 | 0 | 0 |
+| 115 | legion_hexapod__evolved | 4.91 | 4.72 | 10.0 | 1 | 0 |
+| 116 | legion_hexapod__99a9b3ff__gen20 | 4.90 | 4.90 | 10.0 | 0 | 0 |
+| 117 | legion_hexapod__99a9b3ff__gen20_10 | 4.90 | 4.74 | 10.0 | 0 | 0 |
+| 118 | khepri_beetle__9aeb1626__gen20 | 4.89 | 3.22 | 10.0 | 0 | 0 |
+| 119 | ein_corgi__401bad27__gen20 | 4.89 | 2.79 | 10.0 | 0 | 0 |
+| 120 | giraffe_default__99faa514__gen20_6 | 4.89 | 2.46 | 10.0 | 0 | 0 |
+| 121 | quadruped__57dcdc56__gen20 | 4.88 | 2.70 | 10.0 | 0 | 0 |
+| 122 | ein_corgi__6892ee45__gen20 | 4.87 | 5.74 | 10.0 | 0 | 0 |
+| 123 | khepri_beetle | 4.85 | 3.91 | 10.0 | 0 | 0 |
+| 124 | ein_corgi__5160c08e__gen20 | 4.85 | 3.07 | 10.0 | 1 | 0 |
+| 125 | legion_hexapod_0000 | 4.85 | 5.05 | 10.0 | 0 | 0 |
+| 126 | ein_corgi__7390bf1d__gen20 | 4.84 | 5.44 | 10.0 | 0 | 0 |
+| 127 | giraffe_default__69664eb6__gen20 | 4.83 | 4.71 | 10.0 | 0 | 0 |
+| 128 | arachne_spider_0000 | 4.82 | 1.23 | 10.0 | 0 | 0 |
+| 129 | legion_hexapod__08f9da17__gen20_5 | 4.82 | 4.25 | 10.0 | 0 | 0 |
+| 130 | quadruped__d88fb5c6__gen20 | 4.80 | 3.72 | 10.0 | 0 | 0 |
+| 131 | quadruped__fb8d87d9__gen20 | 4.80 | 3.14 | 10.0 | 0 | 0 |
+| 132 | starfish__79781680__gen20_9 | 4.78 | 5.68 | 10.0 | 0 | 0 |
+| 133 | ein_corgi__1b52a473__gen20 | 4.78 | 4.93 | 10.0 | 0 | 0 |
+| 134 | legion_hexapod__1a97ab9c__gen20_7 | 4.78 | 3.51 | 10.0 | 0 | 0 |
+| 135 | ein_corgi__7390bf1d__gen20_2 | 4.77 | 1.26 | 10.0 | 0 | 0 |
+| 136 | megapede__acbae737__gen50 | 4.76 | 4.84 | 10.0 | 0 | 0 |
+| 137 | legion_hexapod__39f7e11f__gen20_17 | 4.75 | 0.93 | 10.0 | 0 | 0 |
+| 138 | quadruped__6c6d31c0__gen20 | 4.72 | 4.26 | 10.0 | 0 | 0 |
+| 139 | arachne_spider__e341b498__gen20 | 4.71 | 5.23 | 10.0 | 0 | 0 |
+| 140 | aegis_turtle__4db54cc2__gen20 | 4.71 | 3.98 | 10.0 | 0 | 0 |
+| 141 | quadruped__3158f2eb__gen20_0 | 4.70 | 3.18 | 10.0 | 0 | 0 |
+| 142 | arachne_spider__b344189b__gen20_0 | 4.70 | 4.17 | 10.0 | 0 | 0 |
+| 143 | legion_hexapod__81bb88f9__gen20 | 4.70 | 3.80 | 10.0 | 0 | 0 |
+| 144 | aegis_turtle__b228c2b8__gen20_6 | 4.70 | 3.28 | 10.0 | 0 | 0 |
+| 145 | gorilla__88efbe93__gen20 | 4.70 | 4.67 | 10.0 | 1 | 0 |
+| 146 | goliath_crawler__1a83f221__gen20_2 | 4.68 | 4.26 | 10.0 | 0 | 0 |
+| 147 | goliath_crawler__06ac2a4e__gen20_4 | 4.68 | 1.28 | 10.0 | 0 | 0 |
+| 148 | scorpion__4f1fc2b9__gen20 | 4.68 | 3.93 | 10.0 | 0 | 0 |
+| 149 | khepri_beetle__f389ae06__gen20_2 | 4.67 | 3.05 | 10.0 | 0 | 0 |
+| 150 | tarantula_default | 4.66 | 3.87 | 10.0 | 0 | 0 |
+| 151 | giraffe__fd47b850 | 4.65 | 3.57 | 10.0 | 0 | 0 |
+| 152 | giraffe_default__9ec68be6__gen20 | 4.65 | 4.28 | 10.0 | 0 | 0 |
+| 153 | goliath_crawler__ceccaed0__gen20_9 | 4.64 | 1.36 | 10.0 | 0 | 0 |
+| 154 | goliath_crawler__9f2b9193__gen20_8 | 4.64 | 3.88 | 10.0 | 0 | 0 |
+| 155 | arachne_spider__7ebf52b9__gen20_7 | 4.62 | 4.60 | 10.0 | 0 | 0 |
+| 156 | centipede__9e6e08e6__gen20 | 4.62 | 5.98 | 10.0 | 0 | 0 |
+| 157 | starfish__79781680__gen20_4 | 4.61 | 4.69 | 10.0 | 0 | 0 |
+| 158 | aegis_turtle__cc9c672f__gen20_9 | 4.61 | 4.68 | 10.0 | 0 | 0 |
+| 159 | stilts_biped_22 | 4.60 | 4.24 | 10.0 | 0 | 0 |
+| 160 | giraffe_default__da6793c5__gen20 | 4.60 | 5.29 | 10.0 | 0 | 0 |
+| 161 | arachne_spider__0f23c9a5__gen20 | 4.60 | 1.95 | 10.0 | 0 | 0 |
+| 162 | giraffe__evolved | 4.57 | 4.16 | 10.0 | 0 | 0 |
+| 163 | goliath_crawler__2642d7c5__gen20_19 | 4.57 | 3.49 | 10.0 | 0 | 0 |
+| 164 | quadruped__49d55732__gen20_13 | 4.57 | 4.14 | 10.0 | 0 | 0 |
+| 165 | stilts_biped__ad3a8303__gen20 | 4.56 | 2.45 | 10.0 | 0 | 0 |
+| 166 | quadruped__evolved | 4.56 | 4.90 | 10.0 | 0 | 0 |
+| 167 | ein_corgi__1c31750c__gen20 | 4.55 | 1.93 | 10.0 | 0 | 0 |
+| 168 | goliath_crawler__cc9bc7b8__gen20_27 | 4.55 | 2.58 | 10.0 | 0 | 0 |
+| 169 | legion_hexapod__83491b1c__gen20 | 4.54 | 4.03 | 10.0 | 0 | 0 |
+| 170 | aegis_turtle__d37f2e75__gen20_11 | 4.54 | 2.38 | 10.0 | 0 | 0 |
+| 171 | stilts_biped__47f9883c__gen20 | 4.52 | 5.49 | 10.0 | 0 | 0 |
+| 172 | ein_corgi__1380b4ed__gen20 | 4.52 | 2.74 | 10.0 | 0 | 0 |
+| 173 | giraffe_default__be67c853__gen20_4 | 4.48 | 3.00 | 10.0 | 0 | 0 |
+| 174 | khepri_beetle__fa837806__gen20 | 4.48 | 1.21 | 10.0 | 0 | 0 |
+| 175 | ein_corgi | 4.47 | 3.50 | 10.0 | 0 | 0 |
+| 176 | khepri_beetle__3fcf682b__gen20_5 | 4.47 | 3.79 | 10.0 | 0 | 0 |
+| 177 | legion_hexapod__33f0f7ed__gen20_2 | 4.46 | 3.12 | 10.0 | 0 | 0 |
+| 178 | stilts_biped__027c957e__gen20_1 | 4.45 | 1.58 | 10.0 | 1 | 0 |
+| 179 | mech_biped__18c3e099__gen50 | 4.44 | 3.47 | 10.0 | 0 | 0 |
+| 180 | Legion_11 | 4.44 | 5.11 | 10.0 | 0 | 0 |
+| 181 | arachne_spider__0f23c9a5__gen20_7 | 4.42 | 4.34 | 10.0 | 0 | 0 |
+| 182 | goliath_crawler__ceccaed0__gen20_17 | 4.41 | 4.06 | 10.0 | 0 | 0 |
+| 183 | starfish_0 | 4.41 | 3.63 | 10.0 | 0 | 0 |
+| 184 | goliath_crawler__6174dc0d__gen20 | 4.37 | 3.58 | 10.0 | 0 | 0 |
+| 185 | legion_hexapod__e6e2825b__gen20_0 | 4.37 | 4.00 | 10.0 | 0 | 0 |
+| 186 | arachne_spider__1115a638__gen20 | 4.35 | 1.20 | 10.0 | 0 | 0 |
+| 187 | quadruped__5cd89831__gen20 | 4.34 | 0.65 | 10.0 | 0 | 0 |
+| 188 | arachne_spider__1115a638__gen20_7 | 4.34 | 5.25 | 10.0 | 0 | 0 |
+| 189 | khepri_beetle__3fcf682b__gen20 | 4.33 | 3.35 | 10.0 | 0 | 0 |
+| 190 | giraffe_default__f8be4e2f__gen20_25 | 4.33 | 3.95 | 10.0 | 0 | 0 |
+| 191 | aegis_turtle__e118c1a4__gen20_9 | 4.32 | 5.26 | 10.0 | 0 | 0 |
+| 192 | giraffe_default__e74dd564__gen20 | 4.31 | 4.63 | 10.0 | 0 | 0 |
+| 193 | goliath_crawler__2b282d80__gen20_7 | 4.31 | 3.84 | 10.0 | 0 | 0 |
+| 194 | ein_corgi__cecd8ed9__gen20_18 | 4.31 | 2.20 | 10.0 | 1 | 0 |
+| 195 | giraffe_default__69664eb6__gen20_6 | 4.30 | 4.88 | 10.0 | 0 | 0 |
+| 196 | legion_hexapod__39f7e11f__gen20_3 | 4.30 | 2.83 | 10.0 | 0 | 0 |
+| 197 | quadruped__92a891e0__gen20 | 4.28 | 3.56 | 10.0 | 0 | 0 |
+| 198 | khepri_beetle__a903176b__gen20 | 4.26 | 3.32 | 10.0 | 0 | 0 |
+| 199 | aegis_5 | 4.25 | 3.74 | 10.0 | 0 | 0 |
+| 200 | aegis_turtle__cc9c672f__gen20_3 | 4.24 | 3.82 | 10.0 | 0 | 0 |
+| 201 | ein_corgi__440aee32__gen20 | 4.24 | 1.34 | 10.0 | 0 | 0 |
+| 202 | scorpion_0000 | 4.23 | 4.15 | 10.0 | 0 | 0 |
+| 203 | ein_corgi__dad13d3f__gen20_1 | 4.22 | 4.99 | 10.0 | 0 | 0 |
+| 204 | arachne_spider__1115a638__gen20_2 | 4.22 | 2.91 | 10.0 | 0 | 0 |
+| 205 | legion_hexapod__8e6537e3__gen20_11 | 4.21 | 2.55 | 10.0 | 0 | 0 |
+| 206 | goliath_crawler__4359ebf1__gen20 | 4.21 | 6.20 | 10.0 | 0 | 0 |
+| 207 | ein_corgi__6892ee45__gen20_7 | 4.20 | 2.49 | 10.0 | 0 | 0 |
+| 208 | aegis_turtle__b228c2b8__gen20_7 | 4.18 | 4.74 | 10.0 | 0 | 0 |
+| 209 | khepri_beetle__94ef9ae4__gen20_2 | 4.16 | 5.65 | 10.0 | 0 | 0 |
+| 210 | aegis_turtle__evolved | 4.16 | 4.43 | 10.0 | 0 | 0 |
+| 211 | centipede__bd5ad41b__gen20 | 4.15 | 3.52 | 10.0 | 0 | 0 |
+| 212 | goliath_crawler__0b941788__gen20 | 4.14 | 4.52 | 10.0 | 0 | 0 |
+| 213 | scorpion__9e186838__gen10 | 4.14 | 5.55 | 10.0 | 0 | 0 |
+| 214 | crab__a3e3cbf0__gen50 | 4.13 | 3.73 | 10.0 | 0 | 0 |
+| 215 | legion_hexapod__83491b1c__gen20_1 | 4.12 | 1.96 | 10.0 | 0 | 0 |
+| 216 | scorpion__fb1b7306__gen20 | 4.11 | 2.82 | 10.0 | 0 | 0 |
+| 217 | goliath_crawler__ceccaed0__gen20_6 | 4.11 | 2.87 | 10.0 | 0 | 0 |
+| 218 | legion_hexapod__8e6537e3__gen20_10 | 4.11 | 2.35 | 10.0 | 0 | 0 |
+| 219 | stilts_biped__027c957e__gen20_18 | 4.10 | 3.86 | 10.0 | 0 | 0 |
+| 220 | ein_corgi__3c9e12ca__gen50 | 4.10 | 2.49 | 10.0 | 0 | 0 |
+| 221 | legion_hexapod__4f4e878b__gen20 | 4.08 | 2.86 | 10.0 | 0 | 0 |
+| 222 | legion_hexapod__9fa2ad7e__gen20_8 | 4.07 | 5.68 | 10.0 | 0 | 0 |
+| 223 | starfish__79781680__gen20_1 | 4.02 | 2.48 | 10.0 | 0 | 0 |
+| 224 | legion_hexapod__9fa2ad7e__gen20_15 | 4.01 | 0.71 | 10.0 | 0 | 0 |
+| 225 | khepri_beetle__9675d3cb__gen20 | 4.00 | 6.34 | 10.0 | 0 | 0 |
+| 226 | khepri_beetle__3fcf682b__gen20_3 | 4.00 | 6.17 | 10.0 | 0 | 0 |
+| 227 | aegis_turtle__b228c2b8__gen20_8 | 4.00 | 1.32 | 10.0 | 0 | 0 |
+| 228 | legion_hexapod__1a97ab9c__gen20 | 3.97 | 5.01 | 10.0 | 0 | 0 |
+| 229 | goliath_crawler__ceccaed0__gen20_5 | 3.95 | 1.62 | 10.0 | 0 | 0 |
+| 230 | centipede__163b1b5d__gen20 | 3.94 | 5.50 | 10.0 | 0 | 0 |
+| 231 | khepri_beetle__9675d3cb__gen20_12 | 3.93 | 3.34 | 10.0 | 0 | 0 |
+| 232 | quadruped__56d3be83__gen20 | 3.93 | 2.22 | 10.0 | 0 | 0 |
+| 233 | ein_corgi__091fa48a__gen20 | 3.92 | 4.93 | 10.0 | 0 | 0 |
+| 234 | legion_hexapod__5a9efe89__gen20 | 3.91 | 4.00 | 10.0 | 0 | 0 |
+| 235 | arachne_spider__1115a638__gen20_9 | 3.91 | 6.60 | 10.0 | 0 | 0 |
+| 236 | stilts_biped__027c957e__gen20 | 3.90 | 4.52 | 10.0 | 0 | 0 |
+| 237 | aegis_turtle__9cdfb45a__gen20_3 | 3.89 | 6.35 | 10.0 | 0 | 0 |
+| 238 | aegis_turtle__cc9c672f__gen20 | 3.89 | 3.69 | 10.0 | 0 | 0 |
+| 239 | goliath_crawler__f284ec63__gen20 | 3.86 | 4.78 | 10.0 | 0 | 0 |
+| 240 | Legion_hexapod_a53bce88 | 3.83 | 1.12 | 10.0 | 0 | 0 |
+| 241 | legion_hexapod__9fa2ad7e__gen20_1 | 3.81 | 4.34 | 10.0 | 0 | 0 |
+| 242 | crab_default | 3.81 | 2.05 | 10.0 | 0 | 0 |
+| 243 | khepri_beetle__4fa26af5__gen20 | 3.81 | 1.26 | 10.0 | 0 | 0 |
+| 244 | gorilla__1229d38b__gen10 | 3.80 | 3.11 | 10.0 | 0 | 0 |
+| 245 | khepri_beetle__9675d3cb__gen20_23 | 3.80 | 3.02 | 10.0 | 0 | 0 |
+| 246 | legion_hexapod__39f7e11f__gen20_25 | 3.80 | 5.53 | 10.0 | 0 | 0 |
+| 247 | aegis_turtle__8bed5c91__gen20 | 3.80 | 4.73 | 10.0 | 0 | 0 |
+| 248 | aegis_turtle_7 | 3.79 | 5.83 | 10.0 | 0 | 0 |
+| 249 | arachne_spider | 3.79 | 4.12 | 10.0 | 0 | 0 |
+| 250 | goliath_crawler__2b282d80__gen20 | 3.78 | 4.77 | 10.0 | 0 | 0 |
+| 251 | aegis_turtle__f144282b__gen20_6 | 3.78 | 3.30 | 10.0 | 1 | 0 |
+| 252 | aegis_turtle__18b94420__gen20 | 3.78 | 4.97 | 10.0 | 0 | 0 |
+| 253 | aegis_turtle__b228c2b8__gen20_12 | 3.76 | 3.73 | 10.0 | 0 | 0 |
+| 254 | megapede__951d2e61__gen50 | 3.76 | 4.26 | 10.0 | 0 | 0 |
+| 255 | legion_hexapod__e6e2825b__gen20_8 | 3.74 | 1.39 | 10.0 | 0 | 0 |
+| 256 | gorilla_0000 | 3.73 | 4.03 | 10.0 | 0 | 0 |
+| 257 | arachne_spider__680a147f__gen20_8 | 3.73 | 3.81 | 10.0 | 0 | 0 |
+| 258 | chimera_default | 3.72 | 2.32 | 10.0 | 0 | 0 |
+| 259 | arachne_spider__680a147f__gen20_9 | 3.71 | 4.23 | 10.0 | 0 | 0 |
+| 260 | starfish__0e011b3c__gen20 | 3.69 | 4.76 | 10.0 | 0 | 0 |
+| 261 | goliath_crawler__9f2b9193__gen20 | 3.68 | 4.85 | 10.0 | 0 | 0 |
+| 262 | khepri_beetle__f32cceb5__gen20_8 | 3.67 | 2.70 | 10.0 | 0 | 0 |
+| 263 | legion_hexapod__a064005b__gen20 | 3.66 | 4.76 | 10.0 | 0 | 0 |
+| 264 | stilts_biped__evolved | 3.65 | 3.58 | 10.0 | 0 | 0 |
+| 265 | khepri_beetle__5a60eec6__gen20_9 | 3.64 | 3.12 | 10.0 | 0 | 0 |
+| 266 | aegis_turtle_0000 | 3.62 | 3.45 | 10.0 | 1 | 0 |
+| 267 | giraffe_default__45360919__gen20 | 3.62 | 4.10 | 10.0 | 0 | 0 |
+| 268 | goliath_crawler_0000 | 3.61 | 4.73 | 10.0 | 0 | 0 |
+| 269 | arachne_spider__7ebf52b9__gen20_10 | 3.60 | 5.51 | 10.0 | 0 | 0 |
+| 270 | arachne_spider__b344189b__gen20 | 3.59 | 5.35 | 10.0 | 0 | 0 |
+| 271 | crab__7e2cb1c3__gen50 | 3.58 | 4.43 | 10.0 | 0 | 0 |
+| 272 | ein_corgi__5bb450d0__gen20_12 | 3.58 | 3.47 | 10.0 | 0 | 0 |
+| 273 | scorpion_king_default | 3.58 | 3.23 | 10.0 | 0 | 0 |
+| 274 | Giraffe_default_36e04a49 | 3.58 | 1.68 | 10.0 | 0 | 0 |
+| 275 | quadruped__49d55732__gen20 | 3.58 | 4.36 | 10.0 | 0 | 0 |
+| 276 | khepri_beetle_0000 | 3.56 | 5.16 | 10.0 | 0 | 0 |
+| 277 | mech_biped__4b79eaed__gen50 | 3.54 | 3.43 | 10.0 | 0 | 0 |
+| 278 | gorilla__24c84f2a__gen20_13 | 3.54 | 4.73 | 10.0 | 0 | 0 |
+| 279 | khepri_beetle__5a60eec6__gen20_5 | 3.53 | 0.97 | 10.0 | 0 | 0 |
+| 280 | giraffe_default__99faa514__gen20 | 3.50 | 5.37 | 10.0 | 0 | 0 |
+| 281 | arachne_spider__d11261f2__gen20 | 3.50 | 0.66 | 10.0 | 0 | 0 |
+| 282 | scorpion__65c1edf3__gen20_2 | 3.50 | 2.20 | 10.0 | 1 | 0 |
+| 283 | legion_hexapod__33f0f7ed__gen20 | 3.49 | 4.34 | 10.0 | 0 | 0 |
+| 284 | legion_hexapod__39f7e11f__gen20_1 | 3.47 | 1.20 | 10.0 | 0 | 0 |
+| 285 | khepri_beetle__5a60eec6__gen20 | 3.47 | 6.06 | 10.0 | 0 | 0 |
+| 286 | legion_hexapod__5a9efe89__gen20_4 | 3.47 | 3.23 | 10.0 | 0 | 0 |
+| 287 | ein_corgi__b0706ade__gen20 | 3.46 | 1.94 | 10.0 | 0 | 0 |
+| 288 | snake__809688e9__gen20 | 3.46 | 0.64 | 10.0 | 0 | 0 |
+| 289 | giraffe_default__6eb60d30__gen20 | 3.45 | 4.89 | 10.0 | 1 | 0 |
+| 290 | legion_hexapod__0ec9748e__gen50 | 3.45 | 4.27 | 10.0 | 1 | 0 |
+| 291 | legion_hexapod__9fa2ad7e__gen20_2 | 3.45 | 2.51 | 10.0 | 0 | 0 |
+| 292 | goliath_crawler__ceccaed0__gen20_4 | 3.44 | 5.60 | 10.0 | 0 | 0 |
+| 293 | starfish__08435e24__gen20 | 3.43 | 3.30 | 10.0 | 0 | 0 |
+| 294 | legion_hexapod__39f7e11f__gen20 | 3.43 | 2.77 | 10.0 | 0 | 0 |
+| 295 | khepri_beetle__evolved | 3.43 | 1.68 | 10.0 | 0 | 0 |
+| 296 | giraffe_default__da6793c5__gen20_0 | 3.42 | 2.87 | 10.0 | 0 | 0 |
+| 297 | centipede__f7e3e820__gen20 | 3.42 | 4.79 | 10.0 | 0 | 0 |
+| 298 | ein_corgi__440aee32__gen20_3 | 3.42 | 3.09 | 10.0 | 0 | 0 |
+| 299 | khepri_beetle__9675d3cb__gen20_3 | 3.41 | 3.60 | 10.0 | 0 | 0 |
+| 300 | legion_hexapod__83491b1c__gen20_5 | 3.39 | 4.92 | 10.0 | 0 | 0 |
+| 301 | legion_hexapod__39f7e11f__gen20_6 | 3.38 | 4.98 | 10.0 | 0 | 0 |
+| 302 | aegis_turtle__d5fb7a33__gen20_9 | 3.38 | 4.84 | 10.0 | 0 | 0 |
+| 303 | snake__e7783d07__gen20 | 3.38 | 2.86 | 10.0 | 0 | 0 |
+| 304 | khepri_beetle__8bfc4cbb__gen20 | 3.37 | 5.38 | 10.0 | 0 | 0 |
+| 305 | giraffe_default__be67c853__gen20_1 | 3.34 | 4.86 | 10.0 | 0 | 0 |
+| 306 | aegis_turtle__6ab5045c__gen20 | 3.34 | 4.30 | 10.0 | 0 | 0 |
+| 307 | goliath_crawler__69aa365f__gen20 | 3.31 | 6.00 | 10.0 | 0 | 0 |
+| 308 | quadruped__163c26ad__gen20 | 3.30 | 4.77 | 10.0 | 0 | 0 |
+| 309 | goliath_crawler__4359ebf1__gen20_6 | 3.29 | 2.35 | 10.0 | 0 | 0 |
+| 310 | snake__9a8a1db8__gen20 | 3.28 | 4.67 | 10.0 | 0 | 0 |
+| 311 | quadruped__0946fd96__gen20_0 | 3.28 | 4.11 | 10.0 | 0 | 0 |
+| 312 | khepri_beetle__94ef9ae4__gen20 | 3.27 | 3.01 | 10.0 | 0 | 0 |
+| 313 | quadruped__62b7c947__gen20 | 3.26 | 1.64 | 10.0 | 0 | 0 |
+| 314 | goliath_crawler__2642d7c5__gen20 | 3.24 | 4.79 | 10.0 | 0 | 0 |
+| 315 | goliath_crawler__evolved | 3.24 | 1.80 | 10.0 | 0 | 0 |
+| 316 | ein_corgi__dad13d3f__gen20_7 | 3.21 | 4.55 | 10.0 | 0 | 0 |
+| 317 | arachne_spider__22b7a27b__gen20 | 3.21 | 5.93 | 10.0 | 0 | 0 |
+| 318 | legion_hexapod__4f4e878b__gen20_13 | 3.21 | 3.92 | 10.0 | 0 | 0 |
+| 319 | arachne_spider__b57cbc66__gen20_1 | 3.21 | 5.52 | 10.0 | 0 | 0 |
+| 320 | centipede_default | 3.19 | 1.74 | 10.0 | 0 | 0 |
+| 321 | goliath_crawler__88ab0cba__gen20 | 3.18 | 1.13 | 10.0 | 0 | 0 |
+| 322 | goliath_crawler__2642d7c5__gen20_11 | 3.16 | 4.24 | 10.0 | 0 | 0 |
+| 323 | aegis_turtle__d77a1bbf__gen20_2 | 3.16 | 1.99 | 10.0 | 0 | 0 |
+| 324 | ein_corgi__dfdfb749__gen20 | 3.16 | 2.77 | 10.0 | 0 | 0 |
+| 325 | legion_hexapod__669a2e2d__gen20 | 3.11 | 4.94 | 10.0 | 0 | 0 |
+| 326 | goliath_crawler__614f677d__gen20 | 3.09 | 3.45 | 10.0 | 0 | 0 |
+| 327 | kangaroo_default | 3.08 | 2.95 | 10.0 | 0 | 0 |
+| 328 | goliath_crawler__9d86ac27__gen20 | 3.07 | 6.18 | 10.0 | 0 | 0 |
+| 329 | legion_hexapod__9fa2ad7e__gen20 | 3.06 | 3.65 | 10.0 | 0 | 0 |
+| 330 | snake__809688e9__gen20_9 | 3.05 | 2.55 | 10.0 | 1 | 0 |
+| 331 | giraffe_default__69664eb6__gen20_1 | 3.04 | 4.92 | 10.0 | 0 | 0 |
+| 332 | aegis_turtle__d952330b | 3.03 | 5.64 | 10.0 | 0 | 0 |
+| 333 | ein_corgi__3f2b1218 | 3.03 | 4.89 | 10.0 | 0 | 0 |
+| 334 | goliath_crawler__4359ebf1__gen20_9 | 3.02 | 3.90 | 10.0 | 0 | 0 |
+| 335 | ein_corgi__1c31750c__gen20_11 | 3.02 | 3.47 | 10.0 | 0 | 0 |
+| 336 | quadruped__9422b36b__gen20 | 3.02 | 3.08 | 10.0 | 0 | 0 |
+| 337 | legion_hexapod__33f0f7ed__gen20_8 | 3.02 | 2.84 | 10.0 | 0 | 0 |
+| 338 | aegis_23 | 3.02 | 4.40 | 10.0 | 0 | 0 |
+| 339 | quadruped__3e28aa35__gen20 | 3.00 | 3.02 | 10.0 | 0 | 0 |
+| 340 | elephant_default | 2.99 | 1.20 | 10.0 | 0 | 0 |
+| 341 | ein_corgi__5bb450d0__gen20 | 2.99 | 1.05 | 10.0 | 0 | 0 |
+| 342 | legion_hexapod__08f9da17__gen20_9 | 2.99 | 5.20 | 10.0 | 0 | 0 |
+| 343 | mantis_default | 2.99 | 0.63 | 10.0 | 0 | 0 |
+| 344 | goliath_crawler__ceccaed0__gen20_8 | 2.97 | 4.19 | 10.0 | 0 | 0 |
+| 345 | aegis_turtle__9cdfb45a__gen20 | 2.97 | 5.11 | 10.0 | 0 | 0 |
+| 346 | arachne_spider__1115a638__gen20_0 | 2.96 | 2.88 | 10.0 | 0 | 0 |
+| 347 | arachne_spider__evolved | 2.96 | 2.40 | 10.0 | 0 | 0 |
+| 348 | legion_hexapod__1a97ab9c__gen20_9 | 2.94 | 3.93 | 10.0 | 0 | 0 |
+| 349 | goliath_crawler__ceccaed0__gen20_10 | 2.93 | 5.45 | 10.0 | 0 | 0 |
+| 350 | arachne_spider__7ebf52b9__gen20 | 2.93 | 5.68 | 10.0 | 0 | 0 |
+| 351 | snake_0000 | 2.92 | 2.28 | 10.0 | 0 | 0 |
+| 352 | legion_hexapod__83491b1c__gen20_0 | 2.90 | 2.71 | 10.0 | 0 | 0 |
+| 353 | snake_default | 2.90 | 4.97 | 10.0 | 0 | 0 |
+| 354 | aegis_turtle__d37f2e75__gen20_5 | 2.90 | 3.73 | 10.0 | 0 | 0 |
+| 355 | arachne_spider__d20771ae__gen20 | 2.89 | 5.10 | 10.0 | 0 | 0 |
+| 356 | legion_hexapod__917cf222__gen20 | 2.88 | 4.17 | 10.0 | 0 | 0 |
+| 357 | legion_hexapod__669a2e2d__gen20_16 | 2.88 | 2.88 | 10.0 | 0 | 0 |
+| 358 | ein_corgi__dad13d3f__gen20_3 | 2.86 | 2.99 | 10.0 | 0 | 0 |
+| 359 | khepri_beetle__a903176b__gen20_8 | 2.84 | 3.23 | 10.0 | 0 | 0 |
+| 360 | megapede_default | 2.84 | 4.06 | 10.0 | 0 | 0 |
+| 361 | quadruped__8c23e2c0__gen50 | 2.83 | 3.64 | 10.0 | 0 | 0 |
+| 362 | aegis_turtle__f4dd28c0__gen20 | 2.80 | 0.82 | 10.0 | 0 | 0 |
+| 363 | giraffe_default__ef5e7630__gen20 | 2.78 | 4.94 | 10.0 | 0 | 0 |
+| 364 | snake__f0a6133a__gen10 | 2.77 | 3.72 | 10.0 | 0 | 0 |
+| 365 | gorilla__24c84f2a__gen20 | 2.76 | 5.52 | 10.0 | 0 | 0 |
+| 366 | scorpion__65c1edf3__gen20 | 2.70 | 4.61 | 10.0 | 0 | 0 |
+| 367 | quadruped__85dd21d7__gen20 | 2.70 | 3.33 | 10.0 | 0 | 0 |
+| 368 | legion_hexapod__83491b1c__gen20_16 | 2.70 | 1.55 | 10.0 | 0 | 0 |
+| 369 | aegis_turtle__f144282b__gen20_0 | 2.70 | 3.98 | 10.0 | 0 | 0 |
+| 370 | legion_hexapod | 2.67 | 2.06 | 10.0 | 0 | 0 |
+| 371 | legion_hexapod__08f9da17__gen20 | 2.66 | 3.71 | 10.0 | 0 | 0 |
+| 372 | goliath_crawler__f6185769__gen20 | 2.66 | 2.57 | 10.0 | 0 | 0 |
+| 373 | ein_corgi__5bb450d0__gen20_4 | 2.65 | 4.96 | 10.0 | 1 | 0 |
+| 374 | khepri_beetle__5a60eec6__gen20_14 | 2.63 | 4.71 | 10.0 | 0 | 0 |
+| 375 | ein_corgi__28aeb2dd__gen20_12 | 2.63 | 3.95 | 10.0 | 0 | 0 |
+| 376 | khepri_beetle__8bfc4cbb__gen20_3 | 2.62 | 5.24 | 10.0 | 0 | 0 |
+| 377 | giraffe_default__3ba6890b__gen20 | 2.61 | 3.02 | 10.0 | 0 | 0 |
+| 378 | arachne_spider__b57cbc66__gen20_11 | 2.60 | 2.49 | 10.0 | 0 | 0 |
+| 379 | giraffe_default__be67c853__gen20_13 | 2.60 | 4.99 | 10.0 | 0 | 0 |
+| 380 | khepri_beetle__5a60eec6__gen20_18 | 2.55 | 3.63 | 10.0 | 0 | 0 |
+| 381 | goliath_crawler__c8aa0f29__gen20 | 2.51 | 2.82 | 10.0 | 0 | 0 |
+| 382 | ein_corgi__dad13d3f__gen20_24 | 2.50 | 4.65 | 10.0 | 0 | 0 |
+| 383 | aegis_turtle__d97707b6__gen50 | 2.50 | 4.14 | 10.0 | 0 | 0 |
+| 384 | snake__809688e9__gen20_14 | 2.48 | 5.56 | 10.0 | 0 | 0 |
+| 385 | giraffe_default__c8afed5d__gen20 | 2.45 | 4.08 | 10.0 | 0 | 0 |
+| 386 | aegis_turtle__bb066d66__gen20 | 2.43 | 0.44 | 10.0 | 0 | 0 |
+| 387 | khepri_beetle__09001214__gen20 | 2.41 | 1.00 | 10.0 | 0 | 0 |
+| 388 | giraffe_default__da6793c5__gen20_1 | 2.39 | 5.65 | 10.0 | 0 | 0 |
+| 389 | giraffe_default__e74dd564__gen20_7 | 2.38 | 1.30 | 10.0 | 0 | 0 |
+| 390 | goliath_crawler__2a034c94__gen20 | 2.38 | 3.37 | 10.0 | 0 | 0 |
+| 391 | arachne_spider__ed6b0b64__gen50 | 2.36 | 4.81 | 10.0 | 0 | 0 |
+| 392 | ein_corgi__cecd8ed9__gen20_6 | 2.36 | 2.96 | 10.0 | 0 | 0 |
+| 393 | legion_hexapod__3467bcc5__gen20 | 2.34 | 4.75 | 10.0 | 0 | 0 |
+| 394 | arachne_spider__b57cbc66__gen20_5 | 2.34 | 4.95 | 10.0 | 0 | 0 |
+| 395 | ein_corgi__dad13d3f__gen20 | 2.32 | 3.46 | 10.0 | 0 | 0 |
+| 396 | khepri_beetle__9675d3cb__gen20_6 | 2.31 | 4.40 | 10.0 | 0 | 0 |
+| 397 | khepri_beetle__7aad9c2c__gen50 | 2.31 | 3.86 | 10.0 | 0 | 0 |
+| 398 | quadruped__57dcdc56__gen20_14 | 2.30 | 3.23 | 10.0 | 0 | 0 |
+| 399 | goliath_crawler__fe3cbacd | 2.29 | 1.82 | 10.0 | 0 | 0 |
+| 400 | goliath_crawler__f2a7591e__gen50 | 2.25 | 1.65 | 10.0 | 0 | 0 |
+| 401 | gorilla__d71f556e__gen20 | 2.25 | 4.55 | 10.0 | 0 | 0 |
+| 402 | quadruped__a201d728__gen20 | 2.23 | 3.72 | 10.0 | 0 | 0 |
+| 403 | khepri_beetle__3fcf682b__gen20_26 | 2.22 | 3.90 | 10.0 | 0 | 0 |
+| 404 | giraffe_default__e74dd564__gen20_16 | 2.20 | 6.03 | 10.0 | 0 | 0 |
+| 405 | quadruped_0000 | 2.18 | 4.76 | 10.0 | 0 | 0 |
+| 406 | starfish_0000 | 2.18 | 5.29 | 10.0 | 0 | 0 |
+| 407 | ein_corgi__5bb450d0__gen20_19 | 2.14 | 0.79 | 10.0 | 0 | 0 |
+| 408 | giraffe_default__99faa514__gen20_0 | 2.14 | 3.88 | 10.0 | 0 | 0 |
+| 409 | legion_hexapod__33f0f7ed__gen20_0 | 2.13 | 4.04 | 10.0 | 0 | 0 |
+| 410 | khepri_beetle__5a60eec6__gen20_2 | 2.07 | 5.16 | 10.0 | 0 | 0 |
+| 411 | legion_hexapod__4f4e878b__gen20_4 | 2.06 | 1.26 | 10.0 | 0 | 0 |
+| 412 | stilts_biped | 2.02 | 5.43 | 10.0 | 0 | 0 |
+| 413 | giraffe_default__da6793c5__gen20_19 | 2.01 | 3.30 | 10.0 | 0 | 0 |
+| 414 | horse_default | 2.00 | 4.89 | 10.0 | 0 | 0 |
+| 415 | goliath_crawler__06ac2a4e__gen20_2 | 1.99 | 0.40 | 10.0 | 0 | 0 |
+| 416 | ein_corgi__dad13d3f__gen20_14 | 1.98 | 4.05 | 10.0 | 0 | 0 |
+| 417 | arachne_spider__1115a638__gen20_12 | 1.98 | 4.00 | 10.0 | 0 | 0 |
+| 418 | quadruped__60c1a634__gen20 | 1.97 | 3.66 | 10.0 | 0 | 0 |
+| 419 | legion_hexapod__83491b1c__gen20_7 | 1.97 | 4.61 | 10.0 | 0 | 0 |
+| 420 | centipede__ca08cb7f__gen20 | 1.95 | 5.36 | 10.0 | 0 | 0 |
+| 421 | legion_hexapod__aad4b40a__gen20 | 1.95 | 5.76 | 10.0 | 0 | 0 |
+| 422 | legion_hexapod__9fa2ad7e__gen20_9 | 1.95 | 5.08 | 10.0 | 0 | 0 |
+| 423 | quadruped__0920d435__gen20 | 1.94 | 4.78 | 10.0 | 1 | 0 |
+| 424 | arachne_spider__680a147f__gen20 | 1.94 | 3.58 | 10.0 | 1 | 0 |
+| 425 | legion_hexapod__4ad15990 | 1.92 | 1.44 | 10.0 | 0 | 0 |
+| 426 | legion_hexapod__9fa2ad7e__gen20_7 | 1.89 | 1.28 | 10.0 | 0 | 0 |
+| 427 | quadruped__d694bc89__gen20 | 1.88 | 3.07 | 10.0 | 0 | 0 |
+| 428 | giraffe_default__9ec68be6__gen20_12 | 1.88 | 2.42 | 10.0 | 1 | 0 |
+| 429 | giraffe_default__e74dd564__gen20_1 | 1.88 | 5.62 | 10.0 | 0 | 0 |
+| 430 | quadruped__7e58c99e__gen20 | 1.87 | 5.84 | 10.0 | 0 | 0 |
+| 431 | khepri_beetle__9675d3cb__gen20_4 | 1.86 | 6.36 | 10.0 | 0 | 0 |
+| 432 | legion_hexapod__690e6abe__gen20 | 1.85 | 1.32 | 10.0 | 0 | 0 |
+| 433 | ein_corgi__cecd8ed9__gen20 | 1.83 | 4.09 | 10.0 | 0 | 0 |
+| 434 | arachne_spider__1115a638__gen20_5 | 1.81 | 5.40 | 10.0 | 0 | 0 |
+| 435 | khepri_beetle__3fcf682b__gen20_9 | 1.80 | 3.48 | 10.0 | 0 | 0 |
+| 436 | ein_corgi__evolved | 1.79 | 5.85 | 10.0 | 0 | 0 |
+| 437 | aegis_turtle__d5fb7a33__gen20 | 1.78 | 3.02 | 10.0 | 0 | 0 |
+| 438 | ein_corgi__dad13d3f__gen20_2 | 1.78 | 2.81 | 10.0 | 0 | 0 |
+| 439 | ein_corgi__69e64ff2__gen20 | 1.77 | 3.74 | 10.0 | 0 | 0 |
+| 440 | ostrich_default | 1.75 | 1.56 | 10.0 | 0 | 0 |
+| 441 | giraffe_default | 1.75 | 3.96 | 10.0 | 0 | 0 |
+| 442 | goliath_crawler__06ac2a4e__gen20 | 1.73 | 2.16 | 10.0 | 0 | 0 |
+| 443 | legion_hexapod__e6e2825b__gen20_21 | 1.73 | 2.61 | 10.0 | 0 | 0 |
+| 444 | gorilla_default | 1.71 | 5.22 | 10.0 | 0 | 0 |
+| 445 | legion_hexapod__5be5fc43__gen20 | 1.70 | 6.45 | 10.0 | 0 | 0 |
+| 446 | quadruped__3ed3bef3__gen20 | 1.67 | 3.55 | 10.0 | 0 | 0 |
+| 447 | legion_hexapod__8e6537e3__gen20 | 1.66 | 4.03 | 10.0 | 0 | 0 |
+| 448 | goliath_crawler__ceccaed0__gen20_14 | 1.66 | 3.19 | 10.0 | 0 | 0 |
+| 449 | goliath_crawler__0fac9fa0__gen20 | 1.65 | 4.06 | 10.0 | 0 | 0 |
+| 450 | khepri_beetle__5a60eec6__gen20_4 | 1.63 | 3.97 | 10.0 | 0 | 0 |
+| 451 | goliath_crawler__1a83f221__gen20 | 1.57 | 4.75 | 10.0 | 0 | 0 |
+| 452 | centipede__49760b3b__gen50 | 1.54 | 2.67 | 10.0 | 1 | 0 |
+| 453 | arachne_spider__ab33cd0c__gen20 | 1.54 | 2.97 | 10.0 | 1 | 0 |
+| 454 | quadruped__12565ab8__gen20 | 1.47 | 5.29 | 10.0 | 0 | 0 |
+| 455 | legion_hexapod__39f7e11f__gen20_2 | 1.42 | 5.50 | 10.0 | 0 | 0 |
+| 456 | arachne_spider__92833ef6 | 1.42 | 1.77 | 10.0 | 0 | 0 |
+| 457 | centipede_0000 | 1.37 | 5.16 | 10.0 | 0 | 0 |
+| 458 | legion_hexapod__aad4b40a__gen20_1 | 1.36 | 3.24 | 10.0 | 0 | 0 |
+| 459 | scorpion__c1c1873c__gen20 | 1.35 | 6.85 | 10.0 | 0 | 0 |
+| 460 | khepri_beetle__f32cceb5__gen20 | 1.33 | 3.64 | 10.0 | 0 | 0 |
+| 461 | legion_hexapod__66604b5c__gen20 | 1.32 | 1.14 | 10.0 | 0 | 0 |
+| 462 | quadruped__3180f4fe__gen20 | 1.31 | 3.95 | 10.0 | 0 | 0 |
+| 463 | giraffe_default__8102c84e__gen20_2 | 1.30 | 2.35 | 10.0 | 0 | 0 |
+| 464 | legion_hexapod__9fa2ad7e__gen20_18 | 1.25 | 3.50 | 10.0 | 0 | 0 |
+| 465 | khepri_beetle__fe9be525__gen20_3 | 1.25 | 2.25 | 10.0 | 0 | 0 |
+| 466 | stingray_default | 1.23 | 5.20 | 10.0 | 0 | 0 |
+| 467 | arachne_spider__b57cbc66__gen20_10 | 1.20 | 4.22 | 10.0 | 0 | 0 |
+| 468 | giraffe_default__b2dcd29b__gen20_4 | 1.20 | 3.44 | 10.0 | 0 | 0 |
+| 469 | legion_hexapod__9fa2ad7e__gen20_0 | 1.18 | 6.11 | 10.0 | 0 | 0 |
+| 470 | giraffe_default__f8be4e2f__gen20 | 1.17 | 5.42 | 10.0 | 0 | 0 |
+| 471 | goliath_crawler__c5921aa1__gen20 | 0.93 | 4.85 | 10.0 | 0 | 0 |
+| 472 | ein_corgi__a9274885__gen20 | 0.91 | 5.14 | 10.0 | 0 | 0 |
+| 473 | arachne_spider__d20771ae__gen20_18 | 0.90 | 5.17 | 10.0 | 0 | 0 |
+| 474 | quadruped__1332f9ee__gen20 | 0.72 | 2.44 | 10.0 | 0 | 0 |
+| 475 | starfish__e81a58c8__gen20 | 0.70 | 1.79 | 10.0 | 0 | 0 |
+| 476 | scorpion__05eaa9d3__gen50 | 0.70 | 2.47 | 10.0 | 0 | 0 |
+| 477 | quadruped__85dd21d7__gen20_26 | 0.69 | 1.52 | 10.0 | 0 | 0 |
+| 478 | arachne_spider__b57cbc66__gen20_6 | 0.67 | 2.02 | 10.0 | 0 | 0 |
+| 479 | scorpion_default | 0.66 | 3.32 | 10.0 | 0 | 0 |
+| 480 | scorpion__04ef10ed__gen20 | 0.62 | 4.19 | 10.0 | 0 | 0 |
+| 481 | arachne_spider__15d3b324__gen20 | 0.59 | 4.43 | 10.0 | 0 | 0 |
+| 482 | legion_hexapod__33f0f7ed__gen20_3 | 0.57 | 1.32 | 10.0 | 0 | 0 |
+| 483 | goliath_crawler__9d86ac27__gen20_6 | 0.57 | 5.18 | 10.0 | 0 | 0 |
+| 484 | quadruped__1a71c1f3__gen20 | 0.48 | 3.34 | 10.0 | 0 | 0 |
+| 485 | quadruped__quad_5 | 0.44 | 4.31 | 8.2 | 1 | 10 |
+| 486 | aegis_turtle__74a28488__gen20 | 0.29 | 1.10 | 10.0 | 0 | 0 |
+| 487 | arachne_spider__0f23c9a5__gen20_5 | 0.23 | 4.77 | 10.0 | 0 | 0 |
 
 ## Family Tree (Lineage)
 
-.[Lineage Tree](results/lineage.png)
+![Lineage Tree](results/lineage.png)

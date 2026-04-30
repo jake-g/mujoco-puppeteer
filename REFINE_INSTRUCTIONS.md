@@ -47,3 +47,48 @@ This document tracks instructions and best practices for refining agents and env
 - **Greedy Focus**: Focus on a few agents at a time to improve distance and time to max distance, then switch to another set for consistent results.
 - **Rotation**: Shift to a different set of 8 agents after ~20 minutes or upon reaching a milestone to ensure all agents eventually improve.
 - **Automated Reflection**: Every 10 minutes, a recurring task prompts the agent to read task logs, analyze agent performance, update `DEV_LOG.md` with new findings, and suggest/invent new agent configs.
+- **Stagnation Watchlist**: Based on recent logs (`task-2973`), `giraffe_default`, `khepri_beetle`, and `centipede` are struggling with stagnation deaths. They may need balance tweaks or base gait improvements.
+
+## Infrastructure & IDs
+
+### ID Collisions
+- **Morphology in Hash**: The short ID hash in `Agent.update_id()` originally only used gait parameters. For `ConfigurableAgent`, override this to include the `self.config` (morphology) in the hash to prevent different body shapes with the same gait from colliding on the same ID.
+- **Lineage Rendering**: When rendering the family tree in Graphviz, use the unique agent **Name** as the node key instead of the short hash to prevent overlapping and mangled graphs if collisions do occur.
+
+## Key Learnings from Refinement
+
+### Ground Clearance
+- Agents with wide or long bodies (like Centipede and Khepri Beetle) require longer limbs to prevent their bellies from scraping the floor.
+- Increasing leg length from `0.1` to `0.2` resolved high friction and stagnation issues.
+
+### Genetic Array Alignment
+- Limb crossover between different species creates variable length genomes.
+- Array operations on inherited traits (like `phase_offsets`) must guard against list index truncation (using `zip`) to avoid runtime crashes.
+
+### GUI Thread Safety (Mac)
+- Direct manipulation of positions/states (`qpos`) in the physics thread while rendering in a passive viewer on macOS can cause severe UI lockups.
+- Avoid teleporting agents inside the physics loop if GUI is active.
+
+### Dynamic Camera Bounds
+- Fixed distance tracking cameras work poorly for an open-world simulation with dynamically scaling hybrids.
+- Camera offsets must scale with the agent's bounding extremities.
+
+## Advanced Curriculum Ideas
+
+To make evolution more challenging and encourage diverse, robust behaviors, consider implementing the following scheduled difficulty increases across generations:
+
+### Dynamic Gravity
+- Start at low gravity (e.g., `-2.0`) to allow agents to find basic balance easily.
+- Scale up to normal gravity (`-9.81`) over 50 generations to force the development of strong legs and core support.
+
+### Dynamic Friction
+- Start with high floor friction (easy to grip!).
+- Linearly decrease friction over generations to force agents to find efficient gaits that do not rely on brute-force pushing against ground planes.
+
+### Diversity Bonuses
+- Track the standard deviation of an agent's `phase_offsets` or joint angles.
+- Reward agents that display asymmetric or unexpected walking patterns to prevent the population from collapsing into identical sine-wave movers.
+
+### Competitive Pressure
+- Introduce a dynamic density of static obstacles (blocks) based on generation.
+- The more obstacles, the more the agent is forced to steer (Virtual Chemotaxis) or die of collision impacts.
