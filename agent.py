@@ -76,6 +76,7 @@ class Agent:
         "name": self.name,
         "type": self.__class__.__name__,
         "generation": getattr(self, "generation", 0),
+        "score": float(getattr(self, "reward", 0.0)),
         "pos": [0.0, 0.0, 1.0],
         "color": [float(c) for c in self.color],
         "size_scale": float(self.size_scale),
@@ -218,6 +219,12 @@ class Agent:
       survival_reward = 0.0
       if pos[2] >= 0.5:
         survival_reward = 0.1
+
+      # Food seeking reward (reward moving in direction of food)
+      food_reward = 0.0
+      if hasattr(self, "food_vector") and self.food_vector != [0.0, 0.0]:
+        lin_vel = agent_body.cvel[3:6]
+        food_reward = 0.5 * (lin_vel[0] * self.food_vector[0] + lin_vel[1] * self.food_vector[1])
 
       # Energy penalty (encourage efficient walking.)
       energy = 0.0
@@ -423,6 +430,7 @@ class ConfigurableAgent(Agent):
                config: Optional[dict] = None):
     super().__init__(name, size_scale)
     self.config = config or {}
+    self.species = self.config.get("name", "Configurable")
 
     # Parse limbs to determine number of phase offsets needed.
     self.limbs = self.config.get("limbs", [])
@@ -441,6 +449,15 @@ class ConfigurableAgent(Agent):
     res["body"] = self.config.get("body", {})
     res["limbs"] = self.config.get("limbs", [])
     return res
+
+  def update_id(self):
+    """Updates the unique ID based on current genome and config."""
+    genome = [
+        self.frequency, self.phase, self.amplitude, self.leg_length_scale
+    ] + self.phase_offsets
+    # Add config string to hash to prevent collision for different morphologies
+    config_str = str(self.config)
+    self.id = hashlib.md5((str(genome) + config_str).encode()).hexdigest()[:8]
 
   def generate_xml(self) -> ET.Element:
     """Generates the XML element for the configurable agent.
@@ -631,6 +648,7 @@ class ConfigurableAgent(Agent):
     try:
       t = data.time
       motor_idx = 0
+      energy_factor = self.energy / self.max_energy
       for limb in self.limbs:
         limb_name = limb["name"]
         m_name = f"{self.name}_{limb_name}_motor"
@@ -652,7 +670,7 @@ class ConfigurableAgent(Agent):
 
           # Compute steering bias based on food vector.
           # Scale amplitude by energy to simulate fatigue.
-          energy_factor = self.energy / self.max_energy
+          # Compute control based on sine wave
           local_amplitude = self.amplitudes[motor_idx] * energy_factor
 
           if hasattr(self, "food_vector") and self.food_vector != [0.0, 0.0]:

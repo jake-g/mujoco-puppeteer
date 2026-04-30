@@ -120,8 +120,8 @@ class Orchestrator:
           name="track_cam",
           mode="trackcom",
           target=self.agents[0].name,
-          # Zoomed in closer to fill the frame.
-          pos="0 -2 2",
+          # Zoomed out even further as requested by user!
+          pos="0 -6.0 6.0",
           xyaxes="1 0 0 0 0.707 0.707")
 
     # Add food.
@@ -459,15 +459,13 @@ class Orchestrator:
     ] + [1.0]  # Keep alpha=1.0
 
     # Determine species name for naming
-    p1_type = parent1.config.get("type", "Agent") if isinstance(
-        parent1, ConfigurableAgent) else parent1.__class__.__name__
-    p2_type = parent2.config.get("type", "Agent") if isinstance(
-        parent2, ConfigurableAgent) else parent2.__class__.__name__
+    p1_species = getattr(parent1, "species", "Agent")
+    p2_species = getattr(parent2, "species", "Agent")
 
-    if p1_type == p2_type:
-      species_prefix = p1_type.capitalize()
+    if p1_species == p2_species:
+      species_prefix = p1_species.capitalize()
     else:
-      species_prefix = f"{p1_type.capitalize()}_{p2_type.capitalize()}_Hybrid"
+      species_prefix = f"{p1_species.capitalize()}_{p2_species.capitalize()}_Hybrid"
 
     parent_to_use = None
     if isinstance(parent1, ConfigurableAgent) and isinstance(parent2, ConfigurableAgent):
@@ -529,10 +527,13 @@ class Orchestrator:
         -0.2, 0.2)
 
     if hasattr(parent1, "phase_offsets") and hasattr(parent2, "phase_offsets"):
-      new_agent.phase_offsets = [
+      mixed_offsets = [
           (p1 + p2) / 2 + random.uniform(-0.2, 0.2)
           for p1, p2 in zip(parent1.phase_offsets, parent2.phase_offsets)
       ]
+      for i in range(len(mixed_offsets)):
+        if i < len(new_agent.phase_offsets):
+          new_agent.phase_offsets[i] = mixed_offsets[i]
 
     # Update ID based on inherited parameters
     new_agent.update_id()

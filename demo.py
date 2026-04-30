@@ -51,8 +51,7 @@ def run_demo():
   env = Environment()
   env.rough_terrain = False  # Disable rough terrain for stability.
   env.wind = [0.0, 0.0, 0.0]  # Disable wind for demo stability.
-  env.floor_size = [15.0, 15.0,
-                    0.05]  # Floor is 30x30m, fitting the 24m ring with edges.
+  env.floor_size = [15.0, 15.0, 0.05]  # Smaller floor.
 
   # Add 10 static blocks
   for i in range(10):
@@ -81,26 +80,42 @@ def run_demo():
   agents = []
   agents_dir = "templates/agents"
   if os.path.exists(agents_dir):
-    # Get all evolved agents (excluding legacy quadruped biped files.)
-    files = [f for f in os.listdir(agents_dir) if f.endswith(".yaml")]
-    random.shuffle(files)
+    # Find all YAMLs recursively
+    all_yamls = []
+    for root, _, fs in os.walk(agents_dir):
+      if "old" in root:
+        continue
+      for f in fs:
+        if f.endswith(".yaml"):
+          all_yamls.append(os.path.join(root, f))
 
-    # Fetch top candidates dynamically from leaderboard.
-    top_candidates = get_top_candidates(args.top_candidates)
+    print(f"Found {len(all_yamls)} total agent templates.")
+
     selected_files = []
-    for f in top_candidates:
-      if os.path.exists(os.path.join(agents_dir, f)):
-        selected_files.append(f)
 
-    for f in files:
-      if f not in selected_files:
-        selected_files.append(f)
-        if len(selected_files) >= 15:
+    # 1. Try to get top candidates from leaderboard
+    top_candidates = get_top_candidates(args.top_candidates)
+    for candidate_name in top_candidates:
+      # Find path for this candidate!
+      for path in all_yamls:
+        if candidate_name in path:
+          selected_files.append(path)
           break
+
+    # 2. Fill the rest randomly
+    remaining = [p for p in all_yamls if p not in selected_files]
+    random.shuffle(remaining)
+
+    target_total = 20
+    needed = target_total - len(selected_files)
+    if needed > 0:
+      selected_files.extend(remaining[:needed])
+
+    print(f"Selected {len(selected_files)} agents for demo.")
 
     # Load up to 15 agents for maximum diversity.
     for i, f in enumerate(selected_files):
-      with open(os.path.join(agents_dir, f), "r") as file:
+      with open(f, "r") as file:
         cfg = yaml.safe_load(file)["agents"][0]
 
         agent_type = cfg.get("type", "default")
@@ -117,13 +132,6 @@ def run_demo():
         else:
           agent = ConfigurableAgent(name=agent_name, config=cfg)
 
-        # Heavily increase amplitude to force aggressive movement.
-        agent.amplitude = max(2.0, agent.amplitude * 2.0)
-        # Speed up gait frequency to make them move faster.
-        agent.frequency *= 1.5
-        # Force longer legs to prevent stumpy non-moving agents.
-        agent.leg_length_scale = max(1.5, agent.leg_length_scale)
-
         agents.append(agent)
 
   if not agents:
@@ -137,7 +145,7 @@ def run_demo():
   for agent in agents:
     placed = False
     for _ in range(100):
-      pos = [random.uniform(-10.0, 10.0), random.uniform(-10.0, 10.0), 0.5]
+      pos = [random.uniform(-10.0, 10.0), random.uniform(-10.0, 10.0), 0.2]
       too_close = False
       for other in agents:
         if other != agent and hasattr(other, "pos"):
@@ -154,10 +162,10 @@ def run_demo():
           f"Warning: Could not find non-overlapping position for {agent.name}.")
       agent.pos = [
           random.uniform(-10.0, 10.0),
-          random.uniform(-10.0, 10.0), 0.5
+          random.uniform(-10.0, 10.0), 0.2
       ]
 
-  orch = Orchestrator(env, agents, death_threshold=float('inf'))
+  orch = Orchestrator(env, agents, death_threshold=3.0)
   orch.initialize()
 
   # Add 20 more food items to fill the arena (50 total).
@@ -171,7 +179,7 @@ def run_demo():
   if args.record:
     timestamp = int(time.time())
     # Use double underscore to match evolution GIF grouper
-    record_dir = f"results/demo__{timestamp}"
+    record_dir = f"results/demo/variations/demo__{timestamp}"
     os.makedirs(record_dir, exist_ok=True)
     print(f"Recording frames to {record_dir}...")
     renderer = mujoco.Renderer(orch.model, 1024, 1024)
@@ -197,8 +205,8 @@ def run_demo():
 
   # Enable synthesis in GUI mode as requested! (May cause brief freezes on reload).
   orch.enable_synthesis = True
-  orch.enable_food = True if args.no_viewer else False
-  orch.enable_flip_death = True  # Enable flip death (health drain)!
+  orch.enable_food = False  # Disable food to prevent freeze!
+  orch.enable_flip_death = False  # Disable flip death to help them survive!
   orch.enable_respawn = False  # Disable respawn for demo stability!
   orch.enable_event_logging = True  # Enable event logging for demo!.
 
@@ -277,6 +285,7 @@ def run_demo():
 
           for _ in range(steps_per_frame):
             orch.step()
+
           viewer.sync()
 
           # Record every 5th frame (approx 20 fps) from user's POV to prevent CPU hogging.
@@ -299,7 +308,7 @@ def run_demo():
       print("\nInterrupted by user.")
       if record_dir:
         print("Generating GIF from recorded frames...")
-        create_gif(species_filter="demo")
+        create_gif(source_dir=record_dir, output_path="results/demo/evolution.gif")
 
   print(f"Demo finished in {time.time() - start_time:.1f} seconds.")
 
