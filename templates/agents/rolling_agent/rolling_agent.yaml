@@ -1,0 +1,27 @@
+agents:
+- name: rolling_agent
+  type: configurable
+  body:
+    type: ellipsoid
+    size: [0.2, 0.2, 0.2]
+  limbs:
+    - name: spoke_1
+      pos: [0.2, 0, 0]
+      axis: [0, 1, 0]
+      range: [-45, 45]
+      geom: {type: capsule, size: [0.02, 0.1]}
+    - name: spoke_2
+      pos: [-0.2, 0, 0]
+      axis: [0, 1, 0]
+      range: [-45, 45]
+      geom: {type: capsule, size: [0.02, 0.1]}
+    - name: spoke_3
+      pos: [0, 0.2, 0]
+      axis: [1, 0, 0]
+      range: [-45, 45]
+      geom: {type: capsule, size: [0.02, 0.1]}
+    - name: spoke_4
+      pos: [0, -0.2, 0]
+      axis: [1, 0, 0]
+      range: [-45, 45]
+      geom: {type: capsule, size: [0.02, 0.1]}
