@@ -66,20 +66,31 @@ The project implements a dynamic synthesis (breeding) mechanism where agents can
     - **Phase Offsets**: Average of parents' independent phase offsets per limb ± random noise.
 - **Colors**: The child's color is an average of the parents' colors, with slight random mutation.
 
+## Simulation Mechanics & Rules
+
+To create a more dynamic and realistic simulation, several advanced mechanics have been implemented:
+
+### Energy & Survival
+- **Energy**: Agents start with a maximum energy scaled by their size. Energy is consumed over time (hunger) and by applying torque to joints (effort).
+- **Food**: Eating food restores energy and increases movement frequency by 20% (Food Excitement).
+- **Death**: Agents die if they run out of energy (starvation) or remain fallen for more than a threshold time.
+
+### Locomotion & Steering
+- **Virtual Chemotaxis**: Agents compute a normalized relative position vector to the closest food target, allowing closed-loop goal seeking.
+- **Asymmetric Torque Modulation**: Turning is achieved by increasing amplitude on the side contralateral to the target.
+- **Fatigue**: Actuator amplitude scales linearly with agent energy to simulate exhaustion.
+
+### Morphology & Constraints
+- **Configurable Agents**: Agents are defined via YAML templates specifying body and limb hierarchy.
+- **Root Body Requirement**: To prevent morphology glitches, templates must specify a `body` field for the torso, or they fallback to a default small square.
+- **Limb Connection Test**: A test ensures limbs are placed within a reasonable distance of the parent body to avoid detached limbs.
+
 ## Status & Milestones
 
 -   Foundation, Environment, Agent, and Orchestration are fully implemented and tested.
 -   Visualization is implemented using `launch_passive` and `mjpython` for Mac compatibility. Interactive keyboard controls are available in `cli.py`.
 -   Networking is started with state streaming via WebSockets in `server.py` and `client.py`.
 -   Learning & Evolution is handled by an automated Genetic Algorithm in `auto_evolve.py`.
-
-### Goal Seeking
-- **Virtual Chemotaxis**: Agents compute a normalized relative position vector to the closest food target, allowing closed-loop goal seeking.
-- **Asymmetric Torque Modulation**: Turning is achieved by increasing amplitude on the side contralateral to the target.
-
-### Fatigue & Excitement
-- **Fatigue Simulation**: Actuator amplitude scales linearly with agent energy to simulate exhaustion.
-- **Food Excitement**: Control frequency increases by 20% when an agent successfully eats food.
 
 ### Results
 - **Simplified Index**: `results/index.yaml` is reduced to a clean folder-to-file-count mapping.

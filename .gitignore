@@ -10,6 +10,7 @@ __pycache__/
 
 # Project specific
 # (Add specific ignores here if needed)
+agents_evolved/
 logs/
 old/
 results/*/

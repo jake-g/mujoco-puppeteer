@@ -112,6 +112,7 @@ class TestOrchestrator(unittest.TestCase):
 
     orchestrator = Orchestrator(self.env, [parent1, parent2])
     orchestrator.initialize()
+    orchestrator.enable_export = False
 
     # Trigger synthesis
     orchestrator._synthesize_agents(parent1, parent2)

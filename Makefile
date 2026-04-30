@@ -24,6 +24,7 @@ help:
 	@echo "  make kill      - Kill all background simulation processes"
 	@echo "  make rerender-all - Re-render all templates as GIFs"
 	@echo "  make render template=<path> options=\"<options>\" - Render specific template"
+	@echo "  make maintenance - Run full maintenance (tests, leaderboard, renders)"
 	@echo "  make clean    - Remove generated files and logs"
 
 # Setup environment
@@ -115,7 +116,12 @@ demo-test:
 # Clean results
 clean-results:
 	@echo "🧹 Cleaning duplicate images and indexing results..."
-	@.venv/bin/python3 clean_results.py
+	@.venv/bin/python3 maintenance.py
+
+# Run full maintenance
+maintenance:
+	@echo "🚀 Running full maintenance..."
+	@.venv/bin/python3 maintenance.py --tests
 
 # Kill all processes
 kill:

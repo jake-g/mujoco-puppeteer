@@ -39,6 +39,7 @@ class Agent:
     self.phase = random.uniform(0, 2 * math.pi)
     self.phase_offsets = [0.0, math.pi / 2, math.pi, 3 * math.pi / 2]
     self.amplitude = random.uniform(0.5, 2.0)
+    self.steering_weight = random.uniform(0.1, 1.0)
     self.steps: int = 0
     self.food_eaten: int = 0
     self.syntheses_count: int = 0
@@ -57,7 +58,7 @@ class Agent:
 
     # Generate unique ID based on genome hash
     genome = [
-        self.frequency, self.phase, self.amplitude, self.leg_length_scale
+        self.frequency, self.phase, self.amplitude, self.leg_length_scale, self.steering_weight
     ] + self.phase_offsets
     self.id: str = hashlib.md5(str(genome).encode()).hexdigest()[:8]
 
@@ -67,6 +68,24 @@ class Agent:
         self.frequency, self.phase, self.amplitude, self.leg_length_scale
     ] + self.phase_offsets
     self.id = hashlib.md5(str(genome).encode()).hexdigest()[:8]
+
+  def to_dict(self) -> dict:
+    """Serializes the agent to a dictionary for YAML export."""
+    return {
+        "id": self.id,
+        "name": self.name,
+        "type": self.__class__.__name__,
+        "generation": getattr(self, "generation", 0),
+        "pos": [0.0, 0.0, 1.0],
+        "color": [float(c) for c in self.color],
+        "size_scale": float(self.size_scale),
+        "frequency": float(self.frequency),
+        "phase": float(self.phase),
+        "amplitude": float(getattr(self, "amplitude", 1.0)),
+        "leg_length_scale": float(self.leg_length_scale),
+        "phase_offsets": [float(p) for p in self.phase_offsets],
+        "parent_ids": getattr(self, "parent_ids", [])
+    }
 
   def generate_xml(self) -> ET.Element:
     """Generates the XML element for the agent.
@@ -225,7 +244,7 @@ class Agent:
           if m_idx >= 0:
             energy += data.ctrl[m_idx]**2
 
-      energy_penalty = -0.05 * energy
+      energy_penalty = -0.01 * energy
 
       self.reward = x_reward + z_penalty + survival_reward + energy_penalty + flip_penalty
       return self.reward
@@ -409,10 +428,19 @@ class ConfigurableAgent(Agent):
     self.limbs = self.config.get("limbs", [])
     if self.limbs:
       total_actuators = sum(2 if "child" in l else 1 for l in self.limbs)
+      self.amplitudes = [random.uniform(0.5, 2.0) for _ in range(total_actuators)]
       # Distribute phase offsets to create wave motion.
       self.phase_offsets = [
           i * (2 * math.pi / total_actuators) for i in range(total_actuators)
       ]
+
+  def to_dict(self) -> dict:
+    """Serializes the configurable agent to a dictionary."""
+    res = super().to_dict()
+    res["type"] = self.config.get("type", "configurable")
+    res["body"] = self.config.get("body", {})
+    res["limbs"] = self.config.get("limbs", [])
+    return res
 
   def generate_xml(self) -> ET.Element:
     """Generates the XML element for the configurable agent.
@@ -625,7 +653,7 @@ class ConfigurableAgent(Agent):
           # Compute steering bias based on food vector.
           # Scale amplitude by energy to simulate fatigue.
           energy_factor = self.energy / self.max_energy
-          local_amplitude = self.amplitude * energy_factor
+          local_amplitude = self.amplitudes[motor_idx] * energy_factor
 
           if hasattr(self, "food_vector") and self.food_vector != [0.0, 0.0]:
             try:
@@ -644,10 +672,9 @@ class ConfigurableAgent(Agent):
               pos = limb.get("pos", [0.0, 0.0, 0.0])
               # If food is to the left (cross > 0), push harder with right legs (pos[1] < 0).
               if cross > 0 and pos[1] < 0:
-                local_amplitude += 0.5
-              # If food is to the right (cross < 0), push harder with left legs (pos[1] > 0).
+                local_amplitude += self.steering_weight
               elif cross < 0 and pos[1] > 0:
-                local_amplitude += 0.5
+                local_amplitude += self.steering_weight
             except Exception:
               pass
 
@@ -663,7 +690,7 @@ class ConfigurableAgent(Agent):
 
           if c_m_idx >= 0:
             phase_offset = self.phase_offsets[motor_idx]
-            data.ctrl[c_m_idx] = self.amplitude * math.sin(t * self.frequency +
+            data.ctrl[c_m_idx] = self.amplitudes[motor_idx] * energy_factor * math.sin(t * self.frequency +
                                                            self.phase +
                                                            phase_offset)
             motor_idx += 1

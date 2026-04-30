@@ -2,8 +2,11 @@ import os
 import subprocess
 import time
 
+from auto_evolve import update_leaderboard
+from maintenance import run_maintenance
+
 species_list = [
-    "crab", "mech_biped", "megapede", "ostrich", "dragon", "mantis", "urchin", "frog"
+    "chimera", "tarantula", "stingray", "mech_biped", "crab", "megapede", "legion_hexapod", "starfish"
 ]
 
 max_parallel = 4
@@ -22,7 +25,7 @@ for species in species_list:
   print(f"Starting evolution for {species}...")
   p = subprocess.Popen([
       ".venv/bin/python3", "auto_evolve.py", "--species", species, "--pop-size",
-      "50", "--generations", "50"
+      "20", "--generations", "20"
   ])
   active_processes.append(p)
 
@@ -34,3 +37,4 @@ while active_processes:
   time.sleep(1)
 
 print("All species evolved!")
+run_maintenance(run_tests=True)

@@ -131,6 +131,25 @@ class TestTemplates(unittest.TestCase):
                             f"Limb {limb['name']} seems too far from torso in {path}"
                         )
 
+  def test_agent_to_dict(self):
+    """Test that Agent.to_dict() works correctly."""
+    from agent import Agent
+    agent = Agent(name="test_agent")
+    d = agent.to_dict()
+    self.assertEqual(d["name"], "test_agent")
+    self.assertIn("id", d)
+    self.assertIn("frequency", d)
+
+  def test_configurable_agent_to_dict(self):
+    """Test that ConfigurableAgent.to_dict() works correctly."""
+    from agent import ConfigurableAgent
+    agent = ConfigurableAgent(name="test_cfg_agent", config={"type": "test_type"})
+    d = agent.to_dict()
+    self.assertEqual(d["name"], "test_cfg_agent")
+    self.assertEqual(d["type"], "test_type")
+    self.assertIn("body", d)
+    self.assertIn("limbs", d)
+
 
 if __name__ == "__main__":
   unittest.main()

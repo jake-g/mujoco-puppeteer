@@ -120,6 +120,8 @@ def render_template(template_path: str,
     if jnt_id >= 0:
       qpos_addr = orch.model.jnt_qposadr[jnt_id]
       orch.data.qpos[qpos_addr:qpos_addr + 3] = [0.0, 0.0, 1.0]
+      dof_addr = orch.model.jnt_dofadr[jnt_id]
+      orch.data.qvel[dof_addr:dof_addr + 6] = 0.0
 
     renderer.update_scene(orch.data, camera="main_cam")
     pixels = renderer.render()
@@ -427,7 +429,22 @@ def generate_plot(results_dir="results"):
     sorted_gens = sorted(points.keys())
     rewards = [points[g] for g in sorted_gens]
 
-    plt.plot(sorted_gens, rewards, label=species, marker='o', markersize=4)
+    # Try to get color from template
+    color = None
+    template_path = f"templates/agents/{species}/{species}_default.yaml"
+    if os.path.exists(template_path):
+      try:
+        with open(template_path, "r") as f:
+          cfg = yaml.safe_load(f)
+          if "agents" in cfg and len(cfg["agents"]) > 0:
+            color = cfg["agents"][0].get("plot_color", None)
+      except Exception:
+        pass
+
+    if color:
+      plt.plot(sorted_gens, rewards, label=species, marker='o', markersize=4, color=color)
+    else:
+      plt.plot(sorted_gens, rewards, label=species, marker='o', markersize=4)
 
   plt.axvline(x=5,
               color='gray',

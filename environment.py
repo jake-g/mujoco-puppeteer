@@ -39,9 +39,8 @@ class Environment:
 
     # Option
     option = ET.SubElement(root, "option")
-    option.set("gravity",
-               f"{self.gravity[0]} {self.gravity[1]} {self.gravity[2]}")
-    option.set("wind", f"{self.wind[0]} {self.wind[1]} {self.wind[2]}")
+    option.set("gravity", " ".join(map(str, self.gravity)))
+    option.set("wind", " ".join(map(str, self.wind)))
     if hasattr(self, 'timestep') and self.timestep is not None:
       option.set("timestep", str(self.timestep))
 
@@ -61,10 +60,8 @@ class Environment:
         width="256",
         height="256",
     )
-    skybox.set("rgb1",
-               f"{self.sky_rgb1[0]} {self.sky_rgb1[1]} {self.sky_rgb1[2]}")
-    skybox.set("rgb2",
-               f"{self.sky_rgb2[0]} {self.sky_rgb2[1]} {self.sky_rgb2[2]}")
+    skybox.set("rgb1", " ".join(map(str, self.sky_rgb1)))
+    skybox.set("rgb2", " ".join(map(str, self.sky_rgb2)))
 
     texture = ET.SubElement(
         asset,
