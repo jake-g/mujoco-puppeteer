@@ -101,7 +101,7 @@ demo:
 # Run demo and record frames
 demo-record:
 	@echo "🎮 Running simulation demo and recording frames..."
-	@.venv/bin/python3 demo.py --record
+	@$(MJPYTHON) demo.py --record
 
 # Run parallel evolution
 parallel-evolve:
