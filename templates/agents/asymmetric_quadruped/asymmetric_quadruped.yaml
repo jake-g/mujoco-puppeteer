@@ -1,0 +1,27 @@
+agents:
+- name: asymmetric_quadruped
+  type: configurable
+  body:
+    type: box
+    size: [0.2, 0.2, 0.05]
+  limbs:
+    - name: front_left
+      pos: [0.15, 0.15, 0]
+      axis: [0, 1, 0]
+      range: [-30, 30]
+      geom: {type: capsule, size: [0.02, 0.1]}
+    - name: front_right
+      pos: [0.15, -0.15, 0]
+      axis: [0, 1, 0]
+      range: [-30, 30]
+      geom: {type: capsule, size: [0.02, 0.2]}
+    - name: back_left
+      pos: [-0.15, 0.15, 0]
+      axis: [0, 1, 0]
+      range: [-30, 30]
+      geom: {type: capsule, size: [0.02, 0.1]}
+    - name: back_right
+      pos: [-0.15, -0.15, 0]
+      axis: [0, 1, 0]
+      range: [-30, 30]
+      geom: {type: capsule, size: [0.02, 0.2]}

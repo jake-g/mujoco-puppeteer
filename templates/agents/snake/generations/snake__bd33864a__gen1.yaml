@@ -1,0 +1,47 @@
+agents:
+- amplitude: 0.8084059628830904
+  body:
+    mass: 5.0
+    size:
+    - 0.1
+    type: sphere
+  color:
+  - 0.4145553073548188
+  - 0.6758182251926201
+  - 0.7008613325842006
+  - 1.0
+  frequency: 2.05028378601452
+  generation: 0
+  id: bd33864a
+  leg_length_scale: 1.956639188889628
+  limbs: []
+  name: snake__bd33864a__gen1
+  parent_ids:
+  - 9d607abb
+  - d3b2466b
+  phase: 5.159229466688753
+  phase_offsets:
+  - -0.13517904212126153
+  - 3.233997427095744
+  - 3.141592653589793
+  - 4.71238898038469
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  score: 12.509585928282046
+  size_scale: 1.0644688455977787
+  type: configurable
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05
