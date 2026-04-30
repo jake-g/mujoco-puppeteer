@@ -3,13 +3,10 @@ import subprocess
 import time
 
 species_list = [
-    "quadruped", "goliath_crawler", "legion_hexapod", "aegis_turtle",
-    "ein_corgi", "khepri_beetle", "giraffe_default", "arachne_spider",
-    "centipede", "scorpion", "gorilla", "starfish", "snake", "kangaroo", "crab",
-    "megapede", "stilts_biped", "megarachne", "mech_biped", "scorpion_king"
+    "crab", "mech_biped", "megapede", "ostrich", "dragon", "mantis", "urchin", "frog"
 ]
 
-max_parallel = 5
+max_parallel = 4
 active_processes: list[subprocess.Popen] = []
 print(f"Starting parallel evolution manager. Max parallel: {max_parallel}")
 

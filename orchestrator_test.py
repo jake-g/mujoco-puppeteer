@@ -6,8 +6,8 @@ import xml.etree.ElementTree as ET
 import mujoco
 
 from agent import Agent
+from agent import ConfigurableAgent
 from environment import Environment
-# This import will fail until we create orchestrator.py
 from orchestrator import Orchestrator
 
 
@@ -101,6 +101,29 @@ class TestOrchestrator(unittest.TestCase):
     self.assertIn("agent_1", state["agents"])
     self.assertIn("pos", state["agents"]["agent_1"])
     self.assertIn("color", state["agents"]["agent_1"])
+
+
+  def test_synthesis(self):
+    """Test that synthesis creates a valid hybrid agent."""
+    # Create configurable agents
+    cfg = {"type": "test_species", "limbs": [{"name": "torso", "size": [0.2]}]}
+    parent1 = ConfigurableAgent(name="parent_1", config=cfg)
+    parent2 = ConfigurableAgent(name="parent_2", config=cfg)
+
+    orchestrator = Orchestrator(self.env, [parent1, parent2])
+    orchestrator.initialize()
+
+    # Trigger synthesis
+    orchestrator._synthesize_agents(parent1, parent2)
+
+    # Check that a new agent was added
+    self.assertEqual(len(orchestrator.agents), 3)
+    new_agent = orchestrator.agents[2]
+
+    # Check that it is a ConfigurableAgent
+    self.assertIsInstance(new_agent, ConfigurableAgent)
+    # Check that it inherited the config!
+    self.assertEqual(new_agent.config["type"], "test_species")
 
 
 if __name__ == "__main__":

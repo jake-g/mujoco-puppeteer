@@ -4,6 +4,7 @@ import logging
 import math
 import os
 import random
+import re
 from typing import Sequence
 import xml.etree.ElementTree as ET
 
@@ -178,8 +179,33 @@ class Orchestrator:
         body = self.data.body(agent.name)
         agent.time_alive += self.model.opt.timestep
 
-        # Decrease energy (hunger.)
-        agent.energy -= agent.hunger_rate * self.model.opt.timestep
+        # Decrease energy (hunger + effort)
+        effort = 0.0
+        if hasattr(agent, "limbs"):
+          for limb in agent.limbs:
+            m_name = f"{agent.name}_{limb['name']}_motor"
+            m_idx = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_ACTUATOR,
+                                      m_name)
+            if m_idx >= 0:
+              effort += self.data.ctrl[m_idx]**2
+
+            if "child" in limb:
+              c_name = f"{agent.name}_{limb['child']['name']}_motor"
+              c_idx = mujoco.mj_name2id(self.model,
+                                        mujoco.mjtObj.mjOBJ_ACTUATOR, c_name)
+              if c_idx >= 0:
+                effort += self.data.ctrl[c_idx]**2
+        else:
+          # Fallback for base Agent with hardcoded legs
+          for leg_name in ["left", "right"]:
+            m_name = f"{agent.name}_{leg_name}_motor"
+            m_idx = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_ACTUATOR,
+                                      m_name)
+            if m_idx >= 0:
+              effort += self.data.ctrl[m_idx]**2
+
+        agent.energy -= (agent.hunger_rate +
+                         0.1 * effort) * self.model.opt.timestep
 
         if agent.energy <= 0:
           logger.info("Agent %s died of starvation", agent.name)
@@ -249,6 +275,7 @@ class Orchestrator:
                     (agent_pos[1] - food_pos[1])**2)**0.5
             if dist < 0.5:
               agent.energy = min(agent.max_energy, agent.energy + 50.0)
+              agent.food_eaten += 1
               # Increase frequency on eating food.
               agent.frequency = min(10.0, agent.frequency * 1.2)
               logger.info("Agent %s ate food %d!", agent.name, i)
@@ -401,7 +428,16 @@ class Orchestrator:
     else:
       species_prefix = f"{p1_type.capitalize()}_{p2_type.capitalize()}_Hybrid"
 
-    new_agent = Agent(name="temp_agent")
+    if isinstance(parent1, ConfigurableAgent) and isinstance(parent2, ConfigurableAgent):
+      # Randomly pick one parent's morphology
+      parent = random.choice([parent1, parent2])
+      new_agent = ConfigurableAgent(name="temp_agent", config=parent.config)
+    elif isinstance(parent1, ConfigurableAgent):
+      new_agent = ConfigurableAgent(name="temp_agent", config=parent1.config)
+    elif isinstance(parent2, ConfigurableAgent):
+      new_agent = ConfigurableAgent(name="temp_agent", config=parent2.config)
+    else:
+      new_agent = Agent(name="temp_agent")
 
     new_agent.color = new_color
     new_agent.parent_ids = [parent1.id, parent2.id]
@@ -443,7 +479,9 @@ class Orchestrator:
 
     # Reward parents for successful synthesis
     parent1.reward += 50.0
+    parent1.syntheses_count += 1
     parent2.reward += 50.0
+    parent2.syntheses_count += 1
     logger.info("Rewarded %s and %s for synthesis!", parent1.name, parent2.name)
 
     logger.info("Re-initializing simulation for new agent: %s", new_agent.name)
@@ -490,23 +528,16 @@ class Orchestrator:
           }]
       }
 
-    os.makedirs("templates/agents", exist_ok=True)
+    species = agent.name.split("__")[0] if "__" in agent.name else re.sub(
+        r"_[0-9a-f]+$", "", agent.name)
+    species = re.sub(r"_default$", "", species)
 
-    # Render an image of the agent
-    try:
-      renderer = mujoco.Renderer(self.model, 400, 400)
-      renderer.update_scene(self.data, camera="main_cam")
-      pixels = renderer.render()
+    species_dir = f"templates/agents/{species}"
+    os.makedirs(species_dir, exist_ok=True)
 
-      img_filename = f"templates/agents/{agent.name}.ppm"
-      with open(img_filename, "wb") as f:
-        f.write(f"P6\n400 400\n255\n".encode())
-        f.write(pixels.tobytes())
-      logger.info("Saved image of agent to %s", img_filename)
-    except Exception as e:
-      logger.error("Failed to render image for %s: %s", agent.name, e)
+    # Image rendering removed as per user request.
 
-    filename = f"templates/agents/{agent.name}.yaml"
+    filename = f"{species_dir}/{agent.name}.yaml"
     with open(filename, "w") as f:
       yaml.dump(config, f)
 

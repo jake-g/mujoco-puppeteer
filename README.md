@@ -52,6 +52,20 @@ This project implements a server-client architecture for a live-streamed, multip
 *   **State Streaming**: Instead of video, the server streams raw state vectors (positions, velocities, forces) via WebSockets. This minimizes bandwidth and allows clients to render locally.
 *   **Clients**: The `client.py` script demonstrates connecting to the server and receiving state updates.
 
+## Synthesis
+
+The project implements a dynamic synthesis (breeding) mechanism where agents can collide and produce offspring at runtime.
+
+### How it Works:
+- **Trigger**: Synthesis is triggered by physical collision between two different agents, provided they are not on cooldown.
+- **Morphology**: The child agent inherits the complete physical body structure (limbs) from ONE of the parents, chosen randomly if both are `ConfigurableAgent` instances. This ensures realistic and valid body structures.
+- **Traits (Gait Parameters)**: Continuous traits are combined by averaging the parents' values and adding a small random mutation to encourage exploration:
+    - **Size Scale**: Average of parents' scales ± random noise.
+    - **Frequency**: Average of parents' gait frequencies ± random noise.
+    - **Phase**: Average of parents' gait phases ± random noise.
+    - **Phase Offsets**: Average of parents' independent phase offsets per limb ± random noise.
+- **Colors**: The child's color is an average of the parents' colors, with slight random mutation.
+
 ## Status & Milestones
 
 -   Foundation, Environment, Agent, and Orchestration are fully implemented and tested.

@@ -22,6 +22,7 @@ class Environment:
     self.sky_rgb2 = [1.0, 1.0, 1.0]  # White
     self.obstacles = []
     self.rough_terrain = False  # Procedural rough terrain
+    self.timestep = 0.005  # Default timestep for faster simulation
     self.camera_pos = [0.0, -20.0, 20.0]
     self.camera_xyaxes = [1.0, 0.0, 0.0, 0.0, 0.707, 0.707]
     self.camera_distance = 28.28
@@ -41,6 +42,8 @@ class Environment:
     option.set("gravity",
                f"{self.gravity[0]} {self.gravity[1]} {self.gravity[2]}")
     option.set("wind", f"{self.wind[0]} {self.wind[1]} {self.wind[2]}")
+    if hasattr(self, 'timestep') and self.timestep is not None:
+      option.set("timestep", str(self.timestep))
 
     # Visual settings for offscreen rendering (prevent framebuffer size errors)
     visual = ET.SubElement(root, "visual")

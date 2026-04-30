@@ -40,6 +40,8 @@ class Agent:
     self.phase_offsets = [0.0, math.pi / 2, math.pi, 3 * math.pi / 2]
     self.amplitude = random.uniform(0.5, 2.0)
     self.steps: int = 0
+    self.food_eaten: int = 0
+    self.syntheses_count: int = 0
     self.max_distance = 0.0
     self.last_foot_touch: Optional[str] = None
     # Force longer legs to prevent stumpy non-moving agents.
