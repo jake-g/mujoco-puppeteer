@@ -1,0 +1,21 @@
+environment:
+  floor_size: [25.0, 25.0, 0.05]
+  floor_rgb1: [0.2, 0.2, 0.2]
+  floor_rgb2: [0.15, 0.15, 0.15]
+  sky_rgb1: [0.4, 0.1, 0.1]
+  sky_rgb2: [0.8, 0.2, 0.2]
+  obstacles:
+    - type: box
+      pos: [3.0, 3.0, 0.5]
+      size: [1.0, 1.0, 0.5]
+      color: [1.0, 0.2, 0.0, 1.0] # Lava block
+    - type: box
+      pos: [-3.0, -3.0, 0.5]
+      size: [1.0, 1.0, 0.5]
+      color: [1.0, 0.4, 0.0, 1.0] # Lava block
+
+agents:
+  - name: survivor
+    type: quadruped
+    pos: [0.0, 0.0, 1.0]
+    color: [0.5, 0.5, 0.5, 1.0]

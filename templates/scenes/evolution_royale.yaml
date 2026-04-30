@@ -1,7 +1,7 @@
 environment:
   floor_size: [30.0, 30.0, 0.05]
-  floor_rgb1: [0.05, 0.05, 0.05]
-  floor_rgb2: [0.15, 0.15, 0.15]
+  floor_rgb1: [0.3, 0.3, 0.3]
+  floor_rgb2: [0.5, 0.5, 0.5]
   obstacles:
     - type: box
       pos: [0.0, 0.0, 1.0]
