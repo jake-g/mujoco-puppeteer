@@ -2,6 +2,7 @@
 
 import glob
 import os
+import random
 import re
 
 import matplotlib
@@ -412,22 +413,62 @@ def generate_plot(results_dir="results"):
       f.readline()  # Skip header
       for line in f:
         parts = line.strip().split()
-        if len(parts) >= 4:
+        if len(parts) >= 7:
+          ts = float(parts[0])
           species = parts[1]
-          gen = int(parts[2])
+          reward = float(parts[3])
+          distance = float(parts[4])
+          food = float(parts[5])
+          breeding = float(parts[6])
+
+          if species not in data:
+            data[species] = []
+          data[species].append((ts, reward, distance, food, breeding))
+        elif len(parts) >= 4:
+          ts = float(parts[0])
+          species = parts[1]
           reward = float(parts[3])
 
           if species not in data:
-            data[species] = {}
-          data[species][gen] = reward
+            data[species] = []
+          data[species].append((ts, reward, 0.0, 0.0, 0.0))
+
+  # Find min timestamp for relative X-axis
+  # Collect all points to find global gaps
+  all_points = []
+  for species, points in data.items():
+    for pt in points:
+      all_points.append((pt[0], species, pt[1]))
+
+  all_points.sort(key=lambda x: x[0])
+
+  # Compress gaps larger than 1 hour
+  compressed_data = {}
+  if all_points:
+    current_time = 0.0
+    last_ts = all_points[0][0]
+    max_gap = 1.0 # maximum gap in hours to show
+
+    for ts, species, rw in all_points:
+      delta = (ts - last_ts) / 3600.0
+      if delta > max_gap:
+        current_time += max_gap
+      else:
+        current_time += delta
+      last_ts = ts
+
+      if species not in compressed_data:
+        compressed_data[species] = []
+      compressed_data[species].append((current_time, rw))
 
   plt.figure(figsize=(12, 8))
 
-  for species, points in data.items():
+  for species, points in compressed_data.items():
     if not points:
       continue
-    sorted_gens = sorted(points.keys())
-    rewards = [points[g] for g in sorted_gens]
+    # Add jitter to X-axis to prevent perfect overlap
+    hours = [p[0] + random.uniform(-0.15, 0.15) for p in points]
+    rewards = [p[1] for p in points]
 
     # Try to get color from template
     color = None
@@ -442,28 +483,17 @@ def generate_plot(results_dir="results"):
         pass
 
     if color:
-      plt.plot(sorted_gens, rewards, label=species, marker='o', markersize=4, color=color)
+      plt.plot(hours, rewards, label=species, marker='o', markersize=3, color=color, linestyle='None', alpha=0.4)
     else:
-      plt.plot(sorted_gens, rewards, label=species, marker='o', markersize=4)
+      plt.plot(hours, rewards, label=species, marker='o', markersize=3, linestyle='None', alpha=0.4)
 
-  plt.axvline(x=5,
-              color='gray',
-              linestyle='--',
-              alpha=0.7,
-              label='Gen 5: Rough Terrain')
-  plt.axvline(x=10,
-              color='blue',
-              linestyle='--',
-              alpha=0.7,
-              label='Gen 10: Wind Enabled')
-
-  plt.xlabel("Generation")
+  plt.xlabel("Time (Hours)")
   plt.ylabel("Best Reward (Fitness)")
   plt.title("Hill Climbing: Species Improvement Over Time")
   plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
   plt.grid(True, alpha=0.3)
-  plt.tight_layout()
 
+  plt.tight_layout()
   os.makedirs("results", exist_ok=True)
   plot_path = "results/progress.png"
   plt.savefig(plot_path, dpi=300)

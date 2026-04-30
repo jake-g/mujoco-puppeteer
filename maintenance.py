@@ -28,29 +28,53 @@ def clean_duplicates(results_dir="results"):
     return
 
   folders = []
-  species_dirs = [
+  agents_dirs = []
+
+  # Live agents folder
+  agents_dir = os.path.join(results_dir, "agents")
+  if os.path.exists(agents_dir):
+    agents_dirs.append(agents_dir)
+
+  # Archived results_* folders
+  for d in os.listdir(results_dir):
+    if d.startswith("results_") and os.path.isdir(os.path.join(results_dir, d)):
+      folders.append(os.path.join(results_dir, d))
+      v_agents_dir = os.path.join(results_dir, d, "agents")
+      if os.path.exists(v_agents_dir):
+        agents_dirs.append(v_agents_dir)
+
+  # Scan all identified agents directories
+  for a_dir in agents_dirs:
+    species_dirs = [
+        os.path.join(a_dir, d)
+        for d in os.listdir(a_dir)
+        if os.path.isdir(os.path.join(a_dir, d))
+    ]
+    for species_dir in species_dirs:
+      generations_dir = os.path.join(species_dir, "generations")
+      if os.path.exists(generations_dir):
+        folders.extend([
+            os.path.join(generations_dir, d)
+            for d in os.listdir(generations_dir)
+            if os.path.isdir(os.path.join(generations_dir, d))
+        ])
+
+  # Handle demo folders in results root
+  folders.extend([
       os.path.join(results_dir, d)
       for d in os.listdir(results_dir)
-      if os.path.isdir(os.path.join(results_dir, d))
-  ]
-  for species_dir in species_dirs:
-    variations_dir = os.path.join(species_dir, "variations")
-    if os.path.exists(variations_dir):
-      folders.extend([
-          os.path.join(variations_dir, d)
-          for d in os.listdir(variations_dir)
-          if os.path.isdir(os.path.join(variations_dir, d))
-      ])
+      if os.path.isdir(os.path.join(results_dir, d)) and d.startswith("demo")
+  ])
 
   stats = {}
 
   for folder in folders:
     folder_name = os.path.basename(folder)
-    files = [
-        os.path.join(folder, f)
-        for f in os.listdir(folder)
-        if f.endswith(".ppm")
-    ]
+    files = []
+    for root, _, fs in os.walk(folder):
+      for f in fs:
+        if f.endswith(".ppm") or f.endswith(".jpg") or f.endswith(".yaml"):
+          files.append(os.path.join(root, f))
     files.sort()
 
     hashes = {}
