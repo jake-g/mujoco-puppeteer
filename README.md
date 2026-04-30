@@ -47,10 +47,61 @@ This project implements a server-client architecture for a live-streamed, multip
 -   **Orchestrator**: The `orchestrator.py` module combines the generated XML from `environment.py` and `agent.py` into a single MuJoCo model.
 -   **Visualization**: On macOS, the simulation is executed via the `mjpython` launcher to support the passive viewer (`launch_passive`) without thread conflicts.
 
-### Multiplayer & Streaming (The "Puppeteer" System)
+### Multiplayer & Streaming (The "Puppeteer" System WIP)
 *   **Simulation Server**: The `server.py` script runs the authoritative MuJoCo simulation and broadcasts the state vector to connected clients.
 *   **State Streaming**: Instead of video, the server streams raw state vectors (positions, velocities, forces) via WebSockets. This minimizes bandwidth and allows clients to render locally.
 *   **Clients**: The `client.py` script demonstrates connecting to the server and receiving state updates.
+
+### Folder Structure
+- `templates/agents/`: Base templates and best evolved agents per species.
+- `templates/scenes/`: Scene templates defining environment, obstacles, and agents.
+- `results/agents/`: Live results, history TSV files, and GIFs.
+- `results/results_v*/`: Archived results from previous runs (Frozen).
+
+### Results
+
+#### Evolution Progress
+<img src="results/progress.png" width="800">
+
+
+#### Featured Agents
+
+| Agent | Preview |
+| :--- | :--- |
+| **Khepri Beetle** | <img src="templates/agents/khepri_beetle/khepri_beetle_default.gif" width="200"> |
+| **Aegis Turtle** | <img src="templates/agents/aegis_turtle/aegis_turtle_default.gif" width="200"> |
+| **Gorilla** | <img src="templates/agents/gorilla/gorilla_default.gif" width="200"> |
+| **Hexapod** | <img src="templates/agents/hexapod/hexapod_default.gif" width="200"> |
+| **Snake** | <img src="templates/agents/snake/snake_default.gif" width="200"> |
+| **Stilts Biped** | <img src="templates/agents/stilts_biped/stilts_biped_default.gif" width="200"> |
+| **Urchin** | <img src="templates/agents/urchin/urchin_default.gif" width="200"> |
+| **Arachne Spider** | <img src="templates/agents/arachne_spider/arachne_spider_default.gif" width="200"> |
+| **Centipede** | <img src="templates/agents/centipede/centipede_default.gif" width="200"> |
+| **Starfish** | <img src="templates/agents/starfish/starfish_default.gif" width="200"> |
+| **Elephant** | <img src="templates/agents/elephant/elephant_default.gif" width="200"> |
+| **Giraffe** | <img src="templates/agents/giraffe/giraffe_default.gif" width="200"> |
+| **Goliath Crawler** | <img src="templates/agents/goliath_crawler/goliath_crawler_default.gif" width="200"> |
+| **Scorpion** | <img src="templates/agents/scorpion/scorpion_default.gif" width="200"> |
+| **Kangaroo** | <img src="templates/agents/kangaroo/kangaroo_default.gif" width="200"> |
+| **Crab** | <img src="templates/agents/crab/crab_default.gif" width="200"> |
+
+#### Example Scenes
+
+| Scene | Preview | Highlight / Obstacles |
+| :--- | :--- | :--- |
+| **Trampoline** | <img src="templates/scenes/cym_trampoline.jpg" width="200"> | High-elasticity floor for bounce physics. |
+| **Gladiator Arena** | <img src="templates/scenes/gladiator_arena.jpg" width="200"> | Enclosed ring with large rolling boulders. |
+| **Chaos Colosseum** | <img src="templates/scenes/chaos_colosseum.jpg" width="200"> | Complex maze with static blocks and spheres. |
+| **Neon Grid** | <img src="templates/scenes/neon_grid.jpg" width="200"> | High-contrast grid for pure movement tracking. |
+| **Desert Oasis** | <img src="templates/scenes/desert_oasis.jpg" width="200"> | Uneven terrain with sand-like friction. |
+
+#### Live Demo
+
+**Chaotic Multi-Species Arena**
+A specialized script that pulls a random selection of your best evolved agents and drops them into a chaotic environment with falling spheres, blocks, and a "Ring of Death" boundary!
+
+<img src="results/demo/evolution.gif" width="800">
+
 
 ## Synthesis
 
@@ -92,7 +143,6 @@ To create a more dynamic and realistic simulation, several advanced mechanics ha
 -   Networking is started with state streaming via WebSockets in `server.py` and `client.py`.
 -   Learning & Evolution is handled by an automated Genetic Algorithm in `auto_evolve.py`.
 
-### Results
 - **Simplified Index**: `results/index.yaml` is reduced to a clean folder-to-file-count mapping.
 - **Species Censuses**: Maintenance tracks total variant counts per species (e.g., total Gorillas vs. total Snakes).
 - **Smooth Playback**: Evolution GIFs are compiled at $20\text{ fps}$ ($50\text{ms}$ intervals) to make analyzing movement gaits easier on the eyes.
