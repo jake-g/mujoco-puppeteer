@@ -1,0 +1,17 @@
+environment:
+  floor_size: [30.0, 30.0, 0.05]
+  floor_rgb1: [0.8, 0.9, 1.0]
+  floor_rgb2: [0.9, 0.95, 1.0]
+  sky_rgb1: [0.7, 0.8, 0.9]
+  sky_rgb2: [1.0, 1.0, 1.0]
+  obstacles:
+    - type: box
+      pos: [0.0, 5.0, 0.2]
+      size: [2.0, 0.5, 0.2]
+      color: [1.0, 1.0, 1.0, 1.0] # Snow bank
+
+agents:
+  - name: skater
+    type: quadruped
+    pos: [0.0, 0.0, 1.0]
+    color: [0.0, 0.5, 1.0, 1.0]
