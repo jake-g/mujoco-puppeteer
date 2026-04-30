@@ -3,16 +3,13 @@ __pycache__/
 *.pyc
 .venv/
 .mypy_cache/
-
-# OS
 .DS_Store
-*.lock
 
 # Project specific
-# (Add specific ignores here if needed)
+*.ppm
+*.lock
+DEV_LOG.md
+TASKS.md
 agents_evolved/
 logs/
 old/
-results/*/
-DEV_LOG.md
-TASKS.md
