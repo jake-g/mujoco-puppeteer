@@ -22,6 +22,16 @@ logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
 logger = logging.getLogger(__name__)
 
 
+def get_source_species_name(species: str) -> str:
+  """Returns the exact case of the species folder in templates/agents."""
+  templates_dir = "templates/agents"
+  if os.path.exists(templates_dir):
+    for d in os.listdir(templates_dir):
+      if d.lower() == species.lower():
+        return d
+  return species
+
+
 def evaluate_population(agents: Sequence[Agent],
                         duration: float = 5.0,
                         generation: int = 0) -> list[tuple[Agent, float]]:
@@ -86,15 +96,16 @@ def save_agent_frames(agent: Agent, duration: float = 5.0):
     species = agent.name.split("__")[0] if "__" in agent.name else re.sub(
         r"_[0-9a-f]+$", "", agent.name)
     species = re.sub(r"_default$", "", species)
+    species = get_source_species_name(species)
 
-    results_dir = f"results/agents/{species}/generations/{agent.name}"
+    results_dir = f"results/agents/{species.lower()}/generations/{agent.name}"
     os.makedirs(results_dir, exist_ok=True)
 
     steps = int(duration / model.opt.timestep)
     for i in range(steps):
       mujoco.mj_step(model, data)
       if i % 10 == 0:
-        renderer.update_scene(data, camera="track_cam")
+        renderer.update_scene(data, camera="main_cam")
         pixels = renderer.render()
         frame_filename = f"{results_dir}/frame_{i:05d}.ppm"
         with open(frame_filename, "wb") as f:
@@ -108,6 +119,7 @@ def save_agent_frames(agent: Agent, duration: float = 5.0):
 
 def tournament_selection(results, k=3):
   """Picks the best of k random individuals."""
+  k = min(k, len(results))
   indices = random.sample(range(len(results)), k)
   best_idx = min(indices)
   return results[best_idx][0]
@@ -123,10 +135,11 @@ def evolve_species(agent_class,
 
   display_name = species_name
 
-  population = [
-      agent_class(name=f"{display_name}_{i:04x}", config=config)
-      for i in range(pop_size)
-  ]
+  population = []
+  for i in range(pop_size):
+    a = agent_class(name=f"{display_name}_{i:04x}", config=config)
+    a.species = display_name
+    population.append(a)
 
   history = []
 
@@ -205,7 +218,8 @@ def evolve_species(agent_class,
   # Save history to TSV.
   os.makedirs("results", exist_ok=True)
   # Use species-specific history file to allow parallel runs without conflicts.
-  history_path = f"results/agents/{species_name}/evolution_history.tsv"
+  source_species = get_source_species_name(species_name)
+  history_path = f"results/agents/{source_species.lower()}/evolution_history.tsv"
   file_exists = os.path.exists(history_path)
 
   import time
@@ -239,8 +253,9 @@ def evolve_species(agent_class,
       "__")[0] if "__" in best_agent.name else re.sub(r"_[0-9a-f]+$", "",
                                                       best_agent.name)
   species = re.sub(r"_default$", "", species)
+  species = get_source_species_name(species)
 
-  species_dir = f"templates/agents/{species}"
+  species_dir = f"templates/agents/{species.lower()}"
   gen_dir = os.path.join(species_dir, "generations")
   os.makedirs(gen_dir, exist_ok=True)
   filename = f"{gen_dir}/{best_agent.name}.yaml"
@@ -301,6 +316,8 @@ def evaluate_template(template_path: str) -> tuple[float, int]:
                                   config=agent_cfg)
       else:
         agent = Agent(name=agent_cfg["name"], size_scale=size_scale)
+
+      agent.species = agent_type
 
       if "frequency" in agent_cfg:
         agent.frequency = agent_cfg["frequency"]
@@ -491,6 +508,9 @@ def main():
 
   species_list = [
       ("quadruped", Agent, {}),
+      ("asymmetric_quadruped", ConfigurableAgent, "templates/agents/asymmetric_quadruped/asymmetric_quadruped.yaml"),
+      ("rolling_agent", ConfigurableAgent, "templates/agents/rolling_agent/rolling_agent.yaml"),
+      ("quadruped_fixed", ConfigurableAgent, "templates/agents/quadruped_fixed/quadruped_fixed.yaml"),
       ("goliath_crawler", ConfigurableAgent, "templates/agents/goliath_crawler/goliath_crawler_default.yaml"),
       ("legion_hexapod", ConfigurableAgent, "templates/agents/legion_hexapod/legion_hexapod_default.yaml"),
       ("aegis_turtle", ConfigurableAgent, "templates/agents/aegis_turtle/aegis_turtle_default.yaml"),
@@ -521,6 +541,12 @@ def main():
 
       cfg = {}
       if isinstance(path, str):
+        if not os.path.exists(path):
+          # Try fallback without _default
+          alt_path = path.replace("_default.yaml", ".yaml")
+          if os.path.exists(alt_path):
+            path = alt_path
+            logger.info("Falling back to template path: %s", path)
         with open(path, "r") as f:
           cfg = yaml.safe_load(f)["agents"][0]
 

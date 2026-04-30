@@ -308,7 +308,7 @@ def run_demo():
       print("\nInterrupted by user.")
       if record_dir:
         print("Generating GIF from recorded frames...")
-        create_gif(source_dir=record_dir, output_path="results/demo/evolution.gif")
+        create_gif(source_dir="results/demo/variations", output_path="results/demo/evolution.gif")
 
   print(f"Demo finished in {time.time() - start_time:.1f} seconds.")
 

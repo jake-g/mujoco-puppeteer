@@ -26,6 +26,7 @@ class Agent:
         size_scale: Scaling factor for the agent's size.
     """
     self.name = name
+    self.species = name.split("__")[0] if "__" in name else name.split("_")[0]
     self.pos = [0.0, 0.0, 1.0]
     self.reward = 0.0
     # Default to a random bright color
@@ -430,7 +431,7 @@ class ConfigurableAgent(Agent):
                config: Optional[dict] = None):
     super().__init__(name, size_scale)
     self.config = config or {}
-    self.species = self.config.get("name", "Configurable")
+    self.species = self.config.get("name", self.species)
 
     # Parse limbs to determine number of phase offsets needed.
     self.limbs = self.config.get("limbs", [])
@@ -656,7 +657,7 @@ class ConfigurableAgent(Agent):
                                   m_name)
 
         if m_idx >= 0:
-          phase_offset = self.phase_offsets[motor_idx]
+          phase_offset = self.phase_offsets[motor_idx % len(self.phase_offsets)]
 
           # Read obstacle avoidance sensor.
           s_name = f"{self.name}_eye_forward"
@@ -671,7 +672,7 @@ class ConfigurableAgent(Agent):
           # Compute steering bias based on food vector.
           # Scale amplitude by energy to simulate fatigue.
           # Compute control based on sine wave
-          local_amplitude = self.amplitudes[motor_idx] * energy_factor
+          local_amplitude = self.amplitudes[motor_idx % len(self.amplitudes)] * energy_factor
 
           if hasattr(self, "food_vector") and self.food_vector != [0.0, 0.0]:
             try:
@@ -707,8 +708,8 @@ class ConfigurableAgent(Agent):
                                       c_m_name)
 
           if c_m_idx >= 0:
-            phase_offset = self.phase_offsets[motor_idx]
-            data.ctrl[c_m_idx] = self.amplitudes[motor_idx] * energy_factor * math.sin(t * self.frequency +
+            phase_offset = self.phase_offsets[motor_idx % len(self.phase_offsets)]
+            data.ctrl[c_m_idx] = self.amplitudes[motor_idx % len(self.amplitudes)] * energy_factor * math.sin(t * self.frequency +
                                                            self.phase +
                                                            phase_offset)
             motor_idx += 1

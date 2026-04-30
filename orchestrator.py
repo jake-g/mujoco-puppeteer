@@ -20,6 +20,16 @@ from environment import Environment
 logger = logging.getLogger(__name__)
 
 
+def get_source_species_name(species: str) -> str:
+  """Returns the exact case of the species folder in templates/agents."""
+  templates_dir = "templates/agents"
+  if os.path.exists(templates_dir):
+    for d in os.listdir(templates_dir):
+      if d.lower() == species.lower():
+        return d
+  return species
+
+
 class Orchestrator:
   """Orchestrates the simulation, environment, and agents."""
 
@@ -61,7 +71,7 @@ class Orchestrator:
 
     # Feature flags for demo safety.
     self.enable_synthesis = True
-    self.enable_export = True
+    self.enable_export = False
     self.enable_food = True
     self.enable_event_logging = False
     self.enable_flip_death = True
@@ -462,10 +472,13 @@ class Orchestrator:
     p1_species = getattr(parent1, "species", "Agent")
     p2_species = getattr(parent2, "species", "Agent")
 
+    p1_species = get_source_species_name(p1_species)
+    p2_species = get_source_species_name(p2_species)
+
     if p1_species == p2_species:
-      species_prefix = p1_species.capitalize()
+      species_prefix = p1_species
     else:
-      species_prefix = f"{p1_species.capitalize()}_{p2_species.capitalize()}_Hybrid"
+      species_prefix = f"{p1_species}_{p2_species}_Hybrid"
 
     parent_to_use = None
     if isinstance(parent1, ConfigurableAgent) and isinstance(parent2, ConfigurableAgent):

@@ -6,10 +6,17 @@ from auto_evolve import update_leaderboard
 from maintenance import run_maintenance
 
 species_list = [
-    "giraffe", "goliath_crawler", "scorpion", "snake", "starfish"
+    "aegis_turtle", "arachne_spider", "centipede", "chimera", "crab",
+    "dragon", "ein_corgi", "elephant", "frog", "giraffe",
+    "giraffe_default", "goliath_crawler", "gorilla", "hercules", "hexapod",
+    "horse", "kangaroo", "khepri_beetle", "legion_hexapod", "mantis",
+    "mech_biped", "megapede", "megarachne", "ostrich", "quadruped",
+    "scorpion", "scorpion_king", "snake", "starfish", "stilts_biped",
+    "stingray", "tarantula", "urchin", "asymmetric_quadruped", "rolling_agent",
+    "quadruped_fixed"
 ]
 
-max_parallel = 8
+max_parallel = 6
 active_processes: list[subprocess.Popen] = []
 print(f"Starting parallel evolution manager. Max parallel: {max_parallel}")
 
@@ -25,7 +32,7 @@ for species in species_list:
   print(f"Starting evolution for {species}...")
   p = subprocess.Popen([
       ".venv/bin/python3", "auto_evolve.py", "--species", species, "--pop-size",
-      "10", "--generations", "10"
+      "50", "--generations", "100"
   ])
   active_processes.append(p)
 
