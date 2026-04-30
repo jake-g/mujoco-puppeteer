@@ -70,6 +70,18 @@ def clean_duplicates(results_dir="results"):
 
   for folder in folders:
     folder_name = os.path.basename(folder)
+
+    # Skip deduplication for archived results, just count them!
+    if folder_name.startswith("results_"):
+      files = []
+      for root, _, fs in os.walk(folder):
+        for f in fs:
+          if f.endswith(".ppm") or f.endswith(".jpg") or f.endswith(".yaml"):
+            files.append(os.path.join(root, f))
+      stats[folder_name] = len(files)
+      print(f"Folder {folder_name}: Indexed {len(files)} files (Archived).")
+      continue
+
     files = []
     for root, _, fs in os.walk(folder):
       for f in fs:

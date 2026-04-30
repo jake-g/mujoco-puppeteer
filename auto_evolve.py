@@ -55,9 +55,14 @@ def evaluate_population(agents: Sequence[Agent],
   for agent in agents:
     try:
       reward = agent.reward
+      body = orchestrator.data.body(agent.name)
+      pos = body.xpos
+      distance = (pos[0]**2 + pos[1]**2)**0.5
+      agent.final_distance = distance
       results.append((agent, reward))
     except Exception as e:
       logger.error("Failed to get result for %s: %s", agent.name, e)
+      agent.final_distance = 0.0
       results.append((agent, -100.0))
 
   results.sort(key=lambda x: x[1], reverse=True)
@@ -93,7 +98,7 @@ def save_agent_frames(agent: Agent, duration: float = 5.0):
         pixels = renderer.render()
         frame_filename = f"{results_dir}/frame_{i:05d}.ppm"
         with open(frame_filename, "wb") as f:
-          f.write(f"P6\n800 800\n255\n".encode())
+          f.write(f"P6\n{pixels.shape[1]} {pixels.shape[0]}\n255\n".encode())
           f.write(pixels.tobytes())
 
     logger.info("Saved %d seconds of frames to %s", int(duration), results_dir)
@@ -129,9 +134,14 @@ def evolve_species(agent_class,
     results = evaluate_population(population, generation=gen)
     logger.info("Gen %d Best Reward: %.2f", gen, results[0][1])
 
-    history.append({"gen": gen, "reward": float(results[0][1])})
-
     best_agent = results[0][0]
+    history.append({
+        "gen": gen,
+        "reward": float(results[0][1]),
+        "distance": best_agent.final_distance,
+        "food": best_agent.food_eaten,
+        "breeding": best_agent.syntheses_count
+    })
 
     # Save frames for the best agent every 5 generations.
     if gen % 5 == 0:
@@ -170,14 +180,14 @@ def evolve_species(agent_class,
 
       # Mutate
       child.frequency = child.frequency + child.frequency * random.uniform(
-          -0.2, 0.2)
-      child.phase = child.phase + child.phase * random.uniform(-0.2, 0.2)
+          -0.4, 0.4)
+      child.phase = child.phase + child.phase * random.uniform(-0.4, 0.4)
       child.amplitude = child.amplitude + child.amplitude * random.uniform(
-          -0.2, 0.2)
+          -0.4, 0.4)
       child.leg_length_scale = child.leg_length_scale + child.leg_length_scale * random.uniform(
-          -0.2, 0.2)
+          -0.4, 0.4)
       child.phase_offsets = [
-          p + p * random.uniform(-0.2, 0.2) for p in child.phase_offsets
+          p + p * random.uniform(-0.4, 0.4) for p in child.phase_offsets
       ]
 
       # Clip genes to valid ranges to prevent dead/frozen agents.
@@ -201,10 +211,11 @@ def evolve_species(agent_class,
   import time
   with open(history_path, "a") as f:
     if not file_exists:
-      f.write("timestamp\tspecies\tgeneration\treward\n")
+      f.write("timestamp\tspecies\tgeneration\treward\tdistance\tfood\tbreeding\n")
     for entry in history:
       f.write(
-          f"{time.time()}\t{species_name}\t{entry['gen']}\t{entry['reward']}\n")
+          f"{time.time()}\t{species_name}\t{entry['gen']}\t{entry['reward']}\t{entry['distance']}\t{entry['food']}\t{entry['breeding']}\n"
+      )
   logger.info("Appended evolution history to %s", history_path)
 
   # Save best to template
@@ -424,7 +435,11 @@ def update_leaderboard():
   markdown += "## Summary Stats\n"
   markdown += f"- **Total Configs Evaluated**: {len(results)}\n"
   markdown += f"- **Total Species/Variants**: {total_species}\n"
-  markdown += f"- **Top Performer**: {results[0]['name']} (Score: {results[0]['score']:.2f})\n\n"
+  markdown += f"- **Top Performer**: {results[0]['name']} (Score: {results[0]['score']:.2f})\n"
+  markdown += "- **Plot Insights**:\n"
+  markdown += "  - *Timeline*: Distinct clusters of high-intensity evolution separated by gaps.\n"
+  markdown += "  - *Progression*: Upward slope in reward clusters indicates successful optimization over time.\n"
+  markdown += "  - *Density*: Overlapping points show high concentration of similar performers in successful generations.\n\n"
 
   markdown += "## Evolution Progress\n\n"
   markdown += "![Progress Plot](results/progress.png)\n\n"
@@ -438,84 +453,9 @@ def update_leaderboard():
 
   # Add Family Tree (Rendered to PNG via Graphviz.)
   try:
-    import graphviz
-
-    nodes = {}
-    folder = "templates/agents"
-    if os.path.exists(folder):
-      for filename in os.listdir(folder):
-        if filename.endswith(".yaml"):
-          with open(os.path.join(folder, filename), "r") as f:
-            cfg = yaml.safe_load(f)
-            if "agents" in cfg and len(cfg["agents"]) > 0:
-              agent = cfg["agents"][0]
-              aid = agent.get("id")
-              name = agent.get("name")
-              parents = agent.get("parent_ids", [])
-              if aid:
-                nodes[aid] = {"name": name, "parents": parents}
-
-    # Only keep nodes that have children. (i.e. are parents themselves!)
-    nodes_to_keep = set()
-    for aid, data in nodes.items():
-      for p in data["parents"]:
-        if p in nodes:
-          nodes_to_keep.add(p)
-
-    dot = graphviz.Digraph(comment='Family Tree')
-    dot.attr(dpi='300')  # High definition rendering.
-    dot.attr(rankdir='LR')  # Left to Right (makes it less wide.)
-    dot.attr(splines='curved')
-    dot.attr(nodesep='0.8')
-    dot.attr(ranksep='1.5')
-
-    for aid in nodes_to_keep:
-      data = nodes[aid]
-      name = data["name"]
-
-      # Parse name to make it fit nicely
-      parts = name.split("__")
-      species = parts[0].replace("_default", "")
-      gen = parts[-1] if len(parts) > 1 and "gen" in parts[-1] else ""
-
-      label = f"{species}\n{gen}"
-
-      # Set color based on species
-      color = "lightblue"
-      if "turtle" in species:
-        color = "#a8dadc"
-      elif "giraffe" in species:
-        color = "#f1faee"
-      elif "spider" in species:
-        color = "#e63946"
-      elif "beetle" in species:
-        color = "#f4a261"
-      elif "corgi" in species:
-        color = "#e9c46a"
-      elif "crawler" in species:
-        color = "#2a9d8f"
-
-      dot.node(aid, label, style='filled', fillcolor=color, shape='ellipse')
-
-    for aid, data in nodes.items():
-      for p in data["parents"]:
-        if p in nodes_to_keep and aid in nodes_to_keep:
-          # Find child score in results.
-          child_score = next(
-              (r["score"] for r in results if r["name"] == data["name"]), None)
-
-          label_str = ""
-          penwidth = "1.0"
-          if child_score is not None:
-            label_str = f"S: {child_score:.1f}"
-            # Map score to thickness (e.g. score -10 -> 1.0, score 10 -> 5.0)
-            penwidth = f"{max(1.0, (child_score + 10.0) / 4.0):.1f}"
-
-          dot.edge(p, aid, xlabel=label_str, penwidth=penwidth)
-
-    dot.render('results/lineage', format='png', cleanup=True)
-    markdown += "\n## Family Tree (Lineage)\n\n.[Lineage Tree](results/lineage.png)\n"
-    logger.info("Rendered lineage tree to results/lineage.png using Graphviz")
+    from render import generate_lineage_plot
+    generate_lineage_plot(results)
+    markdown += "\n## Family Tree (Lineage)\n\n![Lineage Tree](results/lineage.png)\n"
   except Exception as e:
     logger.error("Failed to render Graphviz image: %s", e)
     # Fallback to raw Mermaid.

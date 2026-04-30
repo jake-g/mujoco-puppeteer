@@ -1,6 +1,7 @@
 """General rendering utilities for MuJoCo simulation."""
 
 import glob
+import hashlib
 import os
 import random
 import re
@@ -193,8 +194,34 @@ def render_scene(template_path: str,
     print(f"Failed to render scene {template_path}: {e}")
 
 
-def create_gif(results_dir="results", species_filter=None):
+def create_gif(results_dir="results", species_filter=None, source_dir=None, output_path=None):
   """Generates an evolution GIF for each species in the results directory."""
+
+  if source_dir and output_path:
+    print(f"Generating GIF from {source_dir} to {output_path}...")
+    frames = [
+        os.path.join(source_dir, f)
+        for f in os.listdir(source_dir)
+        if f.endswith(".ppm")
+    ]
+    frames.sort()
+    if not frames:
+      print(f"No frames found in {source_dir}")
+      return
+
+    all_frames = []
+    for frame_path in frames:
+      try:
+        img = Image.open(frame_path)
+        all_frames.append(img)
+      except Exception as e:
+        print(f"Failed to open {frame_path}: {e}")
+
+    if all_frames:
+      all_frames[0].save(output_path, save_all=True, append_images=all_frames[1:], duration=50, loop=0)
+      print(f"GIF saved successfully to {output_path}!")
+    return
+
   if not os.path.exists(results_dir):
     print(f"Results directory {results_dir} does not exist.")
     return
@@ -402,7 +429,12 @@ def rerender_scenes(scenes_dir="templates/scenes"):
 
 def generate_plot(results_dir="results"):
   """Generates a progress plot from evolution history files."""
-  files = glob.glob(os.path.join(results_dir, "agents/*/evolution_history.tsv"))
+  files = []
+  for root, _, fs in os.walk(results_dir):
+    for f in fs:
+      if f == "evolution_history.tsv":
+        files.append(os.path.join(root, f))
+
   if not files:
     print("No history files found.")
     return
@@ -499,6 +531,90 @@ def generate_plot(results_dir="results"):
   plt.savefig(plot_path, dpi=300)
   print(f"Success! Progress plot saved to {plot_path}")
   plt.close()
+
+
+def generate_lineage_plot(results: list[dict]):
+  """Generates a lineage tree plot using Graphviz."""
+  import graphviz
+
+  nodes = {}
+  score_map = {res["name"]: res["score"] for res in results}
+
+  # Find all YAMLs in templates/agents and subfolders
+  for root, _, files in os.walk("templates/agents"):
+    if "old" in root:
+      continue
+    for filename in files:
+      if filename.endswith(".yaml"):
+        with open(os.path.join(root, filename), "r") as f:
+          cfg = yaml.safe_load(f)
+          if "agents" in cfg and len(cfg["agents"]) > 0:
+            agent = cfg["agents"][0]
+            aid = agent.get("id")
+            name = agent.get("name")
+            parents = agent.get("parent_ids", [])
+            if aid:
+              nodes[name] = {"aid": aid, "parents": parents, "score": score_map.get(name, 0.0)}
+
+
+
+  # Deduplicate by AID to prevent duplicate nodes for same agent
+  nodes_by_aid = {}
+  for name, data in nodes.items():
+    aid = data["aid"]
+    if aid not in nodes_by_aid:
+      nodes_by_aid[aid] = data
+      nodes_by_aid[aid]["name"] = name
+
+  nodes = {data["name"]: data for aid, data in nodes_by_aid.items()}
+
+  # Map ID to name for edge generation
+  id_to_name = {data["aid"]: name for name, data in nodes.items()}
+
+  # Only keep nodes that have children
+  nodes_to_keep = set()
+  for name, data in nodes.items():
+    if data["parents"]:
+      nodes_to_keep.add(name)
+      for p in data["parents"]:
+        p_name = id_to_name.get(p)
+        if p_name and p_name in nodes:
+          nodes_to_keep.add(p_name)
+
+  dot = graphviz.Digraph(comment='Family Tree')
+  dot.attr(dpi='300')
+  dot.attr(rankdir='LR')
+  dot.attr(splines='curved')
+  dot.attr(nodesep='0.8')
+  dot.attr(ranksep='1.5')
+
+  for name in nodes_to_keep:
+    data = nodes[name]
+    score = data.get("score", 0.0)
+    parts = name.split("__")
+    species = parts[0].replace("_default", "")
+    gen = parts[-1] if len(parts) > 1 and "gen" in parts[-1] else ""
+    label = f"{species}\n{gen}\nS:{score:.1f}"
+
+    h = hashlib.md5(species.encode()).hexdigest()
+    color = "#" + h[:6]
+
+    dot.node(name, label, style='filled', fillcolor=color, shape='ellipse')
+
+  for name, data in nodes.items():
+    for p in data["parents"]:
+      p_name = id_to_name.get(p)
+      if p_name in nodes_to_keep and name in nodes_to_keep:
+        child_score = next((r["score"] for r in results if r["name"] == name), None)
+        label_str = ""
+        penwidth = "1.0"
+        if child_score is not None:
+          label_str = f"S: {child_score:.1f}"
+          penwidth = f"{max(1.0, (child_score + 10.0) / 4.0):.1f}"
+        dot.edge(p_name, name, xlabel=label_str, penwidth=penwidth)
+
+  dot.render('results/lineage', format='png', cleanup=True)
+  print("Success! Lineage tree saved to results/lineage.png")
 
 
 def main():
