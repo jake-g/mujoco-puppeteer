@@ -11,6 +11,7 @@ __pycache__/
 # Project specific
 # (Add specific ignores here if needed)
 logs/
+old/
 results/*/
 DEV_LOG.md
 TASKS.md

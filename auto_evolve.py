@@ -3,6 +3,9 @@
 import logging
 import os
 import random
+import re
+import shutil
+import sys
 from typing import Sequence
 
 import mujoco
@@ -12,6 +15,7 @@ from agent import Agent
 from agent import ConfigurableAgent
 from environment import Environment
 from orchestrator import Orchestrator
+from render import render_template
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
@@ -74,7 +78,11 @@ def save_agent_frames(agent: Agent, duration: float = 5.0):
     # Increased resolution to 1024x1024 for better zoom quality.
     renderer = mujoco.Renderer(model, 1024, 1024)
 
-    results_dir = f"results/{agent.name}"
+    species = agent.name.split("__")[0] if "__" in agent.name else re.sub(
+        r"_[0-9a-f]+$", "", agent.name)
+    species = re.sub(r"_default$", "", species)
+
+    results_dir = f"results/agents/{species}/generations/{agent.name}"
     os.makedirs(results_dir, exist_ok=True)
 
     steps = int(duration / model.opt.timestep)
@@ -187,7 +195,7 @@ def evolve_species(agent_class,
   # Save history to TSV.
   os.makedirs("results", exist_ok=True)
   # Use species-specific history file to allow parallel runs without conflicts.
-  history_path = f"results/evolution_history_{species_name}.tsv"
+  history_path = f"results/agents/{species_name}/evolution_history.tsv"
   file_exists = os.path.exists(history_path)
 
   import time
@@ -230,8 +238,14 @@ def evolve_species(agent_class,
       }],
   }
 
-  os.makedirs("templates/agents", exist_ok=True)
-  filename = f"templates/agents/{best_agent.name}.yaml"
+  species = best_agent.name.split(
+      "__")[0] if "__" in best_agent.name else re.sub(r"_[0-9a-f]+$", "",
+                                                      best_agent.name)
+  species = re.sub(r"_default$", "", species)
+
+  species_dir = f"templates/agents/{species}"
+  os.makedirs(species_dir, exist_ok=True)
+  filename = f"{species_dir}/{best_agent.name}.yaml"
   with open(filename, "w") as f:
     yaml.dump(save_config, f)
 
@@ -239,24 +253,8 @@ def evolve_species(agent_class,
 
   # Render image for the best agent.
   try:
-    env = Environment()
-    orch = Orchestrator(env, [best_agent])
-    xml_str = orch.generate_combined_xml()
-
-    model = mujoco.MjModel.from_xml_string(xml_str)
-    data = mujoco.MjData(model)
-    mujoco.mj_forward(model, data)
-
-    renderer = mujoco.Renderer(model, 400, 400)
-    renderer.update_scene(data, camera="main_cam")
-    pixels = renderer.render()
-
-    ppm_filename = f"templates/agents/{best_agent.name}.ppm"
-    with open(ppm_filename, "wb") as f:
-      f.write(f"P6\n400 400\n255\n".encode())
-      f.write(pixels.tobytes())
-
-    logger.info("Saved image of agent to %s", ppm_filename)
+    best_jpg = f"{species_dir}/{species}_best.jpg"
+    render_template(filename, best_jpg, output_format="jpg", res=(400, 400))
 
     save_agent_frames(best_agent, duration=10.0)
   except Exception as e:
@@ -346,8 +344,10 @@ def evaluate_template(template_path: str) -> tuple[float, int]:
   avg_reward = total_reward / len(agents) if agents else 0.0
   avg_distance = total_distance / len(agents) if agents else 0.0
   avg_survival = total_survival / len(agents) if agents else 0.0
+  total_food = sum(agent.food_eaten for agent in agents)
+  total_agent_syntheses = sum(agent.syntheses_count for agent in agents)
 
-  return avg_reward, total_steps, orchestrator.total_syntheses, avg_distance, avg_survival
+  return avg_reward, total_steps, orchestrator.total_syntheses, avg_distance, avg_survival, total_food, total_agent_syntheses
 
 
 def generate_lineage_mermaid(folder):
@@ -383,27 +383,40 @@ def generate_lineage_mermaid(folder):
 def update_leaderboard():
   """Evaluates all templates and updates the leaderboard."""
   results = []
-  folders = ["templates/scenes", "templates/agents"]
+  agents_dir = "templates/agents"
+  if os.path.exists(agents_dir):
+    for item in os.listdir(agents_dir):
+      item_path = os.path.join(agents_dir, item)
+      if os.path.isdir(item_path) and item != "old":
+        # Find all YAMLs in species folder and generations subfolder
+        files = []
+        for filename in os.listdir(item_path):
+          if filename.endswith(".yaml"):
+            files.append(os.path.join(item_path, filename))
 
-  for folder in folders:
-    if not os.path.exists(folder):
-      continue
-    for filename in os.listdir(folder):
-      if filename.endswith(".yaml"):
-        path = os.path.join(folder, filename)
-        logger.info("Evaluating %s...", filename)
-      try:
-        score, steps, syntheses, distance, survival = evaluate_template(path)
-        results.append({
-            "name": filename[:-5],
-            "score": score,
-            "steps": steps,
-            "syntheses": syntheses,
-            "distance": distance,
-            "survival": survival
-        })
-      except Exception as e:
-        logger.error("Failed to evaluate %s: %s", filename, e)
+        gen_dir = os.path.join(item_path, "generations")
+        if os.path.exists(gen_dir):
+          for filename in os.listdir(gen_dir):
+            if filename.endswith(".yaml"):
+              files.append(os.path.join(gen_dir, filename))
+
+        for path in files:
+          filename = os.path.basename(path)
+          logger.info("Evaluating %s...", filename)
+          try:
+            score, steps, sim_syntheses, distance, survival, food, agent_syntheses = evaluate_template(
+                path)
+            results.append({
+                "name": filename[:-5],
+                "score": score,
+                "steps": steps,
+                "syntheses": agent_syntheses,
+                "distance": distance,
+                "survival": survival,
+                "food": food
+            })
+          except Exception as e:
+            logger.error("Failed to evaluate %s: %s", filename, e)
 
   # Sort by score descending
   results.sort(key=lambda x: x["score"], reverse=True)
@@ -430,11 +443,11 @@ def update_leaderboard():
   markdown += "![Progress Plot](results/progress.png)\n\n"
 
   markdown += "## Rankings\n"
-  markdown += "| Rank | Config | Score | Distance | Survival |\n"
-  markdown += "|------|--------|-------|----------|----------|\n"
+  markdown += "| Rank | Config | Score | Distance | Survival | Food | Breeding |\n"
+  markdown += "|------|--------|-------|----------|----------|------|----------|\n"
 
   for i, res in enumerate(results):
-    markdown += f"| {i+1} | {res['name']} | {res['score']:.2f} | {res['distance']:.2f} | {res['survival']:.1f} |\n"
+    markdown += f"| {i+1} | {res['name']} | {res['score']:.2f} | {res['distance']:.2f} | {res['survival']:.1f} | {res['food']} | {res['syntheses']} |\n"
 
   # Add Family Tree (Rendered to PNG via Graphviz.)
   try:
@@ -541,73 +554,61 @@ def main():
                       help="Number of generations")
   args = parser.parse_args()
 
-  species_list = [
-      ("quadruped", Agent, {}),
-      ("goliath_crawler", ConfigurableAgent,
-       "templates/agents/goliath_crawler.yaml"),
-      ("legion_hexapod", ConfigurableAgent,
-       "templates/agents/legion_hexapod.yaml"),
-      ("aegis_turtle", ConfigurableAgent, "templates/agents/aegis_turtle.yaml"),
-      ("ein_corgi", ConfigurableAgent, "templates/agents/ein_corgi.yaml"),
-      ("khepri_beetle", ConfigurableAgent,
-       "templates/agents/khepri_beetle.yaml"),
-      ("giraffe_default", ConfigurableAgent,
-       "templates/agents/giraffe_default.yaml"),
-      ("arachne_spider", ConfigurableAgent,
-       "templates/agents/arachne_spider.yaml"),
-      ("centipede", ConfigurableAgent,
-       "templates/agents/centipede_default.yaml"),
-      ("scorpion", ConfigurableAgent, "templates/agents/scorpion_default.yaml"),
-      ("gorilla", ConfigurableAgent, "templates/agents/gorilla_default.yaml"),
-      ("starfish", ConfigurableAgent, "templates/agents/starfish_default.yaml"),
-      ("snake", ConfigurableAgent, "templates/agents/snake_default.yaml"),
-      ("kangaroo", ConfigurableAgent, "templates/agents/kangaroo_default.yaml"),
-      ("crab", ConfigurableAgent, "templates/agents/crab_default.yaml"),
-      ("megapede", ConfigurableAgent, "templates/agents/megapede_default.yaml"),
-      ("stilts_biped", ConfigurableAgent, "templates/agents/stilts_biped.yaml"),
-      ("megarachne", ConfigurableAgent,
-       "templates/agents/megarachne_default.yaml"),
-      ("mech_biped", ConfigurableAgent,
-       "templates/agents/mech_biped_default.yaml"),
-      ("scorpion_king", ConfigurableAgent,
-       "templates/agents/scorpion_king_default.yaml")
-  ]
-
-  for name, cls, path in species_list:
-    if args.species and name != args.species:
-      continue
-
-    logger.info("=== Starting Evolution for %s ===", name)
-
-    cfg = {}
-    if isinstance(path, str):
-      with open(path, "r") as f:
-        cfg = yaml.safe_load(f)["agents"][0]
-
-    evolve_species(cls,
-                   name,
-                   cfg,
-                   pop_size=args.pop_size,
-                   generations=args.generations)
-
-  # Update Leaderboard.
-  update_leaderboard()
-
-
-if __name__ == "__main__":
-  import sys
-  LOCK_FILE = "auto_evolve.lock"
+  LOCK_FILE = f"auto_evolve_{args.species}.lock" if args.species else "auto_evolve.lock"
   if os.path.exists(LOCK_FILE):
-    print("Another instance of auto_evolve.py is running. Exiting.")
+    print(f"Another instance of auto_evolve.py for {args.species or 'all'} is running. Exiting.")
     sys.exit(0)
 
-  # Create lock file
   with open(LOCK_FILE, "w") as f:
     f.write(str(os.getpid()))
 
+  species_list = [
+      ("quadruped", Agent, {}),
+      ("goliath_crawler", ConfigurableAgent, "templates/agents/goliath_crawler/goliath_crawler_default.yaml"),
+      ("legion_hexapod", ConfigurableAgent, "templates/agents/legion_hexapod/legion_hexapod_default.yaml"),
+      ("aegis_turtle", ConfigurableAgent, "templates/agents/aegis_turtle/aegis_turtle_default.yaml"),
+      ("ein_corgi", ConfigurableAgent, "templates/agents/ein_corgi/ein_corgi_default.yaml"),
+      ("khepri_beetle", ConfigurableAgent, "templates/agents/khepri_beetle/khepri_beetle_default.yaml"),
+      ("giraffe_default", ConfigurableAgent, "templates/agents/giraffe_default/giraffe_default_default.yaml"),
+      ("arachne_spider", ConfigurableAgent, "templates/agents/arachne_spider/arachne_spider_default.yaml"),
+      ("centipede", ConfigurableAgent, "templates/agents/centipede/centipede_default.yaml"),
+      ("scorpion", ConfigurableAgent, "templates/agents/scorpion/scorpion_default.yaml"),
+      ("gorilla", ConfigurableAgent, "templates/agents/gorilla/gorilla_default.yaml"),
+      ("starfish", ConfigurableAgent, "templates/agents/starfish/starfish_default.yaml"),
+      ("snake", ConfigurableAgent, "templates/agents/snake/snake_default.yaml"),
+      ("kangaroo", ConfigurableAgent, "templates/agents/kangaroo/kangaroo_default.yaml"),
+      ("crab", ConfigurableAgent, "templates/agents/crab/crab_default.yaml"),
+      ("megapede", ConfigurableAgent, "templates/agents/megapede/megapede_default.yaml"),
+      ("stilts_biped", ConfigurableAgent, "templates/agents/stilts_biped/stilts_biped_default.yaml"),
+      ("megarachne", ConfigurableAgent, "templates/agents/megarachne/megarachne_default.yaml"),
+      ("mech_biped", ConfigurableAgent, "templates/agents/mech_biped/mech_biped_default.yaml"),
+      ("scorpion_king", ConfigurableAgent, "templates/agents/scorpion_king/scorpion_king_default.yaml")
+  ]
+
   try:
-    main()
+    for name, cls, path in species_list:
+      if args.species and name != args.species:
+        continue
+
+      logger.info("=== Starting Evolution for %s ===", name)
+
+      cfg = {}
+      if isinstance(path, str):
+        with open(path, "r") as f:
+          cfg = yaml.safe_load(f)["agents"][0]
+
+      evolve_species(cls,
+                     name,
+                     cfg,
+                     pop_size=args.pop_size,
+                     generations=args.generations)
+
+    # Update Leaderboard.
+    update_leaderboard()
   finally:
-    # Remove lock file
     if os.path.exists(LOCK_FILE):
       os.remove(LOCK_FILE)
+
+
+if __name__ == "__main__":
+  main()
