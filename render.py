@@ -69,9 +69,9 @@ def render_template(template_path: str,
   # Use main_cam and position it to look at [0, 0, 1] from distance
   cam_id = mujoco.mj_name2id(orch.model, mujoco.mjtObj.mjOBJ_CAMERA, "main_cam")
   if cam_id >= 0:
-    # Adaptive offset based on agent size scale
     scale = float(getattr(agents[0], "size_scale", 1.0))
-    orch.model.cam_pos[cam_id] = [0.0, -2.5 * scale, 3.5 * scale]
+    # Zoomed out a bit more to fit larger agents as requested
+    orch.model.cam_pos[cam_id] = [0.0, -3.5 * scale, 4.5 * scale]
 
   # Robustly find the free joint of the agent
   jnt_id = -1
@@ -199,13 +199,41 @@ def create_gif(results_dir="results", species_filter=None, source_dir=None, outp
 
   if source_dir and output_path:
     print(f"Generating GIF from {source_dir} to {output_path}...")
-    frames = [
-        os.path.join(source_dir, f)
-        for f in os.listdir(source_dir)
-        if f.endswith(".ppm")
-    ]
-    frames.sort()
-    if not frames:
+
+    # Find all subfolders (variations)
+    subfolders = []
+    if os.path.exists(source_dir):
+      subfolders = [
+          os.path.join(source_dir, d)
+          for d in os.listdir(source_dir)
+          if os.path.isdir(os.path.join(source_dir, d))
+      ]
+      subfolders.sort()  # Sort by folder name (timestamp)
+
+    all_frames = []
+
+    # If no subfolders, check source_dir itself!
+    if not subfolders:
+      subfolders = [source_dir]
+
+    for folder in subfolders:
+      if not os.path.exists(folder):
+        continue
+      frames = [
+          os.path.join(folder, f)
+          for f in os.listdir(folder)
+          if f.endswith(".ppm")
+      ]
+      frames.sort()  # Sort by frame index
+
+      for frame_path in frames:
+        try:
+          img = Image.open(frame_path)
+          all_frames.append(img)
+        except Exception as e:
+          print(f"Failed to open {frame_path}: {e}")
+
+    if not all_frames:
       print(f"No frames found in {source_dir}")
       return
 
