@@ -2,19 +2,22 @@
 
 This document summarizes the operational flow, routine, preferences, and goals for managing the MuJoCo Puppeteer evolution experiment.
 
+> [!NOTE]
+> For low-level rendering guidelines, agent validation rules, and specific morphology tweaks, refer to **[REFINE_INSTRUCTIONS.md](file:///Users/jakegarrison/Downloads/projects/mujoco-puppeteer/REFINE_INSTRUCTIONS.md)**.
+
 ## Operational Routine
 
 1.  **Code Quality**: Always run `make format` after making changes to ensure adherence to the Google Python Style Guide and proper import sorting via `isort`.
 2.  **Documentation**: Keep [README.md](file:///Users/jakegarrison/Downloads/projects/mujoco-puppeteer/README.md) and [DEV_LOG.md](file:///Users/jakegarrison/Downloads/projects/mujoco-puppeteer/DEV_LOG.md) (which now tracks the master task list) updated with progress and task status.
-3.  **Consolidated Storage**: Save all agent templates and evolved scene configurations directly into [templates/agents/](file:///Users/jakegarrison/Downloads/projects/mujoco-puppeteer/templates/agents/). Do not use `templates/evolved/`.
-4.  **Scheduled Maintenance**: A cron job runs `cron_job.py` every 10 minutes to execute tests, clean duplicate results, and update the leaderboard automatically.
+3.  **Consolidated Storage**: Save all agent templates directly into [templates/agents/](file:///Users/jakegarrison/Downloads/projects/mujoco-puppeteer/templates/agents/) (under species subfolders). Evolved hybrids from synthesis are automatically saved in [templates/agents_evolved/](file:///Users/jakegarrison/Downloads/projects/mujoco-puppeteer/templates/agents_evolved/).
+4.  **Scheduled Maintenance**: A cron job runs `maintenance.py` (consolidated from `cron_job.py`) to execute tests, clean duplicate results, and update the leaderboard automatically.
 
 ## Naming Conventions (Strict)
 
-*   **Format**: All lowercase with snake_case, using double underscores to separate variable postfixes: `[name]_[species]__[id]__gen[N]`.
-*   **Example**: `ein_corgi__32ed3cc7__gen20.yaml`.
-*   **Avoid Generics**: Never use generic names like `agent_0`. Use notable names inspired by mythology, attributes, or culture (e.g., Goliath, Legion, Aegis, Khepri, Arachne).
-*   **File Matching**: Ensure the `.ppm` visual renders share the exact same base filename as their corresponding `.yaml` configurations.
+*   **Evolved via GA**: All lowercase with snake_case, using double underscores to separate variable postfixes: `[species]__[id]__gen[N]`. Example: `ein_corgi__32ed3cc7__gen20.yaml`.
+*   **Evolved via Synthesis**: Hybrid names imply parentage: `[species_prefix]__[parent1_id]_[parent2_id]__[child_id]`.
+*   **Avoid Generics**: Never use generic names like `agent_0` for final results. Use notable names inspired by nature or mythology.
+*   **File Matching**: Ensure visual renders share the exact same base filename as their corresponding `.yaml` configurations.
 
 ## Design Preferences
 

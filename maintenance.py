@@ -1,3 +1,4 @@
+import glob
 import hashlib
 import logging
 import os
@@ -10,6 +11,9 @@ import yaml
 from auto_evolve import update_leaderboard
 from render import create_gif
 from render import generate_plot
+from render import render_template
+from render import rerender_all
+from render import rerender_scenes
 
 logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
 logger = logging.getLogger(__name__)
@@ -99,6 +103,24 @@ def clean_duplicates(results_dir="results"):
   print(f"Stats saved to {stats_path}")
 
 
+def render_evolved():
+  evolved_dir = "templates/agents_evolved"
+  if not os.path.exists(evolved_dir):
+    print("No evolved agents folder found.")
+    return
+
+  files = glob.glob(os.path.join(evolved_dir, "*.yaml"))
+  print(f"Found {len(files)} evolved agents to render.")
+
+  for f_path in files:
+    jpg_path = f_path.replace(".yaml", ".jpg")
+    print(f"Rendering {f_path}...")
+    try:
+      render_template(f_path, jpg_path, output_format="jpg")
+    except Exception as e:
+      print(f"Failed to render {f_path}: {e}")
+
+
 def run_maintenance(run_tests=False):
   if os.path.exists(LOCK_FILE):
     logger.info("Another instance of maintenance.py is running. Exiting.")
@@ -148,6 +170,15 @@ def run_maintenance(run_tests=False):
       generate_plot()
     except Exception as e:
       logger.error("Failed to generate plot: %s", e)
+
+    # Render all templates and evolved agents
+    logger.info("Rendering all templates and evolved agents...")
+    try:
+      rerender_all(use_gif=True)
+      rerender_scenes()
+      render_evolved()
+    except Exception as e:
+      logger.error("Failed to render agents: %s", e)
 
     logger.info("=== Maintenance Finished ===")
   finally:

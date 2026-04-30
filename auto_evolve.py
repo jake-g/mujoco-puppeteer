@@ -221,21 +221,7 @@ def evolve_species(agent_class,
           "floor_rgb1": [0.0, 0.0, 0.0],
           "floor_rgb2": [1.0, 1.0, 1.0],
       },
-      "agents": [{
-          "id": best_agent.id,
-          "name": best_agent.name,
-          "type": species_name,
-          "generation": total_gen,
-          "pos": [0.0, 0.0, 1.0],
-          "color": [0.0, 1.0, 0.0, 1.0],
-          "size_scale": float(best_agent.size_scale),
-          "frequency": float(best_agent.frequency),
-          "phase": float(best_agent.phase),
-          "amplitude": float(best_agent.amplitude),
-          "leg_length_scale": float(best_agent.leg_length_scale),
-          "phase_offsets": [float(p) for p in best_agent.phase_offsets],
-          "parent_ids": getattr(best_agent, "parent_ids", []),
-      }],
+      "agents": [best_agent.to_dict()],
   }
 
   species = best_agent.name.split(
@@ -244,8 +230,9 @@ def evolve_species(agent_class,
   species = re.sub(r"_default$", "", species)
 
   species_dir = f"templates/agents/{species}"
-  os.makedirs(species_dir, exist_ok=True)
-  filename = f"{species_dir}/{best_agent.name}.yaml"
+  gen_dir = os.path.join(species_dir, "generations")
+  os.makedirs(gen_dir, exist_ok=True)
+  filename = f"{gen_dir}/{best_agent.name}.yaml"
   with open(filename, "w") as f:
     yaml.dump(save_config, f)
 

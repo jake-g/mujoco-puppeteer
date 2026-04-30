@@ -1,10 +1,12 @@
 """Orchestrator module for MuJoCo simulation."""
 
+import copy
 import logging
 import math
 import os
 import random
 import re
+import subprocess
 from typing import Sequence
 import xml.etree.ElementTree as ET
 
@@ -24,13 +26,25 @@ class Orchestrator:
   def __init__(self,
                env: Environment,
                agents: Sequence[Agent],
-               death_threshold: float = 3.0):
+               death_threshold: float = 3.0,
+               food_count: int = 30,
+               food_range: float = 15.0,
+               synthesis_cooldown: float = 5.0,
+               breeding_reward: float = 50.0,
+               stagnation_timeout: float = 3.0,
+               stagnation_threshold: float = 0.1):
     """Initializes the orchestrator.
 
     Args:
         env: The environment instance.
         agents: A list of agent instances.
         death_threshold: Time in seconds before a fallen agent dies.
+        food_count: Number of food items to spawn.
+        food_range: Range in which food items spawn ([-range, range]).
+        synthesis_cooldown: Cooldown in seconds between breeding events.
+        breeding_reward: Reward points given to parents on breeding.
+        stagnation_timeout: Time in seconds before a stuck agent dies.
+        stagnation_threshold: Distance in meters an agent must move to not be considered stuck.
     """
     self.env = env
     self.agents = agents
@@ -40,8 +54,14 @@ class Orchestrator:
     self.death_threshold = death_threshold
     self.total_syntheses = 0
 
+    self.stagnation_timeout = stagnation_timeout
+    self.stagnation_threshold = stagnation_threshold
+    self.last_positions: dict[str, list[float]] = {}
+    self.stagnation_timers: dict[str, float] = {}
+
     # Feature flags for demo safety.
     self.enable_synthesis = True
+    self.enable_export = True
     self.enable_food = True
     self.enable_event_logging = False
     self.enable_flip_death = True
@@ -49,12 +69,18 @@ class Orchestrator:
     self.enable_respawn = True
     self.global_max_distance = 0.0
 
+    self.food_count = food_count
+    self.food_range = food_range
+    self.synthesis_cooldown = synthesis_cooldown
+    self.breeding_reward = breeding_reward
+
     # Game Mechanics: Food.
     self.food_positions = []
-    for _ in range(30):
-      self.food_positions.append(
-          [random.uniform(-15.0, 15.0),
-           random.uniform(-15.0, 15.0), 0.1])
+    for _ in range(self.food_count):
+      self.food_positions.append([
+          random.uniform(-self.food_range, self.food_range),
+          random.uniform(-self.food_range, self.food_range), 0.1
+      ])
 
   def log_event(self, event_type: str, agent_name: str, details: str = ""):
     """Logs a simulation event to a TSV file."""
@@ -179,30 +205,45 @@ class Orchestrator:
         body = self.data.body(agent.name)
         agent.time_alive += self.model.opt.timestep
 
+        # Check for stagnation (stuck agents)
+        pos = body.xpos
+        last_pos = self.last_positions.get(agent.name, list(pos))
+        dist_moved = ((pos[0] - last_pos[0])**2 + (pos[1] - last_pos[1])**2)**0.5
+
+        if dist_moved < self.stagnation_threshold:
+          self.stagnation_timers[agent.name] = self.stagnation_timers.get(agent.name, 0.0) + self.model.opt.timestep
+        else:
+          self.stagnation_timers[agent.name] = 0.0
+          self.last_positions[agent.name] = list(pos)
+
+        if self.stagnation_timers[agent.name] > self.stagnation_timeout:
+          logger.info("Agent %s died of stagnation", agent.name)
+          if self.enable_event_logging:
+            self.log_event("death_stagnation", agent.name)
+          if self.enable_respawn:
+            self._respawn_agent(agent)
+          else:
+            agent.dead = True
+          continue
+
         # Decrease energy (hunger + effort)
         effort = 0.0
+        actuator_names = []
         if hasattr(agent, "limbs"):
           for limb in agent.limbs:
-            m_name = f"{agent.name}_{limb['name']}_motor"
-            m_idx = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_ACTUATOR,
-                                      m_name)
-            if m_idx >= 0:
-              effort += self.data.ctrl[m_idx]**2
-
+            actuator_names.append(f"{agent.name}_{limb['name']}_motor")
             if "child" in limb:
-              c_name = f"{agent.name}_{limb['child']['name']}_motor"
-              c_idx = mujoco.mj_name2id(self.model,
-                                        mujoco.mjtObj.mjOBJ_ACTUATOR, c_name)
-              if c_idx >= 0:
-                effort += self.data.ctrl[c_idx]**2
+              actuator_names.append(f"{agent.name}_{limb['child']['name']}_motor")
         else:
           # Fallback for base Agent with hardcoded legs
           for leg_name in ["left", "right"]:
-            m_name = f"{agent.name}_{leg_name}_motor"
-            m_idx = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_ACTUATOR,
-                                      m_name)
-            if m_idx >= 0:
-              effort += self.data.ctrl[m_idx]**2
+            actuator_names.append(f"{agent.name}_{leg_name}_motor")
+
+        for m_name in actuator_names:
+          m_idx = mujoco.mj_name2id(self.model, mujoco.mjtObj.mjOBJ_ACTUATOR,
+                                    m_name)
+          if m_idx >= 0:
+            effort += self.data.ctrl[m_idx]**2
 
         agent.energy -= (agent.hunger_rate +
                          0.1 * effort) * self.model.opt.timestep
@@ -283,8 +324,8 @@ class Orchestrator:
                 self.log_event("eat_food", agent.name, f"food_{i}")
               # Respawn food.
               self.food_positions[i] = [
-                  random.uniform(-10.0, 10.0),
-                  random.uniform(-10.0, 10.0), 0.1
+                  random.uniform(-5.0, 5.0),
+                  random.uniform(-5.0, 5.0), 0.1
               ]
               # Re-initialize simulation to update food position.
               self._reinitialize_simulation()
@@ -428,14 +469,48 @@ class Orchestrator:
     else:
       species_prefix = f"{p1_type.capitalize()}_{p2_type.capitalize()}_Hybrid"
 
+    parent_to_use = None
     if isinstance(parent1, ConfigurableAgent) and isinstance(parent2, ConfigurableAgent):
-      # Randomly pick one parent's morphology
-      parent = random.choice([parent1, parent2])
-      new_agent = ConfigurableAgent(name="temp_agent", config=parent.config)
+      new_config = copy.deepcopy(parent1.config)
+      l1 = parent1.config.get("limbs", [])
+      l2 = parent2.config.get("limbs", [])
+
+      # Crossover limbs!
+      n1 = len(l1)
+      n2 = len(l2)
+      if n1 > 0 and n2 > 0:
+        crossover_point1 = random.randint(0, n1)
+        crossover_point2 = random.randint(0, n2)
+        new_config["limbs"] = l1[:crossover_point1] + copy.deepcopy(l2[crossover_point2:])
+      else:
+        new_config["limbs"] = l1 + l2
+
+      # Mutate limb sizes slightly
+      for limb in new_config["limbs"]:
+        if "size" in limb:
+          limb["size"] = [s * random.uniform(0.9, 1.1) for s in limb["size"]]
+
+      # Ensure unique names for limbs
+      for i, limb in enumerate(new_config["limbs"]):
+        limb["name"] = f"limb_{i}"
+        if "child" in limb:
+          limb["child"]["name"] = f"limb_{i}_child"
+
+      new_agent = ConfigurableAgent(name="temp_agent", config=new_config)
     elif isinstance(parent1, ConfigurableAgent):
-      new_agent = ConfigurableAgent(name="temp_agent", config=parent1.config)
+      new_config = copy.deepcopy(parent1.config)
+      if "limbs" in new_config:
+        for limb in new_config["limbs"]:
+          if "size" in limb:
+            limb["size"] = [s * random.uniform(0.9, 1.1) for s in limb["size"]]
+      new_agent = ConfigurableAgent(name="temp_agent", config=new_config)
     elif isinstance(parent2, ConfigurableAgent):
-      new_agent = ConfigurableAgent(name="temp_agent", config=parent2.config)
+      new_config = copy.deepcopy(parent2.config)
+      if "limbs" in new_config:
+        for limb in new_config["limbs"]:
+          if "size" in limb:
+            limb["size"] = [s * random.uniform(0.9, 1.1) for s in limb["size"]]
+      new_agent = ConfigurableAgent(name="temp_agent", config=new_config)
     else:
       new_agent = Agent(name="temp_agent")
 
@@ -463,26 +538,52 @@ class Orchestrator:
     new_agent.update_id()
 
     # Rename it to include the hash.
-    new_agent.name = f"{species_prefix}_{new_agent.id}"
+    new_agent.name = f"{species_prefix}__{parent1.id}_{parent2.id}__{new_agent.id}"
 
     # Set position to fall from sky
-    new_agent.pos = [random.uniform(-5.0, 5.0), random.uniform(-5.0, 5.0), 3.0]
+    new_agent.pos = [random.uniform(-self.food_range, self.food_range), random.uniform(-self.food_range, self.food_range), 3.0]
 
     # Add to list
     self.agents.append(new_agent)
     self.total_syntheses += 1
 
     # Set cooldowns
-    parent1.cooldown = 5.0
-    parent2.cooldown = 5.0
-    new_agent.cooldown = 5.0
+    parent1.cooldown = self.synthesis_cooldown
+    parent2.cooldown = self.synthesis_cooldown
+    new_agent.cooldown = self.synthesis_cooldown
 
     # Reward parents for successful synthesis
-    parent1.reward += 50.0
+    parent1.reward += self.breeding_reward
     parent1.syntheses_count += 1
-    parent2.reward += 50.0
+    parent2.reward += self.breeding_reward
     parent2.syntheses_count += 1
     logger.info("Rewarded %s and %s for synthesis!", parent1.name, parent2.name)
+
+    if self.enable_export:
+      # Save evolved agent config
+      evolved_dir = "templates/agents_evolved"
+      os.makedirs(evolved_dir, exist_ok=True)
+
+      save_config = {
+          "environment": {
+              "floor_size": [20.0, 20.0, 0.05],
+              "floor_rgb1": [0.0, 0.0, 0.0],
+              "floor_rgb2": [1.0, 1.0, 1.0],
+          },
+          "agents": [new_agent.to_dict()],
+      }
+
+      filename = f"{evolved_dir}/{new_agent.name}.yaml"
+      with open(filename, "w") as f:
+        yaml.dump(save_config, f)
+
+      logger.info("Saved evolved agent template to %s", filename)
+
+      # Render it in background
+      subprocess.Popen([
+          ".venv/bin/python3", "-c",
+          f"from render import render_template; render_template('{filename}', '{evolved_dir}/{new_agent.name}.jpg', output_format='jpg')"
+      ])
 
     logger.info("Re-initializing simulation for new agent: %s", new_agent.name)
     self._reinitialize_simulation()
