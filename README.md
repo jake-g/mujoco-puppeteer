@@ -26,6 +26,14 @@ Get up and running with the simulation in seconds:
     ```bash
     make parallel-evolve
     ```
+5.  **Re-render Templates**: Regenerate GIFs and JPGs for all species and scenes.
+    ```bash
+    make rerender-all
+    ```
+    Or render a specific template:
+    ```bash
+    make render template=templates/agents/gorilla/gorilla_default.yaml output=output.gif options="--format gif"
+    ```
 
 ## Overview
 
@@ -49,9 +57,9 @@ This project implements a server-client architecture for a live-streamed, multip
 -   Foundation, Environment, Agent, and Orchestration are fully implemented and tested.
 -   Visualization is implemented using `launch_passive` and `mjpython` for Mac compatibility. Interactive keyboard controls are available in `cli.py`.
 -   Networking is started with state streaming via WebSockets in `server.py` and `client.py`.
--   Learning & Evolution is started with a Genetic Algorithm in `train.py`.
+-   Learning & Evolution is handled by an automated Genetic Algorithm in `auto_evolve.py`.
 
-### Goal Seeking & Steering
+### Goal Seeking
 - **Virtual Chemotaxis**: Agents compute a normalized relative position vector to the closest food target, allowing closed-loop goal seeking.
 - **Asymmetric Torque Modulation**: Turning is achieved by increasing amplitude on the side contralateral to the target.
 
@@ -59,11 +67,17 @@ This project implements a server-client architecture for a live-streamed, multip
 - **Fatigue Simulation**: Actuator amplitude scales linearly with agent energy to simulate exhaustion.
 - **Food Excitement**: Control frequency increases by 20% when an agent successfully eats food.
 
-### Results & Telemetry
+### Results
 - **Simplified Index**: `results/index.yaml` is reduced to a clean folder-to-file-count mapping.
 - **Species Censuses**: Maintenance tracks total variant counts per species (e.g., total Gorillas vs. total Snakes).
 - **Smooth Playback**: Evolution GIFs are compiled at $20\text{ fps}$ ($50\text{ms}$ intervals) to make analyzing movement gaits easier on the eyes.
 - **Isolated Training**: The auto-evolver evaluates agents in complete isolation to measure pure distance and survival without multi-agent interference.
+
+### Asset Organization
+-   **Centralized Rendering**: Centralized all rendering logic in `render.py` supporting GIF, JPG, and PPM formats.
+-   **Asset Organization**: Reorganized `templates/agents` and `results` into species subfolders for better organization.
+-   **GIF Previews**: Implemented short GIF loops for agent templates to visualize gait.
+-   **Cleanup**: Removed redundant scripts and bad models to keep codebase and templates clean.
 
 ## Simulation Mechanics
 
@@ -81,7 +95,7 @@ This project implements a server-client architecture for a live-streamed, multip
 -   **Death on Fall**: If an agent remains below a height threshold (scaled by size) for more than 3 seconds, it "dies" and is respawned falling from the sky.
 -   **Configurable Agent**: An abstract agent (`ConfigurableAgent`) that can represent any creature (Turtle, Hexapod, Biped, etc.) by defining its body and limbs in YAML!
 -   **Step Detection Reward**: Quadruped agents reward alternating ground contact by feet, giving a bonus for each step to encourage true walking.
--   **Learning & Evolution**: Run `train.py` to evolve agent walking parameters using a Genetic Algorithm.
+-   **Learning & Evolution**: Run `auto_evolve.py` to evolve agent walking parameters using a Genetic Algorithm.
 -   **Automated Evolution**: Run `auto_evolve.py` to evolve multiple species sequentially and save their best configurations.
 -   **Leaderboard**: Run `update_leaderboard.py` to evaluate all templates and rank them in `LEADERBOARD.md`.
 -   **Per-Species Evolution GIFs**: Maintenance now auto-generates sequence GIFs for each species showing their progression across generations.
@@ -156,7 +170,7 @@ agents:
 - [client.py](./client.py): WebSocket client for receiving state updates.
 - [cli.py](./cli.py): CLI for selecting and launching simulation templates.
 - [templates/](./templates/): Folder containing YAML simulation templates.
-- [train.py](./train.py): Genetic Algorithm for evolving agent policies.
+- [render.py](./render.py): General rendering utility for agents and scenes (GIF, JPG, etc.).
 - [Makefile](./Makefile): Manages setup, formatting, and tests.
 - [DEV_LOG.md](./DEV_LOG.md): Log of notable contributions and milestones.
 

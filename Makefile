@@ -2,6 +2,13 @@
 
 .PHONY: help setup format test clean run server client server-bg server-stop list run-template demo
 
+UNAME_S := $(shell uname -s)
+ifeq ($(UNAME_S),Darwin)
+  MJPYTHON := .venv/bin/mjpython
+else
+  MJPYTHON := .venv/bin/python3
+endif
+
 # Default target
 help:
 	@echo "Available commands:"
@@ -15,6 +22,8 @@ help:
 	@echo "  make run-template name=<template_name> - Run a specific template"
 	@echo "  make clean-results - Clean duplicate images and index results"
 	@echo "  make kill      - Kill all background simulation processes"
+	@echo "  make rerender-all - Re-render all templates as GIFs"
+	@echo "  make render template=<path> options=\"<options>\" - Render specific template"
 	@echo "  make clean    - Remove generated files and logs"
 
 # Setup environment
@@ -31,16 +40,16 @@ setup:
 
 # Format code
 format:
-	@echo "🖌️  Forcing YAPF Python Formatting..."
-	@git ls-files '*.py' | xargs .venv/bin/yapf -i --style="{based_on_style: google, indent_width: 2, column_limit: 80}"
+
 	@echo "🛠️  Running pre-commit validation..."
 	@.venv/bin/pre-commit run --all-files
 	@echo "✅ All styling and formatting checks passed!"
 
 # Run tests
 test: format
-	@echo "🧪 Running All Tests..."
+	@echo "🧪 Running Unit Tests..."
 	@.venv/bin/python3 -m unittest discover -p "*_test.py"
+
 	@echo "✅ All Tests Passed!"
 
 # Run WebSocket server
@@ -76,17 +85,17 @@ list:
 
 # Run a specific template
 run-template:
-	@.venv/bin/mjpython cli.py --run $(name)
+	@$(MJPYTHON) cli.py --run $(name)
 
 # Run visual simulation
 run:
 	@echo "🚀 Running visual simulation..."
-	@.venv/bin/mjpython cli.py --run base
+	@$(MJPYTHON) cli.py --run base
 
 # Run demo
 demo:
 	@echo "🎮 Running simulation demo..."
-	@.venv/bin/mjpython demo.py
+	@$(MJPYTHON) demo.py
 
 # Run demo and record frames
 demo-record:
@@ -101,7 +110,7 @@ parallel-evolve:
 # Run demo test (headless)
 demo-test:
 	@echo "🧪 Running demo test in background..."
-	@.venv/bin/mjpython demo.py --no-viewer & pid=$$! ; sleep 10 ; kill $$pid
+	@$(MJPYTHON) demo.py --no-viewer & pid=$$! ; sleep 10 ; kill $$pid
 
 # Clean results
 clean-results:
@@ -117,6 +126,16 @@ kill:
 	-pkill -f server.py
 	-pkill -f maintenance.py
 	-pkill -f cron_job.py
+
+# Re-render all templates as GIFs
+rerender-all:
+	@echo "🎬 Re-rendering all templates as GIFs..."
+	@PYTHONPATH=. .venv/bin/python3 render.py --batch
+
+# Render specific template as HD image or GIF
+render:
+	@echo "🎬 Rendering HD image/GIF for $(template)..."
+	@.venv/bin/python3 render.py $(template) $(output) $(options)
 
 # Clean up
 clean:

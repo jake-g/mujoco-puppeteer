@@ -10,6 +10,7 @@ import yaml
 from agent import ConfigurableAgent
 from environment import Environment
 from orchestrator import Orchestrator
+from render import create_gif
 
 
 def get_top_candidates(num_candidates=5):
@@ -298,7 +299,6 @@ def run_demo():
       print("\nInterrupted by user.")
       if record_dir:
         print("Generating GIF from recorded frames...")
-        from create_evolution_gif import create_gif
         create_gif(species_filter="demo")
 
   print(f"Demo finished in {time.time() - start_time:.1f} seconds.")
