@@ -47,7 +47,7 @@ This document tracks instructions and best practices for refining agents and env
 - **Greedy Focus**: Focus on a few agents at a time to improve distance and time to max distance, then switch to another set for consistent results.
 - **Rotation**: Shift to a different set of 8 agents after ~20 minutes or upon reaching a milestone to ensure all agents eventually improve.
 - **Automated Reflection**: Every 10 minutes, a recurring task prompts the agent to read task logs, analyze agent performance, update `DEV_LOG.md` with new findings, and suggest/invent new agent configs.
-- **Stagnation Watchlist**: Based on recent logs (`task-2973`), `giraffe_default`, `khepri_beetle`, and `centipede` are struggling with stagnation deaths. They may need balance tweaks or base gait improvements.
+- **Stagnation Watchlist**: Based on recent logs (`task-2973`), `giraffe`, `khepri_beetle`, and `centipede` are struggling with stagnation deaths. They may need balance tweaks or base gait improvements.
 
 ## Infrastructure & IDs
 

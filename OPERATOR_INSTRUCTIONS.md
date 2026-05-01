@@ -31,10 +31,14 @@ This document summarizes the operational flow, routine, preferences, and goals f
     *   Avoid enabling food consumption (`enable_food = True`) in GUI mode, as reloading the model to respawn food will deadlock the viewer.
 *   **Speed Control**: Use `+` and `-` keys in the demo window to adjust simulation speed (steps per frame) without affecting physics timestep.
 *   **NaN Protection**: High gear ratios and aggressive policies can cause physics explosions resulting in NaN coordinates. The `Orchestrator` will catch these and respawn the agent to prevent engine lockups.
+*   **Stagnation Intervention**: For species experiencing high stagnation deaths (failing to move), the operator may intervene and manually edit the agent configuration (e.g., increasing limb length, adjusting gear ratios, or tweaking gait parameters) to help them find stable gaits.
+*   **Camera Angle Choice**: For evolution preview GIFs, prefer using the static `main_cam` (zoomed out) to show the full scene context and realistic movement. Avoid tight tracking cameras if they cause the agent to go out of frame or cause visual jitter.
+*   **Greedy Focus Strategy**: When agents struggle to evolve (e.g., high stagnation), focusing the parallel manager on a small set of 4-6 species with larger populations (100) and relaxed stagnation (5.0s) leads to much faster breakthroughs than spreading resources across all species.
+*   **Stale Lock Files**: Forcefully killing evolution or maintenance tasks can leave `.lock` files behind (e.g., `auto_evolve_[species].lock` or `maintenance.lock`). If subsequent runs exit immediately without doing anything, check for and delete these stale lock files in the workspace.
 
 ## Parallel Evolution
 
-*   **Parallel Manager**: To utilize multi-core systems, use `parallel_evolve.py` to run up to 5 species evolutions in parallel.
+*   **Parallel Manager**: To utilize multi-core systems, use `parallel_evolve.py` to run up to 5-8 species evolutions in parallel.
 *   **Isolated Logs**: History logs are saved as `results/evolution_history_[species].tsv` to avoid file write conflicts.
 *   **Plotting**: The `generate_progress_plot.py` script will automatically find and merge all species history files when drawing the chart.
 

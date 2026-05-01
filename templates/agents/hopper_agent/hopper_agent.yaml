@@ -1,0 +1,27 @@
+agents:
+- name: hopper_agent
+  type: configurable
+  body:
+    type: box
+    size: [0.1, 0.1, 0.3]
+  limbs:
+    - name: leg
+      pos: [0, 0, -0.2]
+      axis: [0, 1, 0]
+      range: [-45, 45]
+      geom: {type: capsule, size: [0.03, 0.2]}
+      child:
+        name: foot
+        axis: [0, 1, 0]
+        range: [0, 90]
+        geom: {type: capsule, size: [0.02, 0.15]}
+    - name: left_arm
+      pos: [0.05, 0.1, 0.2]
+      axis: [0, 1, 0]
+      range: [-30, 30]
+      geom: {type: capsule, size: [0.01, 0.1]}
+    - name: right_arm
+      pos: [0.05, -0.1, 0.2]
+      axis: [0, 1, 0]
+      range: [-30, 30]
+      geom: {type: capsule, size: [0.01, 0.1]}

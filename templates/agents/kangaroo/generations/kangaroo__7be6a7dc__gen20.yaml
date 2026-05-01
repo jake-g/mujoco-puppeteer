@@ -1,0 +1,97 @@
+agents:
+- amplitude: 0.6792145654079853
+  body:
+    mass: 8.0
+    size:
+    - 0.2
+    - 0.15
+    - 0.4
+    type: box
+  color:
+  - 0.46631296306454356
+  - 0.5290122529757346
+  - 0.1785149807558031
+  - 1.0
+  frequency: 1.4844153250944587
+  generation: 0
+  id: 7be6a7dc
+  leg_length_scale: 1.725356018302087
+  limbs:
+  - child:
+      name: limb_0_child
+      pos:
+      - 0.0
+      - 0.0
+      - -0.2
+      size:
+      - 0.04
+      - 0.2
+      type: capsule
+    name: limb_0
+    pos:
+    - 0.0
+    - 0.12
+    - -0.1
+    size:
+    - 0.01521750811765124
+    - 0.03501293157775551
+    type: capsule
+  - child:
+      name: limb_1_child
+      pos:
+      - 0.0
+      - 0.0
+      - -0.2
+      size:
+      - 0.04
+      - 0.2
+      type: capsule
+    name: limb_1
+    pos:
+    - 0.0
+    - -0.12
+    - -0.1
+    size:
+    - 0.009432602848907408
+    - 0.04257953866604845
+    type: capsule
+  - name: limb_2
+    pos:
+    - -0.2
+    - 0.0
+    - -0.1
+    size:
+    - 0.12855666647709788
+    - 0.14166475416158297
+    type: capsule
+  name: kangaroo__7be6a7dc__gen20
+  parent_ids:
+  - 7a37615c
+  - f953a882
+  phase: 3.4260179513655826
+  phase_offsets:
+  - 0.018428444667302313
+  - 1.284769056057353
+  - 2.7531025122095922
+  - 2.342779251697629
+  - 5.026548245743669
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  score: 16.517552215332458
+  size_scale: 1.0753153056464508
+  type: configurable
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

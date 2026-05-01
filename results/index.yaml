@@ -1,169 +1,188 @@
 summary:
-  total_folders: 428
-  total_files: 21014
+  total_folders: 433
+  total_files: 18541
 species_counts:
   results_v1: 1
-  gorilla: 28
-  legion_hexapod: 30
+  gorilla: 34
+  stilts_biped: 11
+  legion_hexapod: 34
+  crab: 12
+  arachne_spider: 24
+  quadruped: 45
+  scorpion_king: 1
+  scorpion: 17
   giraffe: 15
   giraffe_default: 11
-  crab: 9
-  arachne_spider: 22
-  quadruped: 43
-  scorpion_king: 2
-  scorpion: 22
-  mech_biped: 20
-  khepri_beetle: 23
-  aegis_turtle: 30
-  goliath_crawler: 30
-  Agent: 20
-  centipede: 22
-  kangaroo: 15
-  Arachne: 2
-  megarachne: 6
-  ein_corgi: 24
-  stilts_biped: 9
-  starfish: 13
-  megapede: 7
+  khepri_beetle: 24
+  hopper_agent: 2
+  aegis_turtle: 32
+  starfish: 14
+  goliath_crawler: 40
+  megapede: 8
+  centipede: 26
+  kangaroo: 5
+  Arachne: 3
+  rolling_agent: 1
+  asymmetric_quadruped: 3
+  ein_corgi: 34
+  snake: 11
+  Khepri: 3
+  mech_biped: 8
   Configurable: 13
-  snake: 10
   demo: 1
 folder_sizes:
-  results_v1: 9699
-  gorilla__ab1aa6e8_1f28e194__0534f4f2: 20
-  gorilla__810871f7_3a69badb__1d0f5cfd: 20
-  gorilla__153f54ff_f5280306__512ee072: 20
-  gorilla__55df627a_39a36465__7a7283c7: 20
-  gorilla__d4fbe7e4_997797bb__03ba9ec6: 20
-  gorilla__c52ca67a_16d61bad__bc770a2e: 20
-  gorilla__6e00b9a7_b2dd453e__67ff6305: 20
-  gorilla__b25f0507_25120313__8ca1db4c: 20
-  gorilla__46e7afa7_08157a01__47808eee: 20
-  gorilla__cc5a9e41_62f25cea__40828144: 20
-  gorilla__cdf55c5f_5015ceb4__559efa2f: 20
-  gorilla__b1af2574_59962b22__4a1a1557: 20
-  gorilla__f54998fa_5db42112__b54b079a: 20
-  gorilla__9840e080_fa327f69__e09cb15b: 20
-  legion_hexapod_0003: 2
-  legion_hexapod_000b: 2
-  legion_hexapod_0002: 2
-  legion_hexapod__4f4e878b__gen20: 21
-  legion_hexapod__72e8d5a2_dff09d31__b561d7cc: 20
-  legion_hexapod_0007: 2
-  legion_hexapod_0008: 7
-  legion_hexapod_0012: 3
-  legion_hexapod__9fa2ad7e__gen20: 20
-  legion_hexapod_0013: 50
-  giraffe_default_0010: 2
-  giraffe_default_000f: 2
-  giraffe_default__6eb60d30__gen20: 44
-  giraffe_default__be67c853__gen20: 34
-  crab__5dd40fe0_0bbf344f__8dc654c3: 20
-  crab__66c13f77_c46e7c01__e2eac561: 20
-  crab__7e4628f8_33d68a58__1b750469: 20
+  results_v1: 9303
+  gorilla__4a454aab_da99f9fc__70634a56: 0
+  gorilla__ab1aa6e8_1f28e194__0534f4f2: 0
+  gorilla__810871f7_3a69badb__1d0f5cfd: 0
+  gorilla__9896e2e4_64c385d8__f6fe5fc1: 0
+  gorilla__153f54ff_f5280306__512ee072: 0
+  gorilla__55df627a_39a36465__7a7283c7: 0
+  gorilla__42a4fdba_ca9c03f2__1104f2a0: 0
+  gorilla_002f: 0
+  gorilla__8169ac7e__gen20: 0
+  gorilla__d4fbe7e4_997797bb__03ba9ec6: 0
+  gorilla__c52ca67a_16d61bad__bc770a2e: 0
+  gorilla__6e00b9a7_b2dd453e__67ff6305: 0
+  gorilla__b25f0507_25120313__8ca1db4c: 0
+  gorilla__3ac4c97b_26a3b4d0__c7027392: 0
+  gorilla__46e7afa7_08157a01__47808eee: 0
+  gorilla__cc5a9e41_62f25cea__40828144: 0
+  gorilla__cdf55c5f_5015ceb4__559efa2f: 0
+  gorilla__b1af2574_59962b22__4a1a1557: 0
+  gorilla__f54998fa_5db42112__b54b079a: 0
+  gorilla__9840e080_fa327f69__e09cb15b: 0
+  stilts_biped__47f59c7c__gen20: 0
+  stilts_biped_0030: 0
+  legion_hexapod_0003: 0
+  legion_hexapod_000b: 0
+  legion_hexapod_0002: 0
+  legion_hexapod__dff7a8c5_7b8d62bf__3df9e545: 0
+  legion_hexapod__ef434257_eb1f4b52__517395ba: 0
+  legion_hexapod__4f4e878b__gen20: 0
+  legion_hexapod__3c65880a_8e995b83__050a2865: 0
+  legion_hexapod__72e8d5a2_dff09d31__b561d7cc: 0
+  legion_hexapod_0007: 0
+  legion_hexapod_0008: 0
+  legion_hexapod_0012: 0
+  legion_hexapod__9fa2ad7e__gen20: 0
+  legion_hexapod_0013: 43
+  legion_hexapod__664fbf39_39c7c5e1__c0c614b7: 0
+  crab__44ae4f87_6a995e88__3ff01489: 0
+  crab__771ae50a_b87bfa3e__6351aadf: 0
+  crab__c37211c0__gen20: 0
+  crab__bd55546b_856516be__8494e056: 0
+  crab_0031: 0
+  crab__e15cf495_af649eae__ac1ef911: 0
+  crab__1a4cee7e_469e5362__dbc2a846: 0
   arachne_spider_000e: 0
-  arachne_spider_0019: 20
-  arachne_spider__704c3606_480715dc__a6f99bfe: 20
-  arachne_spider__7ebf52b9__gen20: 8
-  arachne_spider__3a067005__gen20: 8
-  quadruped__98444aa8__gen20: 0
-  quadruped_000d: 8
-  quadruped__62b7c947__gen20: 26
-  scorpion_king__1ac1576b_3119d1d6__9a125198: 20
-  scorpion_king__bbec8c48_abe456b1__37ceabbd: 20
-  scorpion__383af33f_61ff1d2e__d92fe673: 20
-  scorpion__f403c860_d28e1c52__cd4e8891: 20
-  scorpion_000f: 20
-  scorpion__41049258_9a564ac5__7148cf1f: 17
-  scorpion__20ebf83e_b863b4e5__d8042b40: 20
-  scorpion__1e106bab_97fe7ce6__1cddd059: 20
-  mech_biped__4260b082_bfc0db45__c292121a: 20
-  mech_biped__42daabdb_a6b23447__7c8a02a8: 20
-  mech_biped__d6e6a29b_c772c634__79ae0d0b: 20
-  mech_biped__615db215_dcc78d65__d44b07ea: 20
-  mech_biped__6d61521b_0d043db0__6e9ab35c: 20
-  mech_biped__943e0a2e_e4e382b9__7f20b775: 20
-  mech_biped__18ba62d3_73581217__30932f99: 20
-  mech_biped__7cf4e20d_95f0ebf9__df5ae72d: 20
-  mech_biped__c8c72fc2_833fb661__396cb436: 20
-  mech_biped__94a74a35_924108b2__5b5aea2d: 20
-  mech_biped__bab71f4a_4ec9b6fb__005e2ca9: 20
-  mech_biped__a42b9ddc_0fe72fe2__4757f0dd: 20
-  khepri_beetle_0013: 3
-  khepri_beetle__94ef9ae4__gen20: 100
-  khepri_beetle_000c: 10
-  khepri_beetle_0002: 10
-  khepri_beetle__a903176b__gen20: 13
-  aegis_turtle_000d: 3
-  aegis_turtle_0005: 1
-  aegis_turtle__5aa94495_0713fe97__4d0a7e87: 20
-  aegis_turtle__456fc52e_66682a2a__a781ae21: 20
-  aegis_turtle__aebe7c13_4c46b783__518f9240: 11
-  aegis_turtle_0000: 0
-  aegis_turtle__b9b203f7_69532c55__94ec8e32: 20
-  aegis_turtle_000f: 2
-  aegis_turtle__d5fb7a33__gen20: 2
-  aegis_turtle_0013: 8
-  goliath_crawler_0013: 7
-  goliath_crawler__77f10dcd_1d3efb2a__a431fb4f: 20
-  goliath_crawler__2a034c94__gen20: 3
-  goliath_crawler__4359ebf1__gen20: 2
-  Agent__ddb62bcd_b880dcd6__b993745b: 20
-  Agent__c00761cd_a2bc1c8e__3faace91: 20
-  Agent__e83fe667_6219e8f1__168527f7: 20
-  Agent__f2b26423_6da69152__8cc8c15b: 20
-  Agent__7a7c3072_9637504f__61bd70b4: 20
-  Agent__1ab3df39_9834d047__e5c066f9: 20
-  Agent__dda2d361_2cb0ee9b__c8506dce: 20
-  Agent__e2a630ba_8401cb8f__3af3239c: 20
-  Agent__2d4e1f59_451e981b__2e6d99fc: 20
-  Agent__e910a414_2c6bbf46__fc3d6b54: 20
-  Agent__4a7e5d51_0d27a3dd__dfe30a78: 20
-  Agent__8cc86e79_193ce9a7__d2180748: 20
-  Agent__36a3a5da_94e215d6__d6d1a3f2: 20
-  Agent__0d8b2695_78014704__73ac4f67: 20
-  Agent__284841b6_31434e46__f15b2ce0: 20
-  Agent__f5312a90_7fea0e27__4dc011cc: 20
-  Agent__0dede2b3_135e2b49__74ea68c2: 20
-  Agent__4754b0c7_9dc7a2bf__0611476a: 20
-  Agent__48c42f5b_1175f21c__0c4b276c: 20
-  Agent__4a3d3099_d9914e11__8fcc8fed: 20
-  centipede__c6808d21_31f65e83__924d3c33: 20
-  centipede__66e2b7b5_1fc9a1f5__06e80400: 20
-  centipede__a0770dce_500e934c__3b15227b: 20
-  centipede__1c374cd8_ce587ca4__8ddafecf: 20
-  kangaroo__68827433_d9a7013c__90309e11: 20
-  kangaroo__a3baf686_02afa192__49996e5c: 20
-  kangaroo__10ceed7f_222f07ac__6f115e64: 20
-  kangaroo__4d6d1fdd_17990c92__01ddeec6: 20
-  kangaroo__a74dff91_50d86b57__f0dffe65: 20
-  kangaroo__c91a9496_e865ee2b__a089ec10: 1
-  kangaroo__2695eb04_2de21a13__447dd611: 20
-  kangaroo__9672a955_0b0169b9__c07e988f: 20
-  kangaroo__3283f7e0_aa04d3e7__34a12ac9: 20
-  kangaroo__0abc19a5_1b837e8a__d69275ae: 20
-  kangaroo__4cc3a0c0_707cd266__2f1a4f61: 20
-  kangaroo__8d9691e4_95e0d60d__91ff78df: 20
-  kangaroo__8731bef9_91c8cb06__f81cbbbd: 20
-  kangaroo__d06a4dcb_4eb12f1f__03a1479a: 20
-  kangaroo__66380398_b04a4e00__4f3f8fa6: 20
-  Arachne__6e87c0ee_9168ca4c__d0d572c4: 20
-  Arachne__25aadffe_5fb93225__9e58c469: 20
-  megarachne__ee730957_4b39cd28__dd601f0a: 20
-  megarachne__5c395660_fc479b78__54a32540: 20
-  megarachne__22417c29_ba7873ab__653d2dd8: 20
-  megarachne__b4f564c7_87fff410__f542c3c8: 20
-  megarachne__d630c663_4f565ee2__735b7742: 20
-  megarachne__4a7b43c8_bdb58035__8e297953: 20
-  ein_corgi_0011: 3
-  ein_corgi__1380b4ed__gen20: 2
-  ein_corgi__2b073f94_2d7e4a2b__74566b10: 20
+  arachne_spider_0019: 0
+  arachne_spider__eea19144__gen20: 8
+  arachne_spider__cfcba98b_a7a712d1__ff875e7f: 20
+  arachne_spider__704c3606_480715dc__a6f99bfe: 0
+  arachne_spider_0031: 0
+  arachne_spider_000f: 2
+  arachne_spider__b57cbc66__gen20: 8
+  arachne_spider__7ebf52b9__gen20: 0
+  arachne_spider__3a067005__gen20: 0
+  arachne_spider_001b: 20
+  quadruped__356ea058__gen20: 0
+  quadruped_002d: 0
+  quadruped_002c: 0
+  quadruped_0030: 0
+  scorpion_king__136e1be5__gen20: 0
+  scorpion__2b1f1063__gen20: 2
+  scorpion_0031: 0
+  scorpion_0030: 0
+  giraffe_default_0010: 0
+  giraffe_default_000f: 0
+  giraffe_default__ec3bce69__gen20: 35
+  giraffe_default_0001: 23
+  giraffe_default_0000: 0
+  giraffe_default_0013: 50
+  giraffe_default__6eb60d30__gen20: 0
+  giraffe_default__be67c853__gen20: 0
+  khepri_beetle_0001: 10
+  khepri_beetle_000f: 2
+  khepri_beetle__d42d635c_d5e22c0c__c71a0503: 0
+  khepri_beetle__fe9be525__gen20: 99
+  khepri_beetle_000e: 2
+  hopper_agent_002d: 0
+  hopper_agent__57fbc234__gen20: 0
+  aegis_turtle__4872a43f_6a5e77d9__6cf1c28a: 0
+  aegis_turtle_0010: 2
+  aegis_turtle_002a: 0
+  aegis_turtle__e118c1a4__gen20: 10
+  aegis_turtle_0031: 0
+  aegis_turtle__5afc5924__gen20: 0
+  aegis_turtle__1f1bb0d4_079f06a4__d7dbe5a0: 0
+  aegis_turtle__6c6937a9_3a651642__4f341ee4: 0
+  aegis_turtle__ba4654d9_0cc79c57__a5bf39f9: 0
+  starfish_0031: 0
+  starfish_0030: 0
+  goliath_crawler__2f8e8053__gen20: 0
+  goliath_crawler__3c32d41c_e8a5c404__174a88b6: 0
+  goliath_crawler_0031: 0
+  goliath_crawler__91ebacb4__gen20: 0
+  goliath_crawler_0062: 0
+  goliath_crawler_0030: 0
+  goliath_crawler_0063: 0
+  goliath_crawler__baa37bd5__gen20: 0
+  goliath_crawler__d9770690_659c49fe__cfc94e62: 0
+  goliath_crawler__0d0ced9a_0e5c92fa__1fd2abd0: 0
+  goliath_crawler__d4beafdd__gen50: 0
+  goliath_crawler__4a20be23_74a1f79a__a7ff8e80: 0
+  goliath_crawler_000d: 9
+  goliath_crawler_0060: 0
+  goliath_crawler_000b: 0
+  megapede__8633b0a0_7480d0dc__3c20ecdd: 0
+  centipede__c1addae6_8b1a6cae__e453d801: 0
+  centipede__09446710_328f68d9__3f285432: 0
+  centipede_002f: 2
+  centipede__1f07de3b_37cdc5fb__654224a0: 0
+  centipede__70682fb7_2d603c0b__caeefd63: 0
+  centipede_0031: 0
+  centipede__be848e54_6deaaa09__4f17a30f: 0
+  centipede__f2014f2d__gen20: 2
+  centipede__14021a85__gen20: 0
+  kangaroo__bd5f8eb1_f1ee75f8__4b158a4c: 0
+  kangaroo__0cc96f66_3e33e574__57262fe7: 0
+  kangaroo__7be6a7dc__gen20: 0
+  kangaroo__11299d83_9113bd24__8dd57ae5: 0
+  kangaroo__703798ac_82bba6a9__1081b3a4: 0
+  Arachne__e2774075_c4b59cc2__2f22d8d0: 0
+  Arachne__a31d91a1_acc3d551__f53c7508: 0
+  Arachne__dd1f6f23_4abfbadd__e570618c: 0
+  rolling_agent_0030: 0
+  asymmetric_quadruped_0031: 0
+  asymmetric_quadruped_0030: 0
+  asymmetric_quadruped__1e6eea8e__gen20: 0
+  ein_corgi__dfc43223_a51be445__5120aa43: 0
+  ein_corgi_0011: 0
+  ein_corgi__1380b4ed__gen20: 0
+  ein_corgi__4646f4e4_4b41ccf2__2b6cd2c3: 0
+  ein_corgi__2b073f94_2d7e4a2b__74566b10: 0
   ein_corgi__cecd8ed9__gen20: 0
-  ein_corgi_0005: 3
-  ein_corgi__b0706ade__gen20: 27
-  ein_corgi_000a: 2
-  ein_corgi_0007: 8
+  ein_corgi_0005: 0
+  ein_corgi__b0706ade__gen20: 0
+  ein_corgi_000c: 8
+  ein_corgi__1338bb6c_c2b38057__83f74c58: 0
+  ein_corgi__5c3fd1e2_e8629398__93c05782: 0
+  ein_corgi_0024: 0
+  ein_corgi_0023: 0
+  ein_corgi__68d01414_0729919d__f85646ad: 0
+  ein_corgi__a498bde7_52cd987d__4a76dc68: 0
+  ein_corgi__fc7d9f01__gen20: 0
+  ein_corgi_000a: 0
+  ein_corgi__5994bdca__gen20: 0
+  ein_corgi_0007: 1
+  ein_corgi_0000: 0
   ein_corgi__1b52a473__gen20: 0
+  snake__7ff33459__gen1: 102
+  snake_0001: 0
+  Khepri__e2efac83_d52369cb__b94507a7: 0
+  Khepri__f8622553_15b734b4__54c447a4: 0
+  Khepri__e943e728_3acc0865__117577ad: 0
   gorilla_0005: 50
   gorilla_0002: 50
   gorilla__bc52cc60__gen20: 3
@@ -213,12 +232,10 @@ folder_sizes:
   giraffe_default__9ec68be6__gen20: 51
   giraffe_default__f8be4e2f__gen20: 57
   giraffe_default__8102c84e__gen20: 0
-  giraffe_default__ec3bce69__gen20: 35
   giraffe_default__4e59c0ea__gen50: 0
   giraffe_default__ef5e7630__gen20: 110
   crab__a3e3cbf0__gen50: 0
   crab_002f: 0
-  crab_0031: 0
   crab_0030: 0
   crab__7e2cb1c3__gen50: 0
   crab__f68e1675__gen20: 0
@@ -228,19 +245,16 @@ folder_sizes:
   arachne_spider__15d3b324__gen20: 0
   arachne_spider__d20771ae__gen20: 3
   arachne_spider_002f: 0
-  arachne_spider__eea19144__gen20: 8
   arachne_spider__680a147f__gen20: 4
   arachne_spider_0000: 50
-  arachne_spider_0031: 0
   arachne_spider_0009: 7
-  arachne_spider_000f: 2
   arachne_spider_0006: 3
   arachne_spider__b344189b__gen20: 2
-  arachne_spider__b57cbc66__gen20: 8
   arachne_spider__22b7a27b__gen20: 0
   arachne_spider_0013: 50
   quadruped__1332f9ee__gen20: 25
   quadruped__57dcdc56__gen20: 60
+  quadruped__98444aa8__gen20: 0
   quadruped__ccb606cf__gen20: 2
   quadruped_002f: 0
   quadruped_0011: 50
@@ -252,6 +266,7 @@ folder_sizes:
   quadruped_0002: 0
   quadruped_0005: 51
   quadruped_000c: 7
+  quadruped_000d: 0
   quadruped__55dcb287__gen20: 57
   quadruped_0004: 4
   quadruped_0003: 51
@@ -264,12 +279,10 @@ folder_sizes:
   quadruped_002e: 0
   quadruped_0013: 50
   quadruped__49d55732__gen20: 59
-  quadruped_002d: 0
   quadruped__56d3be83__gen20: 236
   quadruped_0012: 50
   quadruped__3e28aa35__gen20: 380
   quadruped_0008: 0
-  quadruped_0030: 0
   quadruped_0006: 50
   quadruped_0001: 10
   quadruped_000a: 5
@@ -279,16 +292,15 @@ folder_sizes:
   quadruped_0031: 0
   quadruped_0009: 5
   quadruped__8c23e2c0__gen50: 0
+  quadruped__62b7c947__gen20: 0
   scorpion_0012: 10
   scorpion__04ef10ed__gen20: 2
   scorpion_0013: 10
   scorpion__c1c1873c__gen20: 0
   scorpion__05eaa9d3__gen50: 0
   scorpion_0000: 0
-  scorpion_0031: 0
   scorpion_0008: 10
   scorpion__65c1edf3__gen20: 0
-  scorpion_0030: 0
   scorpion_0010: 10
   scorpion_0003: 2
   scorpion__4f1fc2b9__gen20: 0
@@ -311,51 +323,51 @@ folder_sizes:
   giraffe_default_000a: 10
   giraffe_default_0030: 0
   giraffe_default_0008: 10
-  giraffe_default_0001: 23
   giraffe_default_0007: 10
-  giraffe_default_0000: 0
   giraffe_default_0031: 0
-  giraffe_default_0013: 50
   khepri_beetle__3fcf682b__gen20: 99
   khepri_beetle__dd183e82__gen20: 271
   khepri_beetle__7aad9c2c__gen50: 0
+  khepri_beetle_0013: 0
   khepri_beetle_0031: 0
   khepri_beetle_0000: 0
   khepri_beetle__9aeb1626__gen20: 0
-  khepri_beetle_0001: 10
   khepri_beetle_0006: 1
   khepri_beetle_0030: 0
-  khepri_beetle_000f: 2
   khepri_beetle__09001214__gen20: 81
   khepri_beetle__fa837806__gen20: 2
   khepri_beetle__f389ae06__gen20: 2
+  khepri_beetle__94ef9ae4__gen20: 0
   khepri_beetle__9675d3cb__gen20: 20
-  khepri_beetle__fe9be525__gen20: 99
   khepri_beetle_000d: 10
+  khepri_beetle_000c: 0
   khepri_beetle_0003: 2
-  khepri_beetle_000e: 2
+  khepri_beetle_0002: 10
+  khepri_beetle__a903176b__gen20: 0
+  aegis_turtle_000d: 0
   aegis_turtle__d97707b6__gen50: 0
   aegis_turtle_000b: 7
   aegis_turtle__2b400219__gen20: 1
+  aegis_turtle_0005: 0
   aegis_turtle_0002: 9
   aegis_turtle__c94b5d6e__gen20: 2
   aegis_turtle__bb066d66__gen20: 9
   aegis_turtle_0011: 0
   aegis_turtle__74a28488__gen20: 1
-  aegis_turtle_0010: 2
+  aegis_turtle_0000: 0
   aegis_turtle_0009: 7
-  aegis_turtle__e118c1a4__gen20: 10
-  aegis_turtle_0031: 0
   aegis_turtle__d77a1bbf__gen20: 3
   aegis_turtle__0f1ec654__gen50: 0
   aegis_turtle_0008: 8
+  aegis_turtle_000f: 0
   aegis_turtle_000a: 7
   aegis_turtle__cc9c672f__gen20: 0
   aegis_turtle__6ab5045c__gen20: 0
+  aegis_turtle__d5fb7a33__gen20: 0
   aegis_turtle_0012: 7
   aegis_turtle__b228c2b8__gen20: 8
+  aegis_turtle_0013: 0
   starfish_0013: 50
-  starfish_0031: 0
   starfish_0007: 6
   starfish_0000: 0
   starfish__0e011b3c__gen20: 0
@@ -367,6 +379,7 @@ folder_sizes:
   starfish_0005: 7
   starfish__79781680__gen20: 33
   starfish__e81a58c8__gen20: 0
+  goliath_crawler_0013: 0
   goliath_crawler__0b941788__gen20: 0
   goliath_crawler__c8aa0f29__gen20: 126
   goliath_crawler__06ac2a4e__gen20: 3
@@ -377,20 +390,18 @@ folder_sizes:
   goliath_crawler__c5921aa1__gen20: 0
   goliath_crawler_0000: 2
   goliath_crawler_0007: 7
-  goliath_crawler_0031: 0
-  goliath_crawler__91ebacb4__gen20: 0
   goliath_crawler_0009: 2
   goliath_crawler__f2a7591e__gen50: 0
   goliath_crawler__88ab0cba__gen20: 77
   goliath_crawler_0006: 7
   goliath_crawler_0001: 3
   goliath_crawler_000a: 0
+  goliath_crawler__2a034c94__gen20: 0
+  goliath_crawler__4359ebf1__gen20: 0
   goliath_crawler_000c: 0
-  goliath_crawler_000d: 9
   goliath_crawler_0004: 5
   goliath_crawler__d6380aac__gen20: 7
   goliath_crawler_000e: 8
-  goliath_crawler_000b: 0
   goliath_crawler__81be13fe__gen20: 294
   goliath_crawler_0005: 8
   megapede_0013: 20
@@ -427,14 +438,12 @@ folder_sizes:
   centipede_0030: 0
   centipede_0008: 6
   centipede_000a: 7
-  centipede_0031: 0
   centipede_0000: 0
   centipede__f7e3e820__gen20: 275
   centipede_0013: 49
   ein_corgi__3c9e12ca__gen50: 0
   ein_corgi_000b: 8
   ein_corgi_000e: 0
-  ein_corgi_000c: 8
   ein_corgi_0003: 3
   ein_corgi__28aeb2dd__gen20: 1
   ein_corgi__a9274885__gen20: 0
@@ -445,7 +454,6 @@ folder_sizes:
   ein_corgi_0006: 7
   ein_corgi_0008: 8
   ein_corgi_0031: 0
-  ein_corgi_0000: 0
   snake_0011: 10
   snake__e7783d07__gen20: 0
   snake__9a8a1db8__gen20: 297
@@ -454,6 +462,5 @@ folder_sizes:
   snake_0009: 49
   snake_0000: 0
   snake__809688e9__gen20: 7
-  snake_0001: 0
   snake_000f: 50
   demo: 1060

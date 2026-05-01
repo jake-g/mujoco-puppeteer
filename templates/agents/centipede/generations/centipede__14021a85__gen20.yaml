@@ -1,0 +1,369 @@
+agents:
+- amplitude: 1.7706928428159572
+  body:
+    mass: 15.0
+    size:
+    - 1.0
+    - 0.15
+    - 0.05
+    type: box
+  color:
+  - 0.6952379609361635
+  - 0.0
+  - 0.6635444324223962
+  - 1.0
+  frequency: 0.8205785006614195
+  generation: 0
+  id: 14021a85
+  leg_length_scale: 1.5428181610520153
+  limbs:
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_0
+    pos:
+    - 0.8
+    - 0.15
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_1
+    pos:
+    - 0.8
+    - -0.15
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_2
+    pos:
+    - 0.4
+    - 0.15
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_3
+    pos:
+    - 0.4
+    - -0.15
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_4
+    pos:
+    - 0.0
+    - 0.15
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_5
+    pos:
+    - 0.0
+    - -0.15
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_6
+    pos:
+    - -0.4
+    - 0.15
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_7
+    pos:
+    - -0.4
+    - -0.15
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_8
+    pos:
+    - -0.8
+    - 0.15
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_9
+    pos:
+    - -0.8
+    - -0.15
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_10
+    pos:
+    - 0.4
+    - 0.15
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_11
+    pos:
+    - 0.4
+    - -0.15
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_12
+    pos:
+    - 0.0
+    - 0.15
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_13
+    pos:
+    - 0.0
+    - -0.15
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_14
+    pos:
+    - -0.4
+    - 0.15
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_15
+    pos:
+    - -0.4
+    - -0.15
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_16
+    pos:
+    - -0.8
+    - 0.15
+    - -0.05
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_17
+    pos:
+    - -0.8
+    - -0.15
+    - -0.05
+    range:
+    - -30
+    - 30
+  name: centipede__14021a85__gen20
+  parent_ids:
+  - 6f2e170e
+  - 13d9e1b5
+  phase: 1.7607926586764133
+  phase_offsets:
+  - -0.10828453582487871
+  - 0.1449727167958038
+  - 1.0314102468660273
+  - 2.036769390154229
+  - 2.0132787365198044
+  - 1.520614766210591
+  - 2.0943951023931953
+  - 2.443460952792061
+  - 2.792526803190927
+  - 3.141592653589793
+  - 3.490658503988659
+  - 3.839724354387525
+  - 4.1887902047863905
+  - 4.537856055185257
+  - 4.886921905584122
+  - 5.235987755982989
+  - 5.585053606381854
+  - 5.93411945678072
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  score: 17.52442872609851
+  size_scale: 1.0375199786452995
+  type: configurable
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

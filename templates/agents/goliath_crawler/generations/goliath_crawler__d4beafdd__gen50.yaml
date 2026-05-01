@@ -1,0 +1,114 @@
+agents:
+- amplitude: 0.5
+  body:
+    size:
+    - 0.3
+    - 0.3
+    - 0.05
+    type: box
+  color:
+  - 0.9208964377126582
+  - 0.6934338525043451
+  - 0.35013068578774464
+  - 1.0
+  frequency: 2.478672350174757
+  generation: 0
+  id: d4beafdd
+  leg_length_scale: 1.4516158251663773
+  limbs:
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.25
+      type: capsule
+    name: limb_0
+    pos:
+    - 0.25
+    - 0.25
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.25
+      type: capsule
+    name: limb_1
+    pos:
+    - 0.25
+    - -0.25
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 1
+    - 0
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.25
+      type: capsule
+    name: limb_2
+    pos:
+    - -0.25
+    - 0.25
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 1
+    - 0
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.25
+      type: capsule
+    name: limb_3
+    pos:
+    - -0.25
+    - -0.25
+    - 0
+    range:
+    - -30
+    - 30
+  name: goliath_crawler__d4beafdd__gen50
+  parent_ids: []
+  phase: 0.20285210124262257
+  phase_offsets:
+  - 0.027574334053364194
+  - 1.1445698593208389
+  - 2.7219757102882927
+  - 2.568664788622502
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  score: 175.1060867432974
+  size_scale: 1.0
+  type: configurable
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

@@ -1,0 +1,332 @@
+agents:
+- amplitude: 0.9861611659998861
+  body:
+    size:
+    - 0.3
+    - 0.3
+    - 0.05
+    type: box
+  color:
+  - 0.3696743178216302
+  - 0.7230840973247843
+  - 0.6659274375111013
+  - 1.0
+  frequency: 0.9122420600623733
+  generation: 0
+  id: bccfefdc
+  leg_length_scale: 1.2804187678995809
+  limbs:
+  - axis:
+    - 0
+    - 0
+    - 1
+    geom:
+      size:
+      - 0.01
+      - 0.15
+      type: capsule
+    name: limb_0
+    pos:
+    - 0.2
+    - 0.1
+    - 0.05
+    range:
+    - -10
+    - 10
+  - axis:
+    - 0
+    - 0
+    - 1
+    geom:
+      size:
+      - 0.01
+      - 0.15
+      type: capsule
+    name: limb_1
+    pos:
+    - 0.2
+    - -0.1
+    - 0.05
+    range:
+    - -10
+    - 10
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_2
+    pos:
+    - 0.2
+    - 0.3
+    - 0
+    range:
+    - -45
+    - 45
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_3
+    pos:
+    - 0.0
+    - 0.3
+    - 0
+    range:
+    - -45
+    - 45
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_4
+    pos:
+    - -0.2
+    - 0.3
+    - 0
+    range:
+    - -45
+    - 45
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_5
+    pos:
+    - 0.2
+    - -0.3
+    - 0
+    range:
+    - -45
+    - 45
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_6
+    pos:
+    - 0.0
+    - -0.3
+    - 0
+    range:
+    - -45
+    - 45
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_7
+    pos:
+    - -0.2
+    - -0.3
+    - 0
+    range:
+    - -45
+    - 45
+  - axis:
+    - 0
+    - 0
+    - 1
+    geom:
+      size:
+      - 0.01
+      - 0.15
+      type: capsule
+    name: limb_8
+    pos:
+    - 0.2
+    - 0.1
+    - 0.05
+    range:
+    - -10
+    - 10
+  - axis:
+    - 0
+    - 0
+    - 1
+    geom:
+      size:
+      - 0.01
+      - 0.15
+      type: capsule
+    name: limb_9
+    pos:
+    - 0.2
+    - -0.1
+    - 0.05
+    range:
+    - -10
+    - 10
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_10
+    pos:
+    - 0.2
+    - 0.3
+    - 0
+    range:
+    - -45
+    - 45
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_11
+    pos:
+    - 0.0
+    - 0.3
+    - 0
+    range:
+    - -45
+    - 45
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_12
+    pos:
+    - -0.2
+    - 0.3
+    - 0
+    range:
+    - -45
+    - 45
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_13
+    pos:
+    - 0.2
+    - -0.3
+    - 0
+    range:
+    - -45
+    - 45
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_14
+    pos:
+    - 0.0
+    - -0.3
+    - 0
+    range:
+    - -45
+    - 45
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_15
+    pos:
+    - -0.2
+    - -0.3
+    - 0
+    range:
+    - -45
+    - 45
+  name: khepri_beetle__bccfefdc__gen20
+  parent_ids:
+  - ce03165a
+  - e835cc0c
+  phase: 10.908855910461138
+  phase_offsets:
+  - 0.1325924540777449
+  - 0.9799048744098555
+  - 0.5362750331905224
+  - 5.245036280987006
+  - 1.608776261368367
+  - 3.0205562680552567
+  - 2.722074267208481
+  - 3.6494382669132275
+  - 3.141592653589793
+  - 3.5342917352885173
+  - 3.9269908169872414
+  - 4.319689898685965
+  - 4.71238898038469
+  - 5.105088062083414
+  - 5.497787143782138
+  - 5.890486225480862
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  score: 13.198894670121929
+  size_scale: 1.07274495359994
+  type: configurable
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

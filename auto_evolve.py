@@ -52,7 +52,7 @@ def evaluate_population(agents: Sequence[Agent],
     agent.pos = [0.0, i * 2.0 - 20.0, 1.0]
 
   # Disable death on fall during training
-  orchestrator = Orchestrator(env, agents, death_threshold=float('inf'))
+  orchestrator = Orchestrator(env, agents, death_threshold=float('inf'), stagnation_timeout=5.0)
   orchestrator.initialize()
 
   assert orchestrator.model is not None
@@ -84,11 +84,14 @@ def save_agent_frames(agent: Agent, duration: float = 5.0):
   try:
     env = Environment()
     orch = Orchestrator(env, [agent])
-    xml_str = orch.generate_combined_xml()
+    orch.initialize()
 
-    model = mujoco.MjModel.from_xml_string(xml_str)
-    data = mujoco.MjData(model)
-    mujoco.mj_forward(model, data)
+    model = orch.model
+    data = orch.data
+
+    # Let the agent fall and settle on the floor
+    for _ in range(500):
+      mujoco.mj_step(model, data)
 
     # Increased resolution to 1024x1024 for better zoom quality.
     renderer = mujoco.Renderer(model, 1024, 1024)
@@ -101,11 +104,12 @@ def save_agent_frames(agent: Agent, duration: float = 5.0):
     results_dir = f"results/agents/{species.lower()}/generations/{agent.name}"
     os.makedirs(results_dir, exist_ok=True)
 
+    assert model is not None
     steps = int(duration / model.opt.timestep)
     for i in range(steps):
       mujoco.mj_step(model, data)
       if i % 10 == 0:
-        renderer.update_scene(data, camera="main_cam")
+        renderer.update_scene(data, camera="track_cam")
         pixels = renderer.render()
         frame_filename = f"{results_dir}/frame_{i:05d}.ppm"
         with open(frame_filename, "wb") as f:
@@ -298,9 +302,10 @@ def evaluate_template(template_path: str) -> tuple[float, int]:
       agent_type = agent_cfg.get("type", "default")
 
       agent: Agent
-      template_path = f"templates/agents/{agent_type}_default.yaml"
+      species_folder = re.sub(r"_default$", "", agent_type)
+      template_path = f"templates/agents/{species_folder}/{agent_type}.yaml"
       if not os.path.exists(template_path):
-        template_path = f"templates/agents/{agent_type}.yaml"
+        template_path = f"templates/agents/{species_folder}/{agent_type}_default.yaml"
 
       if os.path.exists(template_path):
         with open(template_path, "r") as f:
@@ -511,12 +516,13 @@ def main():
       ("asymmetric_quadruped", ConfigurableAgent, "templates/agents/asymmetric_quadruped/asymmetric_quadruped.yaml"),
       ("rolling_agent", ConfigurableAgent, "templates/agents/rolling_agent/rolling_agent.yaml"),
       ("quadruped_fixed", ConfigurableAgent, "templates/agents/quadruped_fixed/quadruped_fixed.yaml"),
+      ("hopper_agent", ConfigurableAgent, "templates/agents/hopper_agent/hopper_agent.yaml"),
       ("goliath_crawler", ConfigurableAgent, "templates/agents/goliath_crawler/goliath_crawler_default.yaml"),
       ("legion_hexapod", ConfigurableAgent, "templates/agents/legion_hexapod/legion_hexapod_default.yaml"),
       ("aegis_turtle", ConfigurableAgent, "templates/agents/aegis_turtle/aegis_turtle_default.yaml"),
       ("ein_corgi", ConfigurableAgent, "templates/agents/ein_corgi/ein_corgi_default.yaml"),
       ("khepri_beetle", ConfigurableAgent, "templates/agents/khepri_beetle/khepri_beetle_default.yaml"),
-      ("giraffe_default", ConfigurableAgent, "templates/agents/giraffe_default/giraffe_default_default.yaml"),
+      ("giraffe", ConfigurableAgent, "templates/agents/giraffe/giraffe_default.yaml"),
       ("arachne_spider", ConfigurableAgent, "templates/agents/arachne_spider/arachne_spider_default.yaml"),
       ("centipede", ConfigurableAgent, "templates/agents/centipede/centipede_default.yaml"),
       ("scorpion", ConfigurableAgent, "templates/agents/scorpion/scorpion_default.yaml"),

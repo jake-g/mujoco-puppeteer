@@ -1,0 +1,132 @@
+agents:
+- amplitude: 1.909026629971849
+  body:
+    size:
+    - 0.2
+    type: sphere
+  color:
+  - 0.0773925454372886
+  - 0.7286990636921077
+  - 0.18566396990780276
+  - 1.0
+  frequency: 0.9934421662896822
+  generation: 0
+  id: 41bcd6f5
+  leg_length_scale: 1.3727152655899022
+  limbs:
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: limb_0
+    pos:
+    - 0.2
+    - 0
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - -1
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: limb_1
+    pos:
+    - 0.14
+    - 0.14
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 1
+    - -1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: limb_2
+    pos:
+    - -0.14
+    - -0.14
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 1
+    - 0
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: limb_3
+    pos:
+    - 0
+    - -0.2
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 1
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: limb_4
+    pos:
+    - 0.14
+    - -0.14
+    - 0
+    range:
+    - -30
+    - 30
+  name: arachne_spider__41bcd6f5__gen20
+  parent_ids:
+  - 245f5e11
+  - af27cd66
+  phase: 7.93228264660555
+  phase_offsets:
+  - -0.517877733686193
+  - 0.5381045542531712
+  - 1.9628484788790064
+  - 2.0945582509053695
+  - 3.3106605536876828
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  score: 7.145279050544053
+  size_scale: 0.9680808686240139
+  type: configurable
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

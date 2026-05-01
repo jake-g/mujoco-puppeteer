@@ -1,0 +1,114 @@
+agents:
+- amplitude: 0.7919281745387567
+  body:
+    size:
+    - 0.2
+    - 0.2
+    - 0.05
+    type: box
+  color:
+  - 0.5521527701878681
+  - 0.9302362505312969
+  - 0.6101527731302623
+  - 1.0
+  frequency: 2.357491342432699
+  generation: 0
+  id: a6e6c7d3
+  leg_length_scale: 3.0
+  limbs:
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_0
+    pos:
+    - 0.15
+    - 0.15
+    - 0
+    range:
+    - -45
+    - 45
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_1
+    pos:
+    - 0.15
+    - -0.15
+    - 0
+    range:
+    - -45
+    - 45
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_2
+    pos:
+    - -0.15
+    - 0.15
+    - 0
+    range:
+    - -45
+    - 45
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.2
+      type: capsule
+    name: limb_3
+    pos:
+    - -0.15
+    - -0.15
+    - 0
+    range:
+    - -45
+    - 45
+  name: quadruped_fixed__a6e6c7d3__gen20
+  parent_ids: []
+  phase: 6.713321996929634
+  phase_offsets:
+  - 0.09777242906466432
+  - 1.4534180559300256
+  - 1.475284410517674
+  - 5.6780386979582005
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  score: 74.16881452971163
+  size_scale: 1.0
+  type: configurable
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05
