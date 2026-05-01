@@ -1,0 +1,116 @@
+agents:
+- amplitude: 2.0
+  body:
+    mass: 5.0
+    size:
+    - 0.1
+    type: sphere
+  color:
+  - 0.401423396364738
+  - 0.3797780301391058
+  - 0.23125728613765095
+  - 1.0
+  frequency: 10.0
+  generation: 0
+  id: 7ff33459
+  leg_length_scale: 1.9432750093346345
+  limbs:
+  - axis:
+    - 0
+    - 1
+    - 0
+    child:
+      axis:
+      - 0
+      - 1
+      - 0
+      child:
+        axis:
+        - 0
+        - 1
+        - 0
+        child:
+          axis:
+          - 0
+          - 1
+          - 0
+          child:
+            axis:
+            - 0
+            - 1
+            - 0
+            geom:
+              size:
+              - 0.02
+              - 0.1
+              type: capsule
+            name: seg_5
+            range:
+            - -45
+            - 45
+          geom:
+            size:
+            - 0.02
+            - 0.1
+            type: capsule
+          name: seg_4
+          range:
+          - -45
+          - 45
+        geom:
+          size:
+          - 0.02
+          - 0.1
+          type: capsule
+        name: seg_3
+        range:
+        - -45
+        - 45
+      geom:
+        size:
+        - 0.02
+        - 0.1
+        type: capsule
+      name: seg_2
+      range:
+      - -45
+      - 45
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: seg_1
+    pos:
+    - -0.1
+    - 0.0
+    - 0.0
+    range:
+    - -45
+    - 45
+  name: snake__7ff33459__gen1
+  parent_ids: []
+  phase: 4.955896449559647
+  phase_offsets:
+  - 0.0
+  - 3.141592653589793
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  score: 4.614255296679687
+  size_scale: 1.0
+  type: configurable
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

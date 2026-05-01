@@ -1,0 +1,114 @@
+agents:
+- amplitude: 0.9874977605425765
+  body:
+    size:
+    - 0.2
+    - 0.2
+    - 0.2
+    type: ellipsoid
+  color:
+  - 0.1647987055468495
+  - 0.749672927758566
+  - 0.343531480329079
+  - 1.0
+  frequency: 9.601591041188598
+  generation: 0
+  id: 39844e01
+  leg_length_scale: 0.6975912307439014
+  limbs:
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: limb_0
+    pos:
+    - 0.2
+    - 0
+    - 0
+    range:
+    - -45
+    - 45
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: limb_1
+    pos:
+    - -0.2
+    - 0
+    - 0
+    range:
+    - -45
+    - 45
+  - axis:
+    - 1
+    - 0
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: limb_2
+    pos:
+    - 0
+    - 0.2
+    - 0
+    range:
+    - -45
+    - 45
+  - axis:
+    - 1
+    - 0
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.1
+      type: capsule
+    name: limb_3
+    pos:
+    - 0
+    - -0.2
+    - 0
+    range:
+    - -45
+    - 45
+  name: rolling_agent__39844e01__gen20
+  parent_ids: []
+  phase: 2.25899504943885
+  phase_offsets:
+  - 0.0
+  - 1.5062194042277262
+  - 2.1771286649123804
+  - 3.6107466842357074
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  score: 67.92073489251021
+  size_scale: 1.0
+  type: configurable
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

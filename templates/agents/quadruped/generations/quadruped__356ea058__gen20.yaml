@@ -1,0 +1,39 @@
+agents:
+- amplitude: 0.8520432884720922
+  color:
+  - 0.7300365801558872
+  - 0.21468956199792633
+  - 0.7091146370603058
+  - 1.0
+  frequency: 2.707219209677323
+  generation: 0
+  id: 356ea058
+  leg_length_scale: 2.631487654730792
+  name: quadruped__356ea058__gen20
+  parent_ids: []
+  phase: 1.2844680892083156
+  phase_offsets:
+  - 0.0
+  - 0.8944484074158474
+  - 1.5043982801477676
+  - 2.7995596426957983
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  score: 78.64705463233396
+  size_scale: 1.0
+  type: Agent
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

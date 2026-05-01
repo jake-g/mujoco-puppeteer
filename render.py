@@ -52,7 +52,30 @@ def render_template(template_path: str,
   agents = []
   if "agents" in config:
     for agent_cfg in config["agents"]:
-      agent = ConfigurableAgent(name=agent_cfg["name"], config=agent_cfg)
+      size_scale = agent_cfg.get("size_scale", 1.0)
+      agent_type = agent_cfg.get("type", "default")
+
+      agent = None
+      species_folder = re.sub(r"_default$", "", agent_type)
+      base_template_path = f"templates/agents/{species_folder}/{agent_type}.yaml"
+      if not os.path.exists(base_template_path):
+        base_template_path = f"templates/agents/{species_folder}/{agent_type}_default.yaml"
+
+      if os.path.exists(base_template_path):
+        with open(base_template_path, "r") as f:
+          template_cfg = yaml.safe_load(f)
+          merged_cfg = {**template_cfg["agents"][0], **agent_cfg}
+          agent = ConfigurableAgent(name=agent_cfg["name"],
+                                    size_scale=size_scale,
+                                    config=merged_cfg)
+      elif "limbs" in agent_cfg:
+        agent = ConfigurableAgent(name=agent_cfg["name"],
+                                  size_scale=size_scale,
+                                  config=agent_cfg)
+      else:
+        agent = Agent(name=agent_cfg["name"], size_scale=size_scale)
+
+      agent.species = agent_type
       agents.append(agent)
 
   if not agents:
@@ -458,7 +481,10 @@ def rerender_scenes(scenes_dir="templates/scenes"):
 def generate_plot(results_dir="results"):
   """Generates a progress plot from evolution history files."""
   files = []
-  for root, _, fs in os.walk(results_dir):
+  for root, dirs, fs in os.walk(results_dir):
+    # Skip folders with results_v to avoid processing old data
+    if "results_v" in root.lower():
+      continue
     for f in fs:
       if f == "evolution_history.tsv":
         files.append(os.path.join(root, f))

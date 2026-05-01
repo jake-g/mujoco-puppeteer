@@ -1,0 +1,134 @@
+agents:
+- amplitude: 0.6505692408326029
+  body:
+    size:
+    - 0.4
+    - 0.15
+    - 0.05
+    type: box
+  color:
+  - 0.5906309522223872
+  - 0.5834228530966791
+  - 0.40480298569041573
+  - 1.0
+  frequency: 1.760197972746778
+  generation: 0
+  id: 5994bdca
+  leg_length_scale: 1.8612932699213132
+  limbs:
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.05
+      type: capsule
+    name: limb_0
+    pos:
+    - 0.35
+    - 0.1
+    - -0.025
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.05
+      type: capsule
+    name: limb_1
+    pos:
+    - 0.35
+    - -0.1
+    - -0.025
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.05
+      type: capsule
+    name: limb_2
+    pos:
+    - 0.35
+    - -0.1
+    - -0.025
+    range:
+    - -30
+    - 30
+  - axis:
+    - 1
+    - 0
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.05
+      type: capsule
+    name: limb_3
+    pos:
+    - -0.35
+    - 0.1
+    - -0.025
+    range:
+    - -30
+    - 30
+  - axis:
+    - 1
+    - 0
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.05
+      type: capsule
+    name: limb_4
+    pos:
+    - -0.35
+    - -0.1
+    - -0.025
+    range:
+    - -30
+    - 30
+  name: ein_corgi__5994bdca__gen20
+  parent_ids:
+  - 02cacdf8
+  - d32ebd69
+  phase: 0.39387555808418495
+  phase_offsets:
+  - 0.41923398378390186
+  - 0.5190807270747508
+  - 2.081418205959269
+  - 3.7699111843077517
+  - 5.026548245743669
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  score: 7.4606794273574835
+  size_scale: 0.9229269947043662
+  type: configurable
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

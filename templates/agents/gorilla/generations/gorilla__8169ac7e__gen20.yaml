@@ -1,0 +1,213 @@
+agents:
+- amplitude: 1.659445352522488
+  body:
+    mass: 30.0
+    size:
+    - 0.3
+    - 0.25
+    - 0.3
+    type: box
+  color:
+  - 0.6914445125831596
+  - 0.2614964725120409
+  - 0.4540643774662515
+  - 1.0
+  frequency: 1.2907715902945516
+  generation: 0
+  id: 8169ac7e
+  leg_length_scale: 1.788857784691548
+  limbs:
+  - axis:
+    - 0
+    - 1
+    - 0
+    child:
+      axis:
+      - 0
+      - 1
+      - 0
+      geom:
+        size:
+        - 0.03
+        - 0.25
+        type: capsule
+      name: limb_0_child
+      range:
+      - 0
+      - 90
+    geom:
+      size:
+      - 0.04
+      - 0.3
+      type: capsule
+    name: limb_0
+    pos:
+    - 0.2
+    - 0.25
+    - 0.1
+    range:
+    - -45
+    - 45
+  - axis:
+    - 0
+    - 1
+    - 0
+    child:
+      axis:
+      - 0
+      - 1
+      - 0
+      geom:
+        size:
+        - 0.03
+        - 0.25
+        type: capsule
+      name: limb_1_child
+      range:
+      - 0
+      - 90
+    geom:
+      size:
+      - 0.04
+      - 0.3
+      type: capsule
+    name: limb_1
+    pos:
+    - 0.2
+    - -0.25
+    - 0.1
+    range:
+    - -45
+    - 45
+  - axis:
+    - 0
+    - 1
+    - 0
+    child:
+      axis:
+      - 0
+      - 1
+      - 0
+      geom:
+        size:
+        - 0.03
+        - 0.25
+        type: capsule
+      name: limb_2_child
+      range:
+      - 0
+      - 90
+    geom:
+      size:
+      - 0.04
+      - 0.3
+      type: capsule
+    name: limb_2
+    pos:
+    - 0.2
+    - 0.25
+    - 0.1
+    range:
+    - -45
+    - 45
+  - axis:
+    - 0
+    - 1
+    - 0
+    child:
+      axis:
+      - 0
+      - 1
+      - 0
+      geom:
+        size:
+        - 0.03
+        - 0.25
+        type: capsule
+      name: limb_3_child
+      range:
+      - 0
+      - 90
+    geom:
+      size:
+      - 0.04
+      - 0.3
+      type: capsule
+    name: limb_3
+    pos:
+    - 0.2
+    - -0.25
+    - 0.1
+    range:
+    - -45
+    - 45
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.03
+      - 0.15
+      type: capsule
+    name: limb_4
+    pos:
+    - -0.2
+    - 0.2
+    - -0.15
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.03
+      - 0.15
+      type: capsule
+    name: limb_5
+    pos:
+    - -0.2
+    - -0.2
+    - -0.15
+    range:
+    - -30
+    - 30
+  name: gorilla__8169ac7e__gen20
+  parent_ids:
+  - ddbdfcb4
+  - e39c42f8
+  phase: -0.811115321477875
+  phase_offsets:
+  - -0.09817132024428414
+  - 0.8551205502921551
+  - 3.004543560330416
+  - 3.0801632197998705
+  - 2.6511655546408055
+  - 3.141592653589793
+  - 3.7699111843077517
+  - 4.39822971502571
+  - 5.026548245743669
+  - 5.654866776461628
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  score: 18.514430430837315
+  size_scale: 1.0025039164083083
+  type: configurable
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

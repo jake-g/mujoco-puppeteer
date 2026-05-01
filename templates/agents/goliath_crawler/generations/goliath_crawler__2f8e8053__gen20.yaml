@@ -1,0 +1,152 @@
+agents:
+- amplitude: 0.6666607801209374
+  body:
+    size:
+    - 0.3
+    - 0.3
+    - 0.05
+    type: box
+  color:
+  - 0.6078594598984262
+  - 0.31583830987219375
+  - 0.8260684363778196
+  - 1.0
+  frequency: 1.555067418629738
+  generation: 0
+  id: 2f8e8053
+  leg_length_scale: 1.4833114536781378
+  limbs:
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.15
+      type: capsule
+    name: limb_0
+    pos:
+    - 0.25
+    - 0.25
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.15
+      type: capsule
+    name: limb_1
+    pos:
+    - 0.25
+    - -0.25
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.15
+      type: capsule
+    name: limb_2
+    pos:
+    - 0.25
+    - 0.25
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.15
+      type: capsule
+    name: limb_3
+    pos:
+    - 0.25
+    - -0.25
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 1
+    - 0
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.15
+      type: capsule
+    name: limb_4
+    pos:
+    - -0.25
+    - 0.25
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 1
+    - 0
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.15
+      type: capsule
+    name: limb_5
+    pos:
+    - -0.25
+    - -0.25
+    - 0
+    range:
+    - -30
+    - 30
+  name: goliath_crawler__2f8e8053__gen20
+  parent_ids:
+  - 834ebbb2
+  - 452fa0ff
+  phase: 1.5296803416006401
+  phase_offsets:
+  - 0.00839513788004484
+  - 1.0471975511965976
+  - 2.0943951023931953
+  - 3.141592653589793
+  - 4.1887902047863905
+  - 5.235987755982988
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  score: 9.167946615644935
+  size_scale: 1.022504695271212
+  type: configurable
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

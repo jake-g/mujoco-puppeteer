@@ -1,0 +1,192 @@
+agents:
+- amplitude: 0.8023916750442681
+  body:
+    mass: 10.0
+    size:
+    - 0.3
+    - 0.3
+    - 0.1
+    type: box
+  color:
+  - 0.49589561687486416
+  - 0.33170648293604493
+  - 0.6175919665857071
+  - 1.0
+  frequency: 2.139206477711914
+  generation: 0
+  id: c37211c0
+  leg_length_scale: 1.803387334982505
+  limbs:
+  - child:
+      name: limb_0_child
+      pos:
+      - 0.1
+      - 0.1
+      - -0.15
+      size:
+      - 0.03
+      - 0.15
+      type: capsule
+    name: limb_0
+    pos:
+    - 0.15
+    - 0.15
+    - 0.0
+    size:
+    - 0.07451180658318278
+    - 0.018407707840163875
+    type: capsule
+  - child:
+      name: limb_1_child
+      pos:
+      - 0.0
+      - 0.1
+      - -0.15
+      size:
+      - 0.03
+      - 0.15
+      type: capsule
+    name: limb_1
+    pos:
+    - 0.0
+    - 0.2
+    - 0.0
+    size:
+    - 0.03397550018324179
+    - 0.09627713250741486
+    type: capsule
+  - child:
+      name: limb_2_child
+      pos:
+      - -0.1
+      - 0.1
+      - -0.15
+      size:
+      - 0.03
+      - 0.15
+      type: capsule
+    name: limb_2
+    pos:
+    - -0.15
+    - 0.15
+    - 0.0
+    size:
+    - 0.11109410245323877
+    - 0.0923690905293066
+    type: capsule
+  - child:
+      name: limb_3_child
+      pos:
+      - 0.1
+      - -0.1
+      - -0.15
+      size:
+      - 0.03
+      - 0.15
+      type: capsule
+    name: limb_3
+    pos:
+    - 0.15
+    - -0.15
+    - 0.0
+    size:
+    - 0.026341212131691605
+    - 0.09378583427357504
+    type: capsule
+  - child:
+      name: limb_4_child
+      pos:
+      - 0.0
+      - -0.1
+      - -0.15
+      size:
+      - 0.03
+      - 0.15
+      type: capsule
+    name: limb_4
+    pos:
+    - 0.0
+    - -0.2
+    - 0.0
+    size:
+    - 0.031051667121982082
+    - 0.09617258880978759
+    type: capsule
+  - child:
+      name: limb_5_child
+      pos:
+      - 0.0
+      - -0.1
+      - -0.15
+      size:
+      - 0.03
+      - 0.15
+      type: capsule
+    name: limb_5
+    pos:
+    - 0.0
+    - -0.2
+    - 0.0
+    size:
+    - 0.024098255071348735
+    - 0.11578730547888573
+    type: capsule
+  - child:
+      name: limb_6_child
+      pos:
+      - -0.1
+      - -0.1
+      - -0.15
+      size:
+      - 0.03
+      - 0.15
+      type: capsule
+    name: limb_6
+    pos:
+    - -0.15
+    - -0.15
+    - 0.0
+    size:
+    - 0.05237666578134426
+    - 0.23600355977963583
+    type: capsule
+  name: crab__c37211c0__gen20
+  parent_ids:
+  - 085b9baf
+  - 2787fdab
+  phase: -4.264694406091058
+  phase_offsets:
+  - 0.00791663715258821
+  - 0.09595011063333692
+  - 0.8975979010256552
+  - 1.3463968515384828
+  - 1.7951958020513104
+  - 2.243994752564138
+  - 2.6927937030769655
+  - 3.141592653589793
+  - 3.5903916041026207
+  - 4.039190554615448
+  - 4.487989505128276
+  - 4.9367884556411035
+  - 5.385587406153931
+  - 5.834386356666759
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  score: 19.699787921879143
+  size_scale: 1.0143223869566795
+  type: configurable
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05
