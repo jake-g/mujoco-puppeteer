@@ -47,6 +47,8 @@ This document summarizes the operational flow, routine, preferences, and goals f
 *   **Expand Diversity**: Keep inventing new, exotic agents based on nature or weird geometry (e.g., the long-necked Giraffe or 8-legged Spider). Don't hesitate to try artificially inspired designs (e.g., asymmetric agents, wheel-like structures).
 *   **Hybrid Synthesis**: Encourage cross-species synthesis in multi-agent experiments to discover weird and unexpected morphologies.
 *   **Improve Scores**: Focus on helping struggling morphologies (like the Crawler or Hexapod) find stable walking gaits.
+*   **Graveyard Management**: Move species that fail to improve after focused refinement to `templates/graveyard/agents/` with justification in `DEV_LOG.md`, stating the evidence and metrics for why they were retired.
+*   **Dev Log Reflection**: Every time a batch finishes or a significant milestone is reached, update `DEV_LOG.md` with findings, and specifically comment on **Graveyard Insights** (what morphology features are failing and why) to build a knowledge base of what works and what doesn't.
 *   **Playing God Mode**: Inject new obstacles, rough terrain, or wind into the environment to challenge the agents. As agents improve, increase the difficulty to force better gait discovery.
 *   **Code & Test Enhancements**: Continuously improve the codebase and update tests to maintain high coverage of new features.
 

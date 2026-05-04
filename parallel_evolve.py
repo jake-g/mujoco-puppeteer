@@ -6,10 +6,10 @@ from auto_evolve import update_leaderboard
 from maintenance import run_maintenance
 
 species_list = [
-    "centipede", "scorpion", "mantis", "hercules", "frog"
+    "centipede", "crab", "legion_hexapod", "quadruped", "scorpion_king", "dragon", "asymmetric_quadruped", "rolling_agent"
 ]
 
-max_parallel = 5
+max_parallel = 8
 active_processes: list[subprocess.Popen] = []
 print(f"Starting parallel evolution manager. Max parallel: {max_parallel}")
 

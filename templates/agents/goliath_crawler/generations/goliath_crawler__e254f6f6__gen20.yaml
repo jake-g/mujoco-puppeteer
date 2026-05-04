@@ -1,0 +1,114 @@
+agents:
+- amplitude: 0.600017500313645
+  body:
+    size:
+    - 0.3
+    - 0.3
+    - 0.05
+    type: box
+  color:
+  - 0.07186497948920223
+  - 0.8169827480248824
+  - 0.10559394090092145
+  - 1.0
+  frequency: 0.6710093941046538
+  generation: 0
+  id: e254f6f6
+  leg_length_scale: 3.0
+  limbs:
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.25
+      type: capsule
+    name: limb_0
+    pos:
+    - 0.25
+    - 0.25
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 0
+    - 1
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.25
+      type: capsule
+    name: limb_1
+    pos:
+    - 0.25
+    - -0.25
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 1
+    - 0
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.25
+      type: capsule
+    name: limb_2
+    pos:
+    - -0.25
+    - 0.25
+    - 0
+    range:
+    - -30
+    - 30
+  - axis:
+    - 1
+    - 0
+    - 0
+    geom:
+      size:
+      - 0.02
+      - 0.25
+      type: capsule
+    name: limb_3
+    pos:
+    - -0.25
+    - -0.25
+    - 0
+    range:
+    - -30
+    - 30
+  name: goliath_crawler__e254f6f6__gen20
+  parent_ids: []
+  phase: 1.2685096029435017
+  phase_offsets:
+  - 0.0
+  - 0.7555244618840637
+  - 1.6490068410160401
+  - 8.55142009369619
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  score: 77.772039428939
+  size_scale: 1.0
+  type: configurable
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05

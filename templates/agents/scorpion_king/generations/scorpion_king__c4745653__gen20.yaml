@@ -1,0 +1,230 @@
+agents:
+- amplitude: 0.5316333094511485
+  body:
+    mass: 15.0
+    size:
+    - 0.4
+    - 0.2
+    - 0.1
+    type: box
+  color:
+  - 0.7283149468415041
+  - 0.5142073678239473
+  - 0.6914570919324187
+  - 1.0
+  frequency: 0.8684589816789003
+  generation: 0
+  id: c4745653
+  leg_length_scale: 0.8859076202529894
+  limbs:
+  - child:
+      name: limb_0_child
+      pos:
+      - 0.0
+      - 0.0
+      - -0.15
+      size:
+      - 0.02
+      - 0.15
+      type: capsule
+    name: limb_0
+    pos:
+    - 0.2
+    - 0.15
+    - 0.0
+    size:
+    - 0.026930144220094796
+    - 0.25619771960729787
+    type: capsule
+  - child:
+      name: limb_1_child
+      pos:
+      - 0.0
+      - 0.0
+      - -0.15
+      size:
+      - 0.02
+      - 0.15
+      type: capsule
+    name: limb_1
+    pos:
+    - 0.2
+    - -0.15
+    - 0.0
+    size:
+    - 0.05133278196845634
+    - 0.07874732821924266
+    type: capsule
+  - child:
+      name: limb_2_child
+      pos:
+      - 0.0
+      - 0.0
+      - -0.15
+      size:
+      - 0.02
+      - 0.15
+      type: capsule
+    name: limb_2
+    pos:
+    - 0.0
+    - 0.2
+    - 0.0
+    size:
+    - 0.0245449951381007
+    - 0.1617863939221191
+    type: capsule
+  - child:
+      name: limb_3_child
+      pos:
+      - 0.0
+      - 0.0
+      - -0.15
+      size:
+      - 0.02
+      - 0.15
+      type: capsule
+    name: limb_3
+    pos:
+    - 0.0
+    - -0.2
+    - 0.0
+    size:
+    - 0.03362896293414425
+    - 0.13247121527932543
+    type: capsule
+  - child:
+      name: limb_4_child
+      pos:
+      - 0.0
+      - 0.0
+      - -0.15
+      size:
+      - 0.02
+      - 0.15
+      type: capsule
+    name: limb_4
+    pos:
+    - -0.2
+    - 0.15
+    - 0.0
+    size:
+    - 0.03130973618472429
+    - 0.18145422911977455
+    type: capsule
+  - child:
+      name: limb_5_child
+      pos:
+      - 0.0
+      - 0.0
+      - -0.15
+      size:
+      - 0.02
+      - 0.15
+      type: capsule
+    name: limb_5
+    pos:
+    - -0.2
+    - -0.15
+    - 0.0
+    size:
+    - 0.03714603653024485
+    - 0.1777706393214802
+    type: capsule
+  - child:
+      child:
+        child:
+          name: stinger
+          pos:
+          - 0.1
+          - 0.0
+          - 0.1
+          size:
+          - 0.02
+          - 0.1
+          type: capsule
+        name: tail_3
+        pos:
+        - 0.1
+        - 0.0
+        - 0.2
+        size:
+        - 0.03
+        - 0.2
+        type: capsule
+      name: limb_6_child
+      pos:
+      - 0.0
+      - 0.0
+      - 0.2
+      size:
+      - 0.04
+      - 0.2
+      type: capsule
+    name: limb_6
+    pos:
+    - -0.2
+    - 0.0
+    - 0.1
+    size:
+    - 0.05387420389612935
+    - 0.25165964509615557
+    type: capsule
+  - name: limb_7
+    pos:
+    - 0.3
+    - 0.1
+    - 0.1
+    size:
+    - 0.03427593039800122
+    - 0.16251214807090147
+    type: capsule
+  - name: limb_8
+    pos:
+    - 0.3
+    - -0.1
+    - 0.1
+    size:
+    - 0.03579369779156144
+    - 0.18847648474842277
+    type: capsule
+  name: scorpion_king__c4745653__gen20
+  parent_ids: []
+  phase: 1.205290422492663
+  phase_offsets:
+  - 0.3148401510527582
+  - 0.36067532031616034
+  - 1.18262556731026
+  - 0.2657817276915473
+  - 1.8463318542731173
+  - 8.809528094448275
+  - 1.9197088871782066
+  - 0.9250422484155751
+  - 6.5868577716169865
+  - 4.821611587997167
+  - 1.7835115723329236
+  - 0.5869151742134067
+  - 10.413547574016736
+  - 1.086036980778452
+  - 9.345411334173761
+  - 0.30618640408029085
+  pos:
+  - 0.0
+  - 0.0
+  - 1.0
+  score: 67.7872572539344
+  size_scale: 1.0
+  type: configurable
+environment:
+  floor_rgb1:
+  - 0.0
+  - 0.0
+  - 0.0
+  floor_rgb2:
+  - 1.0
+  - 1.0
+  - 1.0
+  floor_size:
+  - 20.0
+  - 20.0
+  - 0.05
