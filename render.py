@@ -5,6 +5,7 @@ import hashlib
 import os
 import random
 import re
+from typing import Optional
 
 import matplotlib
 from PIL import Image
@@ -14,6 +15,7 @@ import matplotlib.pyplot as plt
 import mujoco
 import yaml
 
+from agent import Agent
 from agent import ConfigurableAgent
 from environment import Environment
 from orchestrator import Orchestrator
@@ -55,7 +57,7 @@ def render_template(template_path: str,
       size_scale = agent_cfg.get("size_scale", 1.0)
       agent_type = agent_cfg.get("type", "default")
 
-      agent = None
+      agent: Optional[Agent] = None
       species_folder = re.sub(r"_default$", "", agent_type)
       base_template_path = f"templates/agents/{species_folder}/{agent_type}.yaml"
       if not os.path.exists(base_template_path):
@@ -75,8 +77,9 @@ def render_template(template_path: str,
       else:
         agent = Agent(name=agent_cfg["name"], size_scale=size_scale)
 
-      agent.species = agent_type
-      agents.append(agent)
+      if agent is not None:
+        agent.species = agent_type
+        agents.append(agent)
 
   if not agents:
     print("No agents found in template.")
