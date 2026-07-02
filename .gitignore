@@ -13,3 +13,4 @@ TASKS.md
 agents_evolved/
 logs/
 old/
+*.zip

@@ -3,13 +3,13 @@
 This document summarizes the operational flow, routine, preferences, and goals for managing the MuJoCo Puppeteer evolution experiment.
 
 > [!NOTE]
-> For low-level rendering guidelines, agent validation rules, and specific morphology tweaks, refer to **[REFINE_INSTRUCTIONS.md](file:///Users/jakegarrison/Downloads/projects/mujoco-puppeteer/REFINE_INSTRUCTIONS.md)**.
+> For low-level rendering guidelines, agent validation rules, and specific morphology tweaks, refer to **[REFINE_INSTRUCTIONS.md](REFINE_INSTRUCTIONS.md)**.
 
 ## Operational Routine
 
 1.  **Code Quality**: Always run `make format` after making changes to ensure adherence to the Google Python Style Guide and proper import sorting via `isort`.
-2.  **Documentation**: Keep [README.md](file:///Users/jakegarrison/Downloads/projects/mujoco-puppeteer/README.md) and [DEV_LOG.md](file:///Users/jakegarrison/Downloads/projects/mujoco-puppeteer/DEV_LOG.md) (which now tracks the master task list) updated with progress and task status.
-3.  **Consolidated Storage**: Save all agent templates directly into [templates/agents/](file:///Users/jakegarrison/Downloads/projects/mujoco-puppeteer/templates/agents/) (under species subfolders). Evolved hybrids from synthesis are automatically saved in [templates/agents_evolved/](file:///Users/jakegarrison/Downloads/projects/mujoco-puppeteer/templates/agents_evolved/).
+2.  **Documentation**: Keep [README.md](README.md) and [DEV_LOG.md](DEV_LOG.md) (which now tracks the master task list) updated with progress and task status.
+3.  **Consolidated Storage**: Save all agent templates directly into [templates/agents/](templates/agents/) (under species subfolders). Evolved hybrids from synthesis are automatically saved in [templates/agents_evolved/](templates/agents_evolved/).
 4.  **Scheduled Maintenance**: A cron job runs `maintenance.py` (consolidated from `cron_job.py`) to execute tests, clean duplicate results, and update the leaderboard automatically.
 
 ## Naming Conventions (Strict)
