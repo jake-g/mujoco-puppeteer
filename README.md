@@ -80,7 +80,6 @@ These are the primary, active species undergoing rapid optimization in active en
 | **Khepri Beetle** | <img src="templates/agents/khepri_beetle/khepri_beetle_default.gif" width="200"> | Flat, low-slung insectoid body utilizing rapid high-frequency crawling steps. |
 | **Aegis Turtle** | <img src="templates/agents/aegis_turtle/aegis_turtle_default.gif" width="200"> | Thick domed shell with wide lateral flippers producing a slow but extremely stable crawling motion. |
 | **Gorilla** | <img src="templates/agents/gorilla/gorilla_default.gif" width="200"> | Quadrupedal locomotion using knuckle-walking pivots with high-mass forward lunges. |
-| **Hexapod** | <img src="templates/agents/hexapod/hexapod_default.gif" width="200"> | Balanced six-legged tripod gait offering robust stability over uneven terrains. |
 | **Snake** | <img src="templates/agents/snake/snake_default.gif" width="200"> | Multi-segment lateral undulation utilizing joint phase offsets for fluid slithering locomotion. |
 | **Stilts Biped** | <img src="templates/agents/stilts_biped/stilts_biped_default.gif" width="200"> | Tall, slender two-legged gait leveraging long legs for massive stride lengths. |
 | **Arachne Spider** | <img src="templates/agents/arachne_spider/arachne_spider_default.gif" width="200"> | Dynamic eight-legged radial sprawling gait with wide climbing and walking stability. |
